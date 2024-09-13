@@ -1,0 +1,21 @@
+<div class="modalIcon">
+  <!-- <img [src]="'../../../assets/img/' + data.icon" /> -->
+  <img src="../../../assets/img/success.png" />
+</div>
+
+<img (click)="onNoClick()" class="closeIcon" src="../../../assets/img/remove.png" />
+
+<h2 mat-dialog-title *ngIf="data?.head">
+  {{data.head}}
+</h2>
+
+<mat-dialog-content>
+  {{data.message}}
+</mat-dialog-content>
+
+<!-- <mat-dialog-actions class="d-flex justify-content-end place-center"> -->
+<div class="btns d-flex align-items-center justify-content-end px-2">
+  <button (click)="onNoClick()" class="noBtn btn btn-secondary">No</button>
+  <button [mat-dialog-close]="'Yes'" cdkFocusInitial class="yesBtn btn ms-2">Yes</button>
+</div>
+<!-- </mat-dialog-actions> -->

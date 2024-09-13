@@ -1,0 +1,7 @@
+<svg id="MDI_account-group" data-name="MDI / account-group" xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72">
+  <g id="Boundary" fill="#fff" stroke="rgba(0,0,0,0)" stroke-width="1" opacity="0">
+    <rect width="72" height="72" stroke="none"/>
+    <rect x="0.5" y="0.5" width="71" height="71" fill="none"/>
+  </g>
+  <path id="Path_account-group" data-name="Path / account-group" d="M36,5.5A10.5,10.5,0,1,1,25.5,16,10.5,10.5,0,0,1,36,5.5M15,13a8.856,8.856,0,0,1,4.59,1.26,16.608,16.608,0,0,0,3.39,11.88A9,9,0,1,1,15,13m42,0a9,9,0,1,1-7.98,13.14,16.608,16.608,0,0,0,3.39-11.88A8.856,8.856,0,0,1,57,13M16.5,43.75c0-6.21,8.73-11.25,19.5-11.25s19.5,5.04,19.5,11.25V49h-39V43.75M0,49V44.5c0-4.17,5.67-7.68,13.35-8.7a12.132,12.132,0,0,0-2.85,7.95V49H0m72,0H61.5V43.75a12.132,12.132,0,0,0-2.85-7.95C66.33,36.82,72,40.33,72,44.5Z" transform="translate(0 9.5)" fill="#fff"/>
+</svg>

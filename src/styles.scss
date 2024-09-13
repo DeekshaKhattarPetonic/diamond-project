@@ -1,1 +1,294 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.page-heading {
+  .page-title {
+    border-bottom: unset !important;
+
+    img {
+      width: auto;
+      height: 30px;
+      padding-right: 10px;
+    }
+  }
+
+  .border-bottom {
+    border-bottom: 1px solid #e5e7eb !important;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+
+}
+
+.btn {
+  border-radius: 4px;
+  padding: 5px 15px;
+  font-size: 12px;
+  justify-content: center;
+}
+
+.status-btn {
+  border-radius: 4px;
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.42876;
+  min-width: 32px;
+  overflow: hidden;
+  padding: 2px 10px;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.status-btn:hover {
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+/* role base page design*/
+// Mixin for styling page headings
+
+$approver-green-color: #00ab66;
+$white-color: #ffffff;
+$bs-table-striped-bg: #5b58588a;
+$contributor-color: #30a3d6;
+$inititor-color: #555;
+$black-color: #000000;
+$inititor-page-title: #983ddd ;
+$primary-color: #00a1a6;
+
+
+@mixin page-heading-style($background-color, $title-color) {
+    background-color: $background-color;
+
+    .page-title {
+        color: $title-color;
+    }
+}
+
+// Mixin for styling cards
+@mixin card-style($header-bg-color, $header-text-color, $body-text-color, $footer-btn-bg-color) {
+    .card-header {
+        background-color: $header-bg-color !important;
+        color: $header-text-color !important;
+
+        .header-content-container,
+        .card-header-title {
+
+            h4,
+            h3 {
+                color: $black-color !important;
+                font-size: 14px;
+                margin-bottom: 0 !important;
+                font-weight: 500;
+            }
+
+        }
+
+        .form-group label {
+            color: $black-color!important;
+        }
+
+        // .btn-secondary {
+        //     color: $header-text-color;
+        //     background-color: transparent;
+        //     border-color: $header-text-color;
+        // }
+
+        // .btn-primary {
+        //     color: $body-text-color;
+        //     background-color: #ef0000;
+        //     border-color: $footer-btn-bg-color;
+        // }
+    }
+
+    .card-body {
+        color: $body-text-color;
+
+        .accordion-button {
+            padding: 8px 15px;
+        }
+    }
+
+    // .card-footer .btn-primary {
+    //     background-color: #ef0000 !important;
+    //     color: $body-text-color !important;
+    // }
+}
+
+.pointerEventsNone {
+    pointer-events: none;
+}
+
+
+.btn-secondary,
+.btn-primary {
+    display: flex;
+    align-items: center;
+
+    .material-symbols-outlined {
+        margin-right: 4px;
+    }
+}
+
+
+.data-record {
+    padding: 15px;
+}
+
+.header-content-container {
+    align-items: center;
+}
+
+.pm {
+    app-sidemenu {
+        .contributor,
+        .initiator,p
+        .approver, .admin  {
+            pointer-events: none;
+            a{
+                color: grey;
+
+                &::after {
+                    background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="grey" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3E%3Cline x1="12" y1="5" x2="12" y2="19"%3E%3C/line%3E%3Cline x1="5" y1="12" x2="19" y2="12"%3E%3C/line%3E%3C/svg%3E') no-repeat center center;
+                    background-size: cover;
+                }
+            }
+            // background-color: #ddd;
+        }
+    }
+}
+
+.admin {
+    app-sidemenu {
+        .contributor,
+        .initiator,
+        .approver, .pm, .projectMgt, .dashboard  {
+            pointer-events: none;
+            a{
+                color: grey;
+
+                &::after {
+                    background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="grey" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3E%3Cline x1="12" y1="5" x2="12" y2="19"%3E%3C/line%3E%3Cline x1="5" y1="12" x2="19" y2="12"%3E%3C/line%3E%3C/svg%3E') no-repeat center center;
+                    background-size: cover;
+                }
+            }
+            // background-color: #ddd;
+        }
+    }
+}
+
+.modal-content {
+  border-radius: .3rem !important;
+  border: none;
+}
+
+.modal-header {
+  border-bottom-color: #EEEEEE;
+  background-color: #FAFAFA;
+}
+
+.modal.show .modal-dialog {
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+}
+
+.page-heading .border-bottom {
+  border-bottom: 1px solid #e5e7eb !important;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.page-heading .page-title {
+  border-bottom: unset !important;
+}
+
+.page-heading .page-title .material-symbols-outlined {
+  padding-right: 10px;
+  font-size: 32px;
+  font-weight: 500;
+  background: -webkit-linear-gradient(45deg, #09009f, #00ff95 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+.page-heading .page-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 0 !important;
+  padding: 4px 0px;
+  border-bottom: 1px solid #cbd0dd;
+  display: flex;
+  align-items: center;
+}
+
+.p-dialog .p-dialog-header {
+  color: white;
+  padding: 5px 23px !important;
+  border-top-right-radius: 15px !important;
+  border-top-left-radius: 15px !important;
+  background-color: #00a1a6;
+  border-bottom: 1px solid #ccc;
+}
+
+.p-dialog .p-dialog-content:last-of-type {
+  border-bottom-right-radius: 15px !important;
+  border-bottom-left-radius: 15px !important;
+
+}
+
+.form-select, .form-control {
+  font-size: 12px;
+  color: #555;
+  font-weight: 400;
+  margin-top: 0px;
+  border-radius: 4px;
+  opacity: 0.8;
+}
+
+.form-group > label {
+  color: #555;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.table thead tr th {
+  padding: 8px 6px;
+  font-weight: 500 !important;
+  font-size: 12px;
+  line-height: 17px;
+}
+
+.table > thead > tr > th {
+  color: #212529;
+  font-weight: 500;
+  vertical-align: middle;
+}
+
+.table-light th {
+  color: #fff !important;
+}
+
+
+.table tbody tr td {
+  padding: 5px 5px;
+  line-height: normal;
+  height: unset;
+  vertical-align: middle;
+  font-size: 12px !important;
+  color: #555;
+}
+
+.p-dialog {
+  border-radius: 15px;
+}

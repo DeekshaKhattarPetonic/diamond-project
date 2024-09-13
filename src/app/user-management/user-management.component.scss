@@ -1,0 +1,681 @@
+$approver-green-color: #198754;
+$white-color: #fff;
+$bs-table-striped-bg: #5b58588a;
+$contributor-color: #2597ae;
+$inititor-color: #6c757d;
+$total-user-color: #2c63ff;
+$admin-color: #9c27b0;
+$pm-color: #6141ab;
+
+
+.add-user-container {
+    width: 100%;
+    text-align: left;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.users-content button {
+    cursor: pointer;
+    background-color: unset;
+}
+
+// button.cancel-btn {
+//     background-color: #f44336;
+//     color:#555;
+// }
+
+button.edit-btn {
+    color: #555;
+
+}
+
+button.delete-btn {
+    color: #ff0000;
+}
+
+.dropdown-list .dropdown .dropdown-menu a {
+    font-size: 12px;
+}
+
+.dropdown-list .dropdown .btn-link svg {
+    cursor: pointer;
+}
+
+.error_msg {
+    color: red;
+    font-size: 13px;
+}
+
+// .modal-footer .btn-secondary {
+//     background-color: transparent !important;
+// }
+
+#add-user {
+    .modal-dialog {
+        .modal-content {
+            .modal-footer {
+                .btn-container {
+                    .cancel-btn {
+                        border: 1px solid #555;
+                        color: #555;
+
+                        &:hover {
+                            background-color: #555 !important;
+                            color: $white-color !important;
+
+                            .material-symbols-outlined {
+                                color: $white-color !important;
+                            }
+                        }
+
+                        .material-symbols-outlined {
+                            font-size: 14px;
+                            color: #555;
+                            width: auto;
+                            font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+                        }
+                    }
+
+                    .add-user {
+                        background: linear-gradient(90deg, #6f7bd9 -0.01%, #a872ff 100%) !important;
+                        color: #fff;
+
+                        .material-symbols-outlined {
+                            font-size: 16px;
+                            width: auto;
+                            font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// card info deatails number of user
+.number-of-user {
+    .card {
+        position: relative;
+        overflow: hidden;
+        &::after{
+            content: "";
+            position: absolute;
+            top: 0;
+            overflow: hidden;
+            right: -50px;
+            width: 55%;
+            height: 100%;
+            background: linear-gradient(45deg, #dc030f 0%, #ff6d88 100%) !important;
+            z-index: 1;
+            transform-origin: top right;
+            border-bottom-right-radius: 6px;
+            border-top-right-radius: 6px;
+            transform: skewX(-20deg);
+        }
+
+        .right-tile-bg{
+
+        /* Red Gradient */
+        &.tile-red {
+            background: linear-gradient(45deg, rgba(244, 67, 54, 0.8), rgba(255, 138, 128, 0.8));
+        }
+
+        /* Green Gradient */
+        &.tile-green {
+            background: linear-gradient(45deg, rgba(25, 135, 84, 0.8), rgba(126, 232, 165, 0.8));
+        }
+
+        /* Blue Gradient */
+        &.tile-blue {
+            background: linear-gradient(45deg, rgba(37, 151, 174, 0.8), rgba(138, 214, 255, 0.8));
+        }
+
+        /* Yellow Gradient */
+        &.tile-yellow {
+            background: linear-gradient(45deg, rgba(255, 193, 7, 0.8), rgba(255, 224, 102, 0.8));
+        }
+
+        /* Purple Gradient */
+        &.tile-purple {
+            background: linear-gradient(45deg, rgba(108, 117, 125, 0.8), rgba(201, 201, 201, 0.8));
+        }
+
+        /* Pink Gradient */
+        &.tile-pink {
+            background: linear-gradient(45deg, rgba(232, 62, 140, 0.8), rgba(240, 98, 146, 0.8));
+        }
+
+        /* Orange Gradient */
+        &.tile-orange {
+            background: linear-gradient(45deg, rgba(253, 126, 20, 0.8), rgba(255, 179, 102, 0.8));
+        }
+
+        /* Teal Gradient */
+        &.tile-teal {
+            background: linear-gradient(45deg, rgba(25, 135, 84, 0.8), rgba(10, 179, 57, 0.8));
+        }
+
+        /* Indigo Gradient */
+        &.tile-indigo {
+            background: rgba(232, 62, 140, 0.8);
+        }
+
+        /* Cyan Gradient */
+        &.tile-cyan {
+            background: linear-gradient(45deg, rgba(23, 162, 184, 0.8), rgba(37, 151, 174, 0.8));
+        }
+
+        /* Gray Gradient */
+        &.tile-gray {
+            background: linear-gradient(45deg, rgba(108, 117, 125, 0.8), rgba(201, 201, 201, 0.8));
+        }
+
+        /* Dark Gray Gradient */
+        &.tile-gray-dark {
+            background: linear-gradient(45deg, rgba(52, 58, 64, 0.8), rgba(108, 117, 125, 0.8));
+        }
+
+        /* Border color for .total-active-user */
+        &.total-active-user {
+            border: 2px solid $total-user-color;
+            /* Assuming $total-user-color is a variable */
+        }
+
+
+        // Add border color based on role
+        &.total-active-user {
+            border: 2px solid $total-user-color;
+        }
+
+        &.contributor-border-color {
+            border: 2px solid $contributor-color;
+        }
+
+        &.initiator-border-color {
+            border: 2px solid $inititor-color;
+        }
+
+        &.approver-border-color {
+            border: 2px solid $approver-green-color;
+        }
+
+        &:hover {
+            // transform: scale(1.1);
+            opacity: .8;
+        }
+
+        &.total-active-user:hover {
+            border: 2px solid $total-user-color;
+        }
+
+        &.contributor-border-color:hover {
+            border: 2px solid $contributor-color;
+        }
+
+        &.initiator-border-color:hover {
+            border: 2px solid $inititor-color;
+        }
+
+        &.approver-border-color:hover {
+            border: 2px solid $approver-green-color;
+        }
+
+        &.total-active-user {
+            border: 2px solid $total-user-color;
+        }
+
+        &.contributor-border-color {
+            border: 2px solid $contributor-color;
+        }
+
+        &.initiator-border-color {
+            border: 2px solid $inititor-color;
+        }
+
+        &.approver-border-color {
+            border: 2px solid $approver-green-color;
+        }
+
+        &.total-active-user {
+            border: 2px solid $total-user-color;
+        }
+
+        &.gradient-primary {
+            background: linear-gradient(0deg, #6a11cb, #2575fc) !important;
+        }
+
+        &.gradient-purple {
+            background: linear-gradient(180deg, #3023ae, #c86dd7) !important;
+        }
+
+        &.gradient-pink {
+            background: linear-gradient(0deg, #a445b2, #f06) !important;
+        }
+    }
+
+        .css-bar {
+            position: relative;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 50%;
+            background-color: transparent;
+            margin-bottom: 20px;
+            box-sizing: content-box;
+            width: 80px;
+            height: 80px;
+            z-index: 11;
+
+            &.css-bar-primary.css-bar-80 {
+                background-image: linear-gradient(306deg, #fafafa 50%, transparent 50%, transparent), linear-gradient(300deg, #2c63ff 50%, #fafafa 50%, #fafafa);
+            }
+
+            &.css-bar-contributor.css-bar-80 {
+                background-image: linear-gradient(306deg, #fafafa 50%, transparent 50%, transparent), linear-gradient(260deg, $contributor-color 50%, #fafafa 50%, #fafafa);
+            }
+
+            &.css-bar-info.css-bar-60,
+            &.css-bar-initiator.css-bar-40 {
+                background-image: linear-gradient(306deg, #fafafa 50%, transparent 50%, transparent), linear-gradient(200deg, $inititor-color 50%, #fafafa 50%, #fafafa);
+            }
+
+            &.css-bar-approver.css-bar-40 {
+                background-image: linear-gradient(306deg, #fafafa 50%, transparent 50%, transparent), linear-gradient(260deg, $approver-green-color 50%, #fafafa 50%, #fafafa);
+            }
+
+            &>span {
+                width: 70px;
+                height: 70px;
+                background: #fff;
+                line-height: 70px;
+                position: absolute;
+                border-radius: 100%;
+                text-align: center;
+                margin-left: 5px;
+                margin-top: 5px;
+                left: 0;
+                right: 0;
+                z-index: 2;
+                font-size: 27px;
+                color: #a6b7bf;
+
+                &.material-symbols-outlined {
+                    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+                }
+
+                // Change color based on parent class
+                &.css-bar-total-user {
+                    color: $total-user-color;
+                }
+
+                &.css-bar-contributor {
+                    color: $contributor-color;
+                }
+
+                &.css-bar-initiator {
+                    color: $inititor-color;
+                }
+
+                &.css-bar-approver {
+                    color: $approver-green-color;
+                }
+            }
+
+            &:after,
+            &>img {
+                width: 70px;
+                height: 70px;
+                margin-left: 5px;
+                margin-top: 5px;
+                line-height: 70px;
+            }
+
+            &:after {
+                content: attr(data-label);
+                background-color: #fff;
+                z-index: 1;
+            }
+
+            &:after,
+            &>img {
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                border-radius: 50%;
+                text-align: center;
+                font-weight: light;
+                color: #a1a2a3;
+            }
+
+            &.css-bar-warning.css-bar-40 {
+                background-image: linear-gradient(90deg, #fafafa 50%, transparent 50%, transparent), linear-gradient(234deg, #ffbc34 50%, #fafafa 50%, #fafafa);
+            }
+        }
+
+        .text-14 {
+            font-size: 14px;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        h1 {
+            color: #fff;
+        }
+
+
+
+    }
+
+
+
+
+}
+
+.user-data-list {
+    .card {
+        .card-body {
+            .table {
+                >tbody {
+                    .dropdown-list.edit-btn {
+                        >a {
+                            background-color: #ccc;
+                            padding: 3px 4px;
+                            border-radius: 4px;
+                            font-size: 12px;
+
+                            i {
+                                color: $inititor-color;
+                                font-size: 12px;
+
+                            }
+
+                            &:hover {
+                                background-color: #ff0000;
+
+                                i {
+                                    color: #fff;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.add-user {
+    i {
+        padding-right: 5px;
+    }
+}
+
+.add-user {
+  margin-right: 13px;
+  border: 1px solid #00a1a6;
+  color: #00a1a6;
+  background: #fff;
+
+  &:hover {
+    background: #00a1a6;
+    color: #fff;
+  }
+}
+
+
+.table-light {
+    --bs-table-bg: #555 !important;
+
+    th {
+        color: #fff;
+    }
+}
+
+// tr{
+td {
+    cursor: pointer;
+}
+
+// }
+
+// .edit-btn i{
+//     color: #000;
+
+//     &:hover{
+
+//         color: #ff0000 !important;
+//     }
+// }
+
+.contributor,
+.initiator,
+.approver,
+.admin,
+.pm {
+    padding: 0px 7px;
+    color: #fff;
+    border-radius: 50px;
+    margin-right: 5px;
+}
+
+.contributor {
+    background-color: $contributor-color;
+    opacity: 0.8;
+}
+
+.initiator {
+    background-color: $inititor-color;
+    opacity: 0.8;
+}
+
+.approver {
+    background-color: $approver-green-color;
+    opacity: 0.8;
+}
+
+.admin {
+    background-color: $admin-color;
+    opacity: 0.8;
+}
+
+.pm {
+    background-color: $pm-color;
+    opacity: 0.8;
+}
+
+.user-role-name {
+    padding-bottom: 0;
+    text-transform: capitalize;
+    margin: 0;
+}
+
+.flex-switch-check .form-switch {
+    padding-left: 35.5px;
+}
+
+.save-changes {
+    background: linear-gradient(90deg, #6f7bd9 -0.01%, #a872ff 100%) !important;
+    color: #fff;
+}
+
+.role-dropdown-list {
+    .dropdown {
+        .dropdown-menu {
+            padding: 15px;
+
+            .form-check {
+
+                padding-left: 15px;
+
+                .form-check-input {
+                    width: 10px;
+                    height: 10px;
+                    margin-top: -1px;
+                }
+
+                .form-check-label {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+
+.userImage{
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.cardBody {
+  padding: 0px 14px;
+}
+
+
+.counter {
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  width: 210px;
+  min-height: 246px;
+  padding: 25px 0 0;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.counter:after {
+  content: '';
+  background: linear-gradient(to right, #eff0f2, #fefefe);
+  height: 152px;
+  width: 152px;
+  border-radius: 15px;
+  border: 3px solid #fff;
+  box-shadow: 5px 0 8px rgba(0, 0, 0, 0.2);
+  transform: translateX(-50%) rotate(45deg);
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  z-index: -1;
+}
+
+.counter .counter-value {
+  background: black;
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  width: 100%;
+  padding: 10px 0 6px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6), 0 0 0 2px #fff;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.counter .counter-icon {
+  background: linear-gradient(to right, #6a6a6a, #000000);
+  font-size: 30px;
+  line-height: 60px;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+.counter h3 {
+  color: #868686;
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: capitalize;
+  line-height: 20px;
+  padding: 0 30px;
+  margin: 0 0 15px;
+}
+
+.counter.green .counter-value {
+  background:#00a1a6;
+}
+
+.counter.green .counter-icon {
+  background: linear-gradient(to right, #00bfc6, #00a1a6);
+}
+
+.counter.green h3 {
+  color: #00a1a6;
+}
+
+.counter.blue .counter-value {
+  background: #28a9e2;
+}
+
+.counter.blue .counter-icon {
+  background: linear-gradient(to right, #28a9e2, #0057c5);
+}
+
+.counter.blue h3 {
+  color: #0057c5;
+}
+
+.counter.gray .counter-value {
+  background: #36474f;
+}
+
+.counter.gray .counter-icon {
+  background: linear-gradient(to right, #36474f, #0d0e10);
+}
+
+.counter.gray h3 {
+  color: #0d0e10;
+}
+
+@media screen and (max-width: 990px) {
+  .counter {
+      margin-bottom: 40px;
+  }
+}
+
+.icons{
+  width: 30px;
+}
+
+svg{
+  width: 30px;
+  height: 29px;
+}
+

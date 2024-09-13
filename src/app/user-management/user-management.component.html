@@ -1,0 +1,365 @@
+<!-- Main Content -->
+<div id="content">
+  <div class="page-heading mb-3">
+    <div class="row gy-3 border-bottom align-items-center">
+      <div class="col-md-5 col-auto">
+        <h2 class="page-title"><span class="material-symbols-outlined">
+            person_add
+          </span>User Information</h2>
+        <!-- <h5 class="small-title fw-semi-bold">Here’s what’s going on at your business right now</h5> -->
+      </div>
+      <div class="col-md-7">
+        <div class="d-flex align-items-center justify-content-end gap-2">
+          <button (click)="onClickAddUser()" class="btn btn-primary add-user" data-bs-toggle="modal"
+            data-bs-target="#add-user"><i class="fa fa-plus"></i><span>
+              Add User</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-6">
+        <div class="counter">
+          <div class="counter-content">
+            <div class="counter-icon">
+              <img class="icons" src="../../assets/img/strategist.png" alt="">
+            </div>
+            <h3>Number Of Strategist</h3>
+          </div>
+          <span #counter class="counter-value" [attr.data-final-value]="counterValues.webDesigning">0</span>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="counter green">
+          <div class="counter-content">
+            <div class="counter-icon">
+              <img class="icons" src="../../assets/img/sales-manager.png" alt="">
+            </div>
+            <h3>Number Of User At POS</h3>
+          </div>
+          <span #counter class="counter-value" [attr.data-final-value]="counterValues.webDevelopment">0</span>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="counter orange">
+          <div class="counter-content">
+            <div class="counter-icon">
+              <svg id="MDI_account-group" data-name="MDI / account-group" xmlns="http://www.w3.org/2000/svg" width="72"
+                height="72" viewBox="0 0 72 72">
+                <g id="Boundary" fill="#fff" stroke="rgba(0,0,0,0)" stroke-width="1" opacity="0">
+                  <rect width="72" height="72" stroke="none" />
+                  <rect x="0.5" y="0.5" width="71" height="71" fill="none" />
+                </g>
+                <path id="Path_account-group" data-name="Path / account-group"
+                  d="M36,5.5A10.5,10.5,0,1,1,25.5,16,10.5,10.5,0,0,1,36,5.5M15,13a8.856,8.856,0,0,1,4.59,1.26,16.608,16.608,0,0,0,3.39,11.88A9,9,0,1,1,15,13m42,0a9,9,0,1,1-7.98,13.14,16.608,16.608,0,0,0,3.39-11.88A8.856,8.856,0,0,1,57,13M16.5,43.75c0-6.21,8.73-11.25,19.5-11.25s19.5,5.04,19.5,11.25V49h-39V43.75M0,49V44.5c0-4.17,5.67-7.68,13.35-8.7a12.132,12.132,0,0,0-2.85,7.95V49H0m72,0H61.5V43.75a12.132,12.132,0,0,0-2.85-7.95C66.33,36.82,72,40.33,72,44.5Z"
+                  transform="translate(0 9.5)" fill="#fff" />
+              </svg>
+            </div>
+            <h3>No. Of User In Sales/Marketing</h3>
+          </div>
+          <span #counter class="counter-value" [attr.data-final-value]="counterValues.marketers">0</span>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="counter green">
+          <div class="counter-content">
+            <div class="counter-icon">
+              <img class="icons" src="../../assets/img/user.png" alt="">
+            </div>
+            <h3>Number Of Executives</h3>
+          </div>
+          <span #counter class="counter-value" [attr.data-final-value]="counterValues.executives">0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="users-content mt-5 container">
+  <table class="table table-hover table-striped table-bordered mb-0  dataTable" id="userTable">
+    <thead class="table-light">
+      <tr>
+        <th>Organisation Name</th>
+        <th>Emp ID</th>
+        <th>Profile Image</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <!-- <th class="role-dropdown-list">
+          <div class="dropdown">
+            <span class="dropdown-toggle" type="button" id="roleFilterDropdown" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Role
+            </span>
+            <ul class="dropdown-menu" aria-labelledby="roleFilterDropdown">
+              <li>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="selectAllRoles"
+                    (change)="toggleSelectAllRoles($event)">
+                  <label class="form-check-label" for="selectAllRoles">Select
+                    All</label>
+                </div>
+              </li>
+              <li *ngFor="let role of roles">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="{{role}}"
+                    (change)="toggleRoleFilter(role, $event)">
+                  <label class="form-check-label" for="{{role}}">{{role}}</label>
+                </div>
+              </li>
+              <button type="button" (click)="applyRoleFilter()" class="btn btn-primary">Apply</button>
+            </ul>
+          </div>
+        </th> -->
+        <th>Role</th>
+        <th>Status</th>
+        <!-- <th>Action</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of filteredUsers; let i = index;">
+        <td class="class1">{{user.org_name}}</td>
+        <td class="class1">{{user.employee_id}}</td>
+        <td class="class1"><img class="userImage" [src]="user.image" /></td>
+        <td class="enter-value">{{user.f_name}}</td>
+        <td class="description">{{user.l_name}}</td>
+        <td class="enter-value">{{user.email}}</td>
+        <td class="enter-value">
+          <div class="d-flex align-items-cente"><span
+              [ngClass]="{ 'initiator': user.role == 'initiator', 'approver': user.role == 'approver', 'contributor': user.role == 'contributor', 'admin': user.role == 'admin', 'pm': user.role == 'pm',}"></span>
+            <p class="user-role-name">{{user.role}}</p>
+          </div>
+        </td>
+        <td class="flex-switch-check custom-class">
+          <div class="form-check form-switch"> <input class="form-check-input status-checkbox" type="checkbox"
+              [(ngModel)]="user.active" (change)="onToggleUserStatus(user)" id="flexSwitchCheckChecked"></div>
+        </td>
+        <!-- <td class="dropdown-list edit-btn">
+                  <a (click)="onEditUserDetails(user, i)" href="javascript:void(0)"
+                      data-bs-toggle="modal" data-bs-target="#edit-user"> <i
+                          class="fas fa-edit"></i></a>
+              </td> -->
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+  <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- add user  -->
+
+<p-dialog header="Add User" [(visible)]="hideAddModal" [style]="{width: '65vw'}" [modal]="true"
+  class="customDialogClass" [draggable]="true" [resizable]="true" [closable]="false">
+  <form id="addUserForm" class="mt-3 row">
+    <div class="form-group col-md-6">
+      <label for="empID">Organisation Name</label>
+      <input [(ngModel)]="userData.org_name" class="form-control" type="text" id="empID" name="empID" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="empID">Employee ID</label>
+      <input [(ngModel)]="userData.employee_id" class="form-control" type="text" id="empID" name="empID" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="firstName">First Name</label>
+      <input [(ngModel)]="userData.f_name" class="form-control" type="text" id="firstName" name="firstName" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="lastName">Last Name</label>
+      <input [(ngModel)]="userData.l_name" class="form-control" type="text" id="lastName" name="lastName" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="email">Email</label>
+      <input [(ngModel)]="userData.email" class="form-control" type="email" id="email" name="email" required
+        #emailInput="ngModel" email>
+      <div class="error_msg" *ngIf="emailInput && emailInput.invalid && (emailInput.dirty || emailInput.touched)">
+        <div *ngIf="emailInput.errors?.['required']">
+          *Email is required.
+        </div>
+        <div *ngIf="emailInput.errors?.['email']">
+          *Please enter a valid email address.
+        </div>
+      </div>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="role">Role</label>
+      <select id="role" name="role" class="form-select" [(ngModel)]="userData.role">
+        <option value="strategist">Strategist</option>
+        <option value="marketer">Marketer</option>
+        <option value="pos">POS</option>
+        <option value="executive">Executive</option>
+      </select>
+    </div>
+    <div class="d-flex mt-3 justify-content-end">
+      <button (click)="onCloseAddUserModal()" type="button" class="btn btn-secondary cancel-btn"><span
+          class="material-symbols-outlined">
+          close
+        </span> Cancel</button>
+      <button type="submit" class="btn btn-primary add-user ms-2" (click)="openAdminCredModalToAdd()"><span
+          class="material-symbols-outlined">
+          add
+        </span>
+        Add User</button>
+    </div>
+  </form>
+</p-dialog>
+
+<p-dialog header="Enter Admin Credentials" [(visible)]="hideAddUserAdminCredModal" [style]="{width: '65vw'}"
+  [modal]="true" class="customDialogClass" [draggable]="true" [resizable]="true" [closable]="false">
+  <form id="addUserForm" class="mt-3">
+    <div class="form-group">
+      <label for="admin_email">Email</label>
+      <input [(ngModel)]="userData.admin_email" class="form-control" type="email" id="admin_email" name="admin_email"
+        required #admin_emailInput="ngModel" email>
+      <div class="error_msg"
+        *ngIf="admin_emailInput && admin_emailInput.invalid && (admin_emailInput.dirty || admin_emailInput.touched)">
+        <div *ngIf="admin_emailInput.errors?.['required']">
+          *Email is required.
+        </div>
+        <div *ngIf="admin_emailInput.errors?.['email']">
+          *Please enter a valid email address.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="admin_password">Password</label>
+      <input [(ngModel)]="userData.admin_password" class="form-control" type="password" id="admin_password"
+        name="admin_password" required>
+    </div>
+    <div class="d-flex mt-3 justify-content-end">
+      <!-- <div class="btn-container"> -->
+      <button #closebutton type="button" class="btn btn-secondary cancel-btn" data-bs-dismiss="modal"
+        (click)="onCloseAddUserAdminModal()">Cancel</button>
+      <button data-bs-dismiss="modal" id="closeModalAdmin" type="submit" class="btn save-changes ms-2"
+        (click)="addUser()">Save User</button>
+    </div>
+  </form>
+</p-dialog>
+
+<!-- edit user -->
+
+<p-dialog header="Edit User" [(visible)]="hideEditModal" [style]="{width: '65vw'}" [modal]="true"
+  class="customDialogClass" [draggable]="true" [resizable]="true" [closable]="false">
+  <form id="addUserForm" class="mt-3">
+    <div class="form-group">
+      <label for="empID">Organisation Name</label>
+      <input [(ngModel)]="userData.org_name" class="form-control" type="text" id="empID" name="empID" required>
+    </div>
+    <div class="form-group">
+      <label for="empID">Employee ID</label>
+      <input disabled [(ngModel)]="editUserDetails.employee_id" class="form-control" type="text" id="empID" name="empID"
+        required>
+    </div>
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input [(ngModel)]="editUserDetails.f_name" class="form-control" type="text" id="firstName" name="firstName"
+        required>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input [(ngModel)]="editUserDetails.l_name" class="form-control" type="text" id="lastName" name="lastName"
+        required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input disabled [(ngModel)]="editUserDetails.email" class="form-control" type="email" id="email" name="email"
+        required #emailInput="ngModel" email>
+      <div class="error_msg" *ngIf="emailInput && emailInput.invalid && (emailInput.dirty || emailInput.touched)">
+        <div *ngIf="emailInput.errors?.['required']">
+          *Email is required.
+        </div>
+        <div *ngIf="emailInput.errors?.['email']">
+          *Please enter a valid email address.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="role">Role</label>
+      <select id="role" name="role" class="form-select" [(ngModel)]="editUserDetails.role">
+        <option value="strategist">Strategist</option>
+        <option value="marketer">Marketer</option>
+        <option value="pos">POS</option>
+        <option value="executive">Executive</option>
+      </select>
+    </div>
+    <div class="d-flex mt-3 justify-content-end">
+      <!-- <div class="btn-container"> -->
+      <button #closebutton type="button" class="btn btn-secondary cancel-btn" data-bs-dismiss="modal"
+        (click)="onCloseModal()">Cancel</button>
+      <button data-bs-dismiss="modal" id="closeModal" type="submit" class="btn save-changes ms-2"
+        (click)="openAdminCredModal()">Save Changes</button>
+    </div>
+  </form>
+</p-dialog>
+
+<p-dialog header="Enter Admin Credentials" [(visible)]="hideAdminCredModal" [style]="{width: '65vw'}" [modal]="true"
+  class="customDialogClass" [draggable]="true" [resizable]="true" [closable]="false">
+  <form class="mt-3" id="addUserForm">
+    <div class="form-group">
+      <label for="admin_email">Email</label>
+      <input [(ngModel)]="editUserDetails.admin_email" class="form-control" type="email" id="admin_email"
+        name="admin_email" required #admin_emailInput="ngModel" email>
+      <div class="error_msg"
+        *ngIf="admin_emailInput && admin_emailInput.invalid && (admin_emailInput.dirty || admin_emailInput.touched)">
+        <div *ngIf="admin_emailInput.errors?.['required']">
+          *Email is required.
+        </div>
+        <div *ngIf="admin_emailInput.errors?.['email']">
+          *Please enter a valid email address.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="admin_password">Password</label>
+      <input [(ngModel)]="editUserDetails.admin_password" class="form-control" type="password" id="admin_password"
+        name="admin_password" required>
+    </div>
+    <div class="d-flex mt-3 justify-content-end">
+      <!-- <div class="btn-container"> -->
+      <button #closebutton type="button" class="btn btn-secondary cancel-btn" data-bs-dismiss="modal"
+        (click)="onCloseAdminModal()">Cancel</button>
+      <button data-bs-dismiss="modal" id="closeModalAdmin" type="submit" class="btn save-changes ms-2"
+        (click)="onSaveEditUserDetails()">Save User</button>
+    </div>
+  </form>
+</p-dialog>
+
+
+<p-toast class="custom-toast" [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'600ms'"
+  [hideTransitionOptions]="'600ms'" [showTransformOptions]="'translateX(100%)'"></p-toast>
+
+<p-dialog header="Enter Admin Credentials" [(visible)]="hideAdminCredModalForToggleStatus" [style]="{width: '65vw'}"
+  [modal]="true" class="customDialogClass" [draggable]="true" [resizable]="true" [closable]="false">
+  <form class="mt-3" id="addUserForm">
+    <div class="form-group">
+      <label for="admin_email">Email</label>
+      <input [(ngModel)]="admin_email" class="form-control" type="email" id="admin_email" name="admin_email" required
+        #admin_emailInput="ngModel" email>
+      <div class="error_msg"
+        *ngIf="admin_emailInput && admin_emailInput.invalid && (admin_emailInput.dirty || admin_emailInput.touched)">
+        <div *ngIf="admin_emailInput.errors?.['required']">
+          *Email is required.
+        </div>
+        <div *ngIf="admin_emailInput.errors?.['email']">
+          *Please enter a valid email address.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="admin_password">Password</label>
+      <input [(ngModel)]="admin_password" class="form-control" type="password" id="admin_password" name="admin_password"
+        required>
+    </div>
+    <div class="d-flex mt-3 justify-content-end">
+      <!-- <div class="btn-container"> -->
+      <button #closebutton type="button" class="btn btn-secondary cancel-btn" data-bs-dismiss="modal"
+        (click)="onCloseToggleStatusAdminModal()">Cancel</button>
+      <button data-bs-dismiss="modal" id="closeModalAdmin" type="submit" class="btn save-changes ms-2"
+        (click)="saveAdminCredModalForToggleStatus()">Save User</button>
+    </div>
+  </form>
+</p-dialog>

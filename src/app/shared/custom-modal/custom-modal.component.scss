@@ -1,0 +1,174 @@
+.mat-mdc-dialog-actions {
+  justify-content: end;
+
+  .btn {
+      height: 30px;
+      color: #fff;
+
+      &.btn-secondary {
+          background-color: #555555;
+          margin-right: 15px;
+      }
+
+      &.btn-primary {
+          background: #d1ffd1 !important;
+          // background: linear-gradient(90deg, #6f7bd9 -0.01%, #a872ff 100%) !important;
+      }
+  }
+}
+
+.mdc-dialog .mdc-dialog__content {
+  padding: 5px 25px;
+}
+
+.mdc-dialog__title {
+  text-align: center;
+  padding: 0;
+  line-height: 0;
+  padding-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p {
+      margin-bottom: 0;
+  }
+}
+
+.ng-reflect-tooltip-style-class {
+  font-size: 12px;
+}
+
+.tick {
+  .material-symbols-outlined {
+      font-size: 60px;
+      color: #dc030f;
+  }
+}
+
+// .#dc030f{
+//     border-bottom: 1px solid #bcbcbc;
+//      background-color: #393939;
+//     // background-color: rgb(26 158 0);
+// }
+
+.modalIcon{
+  display: flex;
+  justify-content: center;
+  padding: 10px 0px;
+  border-bottom: 1px solid #bcbcbc;
+  background-color: #393939;
+  // background-color: pink;
+  img{
+      width: 32px !important;
+  }
+}
+
+.blueBg{
+  border-bottom: 1px solid #bcbcbc;
+   background-color: #393939;
+  // background-color: #00deff;
+}
+
+.closeIcon{
+  position: absolute;
+  z-index: 999;
+  // background: black;
+  top: 10px;
+  cursor: pointer;
+  width: 21px;
+  right: 10px;
+  // border: 1.4px solid black;
+  border-radius: 100%;
+}
+
+h2{
+  place-self: center;
+  margin-bottom: 0px;
+  color: #575757;
+  padding-bottom: 0px;
+}
+
+.place-center{
+  place-self: center;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__content{
+  padding-top: 4px !important;
+  padding-bottom: 30px !important;
+}
+
+.noBtn{
+  color: #555!important;
+  background: white !important;
+  border: 1px solid #5555;
+}
+
+.noBtn:focus{
+  color: #555!important;
+  background: white !important;
+  border: 1px solid #555;
+}
+
+.noBtn:active{
+  color: #555!important;
+  background: white !important;
+  border: 1px solid #555;
+}
+
+.noBtn:hover{
+  color: white !important;
+  background: #555 !important;
+}
+
+.yesBtn{
+  background: white !important;
+  color: #dc030f !important;
+  border: 1px solid #dc030f;
+}
+
+.yesBtn:focus{
+  color: #dc030f !important;
+  background: white !important;
+  border: 1px solid #dc030f;
+}
+
+.yesBtn:active{
+  color: #dc030f !important;
+  background: white !important;
+  border: 1px solid #dc030f;
+}
+
+
+.yesBtn:hover{
+  color: white !important;
+  background: #dc030f !important;
+}
+
+mat-dialog-content{
+  display: flex !important;
+  place-content: center !important;
+}
+
+.mat-mdc-dialog-content{
+padding-top: 0px !important;
+}
+
+.actionBtns{
+  column-gap: 10px;
+  display: flex;
+  margin-top: 4px;
+  place-content: center;
+  margin-bottom: 18px;
+}
+
+.btn{
+  padding: 5px 24px !important;
+}
+
+// .closeIcon:hover{
+//     background: #dc030f;
+//     border: 1.4px solid #dc030f !important;
+// }
+
+

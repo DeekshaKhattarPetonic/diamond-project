@@ -1,0 +1,94 @@
+.modalIcon{
+  display: flex;
+  justify-content: center;
+  padding: 15px 0px;
+  background-color: #393939;
+  img{
+      width: 32px !important;
+
+  }
+}
+
+
+.blueBg{
+  background-color: #393939;
+}
+
+.closeIcon{
+  position: absolute;
+  z-index: 999;
+  top: 10px;
+  cursor: pointer;
+  width: 21px;
+  right: 10px;
+}
+
+h2{
+  place-self: center;
+  margin-bottom: 0px;
+  color: #575757;
+  padding-bottom: 0px;
+}
+
+.place-center{
+  place-self: center;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__content{
+  padding-top: 4px !important;
+  padding-bottom: 30px !important;
+}
+
+.noBtn{
+  color: red !important;
+  background: white !important;
+  border: 1px solid red;
+}
+
+.noBtn:focus{
+  color: red !important;
+  background: white !important;
+  border: 1px solid red;
+}
+
+.noBtn:active{
+  color: red !important;
+  background: white !important;
+  border: 1px solid red;
+}
+
+.noBtn:hover{
+  color: white !important;
+  background: red !important;
+}
+
+.yesBtn{
+  color: white !important;
+  background: green !important;
+}
+
+.yesBtn:focus{
+  color: white !important;
+  background: green !important;
+}
+
+.yesBtn:active{
+  color: white !important;
+  background: green !important;
+}
+
+.yesBtn:hover{
+  background: white !important;
+  color: green !important;
+  border: 1px solid green;
+}
+
+mat-dialog-content{
+  display: flex !important;
+  place-content: center !important;
+}
+
+.btns{
+  place-self: center;
+  margin-bottom: 24px;
+}

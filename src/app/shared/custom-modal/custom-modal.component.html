@@ -1,0 +1,22 @@
+<div
+  [ngClass]="{'greenBg' : data.icon == 'success.png', 'blueBg' : data.icon == 'corrupted-file.png' || data.icon == 'info.png'}"
+  class="modalIcon">
+  <!-- <img [src]="'../../../assets/img/' + data.icon" /> -->
+  <img src="../../../assets/img/success.png" />
+</div>
+
+<img *ngIf="data?.buttonTextNo" (click)="onNoClick()" class="closeIcon" src="../../../assets/img/remove.png" />
+
+<!-- <p class="text-center mt-3 mb-0 tick"></p> -->
+<h2 mat-dialog-title *ngIf="data?.title">{{ data.title }} </h2>
+<div class="d-flex justify-content-center align-items-cente text-center flex-column">
+  <div mat-dialog-content>
+    <p>{{ data.message }}</p>
+  </div>
+  <!-- <div mat-dialog-actions> -->
+  <div class="flex align-items-center actionBtns w-100">
+    <button *ngIf="data?.buttonTextNo" (click)="onNoClick()" class="noBtn btn">{{data.buttonTextNo}}</button>
+    <button *ngIf="data?.buttonTextYes" (click)="onYesClick()" class="yesBtn btn">{{data.buttonTextYes}}</button>
+  </div>
+  <!-- </div> -->
+</div>
