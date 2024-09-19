@@ -1868,7 +1868,7 @@ mat-radio-button{
   justify-content: space-between;
   display: flex;
   img{
-    flex-basis: 20%;
+    flex-basis: 19%;
     width: 86px;
     height: 138px;
   }
@@ -1878,11 +1878,11 @@ mat-radio-button{
   padding: 0px 10px;
 }
 
-
 mat-radio-group.mat-mdc-radio-group {
   display: flex;
   column-gap: 22px;
-  label{
-font-size: 18px !important;
+
+  label {
+    font-size: 18px !important;
   }
 }
