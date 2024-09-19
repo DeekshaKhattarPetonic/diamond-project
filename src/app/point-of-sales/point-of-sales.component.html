@@ -22,69 +22,57 @@
       <p class="billing">Billing for Selected Items</p>
     </div>
 
-    <div class="row card_shadow">
+    <!-- <div class="row card_shadow">
       <div class="col-md-4">
-       <p> Are you a new custome or old customer?</p>
-       <div class=" flex justify-content-center">
-        <div class="d-flex flex-wrap gap-3">
+        <p> Are you a new custome or old customer?</p>
+        <div class=" flex">
+          <div class="d-flex flex-wrap gap-3">
             <div class="flex align-items-center radio_flex">
-                <p-radioButton
-                    name="pizza"
-                    value="Cheese"
-                    [(ngModel)]="ingredient"
-                    inputId="ingredient1" />
-                <label for="ingredient1" class="ml-2">
-                    Old Customer
-                </label>
+              <p-radioButton name="pizza" value="Cheese" [(ngModel)]="ingredient" inputId="ingredient1" />
+              <label for="ingredient1" class="ml-2">
+                Old Customer
+              </label>
             </div>
 
             <div class="flex align-items-center radio_flex">
-                <p-radioButton
-                    name="pizza"
-                    value="Mushroom"
-                    [(ngModel)]="ingredient"
-                    inputId="ingredient2" />
-                <label for="ingredient2" class="ml-2">
-                    New Customer
-                </label>
+              <p-radioButton name="pizza" value="Mushroom" [(ngModel)]="ingredient" inputId="ingredient2" />
+              <label for="ingredient2" class="ml-2">
+                New Customer
+              </label>
             </div>
-
-
+          </div>
         </div>
-    </div>
       </div>
       <div class="row customer_det col-md-8">
         <span class="head col-md-5"> Customer Phone Number: </span>
         <input class="col-md-5 enter" type="text" placeholder=" customer phone No.">
         <span class="material-symbols-outlined gobtn col-md-2">
           arrow_circle_right
-          </span>
+        </span>
       </div>
 
       <div class="customer_details row mt-2">
-        <div class="details col-md-3">
+        <div class="details details_flex col-md-3">
           <span>Name: </span>
           <input type="text" value="Jitendar">
         </div>
 
-        <div class="details col-md-3">
+        <div class="details details_flex col-md-3">
           <span>Address: </span>
           <input type="text" value="Gurugram">
         </div>
 
-        <div class="details col-md-3">
+        <div class="details details_flex col-md-3">
           <span>E-mail Id: </span>
           <input type="text" value="jk@gmail.com">
         </div>
 
-        <div class="details col-md-3">
+        <div class="details details_flex col-md-3">
           <span>Profession: </span>
           <input type="text" value="Service">
         </div>
-
-
       </div>
-    </div>
+    </div> -->
 
     <div class="row mt-3 card_shadow">
       <table class="table table-hover table-striped table-bordered mb-0  dataTable" id="userTable">
@@ -93,8 +81,8 @@
             <th>Product ID</th>
             <!-- <th></th> -->
             <th>Description</th>
-           <th>Quantity</th>
-           <th>rate</th>
+            <th>Quantity</th>
+            <th>rate</th>
             <th>Original Price</th>
             <th>Dynamic Price</th>
             <!-- <th>Action</th> -->
@@ -111,7 +99,6 @@
               <td class="enter-value">test</td>
               <td class="description">24</td>
             </tr>
-
             <tr>
               <td class="class1">23456</td>
               <td class="class1">shiny and elegant</td>
@@ -121,7 +108,6 @@
               <td class="enter-value">test</td>
               <td class="description">24</td>
             </tr>
-
             <tr>
               <td class="class1">23456</td>
               <td class="class1">shiny and elegant</td>
@@ -131,7 +117,6 @@
               <td class="enter-value">test</td>
               <td class="description">24</td>
             </tr>
-
             <tr>
               <td class="class1">23456</td>
               <td class="class1">shiny and elegant</td>
@@ -142,20 +127,20 @@
               <td class="description">24</td>
             </tr>
           </ng-container>
-
-
         </tbody>
       </table>
+    </div>
 
+    <div class="row mt-2">
+      <div class="price_card">
+        <span>Toral Price:</span>
+        <span>Rs. 1,23,444</span>
+      </div>
     </div>
 
     <div class="buttons mt-3">
       <button class="btn cancel">Cancel</button>
-      <button class="btn confirm">Confirm</button>
-
+      <button class="btn confirm" (click)="openModal()">Confirm</button>
     </div>
-
-
   </div>
-
 </div>

@@ -38,7 +38,7 @@
                 <p>Select Product Category</p>
                 <mat-radio-group>
                   <mat-radio-button value="1">All</mat-radio-button>
-                  <mat-radio-button value="1">Single Item</mat-radio-button>
+                  <!-- <mat-radio-button value="1">Single Item</mat-radio-button> -->
                   <mat-radio-button value="2">Multiple Items</mat-radio-button>
                   <mat-radio-button value="2">Item Category</mat-radio-button>
                 </mat-radio-group>
@@ -82,13 +82,13 @@
                 <div class="d-flex dropdowns">
                   <div class="d-flex align-items-center col-md-6 mb-4 drop">
                     <input type="checkbox" id="supplyChainDynamics" />
-                    <label for="supplyChainDynamics" class="label mb-0">Supply Chain Dynamics</label>
+                    <label for="supplyChainDynamics" class="label mb-0">Market Votality</label>
                     <div class="card flex justify-content-center">
                       <p-dropdown
                         [options]="countries"
                         [(ngModel)]="selectedCity"
                         optionLabel="name"
-                        placeholder="Select a City"
+                        placeholder="Select Market Votality"
                       ></p-dropdown>
                     </div>
                     <input type="text" placeholder="% To Increase" class="form-control">
@@ -102,46 +102,29 @@
                         [options]="countries"
                         [(ngModel)]="selectedCity"
                         optionLabel="name"
-                        placeholder="Select a City"
+                        placeholder="Select Supply Chain Dynamics"
                       ></p-dropdown>
                     </div>
                     <input type="text" placeholder="% To Increase" class="form-control">
-
                   </div>
 
                   <div class="d-flex align-items-center col-md-6 mb-4 drop">
                     <input type="checkbox" id="supplyChainDynamics" />
-                    <label for="supplyChainDynamics" class="label mb-0">Supply Chain Dynamics</label>
+                    <label for="supplyChainDynamics" class="label mb-0">Operational Costs</label>
                     <div class="card flex justify-content-center">
                       <p-dropdown
                         [options]="countries"
                         [(ngModel)]="selectedCity"
                         optionLabel="name"
-                        placeholder="Select a City"
+                        placeholder="Select Operational Costs"
                       ></p-dropdown>
                     </div>
                     <input type="text" placeholder="% To Increase" class="form-control">
-
                   </div>
 
                   <div class="d-flex align-items-center col-md-6 mb-4 drop">
                     <input type="checkbox" id="supplyChainDynamics" />
-                    <label for="supplyChainDynamics" class="label mb-0">Supply Chain Dynamics</label>
-                    <div class="card flex justify-content-center">
-                      <p-dropdown
-                        [options]="countries"
-                        [(ngModel)]="selectedCity"
-                        optionLabel="name"
-                        placeholder="Select a City"
-                      ></p-dropdown>
-                    </div>
-                    <input type="text" placeholder="% To Increase" class="form-control">
-
-                  </div>
-
-                  <div class="d-flex align-items-center col-md-6 mb-4 drop">
-                    <input type="checkbox" id="supplyChainDynamics" />
-                    <label for="supplyChainDynamics" class="label mb-0">Supply Chain Dynamics</label>
+                    <label for="supplyChainDynamics" class="label mb-0">Contingency Reserves</label>
                     <div class="card flex justify-content-center">
                       <p-dropdown
                         [options]="countries"
@@ -156,7 +139,7 @@
 
                   <div class="d-flex align-items-center col-md-6 mb-4 drop">
                     <input type="checkbox" id="supplyChainDynamics" />
-                    <label for="supplyChainDynamics" class="label mb-0">Supply Chain Dynamics</label>
+                    <label for="supplyChainDynamics" class="label mb-0">Regulatory and Tax Changes</label>
                     <div class="card flex justify-content-center">
                       <p-dropdown
                         [options]="countries"
@@ -166,27 +149,11 @@
                       ></p-dropdown>
                     </div>
                     <input type="text" placeholder="% To Increase" class="form-control">
-
                   </div>
 
                   <div class="d-flex align-items-center col-md-6 mb-4 drop">
                     <input type="checkbox" id="supplyChainDynamics" />
-                    <label for="supplyChainDynamics" class="label mb-0">Supply Chain Dynamics</label>
-                    <div class="card flex justify-content-center">
-                      <p-dropdown
-                        [options]="countries"
-                        [(ngModel)]="selectedCity"
-                        optionLabel="name"
-                        placeholder="Select a City"
-                      ></p-dropdown>
-                    </div>
-                    <input type="text" placeholder="% To Increase" class="form-control">
-
-                  </div>
-
-                  <div class="d-flex align-items-center col-md-6 mb-4 drop">
-                    <input type="checkbox" id="supplyChainDynamics" />
-                    <label for="supplyChainDynamics" class="label mb-0">Supply Chain Dynamics</label>
+                    <label for="supplyChainDynamics" class="label mb-0">Inventory Holding Costs</label>
                     <div class="card flex justify-content-center">
                       <p-dropdown
                         [options]="countries"
@@ -197,7 +164,6 @@
                     </div>
                     <input type="text" placeholder="% To Increase" class="form-control">
                   </div>
-
 
                 </div>
 
@@ -219,10 +185,13 @@
                         <th>Product ID</th>
                         <!-- <th></th> -->
                         <th>Description</th>
-                        <th>Color</th>
                         <th>Carat</th>
+                        <th>Color</th>
+                        <th>Clarity</th>
                         <th>Cut</th>
                         <th>Original Price</th>
+                        <th>Quantity</th>
+                        <th>Rate</th>
                         <th>Dynamic Price</th>
                         <!-- <th>Action</th> -->
                       </tr>
@@ -230,70 +199,114 @@
                     <tbody>
                       <ng-container *ngIf="!showEditTable">
                         <tr>
-                          <td class="class1">23456</td>
-                          <td class="class1">shiny and elegant</td>
+                          <td class="class1">D001</td>
+                          <td class="class1">Round cut, 1 carat , excellent clarity</td>
                           <!-- <td class="class1"><img class="userImage" [src]="user.image" /></td> -->
+                          <td class="description">24</td>
                           <td class="enter-value">G</td>
-                          <td class="description">24</td>
-                          <td class="enter-value">test</td>
-                          <td class="description">24</td>
-                          <td class="description">24</td>
+                          <!-- <td class="enter-value">test</td> -->
+                          <td class="description">VS1</td>
+                          <td class="description">Excellent</td>
+                          <td class="enter-value">$5,000</td>
+                          <td class="enter-value">50</td>
+                          <td class="description">100</td>
+                          <td class="description">$5,500</td>
                         </tr>
 
                         <tr>
-                          <td class="class1">23456</td>
-                          <td class="class1">shiny and elegant</td>
+                          <td class="class1">D002</td>
+                          <td class="class1">Square cut, 1 carat , excellent clarity</td>
                           <!-- <td class="class1"><img class="userImage" [src]="user.image" /></td> -->
+                          <td class="description">24</td>
                           <td class="enter-value">G</td>
-                          <td class="description">24</td>
-                          <td class="enter-value">test</td>
-                          <td class="description">24</td>
-                          <td class="description">24</td>
+                          <!-- <td class="enter-value">test</td> -->
+                          <td class="description">VS2</td>
+                          <td class="description">Excellent</td>
+                          <td class="enter-value">$4,000</td>
+                          <td class="enter-value">30</td>
+                          <td class="description">100</td>
+                          <td class="description">$4,500</td>
                         </tr>
 
                         <tr>
-                          <td class="class1">23456</td>
-                          <td class="class1">shiny and elegant</td>
+                          <td class="class1">D003</td>
+                          <td class="class1">Round cut, 1 carat , excellent clarity</td>
                           <!-- <td class="class1"><img class="userImage" [src]="user.image" /></td> -->
+                          <td class="description">24</td>
                           <td class="enter-value">G</td>
-                          <td class="description">24</td>
-                          <td class="enter-value">test</td>
-                          <td class="description">24</td>
-                          <td class="description">24</td>
+                          <!-- <td class="enter-value">test</td> -->
+                          <td class="description">VS1</td>
+                          <td class="description">Excellent</td>
+                          <td class="enter-value">$6,000</td>
+                          <td class="enter-value">20</td>
+                          <td class="description">100</td>
+                          <td class="description">$8,500</td>
                         </tr>
 
                         <tr>
-                          <td class="class1">23456</td>
-                          <td class="class1">shiny and elegant</td>
-                          <!-- <td class="class1"><img class="userImage" [src]="user.image" /></td> -->
+                          <td class="class1">D004</td>
+                          <td class="class1">Heart cut, 1 carat , excellent clarity</td>
+                          <td class="description">24</td>
                           <td class="enter-value">G</td>
-                          <td class="description">24</td>
-                          <td class="enter-value">test</td>
-                          <td class="description">24</td>
-                          <td class="description">24</td>
+                          <td class="description">VS2</td>
+                          <td class="description">Excellent</td>
+                          <td class="enter-value">$6,000</td>
+                          <td class="enter-value">50</td>
+                          <td class="description">100</td>
+                          <td class="description">$8,500</td>
                         </tr>
                       </ng-container>
 
                       <ng-container *ngIf="showEditTable">
-                        <tr>
-                          <td class="class1"><input type="text" value="23456"> </td>
-                          <td class="class1"><input type="text" value="shiny and elegant"></td>
-                          <!-- <td class="class1"><img class="userImage" [src]="user.image" /></td> -->
-                          <td class="enter-value"><input type="text" value="G"></td>
-                          <td class="description"><input type="text" value="24"></td>
-                          <td class="enter-value"><input type="text" value="test"></td>
-                          <td class="description"><input type="text" value="24"></td>
-                          <td class="description"><input type="text" value="24"></td>
+                        <tr class="editRow">
+                          <td class="class1"><input type="text" value="D004"> </td>
+                          <td class="class1"><input type="text" value="Heart cut, 1 carat , excellent clarity"></td>
+                          <td class="enter-value"><input type="text" value="24"></td>
+                          <td class="description"><input type="text" value="G"></td>
+                          <td class="enter-value"><input type="text" value="VS2"></td>
+                          <td class="description"><input type="text" value="Excellent"></td>
+                          <td class="description"><input type="text" value="$6,000"></td>
+                          <td class="enter-value"><input type="text" value="50"></td>
+                          <td class="enter-value"><input type="text" value="100"></td>
+                          <td class="enter-value"><input type="text" value="$8,500"></td>
                         </tr>
-                        <tr>
-                          <td class="class1"><input type="text" value="23456"> </td>
-                          <td class="class1"><input type="text" value="shiny and elegant"></td>
-                          <!-- <td class="class1"><img class="userImage" [src]="user.image" /></td> -->
-                          <td class="enter-value"><input type="text" value="G"></td>
-                          <td class="description"><input type="text" value="24"></td>
-                          <td class="enter-value"><input type="text" value="test"></td>
-                          <td class="description"><input type="text" value="24"></td>
-                          <td class="description"><input type="text" value="24"></td>
+                        <tr class="editRow">
+                          <td class="class1"><input type="text" value="D004"> </td>
+                          <td class="class1"><input type="text" value="Heart cut, 1 carat , excellent clarity"></td>
+                          <td class="enter-value"><input type="text" value="24"></td>
+                          <td class="description"><input type="text" value="G"></td>
+                          <td class="enter-value"><input type="text" value="VS2"></td>
+                          <td class="description"><input type="text" value="Excellent"></td>
+                          <td class="description"><input type="text" value="$6,000"></td>
+                          <td class="enter-value"><input type="text" value="50"></td>
+                          <td class="enter-value"><input type="text" value="100"></td>
+                          <td class="enter-value"><input type="text" value="$8,500"></td>
+                        </tr>
+
+                        <tr class="editRow">
+                          <td class="class1"><input type="text" value="D004"> </td>
+                          <td class="class1"><input type="text" value="Heart cut, 1 carat , excellent clarity"></td>
+                          <td class="enter-value"><input type="text" value="24"></td>
+                          <td class="description"><input type="text" value="G"></td>
+                          <td class="enter-value"><input type="text" value="VS2"></td>
+                          <td class="description"><input type="text" value="Excellent"></td>
+                          <td class="description"><input type="text" value="$6,000"></td>
+                          <td class="enter-value"><input type="text" value="50"></td>
+                          <td class="enter-value"><input type="text" value="100"></td>
+                          <td class="enter-value"><input type="text" value="$8,500"></td>
+                        </tr>
+
+                        <tr class="editRow">
+                          <td class="class1"><input type="text" value="D004"> </td>
+                          <td class="class1"><input type="text" value="Heart cut, 1 carat , excellent clarity"></td>
+                          <td class="enter-value"><input type="text" value="24"></td>
+                          <td class="description"><input type="text" value="G"></td>
+                          <td class="enter-value"><input type="text" value="VS2"></td>
+                          <td class="description"><input type="text" value="Excellent"></td>
+                          <td class="description"><input type="text" value="$6,000"></td>
+                          <td class="enter-value"><input type="text" value="50"></td>
+                          <td class="enter-value"><input type="text" value="100"></td>
+                          <td class="enter-value"><input type="text" value="$8,500"></td>
                         </tr>
 
                       </ng-container>
@@ -303,21 +316,52 @@
                   </table>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4" *ngIf="!showEditTable">
                   <div class="conformation">
                     <form class="flex align-items-center gap-1" [formGroup]="formGroup">
-                        <p-checkbox
-                            formControlName="city"
-                            value="New York"
-                            inputId="ny" />
-                        <label for="ny">Do you further want to edit the price ?</label>
+                      <p-checkbox
+                        formControlName="city"
+                        value="New York"
+                        inputId="ny"
+                      ></p-checkbox>
+                      <label for="ny">Do you further want to edit the price?</label>
                     </form>
+                  </div>
+                  <div class="buttons mt-2">
+                    <button
+                      class="confirm btn"
+                      (click)="showEditTable = true"
+                      [disabled]="!formGroup.get('city')?.value"
+                    >
+                      Edit Price
+                    </button>
+                    <button class="btn no" (click)="showEditTable = false">No</button>
+                  </div>
                 </div>
-                <div class="buttons mt-2">
-                  <button class="confirm btn" (click)="showEditTable = true">Edit Price</button>
-                  <button class="btn no" (click)="showEditTable = false">No</button>
+
+                <div class="col-md-4" *ngIf="showEditTable">
+                  <div class="conformation">
+                    <form class="flex align-items-center gap-1" [formGroup]="formGroup">
+                      <!-- <p-checkbox
+                        formControlName="city"
+                        value="New York"
+                        inputId="ny"
+                      ></p-checkbox> -->
+                      <label for="ny">Do you want to save the changes?</label>
+                    </form>
+                  </div>
+                  <div class="buttons mt-2">
+                    <button
+                      class="confirm btn"
+                      (click)="showTable = false"
+
+                    >
+                      Yes
+                    </button>
+                    <button class="btn no" (click)="showEditTable = false">No</button>
+                  </div>
                 </div>
-                </div>
+
               </div>
 
             </ng-container>
@@ -339,6 +383,25 @@
               <span class="col-md-2" class="material-symbols-outlined gobtn">
                 arrow_circle_right
                 </span>
+            </div>
+
+            <div class="d-flex row flex flex-wrap gap-3 p-fluid mb-2">
+              <div class="flex-auto d-flex row col-md-3">
+                  <label  for="buttondisplay" class="col-md-4 font-bold block mb-2"> From Date </label>
+                  <p-calendar class="col-md-6"
+                      [(ngModel)]="date1"
+                      [showIcon]="true"
+                      inputId="buttondisplay"
+                      [showOnFocus]="false" />
+              </div>
+              <div class="flex-auto row col-md-3">
+                <label for="buttondisplay" class="col-md-4 font-bold block mb-2"> To Date </label>
+                <p-calendar class="col-md-6"
+                    [(ngModel)]="date2"
+                    [showIcon]="true"
+                    inputId="buttondisplay"
+                    [showOnFocus]="false" />
+            </div>
             </div>
 
             <mat-tab-group>
@@ -515,23 +578,18 @@
                   </div>
 
                   <div class="graphs">
-
-
                     <div class="row all_graphs mt-5">
                       <img src="../../assets/img/g1.jpg" alt="">
                       <img src="../../assets/img/g2.png" alt="">
                       <img src="../../assets/img/g3.webp" alt="">
                       <img src="../../assets/img/g4.jpg" alt="">
-
                       <!-- <div class="card flex justify-content-center">
                         <p-chart type="doughnut" [data]="data2" [options]="options2" />
                     </div>
-
                     <div class="card">
                       <p-chart type="line" [data]="data" [options]="options" />
                   </div> -->
                     </div>
-
                   </div>
                 </div>
               </mat-tab>
@@ -539,7 +597,7 @@
                 <div class="row">
                   <div class="row metrics col-md-6">
                     <div class=" card_shadow">
-                      <p class="met_head">Metrics for Value Based Pricing strategy</p>
+                      <p class="met_head">Metrics for Real Time Pricing Strategy</p>
 
                       <div class="row mt-3 mx-2">
                         <div class="details col-md-6">
@@ -732,7 +790,7 @@
                 <div class="row">
                   <div class="row metrics col-md-6">
                     <div class=" card_shadow">
-                      <p class="met_head">Metrics for Value Based Pricing strategy</p>
+                      <p class="met_head">Metrics for Competitive Pricing strategy</p>
 
                       <div class="row mt-3 mx-2">
                         <div class="details col-md-6">
@@ -925,7 +983,7 @@
                 <div class="row">
                   <div class="row metrics col-md-6">
                     <div class=" card_shadow">
-                      <p class="met_head">Metrics for Value Based Pricing strategy</p>
+                      <p class="met_head">Metrics for Segmented Pricing strategy</p>
 
                       <div class="row mt-3 mx-2">
                         <div class="details col-md-6">
@@ -1117,7 +1175,7 @@
                 <div class="row">
                   <div class="row metrics col-md-6">
                     <div class=" card_shadow">
-                      <p class="met_head">Metrics for Value Based Pricing strategy</p>
+                      <p class="met_head">Metrics for Time Based Pricing strategy</p>
 
                       <div class="row mt-3 mx-2">
                         <div class="details col-md-6">
@@ -1310,7 +1368,7 @@
                 <div class="row">
                   <div class="row metrics col-md-6">
                     <div class=" card_shadow">
-                      <p class="met_head">Metrics for Value Based Pricing strategy</p>
+                      <p class="met_head">Metrics for Brand Pricing strateg</p>
 
                       <div class="row mt-3 mx-2">
                         <div class="details col-md-6">
@@ -1502,7 +1560,7 @@
                 <div class="row">
                   <div class="row metrics col-md-6">
                     <div class=" card_shadow">
-                      <p class="met_head">Metrics for Value Based Pricing strategy</p>
+                      <p class="met_head">Metrics for Market Penetration Pricing strategy</p>
 
                       <div class="row mt-3 mx-2">
                         <div class="details col-md-6">

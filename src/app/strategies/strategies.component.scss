@@ -103,7 +103,7 @@ a:hover {
 	position: absolute;
 	width: 100%;
 	overflow: auto;
-	padding: 30px 40px 40px;
+	padding: 5px 13px 40px;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	opacity: 0;
@@ -1462,14 +1462,7 @@ button.delete-btn {
         h1 {
             color: #fff;
         }
-
-
-
     }
-
-
-
-
 }
 
 .user-data-list {
@@ -1603,17 +1596,13 @@ td {
     .dropdown {
         .dropdown-menu {
             padding: 15px;
-
             .form-check {
-
                 padding-left: 15px;
-
                 .form-check-input {
                     width: 10px;
                     height: 10px;
                     margin-top: -1px;
                 }
-
                 .form-check-label {
                     font-size: 12px;
                 }
@@ -1632,7 +1621,6 @@ td {
 .cardBody {
   padding: 0px 14px;
 }
-
 
 .counter {
   color: #fff;
@@ -1756,9 +1744,9 @@ svg{
   margin: 0 auto;
   font-size: 17px;
   display: flex;
+  font-weight: 400;
   justify-content: center;
 }
-
 
 .drop{
   column-gap: 10px;
@@ -1771,7 +1759,6 @@ svg{
 
 }
 
-
 .form-control{
   width: 130px !important;
   padding: 4px 10px;
@@ -1782,7 +1769,6 @@ svg{
     font-size: 18px;
     color: #00a1a6;
     line-height: 38px;
-
   }
 }
 
@@ -1884,5 +1870,22 @@ mat-radio-group.mat-mdc-radio-group {
 
   label {
     font-size: 18px !important;
+  }
+}
+
+
+.dropdowns{
+  label{
+flex-basis: 28%;
+  }
+}
+
+.editRow{
+  input{
+    width: 70px !important;
+    color: black;
+    border-radius: 3px;
+    padding: 2px 5px;
+    border: 1px solid rgb(207, 207, 207);
   }
 }

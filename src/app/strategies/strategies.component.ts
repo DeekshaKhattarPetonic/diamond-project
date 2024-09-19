@@ -7,11 +7,12 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { CommonModule } from '@angular/common';
 import {MatTabsModule} from '@angular/material/tabs';
 import { ChartModule } from 'primeng/chart';
+import { CalendarModule } from 'primeng/calendar';
 
 @Component({
   selector: 'app-strategies',
   standalone: true,
-  imports: [ChartModule, MatTabsModule, MatRadioModule, DropdownModule, FormsModule, CommonModule, ReactiveFormsModule, CheckboxModule],
+  imports: [CalendarModule, ChartModule, MatTabsModule, MatRadioModule, DropdownModule, FormsModule, CommonModule, ReactiveFormsModule, CheckboxModule],
   templateUrl: './strategies.component.html',
   styleUrl: './strategies.component.scss'
 })
@@ -28,6 +29,9 @@ export class StrategiesComponent {
   data2: any;
 
   options2: any;
+  date1: Date | undefined;
+
+  date2: Date | undefined;
 
   ngOnInit() {
     this.countries = [
@@ -41,6 +45,8 @@ export class StrategiesComponent {
     this.formGroup = new FormGroup({
       city: new FormControl<string | null>(null)
   });
+
+
 
   const documentStyle = getComputedStyle(document.documentElement);
         const textColor = documentStyle.getPropertyValue('--text-color');

@@ -9,6 +9,6 @@ export const routes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'admin', component: UserManagementComponent },
-  { path: 'strategies', component: StrategiesComponent },
-  { path: 'point-of-sales', component: PointOfSalesComponent },
+  { path: 'strategy', component: StrategiesComponent },
+  { path: 'pos', component: PointOfSalesComponent },
 ];

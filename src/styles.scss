@@ -357,3 +357,13 @@ $primary-color: #00a1a6;
 .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label{
   color: white !important;
 }
+
+.mat-mdc-tab-body-wrapper{
+  box-shadow: 1px 0px 3px 1px rgba(0, 0, 0, 0.2);
+}
+
+
+.p-datepicker table td > span {
+  width: 22px !important;
+  height: 22px !important;
+}

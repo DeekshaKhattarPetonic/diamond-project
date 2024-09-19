@@ -57,8 +57,6 @@ padding: 4px 0px;
 
 }
 
-
-
 .card_shadow{
   padding: 10px 5px;
   box-shadow: 5px 0 8px rgba(0, 0, 0, 0.2);
@@ -69,7 +67,6 @@ padding: 4px 0px;
   border-radius: 6px;
 }
 
-
 .customer_det {
   display: flex;
   justify-content: center;
@@ -78,7 +75,6 @@ padding: 4px 0px;
     font-size: 20px;
   }
 }
-
 
 .radio_flex{
   display: flex;
@@ -127,8 +123,6 @@ table{
       }
   }
 }
-
-
 
 .add-user {
   margin-right: 13px;
@@ -378,7 +372,6 @@ svg{
   justify-content: center;
 }
 
-
 .drop{
   column-gap: 10px;
 }
@@ -390,14 +383,13 @@ svg{
 
 }
 
-
 .form-control{
   width: 130px !important;
   padding: 4px 10px;
 }
 
-.categories{
-  p{
+.categories {
+  p {
     font-size: 16px;
     color: #00a1a6;
     line-height: 38px;
@@ -440,4 +432,26 @@ svg{
 
 .cancel{
   background-color: red;
+}
+
+.price_card{
+  display: flex;
+  place-content: end;
+  column-gap: 10px;
+    span{
+      font-size: 27px;
+    font-weight: 500;
+  }
+}
+
+
+.card_det{
+  span{
+    font-size: 14px;
+  }
+}
+
+.details_flex{
+  display: flex;
+  flex-direction: column;
 }
