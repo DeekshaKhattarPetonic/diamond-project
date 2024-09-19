@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import {MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { CommonModule } from '@angular/common';
 
 export interface DialogData {
   message: string;
@@ -10,7 +11,7 @@ export interface DialogData {
 @Component({
   selector: 'app-confirmation-modal',
   standalone: true,
-  imports: [MatDialogModule],
+  imports: [MatDialogModule, CommonModule],
   templateUrl: './confirmation-modal.component.html',
   styleUrl: './confirmation-modal.component.scss',
   providers: [ { provide: MatDialogRef, useValue: {}},  { provide: MAT_DIALOG_DATA, useValue: {} },]
