@@ -292,3 +292,31 @@ $primary-color: #00a1a6;
 .p-dialog {
   border-radius: 15px;
 }
+
+
+.p-dropdown-panel .p-dropdown-items{
+  padding-left: 0px !important;
+}
+
+
+.p-dropdown .p-dropdown-label {
+  color: #6c757d;
+  padding: 5px;
+  font-size: 12px;
+}
+
+
+.categories{
+  // .main_drop{
+    .p-dropdown{
+  width: 260px !important;
+    }
+  // }
+
+}
+
+.dropdowns{
+  .p-dropdown{
+    width: 230px !important;
+      }
+}

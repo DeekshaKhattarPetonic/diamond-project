@@ -1,0 +1,364 @@
+<!-- <!DOCTYPE html>
+<html>
+	<head>
+		<title>Pure CSS3 Tabs</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css" />
+	</head>
+	<body> -->
+<div class="page">
+  <!-- <h1>Pure CSS Tabs</h1> -->
+
+
+  <!-- tabs -->
+
+  <h2 class="page_head">Strategy Management dashboard</h2>
+
+  <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
+    <input type="radio" name="pcss3t" checked id="tab1" class="tab-content-first">
+    <label for="tab1">Review and Revise Price</label>
+
+    <input type="radio" name="pcss3t" id="tab2" class="tab-content-2">
+				<label for="tab2">Define Strategy</label>
+
+				<!-- <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
+				<label for="tab3"><i class="icon-cogs"></i>Einstein</label>
+
+				<input type="radio" name="pcss3t" id="tab5" class="tab-content-last">
+				<label for="tab5"><i class="icon-globe"></i>Newton</label> -->
+
+
+
+				<ul>
+					<li class="tab-content tab-content-first typography">
+            <ng-container *ngIf="!showTable">
+              <p class="para_head">To review and revise the price select the category of product for which the price to be revised</p>
+              <div class="flex categories">
+                <p>Select Product Category</p>
+                <mat-radio-group>
+                  <mat-radio-button value="1">All</mat-radio-button>
+                  <mat-radio-button value="1">Single Item</mat-radio-button>
+                  <mat-radio-button value="2">Multiple Items</mat-radio-button>
+                  <mat-radio-button value="2">Item Category</mat-radio-button>
+                </mat-radio-group>
+                <!-- <div class="card flex justify-content-center"> -->
+                  <p-dropdown
+                      [options]="countries"
+                      [(ngModel)]="selectedCountry"
+                      optionLabel="name"
+                      [filter]="true"
+                      filterBy="name"
+                      [showClear]="true"
+                      placeholder="Category">
+                          <ng-template pTemplate="selectedItem" let-selectedOption>
+                              <div class="flex align-items-center gap-2">
+                                  <!-- <img
+                                      src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png"
+                                      [class]="'flag flag-' + selectedCountry.code.toLowerCase()"
+                                      style="width: 18px" /> -->
+                                  <div>{{ selectedOption.name }}</div>
+                              </div>
+                          </ng-template>
+                          <ng-template let-country pTemplate="item">
+                              <div class="flex align-items-center gap-2">
+                                  <!-- <img
+                                      src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png"
+                                      [class]="'flag flag-' + country.code.toLowerCase()"
+                                      style="width: 18px" /> -->
+                                  <div>{{ country.name }}</div>
+                              </div>
+                          </ng-template>
+                  </p-dropdown>
+              <!-- </div> -->
+              <span class="material-symbols-outlined gobtn">
+                arrow_circle_right
+                </span>
+              </div>
+
+              <div class="row">
+                <p class="para_head mb-2 mt-3">Select the parameter to review and revise the price :</p>
+
+                <div class="d-flex dropdowns">
+                  <div class="d-flex align-items-center col-md-6 mb-4 drop">
+                    <input type="checkbox" id="supplyChainDynamics" />
+                    <label for="supplyChainDynamics" class="label mb-0">Supply Chain Dynamics</label>
+                    <div class="card flex justify-content-center">
+                      <p-dropdown
+                        [options]="countries"
+                        [(ngModel)]="selectedCity"
+                        optionLabel="name"
+                        placeholder="Select a City"
+                      ></p-dropdown>
+                    </div>
+                    <input type="text" placeholder="% To Increase" class="form-control">
+                  </div>
+
+                  <div class="d-flex align-items-center col-md-6 mb-4 drop">
+                    <input type="checkbox" id="supplyChainDynamics" />
+                    <label for="supplyChainDynamics" class="label mb-0">Supply Chain Dynamics</label>
+                    <div class="card flex justify-content-center">
+                      <p-dropdown
+                        [options]="countries"
+                        [(ngModel)]="selectedCity"
+                        optionLabel="name"
+                        placeholder="Select a City"
+                      ></p-dropdown>
+                    </div>
+                    <input type="text" placeholder="% To Increase" class="form-control">
+
+                  </div>
+
+                  <div class="d-flex align-items-center col-md-6 mb-4 drop">
+                    <input type="checkbox" id="supplyChainDynamics" />
+                    <label for="supplyChainDynamics" class="label mb-0">Supply Chain Dynamics</label>
+                    <div class="card flex justify-content-center">
+                      <p-dropdown
+                        [options]="countries"
+                        [(ngModel)]="selectedCity"
+                        optionLabel="name"
+                        placeholder="Select a City"
+                      ></p-dropdown>
+                    </div>
+                    <input type="text" placeholder="% To Increase" class="form-control">
+
+                  </div>
+
+                  <div class="d-flex align-items-center col-md-6 mb-4 drop">
+                    <input type="checkbox" id="supplyChainDynamics" />
+                    <label for="supplyChainDynamics" class="label mb-0">Supply Chain Dynamics</label>
+                    <div class="card flex justify-content-center">
+                      <p-dropdown
+                        [options]="countries"
+                        [(ngModel)]="selectedCity"
+                        optionLabel="name"
+                        placeholder="Select a City"
+                      ></p-dropdown>
+                    </div>
+                    <input type="text" placeholder="% To Increase" class="form-control">
+
+                  </div>
+
+                  <div class="d-flex align-items-center col-md-6 mb-4 drop">
+                    <input type="checkbox" id="supplyChainDynamics" />
+                    <label for="supplyChainDynamics" class="label mb-0">Supply Chain Dynamics</label>
+                    <div class="card flex justify-content-center">
+                      <p-dropdown
+                        [options]="countries"
+                        [(ngModel)]="selectedCity"
+                        optionLabel="name"
+                        placeholder="Select a City"
+                      ></p-dropdown>
+                    </div>
+                    <input type="text" placeholder="% To Increase" class="form-control">
+
+                  </div>
+
+                  <div class="d-flex align-items-center col-md-6 mb-4 drop">
+                    <input type="checkbox" id="supplyChainDynamics" />
+                    <label for="supplyChainDynamics" class="label mb-0">Supply Chain Dynamics</label>
+                    <div class="card flex justify-content-center">
+                      <p-dropdown
+                        [options]="countries"
+                        [(ngModel)]="selectedCity"
+                        optionLabel="name"
+                        placeholder="Select a City"
+                      ></p-dropdown>
+                    </div>
+                    <input type="text" placeholder="% To Increase" class="form-control">
+
+                  </div>
+
+                  <div class="d-flex align-items-center col-md-6 mb-4 drop">
+                    <input type="checkbox" id="supplyChainDynamics" />
+                    <label for="supplyChainDynamics" class="label mb-0">Supply Chain Dynamics</label>
+                    <div class="card flex justify-content-center">
+                      <p-dropdown
+                        [options]="countries"
+                        [(ngModel)]="selectedCity"
+                        optionLabel="name"
+                        placeholder="Select a City"
+                      ></p-dropdown>
+                    </div>
+                    <input type="text" placeholder="% To Increase" class="form-control">
+
+                  </div>
+
+                  <div class="d-flex align-items-center col-md-6 mb-4 drop">
+                    <input type="checkbox" id="supplyChainDynamics" />
+                    <label for="supplyChainDynamics" class="label mb-0">Supply Chain Dynamics</label>
+                    <div class="card flex justify-content-center">
+                      <p-dropdown
+                        [options]="countries"
+                        [(ngModel)]="selectedCity"
+                        optionLabel="name"
+                        placeholder="Select a City"
+                      ></p-dropdown>
+                    </div>
+                    <input type="text" placeholder="% To Increase" class="form-control">
+                  </div>
+
+
+                </div>
+
+                <div class="buttons">
+                  <button class="btn revised">View Revised Price</button>
+                  <button class="btn confirm" (click)="showTable = true">Confirm</button>
+                </div>
+
+
+              </div>
+            </ng-container>
+
+
+            <ng-container *ngIf="showTable">
+              <div class="flex row">
+                <div class="col-md-8">
+                  <table class="table table-hover table-striped table-bordered mb-0  dataTable" id="userTable">
+                    <thead class="table-light">
+                      <tr>
+                        <th>Product ID</th>
+                        <!-- <th></th> -->
+                        <th>Description</th>
+                        <th>Color</th>
+                        <th>Carat</th>
+                        <th>Cut</th>
+                        <th>Original Price</th>
+                        <th>Dynamic Price</th>
+                        <!-- <th>Action</th> -->
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <ng-container *ngIf="!showEditTable">
+                        <tr>
+                          <td class="class1">23456</td>
+                          <td class="class1">shiny and elegant</td>
+                          <!-- <td class="class1"><img class="userImage" [src]="user.image" /></td> -->
+                          <td class="enter-value">G</td>
+                          <td class="description">24</td>
+                          <td class="enter-value">test</td>
+                          <td class="description">24</td>
+                          <td class="description">24</td>
+                        </tr>
+
+                        <tr>
+                          <td class="class1">23456</td>
+                          <td class="class1">shiny and elegant</td>
+                          <!-- <td class="class1"><img class="userImage" [src]="user.image" /></td> -->
+                          <td class="enter-value">G</td>
+                          <td class="description">24</td>
+                          <td class="enter-value">test</td>
+                          <td class="description">24</td>
+                          <td class="description">24</td>
+                        </tr>
+
+                        <tr>
+                          <td class="class1">23456</td>
+                          <td class="class1">shiny and elegant</td>
+                          <!-- <td class="class1"><img class="userImage" [src]="user.image" /></td> -->
+                          <td class="enter-value">G</td>
+                          <td class="description">24</td>
+                          <td class="enter-value">test</td>
+                          <td class="description">24</td>
+                          <td class="description">24</td>
+                        </tr>
+
+                        <tr>
+                          <td class="class1">23456</td>
+                          <td class="class1">shiny and elegant</td>
+                          <!-- <td class="class1"><img class="userImage" [src]="user.image" /></td> -->
+                          <td class="enter-value">G</td>
+                          <td class="description">24</td>
+                          <td class="enter-value">test</td>
+                          <td class="description">24</td>
+                          <td class="description">24</td>
+                        </tr>
+                      </ng-container>
+
+                      <ng-container *ngIf="showEditTable">
+                        <tr>
+                          <td class="class1"><input type="text" value="23456"> </td>
+                          <td class="class1"><input type="text" value="shiny and elegant"></td>
+                          <!-- <td class="class1"><img class="userImage" [src]="user.image" /></td> -->
+                          <td class="enter-value"><input type="text" value="G"></td>
+                          <td class="description"><input type="text" value="24"></td>
+                          <td class="enter-value"><input type="text" value="test"></td>
+                          <td class="description"><input type="text" value="24"></td>
+                          <td class="description"><input type="text" value="24"></td>
+                        </tr>
+                        <tr>
+                          <td class="class1"><input type="text" value="23456"> </td>
+                          <td class="class1"><input type="text" value="shiny and elegant"></td>
+                          <!-- <td class="class1"><img class="userImage" [src]="user.image" /></td> -->
+                          <td class="enter-value"><input type="text" value="G"></td>
+                          <td class="description"><input type="text" value="24"></td>
+                          <td class="enter-value"><input type="text" value="test"></td>
+                          <td class="description"><input type="text" value="24"></td>
+                          <td class="description"><input type="text" value="24"></td>
+                        </tr>
+
+                      </ng-container>
+
+
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="conformation">
+                    <form class="flex align-items-center gap-1" [formGroup]="formGroup">
+                        <p-checkbox
+                            formControlName="city"
+                            value="New York"
+                            inputId="ny" />
+                        <label for="ny">Do you further want to edit the price ?</label>
+                    </form>
+                </div>
+                <div class="buttons mt-2">
+                  <button class="confirm btn" (click)="showEditTable = true">Edit Price</button>
+                  <button class="btn no" (click)="showEditTable = false">No</button>
+                </div>
+                </div>
+              </div>
+
+            </ng-container>
+
+        </li>
+
+					<li class="tab-content tab-content-2 typography">
+
+            <div class="row details">
+              <p class="col-md-3 head">Business Objective and Criteria</p>
+
+              <mat-radio-group class="col-md-7">
+                <mat-radio-button value="1">Customer based </mat-radio-button>
+                <mat-radio-button value="1">Media Oriented</mat-radio-button>
+                <mat-radio-button value="2">Product based</mat-radio-button>
+                <!-- <mat-radio-button value="2">Item Category</mat-radio-button> -->
+              </mat-radio-group>
+
+              <span class="col-md-2" class="material-symbols-outlined gobtn">
+                arrow_circle_right
+                </span>
+            </div>
+
+            <mat-tab-group>
+              <mat-tab label="Value Based Pricing strategy">  </mat-tab>
+              <mat-tab label="Real time Pricing strategyecond">  </mat-tab>
+              <mat-tab label=" Competitive Pricing strategy "></mat-tab>
+              <mat-tab label="Segmented Pricing strategy">  </mat-tab>
+              <mat-tab label="Time Based Pricing strategy">  </mat-tab>
+              <mat-tab label="Brand Pricing strategy">  </mat-tab>
+              <mat-tab label="Market Penetration Pricing strategy">  </mat-tab>
+
+            </mat-tab-group>
+
+          </li>
+
+
+				</ul>
+			</div>
+			<!--/ tabs -->
+		</div>
+	<!-- </body>
+</html> -->
