@@ -379,3 +379,29 @@ button.p-element.p-ripple.p-datepicker-trigger.p-button-icon-only.p-button.p-com
     height: 30px !important;
   }
 }
+
+
+.mat-mdc-radio-button .mat-internal-form-field {
+  font-size: 12px !important;
+}
+
+app-strategies{
+  .p-dropdown-item{
+    font-size: 11px !important;
+  }
+
+  .p-dropdown-panel .p-dropdown-items .p-dropdown-item:first-child {
+    margin-top: 0 !important;
+    padding: 3px 8px !important;
+}
+
+}
+
+
+.select_strategy{
+
+
+ .p-dropdown{
+    width: 300px !important;
+  }
+}

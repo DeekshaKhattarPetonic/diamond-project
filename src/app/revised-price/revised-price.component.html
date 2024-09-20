@@ -1,0 +1,320 @@
+<div class="page pcss3t pcss3t-effect-scale pcss3t-theme-1">
+  <!-- <h1>Pure CSS Tabs</h1> -->
+  <!-- tabs -->
+
+
+    <h2 class="page_head">Review and Revise Price</h2>
+    <div class="page_content">
+    <li class="tab-content tab-content-first typography">
+      <ng-container *ngIf="!showTable">
+        <p class="para_head">To review and revise the price select the category of product for which the price to be revised</p>
+        <div class="flex categories card_shadow mt-2 px-2">
+          <p>Select Product Category</p>
+          <mat-radio-group>
+            <mat-radio-button value="1">All</mat-radio-button>
+            <!-- <mat-radio-button value="1">Single Item</mat-radio-button> -->
+            <mat-radio-button value="2">Multiple Items</mat-radio-button>
+            <mat-radio-button value="2">Item Category</mat-radio-button>
+          </mat-radio-group>
+          <!-- <div class="card flex justify-content-center"> -->
+            <p-dropdown
+                [options]="countries"
+                [(ngModel)]="selectedCountry"
+                optionLabel="name"
+                [filter]="true"
+                filterBy="name"
+                [showClear]="true"
+                placeholder="Category">
+                    <ng-template pTemplate="selectedItem" let-selectedOption>
+                        <div class="flex align-items-center gap-2">
+                            <!-- <img
+                                src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png"
+                                [class]="'flag flag-' + selectedCountry.code.toLowerCase()"
+                                style="width: 18px" /> -->
+                            <div>{{ selectedOption.name }}</div>
+                        </div>
+                    </ng-template>
+                    <ng-template let-country pTemplate="item">
+                        <div class="flex align-items-center gap-2">
+                            <!-- <img
+                                src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png"
+                                [class]="'flag flag-' + country.code.toLowerCase()"
+                                style="width: 18px" /> -->
+                            <div>{{ country.name }}</div>
+                        </div>
+                    </ng-template>
+            </p-dropdown>
+        <!-- </div> -->
+        <span class="material-symbols-outlined gobtn">
+          arrow_circle_right
+          </span>
+        </div>
+
+        <div class="row">
+          <p class="para_head mb-2 mt-3">Select the parameter to review and revise the price :</p>
+          <div class="d-flex dropdowns">
+            <div class="d-flex align-items-center col-md-6 mb-4 drop">
+              <input type="checkbox" id="supplyChainDynamics" />
+              <label for="supplyChainDynamics" class="label mb-0">Market Votality</label>
+              <div class="card flex justify-content-center">
+                <p-dropdown
+                  [options]="countries"
+                  [(ngModel)]="selectedCity"
+                  optionLabel="name"
+                  placeholder="Select Market Votality"
+                ></p-dropdown>
+              </div>
+              <input type="text" placeholder="% To Increase" class="form-control">
+            </div>
+            <div class="d-flex align-items-center col-md-6 mb-4 drop">
+              <input type="checkbox" id="supplyChainDynamics" />
+              <label for="supplyChainDynamics" class="label mb-0">Supply Chain Dynamics</label>
+              <div class="card flex justify-content-center">
+                <p-dropdown
+                  [options]="countries"
+                  [(ngModel)]="selectedCity"
+                  optionLabel="name"
+                  placeholder="Select Supply Chain Dynamics"
+                ></p-dropdown>
+              </div>
+              <input type="text" placeholder="% To Increase" class="form-control">
+            </div>
+            <div class="d-flex align-items-center col-md-6 mb-4 drop">
+              <input type="checkbox" id="supplyChainDynamics" />
+              <label for="supplyChainDynamics" class="label mb-0">Operational Costs</label>
+              <div class="card flex justify-content-center">
+                <p-dropdown
+                  [options]="countries"
+                  [(ngModel)]="selectedCity"
+                  optionLabel="name"
+                  placeholder="Select Operational Costs"
+                ></p-dropdown>
+              </div>
+              <input type="text" placeholder="% To Increase" class="form-control">
+            </div>
+            <div class="d-flex align-items-center col-md-6 mb-4 drop">
+              <input type="checkbox" id="supplyChainDynamics" />
+              <label for="supplyChainDynamics" class="label mb-0">Contingency Reserves</label>
+              <div class="card flex justify-content-center">
+                <p-dropdown
+                  [options]="countries"
+                  [(ngModel)]="selectedCity"
+                  optionLabel="name"
+                  placeholder="Select Contingency Reserves"
+                ></p-dropdown>
+              </div>
+              <input type="text" placeholder="% To Increase" class="form-control">
+            </div>
+            <div class="d-flex align-items-center col-md-6 mb-4 drop">
+              <input type="checkbox" id="supplyChainDynamics" />
+              <label for="supplyChainDynamics" class="label mb-0">Regulatory and Tax Changes</label>
+              <div class="card flex justify-content-center">
+                <p-dropdown
+                  [options]="countries"
+                  [(ngModel)]="selectedCity"
+                  optionLabel="name"
+                  placeholder="Select Regulatory and Tax Changes"
+                ></p-dropdown>
+              </div>
+              <input type="text" placeholder="% To Increase" class="form-control">
+            </div>
+            <div class="d-flex align-items-center col-md-6 mb-4 drop">
+              <input type="checkbox" id="supplyChainDynamics" />
+              <label for="supplyChainDynamics" class="label mb-0">Inventory Holding Costs</label>
+              <div class="card flex justify-content-center">
+                <p-dropdown
+                  [options]="countries"
+                  [(ngModel)]="selectedCity"
+                  optionLabel="name"
+                  placeholder="Select Inventory Holding Costs"
+                ></p-dropdown>
+              </div>
+              <input type="text" placeholder="% To Increase" class="form-control">
+            </div>
+          </div>
+          <div class="buttons">
+            <button class="btn revised">View Revised Price</button>
+            <button class="btn confirm" (click)="showTable = true">Confirm</button>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="showTable">
+        <div class="flex row">
+          <div class="col-md-8">
+            <table class="table table-hover table-striped table-bordered mb-0  dataTable" id="userTable">
+              <thead class="table-light">
+                <tr>
+                  <th>Product ID</th>
+                  <!-- <th></th> -->
+                  <th>Description</th>
+                  <th>Carat</th>
+                  <th>Color</th>
+                  <th>Clarity</th>
+                  <th>Cut</th>
+                  <th>Original Price</th>
+                  <th>Quantity</th>
+                  <th>Rate</th>
+                  <th>Dynamic Price</th>
+                  <!-- <th>Action</th> -->
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngIf="!showEditTable">
+                  <tr>
+                    <td class="class1">D001</td>
+                    <td class="class1">Round cut, 1 carat , excellent clarity</td>
+                    <!-- <td class="class1"><img class="userImage" [src]="user.image" /></td> -->
+                    <td class="description">24</td>
+                    <td class="enter-value">G</td>
+                    <!-- <td class="enter-value">test</td> -->
+                    <td class="description">VS1</td>
+                    <td class="description">Excellent</td>
+                    <td class="enter-value">$5,000</td>
+                    <td class="enter-value">50</td>
+                    <td class="description">100</td>
+                    <td class="description">$5,500</td>
+                  </tr>
+                  <tr>
+                    <td class="class1">D002</td>
+                    <td class="class1">Square cut, 1 carat , excellent clarity</td>
+                    <!-- <td class="class1"><img class="userImage" [src]="user.image" /></td> -->
+                    <td class="description">24</td>
+                    <td class="enter-value">G</td>
+                    <!-- <td class="enter-value">test</td> -->
+                    <td class="description">VS2</td>
+                    <td class="description">Excellent</td>
+                    <td class="enter-value">$4,000</td>
+                    <td class="enter-value">30</td>
+                    <td class="description">100</td>
+                    <td class="description">$4,500</td>
+                  </tr>
+                  <tr>
+                    <td class="class1">D003</td>
+                    <td class="class1">Round cut, 1 carat , excellent clarity</td>
+                    <!-- <td class="class1"><img class="userImage" [src]="user.image" /></td> -->
+                    <td class="description">24</td>
+                    <td class="enter-value">G</td>
+                    <!-- <td class="enter-value">test</td> -->
+                    <td class="description">VS1</td>
+                    <td class="description">Excellent</td>
+                    <td class="enter-value">$6,000</td>
+                    <td class="enter-value">20</td>
+                    <td class="description">100</td>
+                    <td class="description">$8,500</td>
+                  </tr>
+                  <tr>
+                    <td class="class1">D004</td>
+                    <td class="class1">Heart cut, 1 carat , excellent clarity</td>
+                    <td class="description">24</td>
+                    <td class="enter-value">G</td>
+                    <td class="description">VS2</td>
+                    <td class="description">Excellent</td>
+                    <td class="enter-value">$6,000</td>
+                    <td class="enter-value">50</td>
+                    <td class="description">100</td>
+                    <td class="description">$8,500</td>
+                  </tr>
+                </ng-container>
+                <ng-container *ngIf="showEditTable">
+                  <tr class="editRow">
+                    <td class="class1"><input type="text" value="D004"> </td>
+                    <td class="class1"><input type="text" value="Heart cut, 1 carat , excellent clarity"></td>
+                    <td class="enter-value"><input type="text" value="24"></td>
+                    <td class="description"><input type="text" value="G"></td>
+                    <td class="enter-value"><input type="text" value="VS2"></td>
+                    <td class="description"><input type="text" value="Excellent"></td>
+                    <td class="description"><input type="text" value="$6,000"></td>
+                    <td class="enter-value"><input type="text" value="50"></td>
+                    <td class="enter-value"><input type="text" value="100"></td>
+                    <td class="enter-value"><input type="text" value="$8,500"></td>
+                  </tr>
+                  <tr class="editRow">
+                    <td class="class1"><input type="text" value="D004"> </td>
+                    <td class="class1"><input type="text" value="Heart cut, 1 carat , excellent clarity"></td>
+                    <td class="enter-value"><input type="text" value="24"></td>
+                    <td class="description"><input type="text" value="G"></td>
+                    <td class="enter-value"><input type="text" value="VS2"></td>
+                    <td class="description"><input type="text" value="Excellent"></td>
+                    <td class="description"><input type="text" value="$6,000"></td>
+                    <td class="enter-value"><input type="text" value="50"></td>
+                    <td class="enter-value"><input type="text" value="100"></td>
+                    <td class="enter-value"><input type="text" value="$8,500"></td>
+                  </tr>
+                  <tr class="editRow">
+                    <td class="class1"><input type="text" value="D004"> </td>
+                    <td class="class1"><input type="text" value="Heart cut, 1 carat , excellent clarity"></td>
+                    <td class="enter-value"><input type="text" value="24"></td>
+                    <td class="description"><input type="text" value="G"></td>
+                    <td class="enter-value"><input type="text" value="VS2"></td>
+                    <td class="description"><input type="text" value="Excellent"></td>
+                    <td class="description"><input type="text" value="$6,000"></td>
+                    <td class="enter-value"><input type="text" value="50"></td>
+                    <td class="enter-value"><input type="text" value="100"></td>
+                    <td class="enter-value"><input type="text" value="$8,500"></td>
+                  </tr>
+                  <tr class="editRow">
+                    <td class="class1"><input type="text" value="D004"> </td>
+                    <td class="class1"><input type="text" value="Heart cut, 1 carat , excellent clarity"></td>
+                    <td class="enter-value"><input type="text" value="24"></td>
+                    <td class="description"><input type="text" value="G"></td>
+                    <td class="enter-value"><input type="text" value="VS2"></td>
+                    <td class="description"><input type="text" value="Excellent"></td>
+                    <td class="description"><input type="text" value="$6,000"></td>
+                    <td class="enter-value"><input type="text" value="50"></td>
+                    <td class="enter-value"><input type="text" value="100"></td>
+                    <td class="enter-value"><input type="text" value="$8,500"></td>
+                  </tr>
+                </ng-container>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="col-md-4" *ngIf="!showEditTable">
+            <div class="conformation">
+              <form class="flex align-items-center gap-1" [formGroup]="formGroup">
+                <p-checkbox
+                  formControlName="city"
+                  value="New York"
+                  inputId="ny"
+                ></p-checkbox>
+                <label for="ny">Do you further want to edit the price?</label>
+              </form>
+            </div>
+            <div class="buttons mt-2">
+              <button
+                class="confirm btn"
+                (click)="showEditTable = true"
+                [disabled]="!formGroup.get('city')?.value">
+                Edit Price
+              </button>
+              <button class="btn no" (click)="showEditTable = false">No</button>
+            </div>
+          </div>
+          <div class="col-md-4" *ngIf="showEditTable">
+            <div class="conformation">
+              <form class="flex align-items-center gap-1" [formGroup]="formGroup">
+                <!-- <p-checkbox
+                  formControlName="city"
+                  value="New York"
+                  inputId="ny"
+                ></p-checkbox> -->
+                <label for="ny">Do you want to save the changes?</label>
+              </form>
+            </div>
+            <div class="buttons mt-2">
+              <button
+                class="confirm btn"
+                (click)="openModal()">
+                Yes
+              </button>
+              <button class="btn no" (click)="showEditTable = false">No</button>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </li>
+  </div>
+
+
+</div>

@@ -1,0 +1,29 @@
+
+<body class="login-bg">
+  <header>
+      <div class="container-fluid">
+          <div class="row align-items-center justify-content-between">
+              <div class="col-md-6">
+                  <div class="logo">
+                      <img src="../../assets/img/hk-logo.svg" alt="">
+                  </div>
+              </div>
+          </div>
+      </div>
+  </header>
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12 buttons">
+            <div [routerLink]="['/revised-price']" routerLinkActive="router-link-active"  class="flex">
+              <a class="bttn">Review And Revise Price</a>
+            </div>
+
+            <div class="flex" [routerLink]="['/strategy']" routerLinkActive="router-link-active" >
+              <a  class="bttn">Define Strategy</a>
+            </div>
+          </div>
+
+      </div>
+  </div>
+
+</body>

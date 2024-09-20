@@ -1,0 +1,176 @@
+<div class="page">
+  <h2 class="page_head">Comparative Score of Different Pricing Strategy</h2>
+
+  <!-- <p>Comparative Score of Each Strategy</p> -->
+
+  <p class="note">*Select the row to implement the strategy</p>
+
+
+  <div class="container">
+    <table class="table table-hover table-striped table-bordered mb-0  dataTable" id="userTable">
+      <thead class="table-light">
+        <tr>
+          <th>S.No.</th>
+          <!-- <th></th> -->
+          <th>Name Of Strategy</th>
+          <th>Score</th>
+          <th>Param 1</th>
+          <th>Param 2</th>
+          <th>Param 3</th>
+          <th>Param 4</th>
+          <th>Param 5</th>
+          <th>Param 6</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container >
+          <tr (click)="showMetrics = true">
+            <td class="class1">1</td>
+            <td class="class1">Round cut, 1 carat , excellent clarity</td>
+            <!-- <td class="class1"><img class="userImage" [src]="user.image" /></td> -->
+            <td class="description">80%</td>
+            <td class="enter-value"></td>
+            <!-- <td class="enter-value">test</td> -->
+            <td class="description"></td>
+            <td class="description"></td>
+            <td class="enter-value"></td>
+            <td class="enter-value"></td>
+            <td class="description"></td>
+            <!-- <td class="description"></td>
+            <td class="description"></td> -->
+          </tr>
+          <tr (click)="showMetrics = true">
+            <td class="class1">2</td>
+            <td class="class1">Round cut, 1 carat , excellent clarity</td>
+            <!-- <td class="class1"><img class="userImage" [src]="user.image" /></td> -->
+            <td class="description">80%</td>
+            <td class="enter-value"></td>
+            <!-- <td class="enter-value">test</td> -->
+            <td class="description"></td>
+            <td class="description"></td>
+            <td class="enter-value"></td>
+            <td class="enter-value"></td>
+            <td class="description"></td>
+            <!-- <td class="description"></td> -->
+          </tr>
+          <tr (click)="showMetrics = true">
+            <td class="class1">3</td>
+            <td class="class1">Round cut, 1 carat , excellent clarity</td>
+            <!-- <td class="class1"><img class="userImage" [src]="user.image" /></td> -->
+            <td class="description">80%</td>
+            <td class="enter-value"></td>
+            <!-- <td class="enter-value">test</td> -->
+            <td class="description"></td>
+            <td class="description"></td>
+            <td class="enter-value"></td>
+            <td class="enter-value"></td>
+            <!-- <td class="description"></td> -->
+            <td class="description"></td>
+          </tr>
+          <tr (click)="showMetrics = true">
+            <td class="class1">4</td>
+            <td class="class1">Round cut, 1 carat , excellent clarity</td>
+            <!-- <td class="class1"><img class="userImage" [src]="user.image" /></td> -->
+            <td class="description">80%</td>
+            <td class="enter-value"></td>
+            <!-- <td class="enter-value">test</td> -->
+            <td class="description"></td>
+            <td class="description"></td>
+            <!-- <td class="enter-value"></td> -->
+            <td class="enter-value"></td>
+            <td class="description"></td>
+            <td class="description"></td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="" *ngIf="showMetrics">
+    <p>*Note: Before Implementation please review the impact</p>
+
+    <h2>Business Impact-Overall Matrics</h2>
+
+    <div class="row mt-2 mx-2">
+      <div class="details col-md-3 mb-1">
+        <span class="head">Gross Margin</span>
+        <input type="text" class="form-control_m">
+      </div>
+      <div class="details col-md-3 mb-1">
+        <span class="head">Inventory Turnover ratio For Diamonds</span>
+        <input type="text" class="form-control_m">
+      </div>
+      <div class="details col-md-3 mb-1">
+        <span class="head">Revenue per Unit</span>
+        <input type="text" class="form-control_m">
+      </div>
+      <div class="details col-md-3 mb-1">
+        <span class="head">Carat Per Unit</span>
+        <input type="text" class="form-control_m">
+      </div>
+      <div class="details col-md-3 mb-1">
+        <span class="head">Customer LTV</span>
+        <input type="text" class="form-control_m">
+      </div>
+      <div class="details col-md-3 mb-1">
+        <span class="head">Market price Votality Index</span>
+        <input type="text" class="form-control_m">
+      </div>
+      <div class="details col-md-3">
+        <span class="head">Break Even Price</span>
+        <input type="text" class="form-control_m">
+      </div>
+      <div class="details col-md-3 mb-1">
+        <span class="head">Customer Acquisition Cost</span>
+        <input type="text" class="form-control_m">
+      </div>
+      <div class="details col-md-3 mb-1">
+        <span class="head">Sales Conversion Rate</span>
+        <input type="text" class="form-control_m">
+      </div>
+      <div class="details col-md-3 mb-1">
+        <span class="head">Customer Retention Rate</span>
+        <input type="text" class="form-control_m">
+      </div>
+      <div class="details col-md-3 mb-1">
+        <span class="head">Price Elasticity Of Demand</span>
+        <input type="text" class="form-control_m">
+      </div>
+      <div class="details col-md-3 mb-1">
+        <span class="head">Stock Turnover Ratio</span>
+        <input type="text" class="form-control_m">
+      </div>
+      <div class="details col-md-3 mb-1">
+        <span class="head">Customer rejection Rate</span>
+        <input type="text" class="form-control_m">
+      </div>
+      <div class="details col-md-3 mb-1">
+        <span class="head">Profit per Capital</span>
+        <input type="text" class="form-control_m">
+      </div>
+      <div class="details col-md-3 mb-1">
+        <span class="head">Average Order Value</span>
+        <input type="text" class="form-control_m">
+      </div>
+      <div class="details col-md-3 mb-1">
+        <span class="head">Stone Quality Index</span>
+        <input type="text" class="form-control_m">
+      </div>
+      <!-- <div class="details col-md-3">
+        <span class="head">Price competitiveness Index</span>
+        <input type="text" class="form-control">
+      </div>
+      <div class="details col-md-3">
+        <span class="head">Price Elasticity Of Demand</span>
+        <input type="text" class="form-control">
+      </div> -->
+    </div>
+  </div>
+
+  <div class="buttons" *ngIf="showMetrics">
+    <button class="btn cancel">Cancel</button>
+    <button (click)="openModal()" class="btn confirm">Confirm</button>
+
+  </div>
+
+</div>

@@ -16,11 +16,13 @@
             <div class="col-lg-12">
                 <div class="type-of-login">
                     <h1>HK PulseAI</h1>
-                    <h3>Click on User Role to Login</h3>
+                    <!-- <button class="login_btn"><img src="../../assets/img/diamond.png" alt=""> Please Login</button> -->
+                    <button [routerLink]="['/login']" style="--clr:#FF44CC"><span>Please Login</span><i></i></button>
+                    <!-- <h3>Click on User Role to Login</h3> -->
                 </div>
             </div>
             <div class="col-md-12 px-md-4 position-relative">
-                <a [routerLink]="['/login']" routerLinkActive="router-link-active" >
+                <a  routerLinkActive="router-link-active" >
                     <div class="trim-select">
                         <div class="icon-box">
                             <img class="icons" src="../../assets/img/admin-icon.png" alt="">
@@ -30,7 +32,7 @@
                 </a>
             </div>
             <div class="col-md-12 px-md-4 position-relative">
-                <a [routerLink]="['/login']">
+                <a >
                 <div class="trim-select wow slideInLeft" data-wow-duration="2s" data-wow-delay="5s">
                     <div class="icon-box">
                         <img class="icons" src="../../assets/img/strategist.png" alt="">
@@ -40,7 +42,7 @@
                 </a>
             </div>
             <div class="col-md-12 px-md-4 position-relative">
-                <a [routerLink]="['/login']">
+                <a >
                 <div class="trim-select">
                     <div class="icon-box">
                         <img class="icons" src="../../assets/img/user.png" alt="">
@@ -50,7 +52,7 @@
                 </a>
             </div>
             <div class="col-md-12 px-md-4 position-relative">
-                <a [routerLink]="['/login']">
+                <a >
                 <div class="trim-select">
                     <div class="icon-box">
                         <img class="icons" src="../../assets/img/sales-manager.png" alt="">
@@ -60,7 +62,7 @@
                 </a>
             </div>
             <div class="col-md-12 px-md-4 position-relative">
-                <a [routerLink]="['/login']">
+                <a >
                 <div class="trim-select">
                     <div class="icon-box">
                         <svg id="MDI_account-group" data-name="MDI / account-group" xmlns="http://www.w3.org/2000/svg"

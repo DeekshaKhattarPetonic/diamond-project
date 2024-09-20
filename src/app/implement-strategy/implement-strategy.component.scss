@@ -1,0 +1,88 @@
+.table-light {
+  --bs-table-bg: #555 !important;
+
+  th {
+      color: #fff;
+  }
+}
+
+// tr{
+td {
+  cursor: pointer;
+}
+
+.table {
+  >tbody {
+      .dropdown-list.edit-btn {
+          >a {
+              background-color: #ccc;
+              padding: 3px 4px;
+              border-radius: 4px;
+              font-size: 12px;
+
+              i {
+                  // color: $inititor-color;
+                  font-size: 12px;
+
+              }
+
+              &:hover {
+                  background-color: #ff0000;
+
+                  i {
+                      color: #fff;
+                  }
+              }
+          }
+      }
+  }
+}
+
+h2{
+  font-size: 20px;
+  color: #00a1a6;
+  font-weight: 500;
+}
+
+.note{
+  color: grey;
+}
+
+.details{
+  display: flex;
+  flex-wrap: nowrap;
+  .head{
+    flex-basis: 70%;
+
+  }
+
+  input{
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 4px 10px;
+    flex-basis: 20%;
+    width: 100%;
+    height: 28px;
+  }
+}
+
+
+.buttons{
+  display: flex;
+  margin-top: 20px;
+  column-gap: 10px;
+  .btn{
+    border-radius: 4px;
+    // background-color: aquamarine;
+    color: white;
+    padding: 5px 17px;
+  }
+
+  .cancel{
+    background-color: #ff0000;
+  }
+
+  .confirm{
+    background-color: #00a1a6;
+  }
+}

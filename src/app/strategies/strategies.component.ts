@@ -12,6 +12,7 @@ import { CustomModalComponent } from '../shared/custom-modal/custom-modal.compon
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationModalComponent } from '../shared/confirmation-modal/confirmation-modal.component';
 import { DialogModule } from 'primeng/dialog';
+import { ImplementStrategyComponent } from '../implement-strategy/implement-strategy.component';
 // import { MessageService } from 'primeng/api';
 // import { ProfileServiceService } from '../../services/profile-service.service';
 import { MatIconModule } from '@angular/material/icon';
@@ -21,13 +22,16 @@ import { DynamicDialogModule } from 'primeng/dynamicdialog';
 @Component({
   selector: 'app-strategies',
   standalone: true,
-  imports: [DialogModule, MatIconModule, DynamicDialogModule, CalendarModule, ChartModule, MatTabsModule, MatRadioModule, DropdownModule, FormsModule, CommonModule, ReactiveFormsModule, CheckboxModule],
+  imports: [ImplementStrategyComponent, DialogModule, MatIconModule, DynamicDialogModule, CalendarModule, ChartModule, MatTabsModule, MatRadioModule, DropdownModule, FormsModule, CommonModule, ReactiveFormsModule, CheckboxModule],
   templateUrl: './strategies.component.html',
   styleUrl: './strategies.component.scss'
 })
 export class StrategiesComponent {
+  implement_page: any = false;
   showTable: any = false;
   countries: any[] | undefined;
+  selectedStrategy: any;
+  strategies: any[] | undefined
   formGroup: any;
   selectedCountry: any;
   showEditTable: any = false
@@ -48,13 +52,24 @@ export class StrategiesComponent {
 
 
   ngOnInit() {
+
     this.countries = [
         { name: 'option', code: 'AU' },
         { name: 'option', code: 'BR' },
         { name: 'option', code: 'CN' },
         { name: 'option', code: 'EG' },
-
     ];
+
+    this.strategies = [
+      { name: 'Value Based Pricing Strategy', code: 'AU' },
+      { name: 'Real Time Pricing Strategy', code: 'BR' },
+      { name: 'Competitive Pricing strategy', code: 'CN' },
+      { name: 'Segmented Pricing strategy', code: 'EG' },
+      { name: 'Time Based Pricing strategy', code: 'CN' },
+      { name: 'Brand Pricing strategy', code: 'EG' },
+      { name: 'Market Penetration Pricing strategy', code: 'CN' },
+
+  ];
 
     this.formGroup = new FormGroup({
       city: new FormControl<string | null>(null)
@@ -145,6 +160,8 @@ export class StrategiesComponent {
           }
       }
   };
+
+  this.selectedStrategy = { name: 'Value Based Pricing Strategy', code: 'AU' }
 }
 
 openModal(){
@@ -159,5 +176,8 @@ openModal(){
   this.showTable = false
 }
 
+onStrategyChange() {
+  console.log(this.selectedStrategy); // This will print the selected strategy object
+}
 
 }
