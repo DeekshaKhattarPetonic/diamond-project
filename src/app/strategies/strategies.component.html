@@ -9,8 +9,6 @@
 	<body> -->
 <div class="page">
   <!-- <h1>Pure CSS Tabs</h1> -->
-
-
   <!-- tabs -->
 
   <h2 class="page_head">Strategy Management dashboard</h2>
@@ -27,9 +25,6 @@
 
 				<input type="radio" name="pcss3t" id="tab5" class="tab-content-last">
 				<label for="tab5"><i class="icon-globe"></i>Newton</label> -->
-
-
-
 				<ul>
 					<li class="tab-content tab-content-first typography">
             <ng-container *ngIf="!showTable">
@@ -78,7 +73,6 @@
 
               <div class="row">
                 <p class="para_head mb-2 mt-3">Select the parameter to review and revise the price :</p>
-
                 <div class="d-flex dropdowns">
                   <div class="d-flex align-items-center col-md-6 mb-4 drop">
                     <input type="checkbox" id="supplyChainDynamics" />
@@ -93,7 +87,6 @@
                     </div>
                     <input type="text" placeholder="% To Increase" class="form-control">
                   </div>
-
                   <div class="d-flex align-items-center col-md-6 mb-4 drop">
                     <input type="checkbox" id="supplyChainDynamics" />
                     <label for="supplyChainDynamics" class="label mb-0">Supply Chain Dynamics</label>
@@ -107,7 +100,6 @@
                     </div>
                     <input type="text" placeholder="% To Increase" class="form-control">
                   </div>
-
                   <div class="d-flex align-items-center col-md-6 mb-4 drop">
                     <input type="checkbox" id="supplyChainDynamics" />
                     <label for="supplyChainDynamics" class="label mb-0">Operational Costs</label>
@@ -121,7 +113,6 @@
                     </div>
                     <input type="text" placeholder="% To Increase" class="form-control">
                   </div>
-
                   <div class="d-flex align-items-center col-md-6 mb-4 drop">
                     <input type="checkbox" id="supplyChainDynamics" />
                     <label for="supplyChainDynamics" class="label mb-0">Contingency Reserves</label>
@@ -134,7 +125,6 @@
                       ></p-dropdown>
                     </div>
                     <input type="text" placeholder="% To Increase" class="form-control">
-
                   </div>
 
                   <div class="d-flex align-items-center col-md-6 mb-4 drop">
@@ -164,15 +154,11 @@
                     </div>
                     <input type="text" placeholder="% To Increase" class="form-control">
                   </div>
-
                 </div>
-
                 <div class="buttons">
                   <button class="btn revised">View Revised Price</button>
                   <button class="btn confirm" (click)="showTable = true">Confirm</button>
                 </div>
-
-
               </div>
             </ng-container>
 
@@ -212,7 +198,6 @@
                           <td class="description">100</td>
                           <td class="description">$5,500</td>
                         </tr>
-
                         <tr>
                           <td class="class1">D002</td>
                           <td class="class1">Square cut, 1 carat , excellent clarity</td>
@@ -227,7 +212,6 @@
                           <td class="description">100</td>
                           <td class="description">$4,500</td>
                         </tr>
-
                         <tr>
                           <td class="class1">D003</td>
                           <td class="class1">Round cut, 1 carat , excellent clarity</td>
@@ -242,7 +226,6 @@
                           <td class="description">100</td>
                           <td class="description">$8,500</td>
                         </tr>
-
                         <tr>
                           <td class="class1">D004</td>
                           <td class="class1">Heart cut, 1 carat , excellent clarity</td>
@@ -310,8 +293,6 @@
                         </tr>
 
                       </ng-container>
-
-
                     </tbody>
                   </table>
                 </div>
@@ -331,14 +312,12 @@
                     <button
                       class="confirm btn"
                       (click)="showEditTable = true"
-                      [disabled]="!formGroup.get('city')?.value"
-                    >
+                      [disabled]="!formGroup.get('city')?.value">
                       Edit Price
                     </button>
                     <button class="btn no" (click)="showEditTable = false">No</button>
                   </div>
                 </div>
-
                 <div class="col-md-4" *ngIf="showEditTable">
                   <div class="conformation">
                     <form class="flex align-items-center gap-1" [formGroup]="formGroup">
@@ -353,40 +332,31 @@
                   <div class="buttons mt-2">
                     <button
                       class="confirm btn"
-                      (click)="showTable = false"
-
-                    >
+                      (click)="openModal()">
                       Yes
                     </button>
                     <button class="btn no" (click)="showEditTable = false">No</button>
                   </div>
                 </div>
-
               </div>
-
             </ng-container>
-
         </li>
 
 					<li class="tab-content tab-content-2 typography">
-
             <div class="row details card_shadow obj  mb-2">
               <p class="col-md-3 head">Business Objective and Criteria</p>
-
               <mat-radio-group class="col-md-7">
                 <mat-radio-button value="1">Customer based </mat-radio-button>
                 <mat-radio-button value="1">Media Oriented</mat-radio-button>
                 <mat-radio-button value="2">Product based</mat-radio-button>
                 <!-- <mat-radio-button value="2">Item Category</mat-radio-button> -->
               </mat-radio-group>
-
               <span class="col-md-2" class="material-symbols-outlined gobtn">
                 arrow_circle_right
                 </span>
             </div>
-
             <div class="d-flex row flex flex-wrap gap-3 p-fluid mb-2">
-              <div class="flex-auto d-flex row col-md-3">
+              <div class="flex-auto d-flex row col-md-3 align-center">
                   <label  for="buttondisplay" class="col-md-4 font-bold block mb-2"> From Date </label>
                   <p-calendar class="col-md-6"
                       [(ngModel)]="date1"
@@ -394,7 +364,7 @@
                       inputId="buttondisplay"
                       [showOnFocus]="false" />
               </div>
-              <div class="flex-auto row col-md-3">
+              <div class="flex-auto row col-md-3 align-center">
                 <label for="buttondisplay" class="col-md-4 font-bold block mb-2"> To Date </label>
                 <p-calendar class="col-md-6"
                     [(ngModel)]="date2"
@@ -409,9 +379,8 @@
                 <div class="row">
                   <div class="row metrics col-md-6">
                     <div class=" card_shadow">
-                      <p class="met_head">Metrics for Value Based Pricing strategy</p>
-
-                      <div class="row mt-3 mx-2">
+                      <p class="met_head">Matrix for Value Based Pricing strategy</p>
+                      <div class="row mt-2 mx-2">
                         <div class="details col-md-6">
                           <span class="head">Customer Perceived Value</span>
                           <input type="text" class="form-control_m">
@@ -444,8 +413,6 @@
                           <span class="head">Price Elasticity Of Demand</span>
                           <input type="text" class="form-control_m">
                         </div>
-
-
                         <div class="details col-md-6">
                           <span class="head">Market Demand</span>
                           <input type="text" class="form-control_m">
@@ -466,7 +433,6 @@
                           <span class="head">Brand Prestige</span>
                           <input type="text" class="form-control_m">
                         </div>
-
                         <div class="details col-md-6">
                           <span class="head">Feature Value Ratio</span>
                           <input type="text" class="form-control_m">
@@ -495,8 +461,7 @@
                     <div class="row metrics">
                       <div class=" card_shadow">
                         <p class="met_head">Business Impact: Overall Matrics</p>
-
-                        <div class="row mt-3 mx-2">
+                        <div class="row mt-2 mx-2">
                           <div class="details col-md-6">
                             <span class="head">Gross Margin</span>
                             <input type="text" class="form-control_m">
@@ -529,8 +494,6 @@
                             <span class="head">Customer Acquisition Cost</span>
                             <input type="text" class="form-control_m">
                           </div>
-
-
                           <div class="details col-md-6">
                             <span class="head">Sales Conversion Rate</span>
                             <input type="text" class="form-control_m">
@@ -551,7 +514,6 @@
                             <span class="head">Customer rejection Rate</span>
                             <input type="text" class="form-control_m">
                           </div>
-
                           <div class="details col-md-6">
                             <span class="head">Profit per Capital</span>
                             <input type="text" class="form-control_m">
@@ -597,15 +559,62 @@
                 <div class="row">
                   <div class="row metrics col-md-6">
                     <div class=" card_shadow">
-                      <p class="met_head">Metrics for Real Time Pricing Strategy</p>
-
-                      <div class="row mt-3 mx-2">
+                      <p class="met_head">Matrics for Real Time Pricing Strategy</p>
+                      <div class="row mt-2 mx-2">
                         <div class="details col-md-6">
-                          <span class="head">Customer Perceived Value</span>
+                          <span class="head">Competitor Price Elasticity</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Customer Willingness To Pay</span>
+                          <span class="head">Competitor Price Index</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Demand Forecast Accuracy</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Demand-Supply Ratio</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Discount Elasticity</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Dynamic Customer Lifetime Value</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Dynamic Revenue Optimization</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Dynamic Segment Profitability</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Geographic Pricing Index</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Immediate Price Reaction Time</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Inventory Turnover Ratio</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Price Competitiveness Index</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Price Elasticity</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Price Elasticity of Demand</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
@@ -613,67 +622,56 @@
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Personalisation and Customisation Value</span>
+                          <span class="head">Promotion Effectiveness Score</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Net Promoter Score</span>
+                          <span class="head">Real-Time Competitiveness Index</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">competitor Price Elasticity</span>
+                          <span class="head">Real-Time Pricing Trend</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Price competitiveness Index</span>
+                          <span class="head">Repeat Purchase Probability</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Price Elasticity Of Demand</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-
-
-                        <div class="details col-md-6">
-                          <span class="head">Market Demand</span>
+                          <span class="head">Seasonal Demand Index</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Customer Satisfaction Index</span>
+                          <span class="head">Stock Levels vs. Pricing</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Competitor Price Elasticity</span>
+                          <span class="head">Stock Risk Ratio</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Price competitiveness Index</span>
+                          <span class="head">Surge Pricing Multiplier</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Brand Prestige</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-
-                        <div class="details col-md-6">
-                          <span class="head">Feature Value Ratio</span>
+                          <span class="head">Time of Purchase Impact</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Cutomer LTV</span>
+                          <span class="head">Trend Adjustment Factor</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Willingness To Recomment</span>
+                          <span class="head">Willingness to Pay (WTP)</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <!-- <div class="details col-md-6">
-                          <span class="head">Price competitiveness Index</span>
-                          <input type="text" class="form-control">
+                          <span class="head">Seasonal Sales Uplift</span>
+                          <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Price Elasticity Of Demand</span>
-                          <input type="text" class="form-control">
+                          <span class="head">Anomaly Detection Rate</span>
+                          <input type="text" class="form-control_m">
                         </div> -->
                       </div>
                     </div>
@@ -683,106 +681,137 @@
                     <div class="row metrics">
                       <div class=" card_shadow">
                         <p class="met_head">Business Impact: Overall Matrics</p>
-
-                        <div class="row mt-3 mx-2">
+                        <div class="row mt-2 mx-2">
                           <div class="details col-md-6">
-                            <span class="head">Gross Margin</span>
+                            <span class="head">Revenue Per User (RPU)</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Inventory Turnover ratio For Diamonds</span>
+                            <span class="head">Gross Profit Margin</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Revenue per Unit</span>
+                            <span class="head">Customer Lifetime Value (CLV)</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Carat Per Unit</span>
+                            <span class="head">Conversion Rate</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Customer LTV</span>
+                            <span class="head">Brand Price Elasticity</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Market price Votality Index</span>
+                            <span class="head">Market Share</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Break Even Price</span>
+                            <span class="head">Net Promoter Score (NPS)</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Customer Acquisition Cost</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-
-
-                          <div class="details col-md-6">
-                            <span class="head">Sales Conversion Rate</span>
+                            <span class="head">Price Optimization Efficiency</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Customer Retention Rate</span>
+                            <span class="head">Stock-Out Rate</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Price Elasticity Of Demand</span>
+                            <span class="head">Price Sensitivity Index</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Stock Turnover Ratio</span>
+                            <span class="head">Customer Profitability Score</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Customer rejection Rate</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-
-                          <div class="details col-md-6">
-                            <span class="head">Profit per Capital</span>
+                            <span class="head">Promotion Conversion Rate</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Average Order Value</span>
+                            <span class="head">Abandonment Rate</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Stone Quality Index</span>
+                            <span class="head">Channel Profitability Index</span>
                             <input type="text" class="form-control_m">
                           </div>
-                          <!-- <div class="details col-md-6">
-                            <span class="head">Price competitiveness Index</span>
-                            <input type="text" class="form-control">
+                          <div class="details col-md-6">
+                            <span class="head">Market Share Growth Rate</span>
+                            <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Price Elasticity Of Demand</span>
-                            <input type="text" class="form-control">
-                          </div> -->
+                            <span class="head">Gross Margin Return on Investment</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Discount Effectiveness Index</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Dynamic Price Adjustment Accuracy</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Supply Elasticity Index</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Competitor Reaction Time</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Forecast Accuracy Rate</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Retention Rate</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Revenue Stream Growth Rate</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Time-to-Market Efficiency</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Penetration Success Rate</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Cost Efficiency Index</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Seasonal Sales Uplift</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Anomaly Detection Rate</span>
+                            <input type="text" class="form-control_m">
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
 
                   <div class="graphs">
-
-
                     <div class="row all_graphs mt-5">
                       <img src="../../assets/img/g1.jpg" alt="">
                       <img src="../../assets/img/g2.png" alt="">
                       <img src="../../assets/img/g3.webp" alt="">
                       <img src="../../assets/img/g4.jpg" alt="">
-
                       <!-- <div class="card flex justify-content-center">
                         <p-chart type="doughnut" [data]="data2" [options]="options2" />
                     </div>
-
                     <div class="card">
                       <p-chart type="line" [data]="data" [options]="options" />
                   </div> -->
                     </div>
-
                   </div>
                 </div>
               </mat-tab>
@@ -790,49 +819,18 @@
                 <div class="row">
                   <div class="row metrics col-md-6">
                     <div class=" card_shadow">
-                      <p class="met_head">Metrics for Competitive Pricing strategy</p>
-
-                      <div class="row mt-3 mx-2">
+                      <p class="met_head">Matrix for Competitive Pricing strategy</p>
+                      <div class="row mt-2 mx-2">
                         <div class="details col-md-6">
-                          <span class="head">Customer Perceived Value</span>
+                          <span class="head">Price Competitiveness Index</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Customer Willingness To Pay</span>
+                          <span class="head">Market Share Percentage</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Price Sensitivity Coefficient</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Personalisation and Customisation Value</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Net Promoter Score</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">competitor Price Elasticity</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Price competitiveness Index</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Price Elasticity Of Demand</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-
-
-                        <div class="details col-md-6">
-                          <span class="head">Market Demand</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Customer Satisfaction Index</span>
+                          <span class="head">Price Elasticity of Demand</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
@@ -840,26 +838,105 @@
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Price competitiveness Index</span>
+                          <span class="head">Competitive Positioning Matrix</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Brand Prestige</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-
-                        <div class="details col-md-6">
-                          <span class="head">Feature Value Ratio</span>
+                          <span class="head">Dynamic Pricing Score</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Cutomer LTV</span>
+                          <span class="head">Historical Price Analysis</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
+                          <span class="head">Strategy Effectiveness Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Promotion Effectiveness Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Competitor Comparison Matrix</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Discount Impact Analysis</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Price Sensitivity Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Optimal Price Point</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <!-- <div class="details col-md-6">
+                          <span class="head">Net Profit Margin</span>
+                          <input type="text" class="form-control_m">
+                        </div> -->
+                        <div class="details col-md-6">
+                          <span class="head">Demand Forecast Accuracy</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Seasonal Demand Variation</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Segmentation Effectiveness Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Sales Volume Change</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Revenue Impact Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Market Conditions Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Brand Value Index</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Response Time Analysis</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Economic Impact Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Supply Chain Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Transparency Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Communication Effectiveness</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Compliance Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Value Perception Index</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <!-- <div class="details col-md-6">
                           <span class="head">Willingness To Recomment</span>
                           <input type="text" class="form-control_m">
-                        </div>
+                        </div> -->
                         <!-- <div class="details col-md-6">
                           <span class="head">Price competitiveness Index</span>
                           <input type="text" class="form-control">
@@ -876,75 +953,71 @@
                     <div class="row metrics">
                       <div class=" card_shadow">
                         <p class="met_head">Business Impact: Overall Matrics</p>
-
-                        <div class="row mt-3 mx-2">
+                        <div class="row mt-2 mx-2">
                           <div class="details col-md-6">
-                            <span class="head">Gross Margin</span>
+                            <span class="head">Customer Satisfaction Score</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Inventory Turnover ratio For Diamonds</span>
+                            <span class="head">Retention Rate</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Revenue per Unit</span>
+                            <span class="head">Profit Margin Percentage</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Carat Per Unit</span>
+                            <span class="head">Revenue Growth Rate</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Customer LTV</span>
+                            <span class="head">Market Share Growth Rate</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Market price Votality Index</span>
+                            <span class="head">Inventory Turnover Ratio</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Break Even Price</span>
+                            <span class="head">Cost of Goods Sold Analysis</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Customer Acquisition Cost</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-
-
-                          <div class="details col-md-6">
-                            <span class="head">Sales Conversion Rate</span>
+                            <span class="head">Brand Loyalty Index</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Customer Retention Rate</span>
+                            <span class="head">Conversion Rate</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Price Elasticity Of Demand</span>
+                            <span class="head">ROI Percentage</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Stock Turnover Ratio</span>
+                            <span class="head">Churn Rate Percentage</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Customer rejection Rate</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-
-                          <div class="details col-md-6">
-                            <span class="head">Profit per Capital</span>
+                            <span class="head">Marketing ROI Percentage</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Average Order Value</span>
+                            <span class="head">Cash Flow Analysis</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Stone Quality Index</span>
+                            <span class="head">Net Profit Margin</span>
                             <input type="text" class="form-control_m">
                           </div>
+                          <div class="details col-md-6">
+                            <span class="head">Cost Structure Ratio</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <!-- <div class="details col-md-6">
+                            <span class="head">Willingness To Recomment</span>
+                            <input type="text" class="form-control_m">
+                          </div> -->
                           <!-- <div class="details col-md-6">
                             <span class="head">Price competitiveness Index</span>
                             <input type="text" class="form-control">
@@ -959,23 +1032,18 @@
                   </div>
 
                   <div class="graphs">
-
-
                     <div class="row all_graphs mt-5">
                       <img src="../../assets/img/g1.jpg" alt="">
                       <img src="../../assets/img/g2.png" alt="">
                       <img src="../../assets/img/g3.webp" alt="">
                       <img src="../../assets/img/g4.jpg" alt="">
-
                       <!-- <div class="card flex justify-content-center">
                         <p-chart type="doughnut" [data]="data2" [options]="options2" />
                     </div>
-
                     <div class="card">
                       <p-chart type="line" [data]="data" [options]="options" />
                   </div> -->
                     </div>
-
                   </div>
                 </div>
               </mat-tab>
@@ -983,74 +1051,125 @@
                 <div class="row">
                   <div class="row metrics col-md-6">
                     <div class=" card_shadow">
-                      <p class="met_head">Metrics for Segmented Pricing strategy</p>
+                      <p class="met_head">Matrix for Segmented Pricing strategy</p>
+                      <div class="row mt-2 mx-2">
+                        <div class="details col-md-6">
+                          <span class="head">Segmentation Index</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">WTP Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Price Elasticity</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Competitive Pricing Index</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Perceived Value Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Differentiation Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Demand Forecasting Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Promo Impact Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Inventory Turnover Ratio</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Retention Rate</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Channel Performance Index</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Frequency Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">CLV Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Cross-Sell Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Market Share Percentage</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Loyalty Index</span>
+                          <input type="text" class="form-control_m">
+                        </div>
 
-                      <div class="row mt-3 mx-2">
                         <div class="details col-md-6">
-                          <span class="head">Customer Perceived Value</span>
+                          <span class="head">Adjustment Frequency Score</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Customer Willingness To Pay</span>
+                          <span class="head">Geo-Price Index</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Price Sensitivity Coefficient</span>
+                          <span class="head">Seasonal Demand Score</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Personalisation and Customisation Value</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Net Promoter Score</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">competitor Price Elasticity</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Price competitiveness Index</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Price Elasticity Of Demand</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-
-
-                        <div class="details col-md-6">
-                          <span class="head">Market Demand</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Customer Satisfaction Index</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Competitor Price Elasticity</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Price competitiveness Index</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Brand Prestige</span>
+                          <span class="head">Economic Sensitivity Score</span>
                           <input type="text" class="form-control_m">
                         </div>
 
                         <div class="details col-md-6">
-                          <span class="head">Feature Value Ratio</span>
+                          <span class="head">Lifecycle Stage Index</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Cutomer LTV</span>
+                          <span class="head">Segment Profitability Score</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Willingness To Recomment</span>
+                          <span class="head">Price Optimization Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Price Psychology Index</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+
+                        <div class="details col-md-6">
+                          <span class="head">Funnel Conversion Rate</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">ROI Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Customer Satisfaction Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Model Accuracy Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Feedback Score</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <!-- <div class="details col-md-6">
@@ -1069,75 +1188,122 @@
                     <div class="row metrics">
                       <div class=" card_shadow">
                         <p class="met_head">Business Impact: Overall Matrics</p>
+                        <div class="row mt-2 mx-2">
+                          <div class="details col-md-6">
+                            <span class="head">Revenue Growth Rate</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Profit Margin</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Market Competitiveness Index</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Total Sales Volume</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Cost to Serve</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">CAC Score</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">ROS Score</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Brand Equity Score</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Total Inventory Cost</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Sales Forecast Accuracy</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Cash Flow Margin</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Marketing ROI Score</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Operating Efficiency Ratio</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Churn Rate</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Revenue per Customer</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Contribution Margin</span>
+                            <input type="text" class="form-control_m">
+                          </div>
 
-                        <div class="row mt-3 mx-2">
-                          <div class="details col-md-6">
-                            <span class="head">Gross Margin</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Inventory Turnover ratio For Diamonds</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Revenue per Unit</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Carat Per Unit</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Customer LTV</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Market price Votality Index</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Break Even Price</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Customer Acquisition Cost</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-
 
                           <div class="details col-md-6">
-                            <span class="head">Sales Conversion Rate</span>
+                            <span class="head">TAM Score</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Customer Retention Rate</span>
+                            <span class="head">Price Volatility Index</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Price Elasticity Of Demand</span>
+                            <span class="head">Quality Perception Score</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Stock Turnover Ratio</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Customer rejection Rate</span>
+                            <span class="head">Market Adaptation Index</span>
                             <input type="text" class="form-control_m">
                           </div>
 
                           <div class="details col-md-6">
-                            <span class="head">Profit per Capital</span>
+                            <span class="head">Financial Health Score</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Average Order Value</span>
+                            <span class="head">Engagement Rate</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Stone Quality Index</span>
+                            <span class="head">Distribution Cost Margin</span>
                             <input type="text" class="form-control_m">
                           </div>
+                          <div class="details col-md-6">
+                            <span class="head">Brand Awareness Score</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Price Optimization Impact Score</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Productivity Index</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <!-- <div class="details col-md-6">
+                            <span class="head">Quality Perception Score</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Market Adaptation Index</span>
+                            <input type="text" class="form-control_m">
+                          </div> -->
                           <!-- <div class="details col-md-6">
                             <span class="head">Price competitiveness Index</span>
                             <input type="text" class="form-control">
@@ -1152,99 +1318,109 @@
                   </div>
 
                   <div class="graphs">
-
-
                     <div class="row all_graphs mt-5">
                       <img src="../../assets/img/g1.jpg" alt="">
                       <img src="../../assets/img/g2.png" alt="">
                       <img src="../../assets/img/g3.webp" alt="">
                       <img src="../../assets/img/g4.jpg" alt="">
-
                       <!-- <div class="card flex justify-content-center">
                         <p-chart type="doughnut" [data]="data2" [options]="options2" />
                     </div>
-
                     <div class="card">
                       <p-chart type="line" [data]="data" [options]="options" />
                   </div> -->
                     </div>
-
                   </div>
                 </div> </mat-tab>
               <mat-tab label="Time Based Pricing strategy">
                 <div class="row">
                   <div class="row metrics col-md-6">
                     <div class=" card_shadow">
-                      <p class="met_head">Metrics for Time Based Pricing strategy</p>
+                      <p class="met_head">Matrix for Time Based Pricing strategy</p>
+                      <div class="row mt-2 mx-2">
+                        <div class="details col-md-6">
+                          <span class="head">Price Elasticity of Demand</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Time Series Analysis</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Competitor Price Tracking</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Purchase Frequency</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Dynamic Pricing Model</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Impact of Promotions</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Peak vs Off-Peak Pricing</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Stock Levels</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Segment Performance</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Seasonality Index</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Price Sensitivity Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Urgency Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Time to Decision</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Time-Based Conversion Rate</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Time-Based Revenue Projection</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Churn Rate</span>
+                          <input type="text" class="form-control_m">
+                        </div>
 
-                      <div class="row mt-3 mx-2">
                         <div class="details col-md-6">
-                          <span class="head">Customer Perceived Value</span>
+                          <span class="head">Market Demand Score</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Customer Willingness To Pay</span>
+                          <span class="head">Competitive Price Index</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Price Sensitivity Coefficient</span>
+                          <span class="head">Time-sensitive Segmentation</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Personalisation and Customisation Value</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Net Promoter Score</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">competitor Price Elasticity</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Price competitiveness Index</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Price Elasticity Of Demand</span>
+                          <span class="head">Timing Analysis</span>
                           <input type="text" class="form-control_m">
                         </div>
 
 
-                        <div class="details col-md-6">
-                          <span class="head">Market Demand</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Customer Satisfaction Index</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Competitor Price Elasticity</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Price competitiveness Index</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Brand Prestige</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-
-                        <div class="details col-md-6">
-                          <span class="head">Feature Value Ratio</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Cutomer LTV</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Willingness To Recomment</span>
-                          <input type="text" class="form-control_m">
-                        </div>
                         <!-- <div class="details col-md-6">
                           <span class="head">Price competitiveness Index</span>
                           <input type="text" class="form-control">
@@ -1261,73 +1437,45 @@
                     <div class="row metrics">
                       <div class=" card_shadow">
                         <p class="met_head">Business Impact: Overall Matrics</p>
-
-                        <div class="row mt-3 mx-2">
+                        <div class="row mt-2 mx-2">
                           <div class="details col-md-6">
-                            <span class="head">Gross Margin</span>
+                            <span class="head">CLV Score</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Inventory Turnover ratio For Diamonds</span>
+                            <span class="head">Revenue Growth Rate</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Revenue per Unit</span>
+                            <span class="head">Time-Based Profit Margin</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Carat Per Unit</span>
+                            <span class="head">CAC</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Customer LTV</span>
+                            <span class="head">Time-Based Market Share</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Market price Votality Index</span>
+                            <span class="head">Brand Value Score</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Break Even Price</span>
+                            <span class="head">Time-Based Efficiency Ratio</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Customer Acquisition Cost</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-
-
-                          <div class="details col-md-6">
-                            <span class="head">Sales Conversion Rate</span>
+                            <span class="head">Stockout Frequency</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Customer Retention Rate</span>
+                            <span class="head">Supply Chain Efficiency</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Price Elasticity Of Demand</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Stock Turnover Ratio</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Customer rejection Rate</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-
-                          <div class="details col-md-6">
-                            <span class="head">Profit per Capital</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Average Order Value</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Stone Quality Index</span>
+                            <span class="head">ROI for Pricing Strategy</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <!-- <div class="details col-md-6">
@@ -1344,23 +1492,18 @@
                   </div>
 
                   <div class="graphs">
-
-
                     <div class="row all_graphs mt-5">
                       <img src="../../assets/img/g1.jpg" alt="">
                       <img src="../../assets/img/g2.png" alt="">
                       <img src="../../assets/img/g3.webp" alt="">
                       <img src="../../assets/img/g4.jpg" alt="">
-
                       <!-- <div class="card flex justify-content-center">
                         <p-chart type="doughnut" [data]="data2" [options]="options2" />
                     </div>
-
                     <div class="card">
                       <p-chart type="line" [data]="data" [options]="options" />
                   </div> -->
                     </div>
-
                   </div>
                 </div>
               </mat-tab>
@@ -1368,74 +1511,119 @@
                 <div class="row">
                   <div class="row metrics col-md-6">
                     <div class=" card_shadow">
-                      <p class="met_head">Metrics for Brand Pricing strateg</p>
+                      <p class="met_head">Matrix for Brand Pricing strateg</p>
+                      <div class="row mt-2 mx-2">
+                        <div class="details col-md-6">
+                          <span class="head">CPV Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Brand Equity Index </span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Competitive Positioning Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Segment Affinity Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Price Sensitivity Index</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Differentiation Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Loyalty Index</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Experience Satisfaction Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Sentiment Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Market Share Percentage</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Awareness Index</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Clarity Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Branding Consistency Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Advantage Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Feedback Engagement Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Pricing Effectiveness Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
 
-                      <div class="row mt-3 mx-2">
+
                         <div class="details col-md-6">
-                          <span class="head">Customer Perceived Value</span>
+                          <span class="head">Emotional Index</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Customer Willingness To Pay</span>
+                          <span class="head">Reputation Score</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Price Sensitivity Coefficient</span>
+                          <span class="head">Barriers Score</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Personalisation and Customisation Value</span>
+                          <span class="head">Alignment Score</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Net Promoter Score</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">competitor Price Elasticity</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Price competitiveness Index</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Price Elasticity Of Demand</span>
+                          <span class="head">Journey Score</span>
                           <input type="text" class="form-control_m">
                         </div>
 
 
-                        <div class="details col-md-6">
-                          <span class="head">Market Demand</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Customer Satisfaction Index</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Competitor Price Elasticity</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Price competitiveness Index</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Brand Prestige</span>
-                          <input type="text" class="form-control_m">
-                        </div>
 
                         <div class="details col-md-6">
-                          <span class="head">Feature Value Ratio</span>
+                          <span class="head">Channel Effectiveness Score</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Cutomer LTV</span>
+                          <span class="head">Psychological Pricing Score</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Willingness To Recomment</span>
+                          <span class="head">Communication Clarity Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Responsiveness Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Segmentation Accuracy Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Brand Health Index</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <!-- <div class="details col-md-6">
@@ -1454,73 +1642,112 @@
                     <div class="row metrics">
                       <div class=" card_shadow">
                         <p class="met_head">Business Impact: Overall Matrics</p>
+                        <div class="row mt-2 mx-2">
+                          <div class="details col-md-6">
+                            <span class="head">Revenue Growth Rate</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Profit Margin Percentage</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">CAC Score</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">CLV Score</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Conversion Rate</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Inventory Turnover Ratio</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Customer Churn Rate</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Brand Affinity Score</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">NPS Score</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Employee Satisfaction Score</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">COGS Percentage</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Brand Awareness Percentage</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Market Expansion Percentage</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">ROI Score</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Sales per Employee Ratio</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Advertising ROI Score</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Diversification Score</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Customer Satisfaction Score</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">E-commerce Conversion Rate</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Crisis Response Effectiveness Score</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Sustainability Score</span>
+                            <input type="text" class="form-control_m">
+                          </div>
 
-                        <div class="row mt-3 mx-2">
-                          <div class="details col-md-6">
-                            <span class="head">Gross Margin</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Inventory Turnover ratio For Diamonds</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Revenue per Unit</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Carat Per Unit</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Customer LTV</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Market price Votality Index</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Break Even Price</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Customer Acquisition Cost</span>
-                            <input type="text" class="form-control_m">
-                          </div>
 
 
                           <div class="details col-md-6">
-                            <span class="head">Sales Conversion Rate</span>
+                            <span class="head">Engagement Score</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Customer Retention Rate</span>
+                            <span class="head">ROE Score</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Price Elasticity Of Demand</span>
+                            <span class="head">Engagement Rate</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Stock Turnover Ratio</span>
+                            <span class="head">Portfolio Performance Score</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Customer rejection Rate</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-
-                          <div class="details col-md-6">
-                            <span class="head">Profit per Capital</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Average Order Value</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Stone Quality Index</span>
+                            <span class="head">Responsiveness Score</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <!-- <div class="details col-md-6">
@@ -1537,99 +1764,152 @@
                   </div>
 
                   <div class="graphs">
-
-
                     <div class="row all_graphs mt-5">
                       <img src="../../assets/img/g1.jpg" alt="">
                       <img src="../../assets/img/g2.png" alt="">
                       <img src="../../assets/img/g3.webp" alt="">
                       <img src="../../assets/img/g4.jpg" alt="">
-
                       <!-- <div class="card flex justify-content-center">
                         <p-chart type="doughnut" [data]="data2" [options]="options2" />
                     </div>
-
                     <div class="card">
                       <p-chart type="line" [data]="data" [options]="options" />
                   </div> -->
                     </div>
-
                   </div>
                 </div> </mat-tab>
               <mat-tab label="Market Penetration Pricing strategy">
                 <div class="row">
                   <div class="row metrics col-md-6">
                     <div class=" card_shadow">
-                      <p class="met_head">Metrics for Market Penetration Pricing strategy</p>
+                      <p class="met_head">Matrix for Market Penetration Pricing strategy</p>
+                      <div class="row mt-2 mx-2">
+                        <div class="details col-md-6">
+                          <span class="head">PED</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Market Share</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Competitor Prices</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">CAC</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">CLV</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Sales Growth</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">CR</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Brand Awareness</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Price Sensitivity Index</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Demand Forecast</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Differentiation Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Inventory Turnover</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">RPV</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">RPR</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">CSAT</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Churn Rate</span>
+                          <input type="text" class="form-control_m">
+                        </div>
 
-                      <div class="row mt-3 mx-2">
-                        <div class="details col-md-6">
-                          <span class="head">Customer Perceived Value</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Customer Willingness To Pay</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Price Sensitivity Coefficient</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Personalisation and Customisation Value</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Net Promoter Score</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">competitor Price Elasticity</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Price competitiveness Index</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Price Elasticity Of Demand</span>
-                          <input type="text" class="form-control_m">
-                        </div>
+
+
+
+
+
+
 
 
                         <div class="details col-md-6">
-                          <span class="head">Market Demand</span>
+                          <span class="head">Optimal Price Point</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Customer Satisfaction Index</span>
+                          <span class="head">Promo Effectiveness</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Competitor Price Elasticity</span>
+                          <span class="head">Entry Timing Score</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Price competitiveness Index</span>
+                          <span class="head">NPS</span>
                           <input type="text" class="form-control_m">
                         </div>
                         <div class="details col-md-6">
-                          <span class="head">Brand Prestige</span>
+                          <span class="head">COGS</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Break-even Point</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Gross Margin</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Segment Profitability</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Strategy Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Feedback Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Market Condition Score</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Adjustment Frequency</span>
+                          <input type="text" class="form-control_m">
+                        </div>
+                        <div class="details col-md-6">
+                          <span class="head">Seasonal Demand Index</span>
                           <input type="text" class="form-control_m">
                         </div>
 
-                        <div class="details col-md-6">
-                          <span class="head">Feature Value Ratio</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Cutomer LTV</span>
-                          <input type="text" class="form-control_m">
-                        </div>
-                        <div class="details col-md-6">
-                          <span class="head">Willingness To Recomment</span>
-                          <input type="text" class="form-control_m">
-                        </div>
                         <!-- <div class="details col-md-6">
                           <span class="head">Price competitiveness Index</span>
                           <input type="text" class="form-control">
@@ -1646,73 +1926,102 @@
                     <div class="row metrics">
                       <div class=" card_shadow">
                         <p class="met_head">Business Impact: Overall Matrics</p>
+                        <div class="row mt-2 mx-2">
+                          <div class="details col-md-6">
+                            <span class="head">Total Revenue</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Profit Margin</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Segmentation Score</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Advantage Score</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Efficiency Ratio</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Brand Equity Score</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Market Growth</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Sales per Employee</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">ROI</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Cost Ratio</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Time to Market Score</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Retention Rate</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Return Rate</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Employee Satisfaction</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Supply Chain Score</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Risk Score</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Cash Flow Score</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Loyalty Index</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">Average Transaction Value</span>
+                            <input type="text" class="form-control_m">
+                          </div>
+                          <div class="details col-md-6">
+                            <span class="head">MROI</span>
+                            <input type="text" class="form-control_m">
+                          </div>
 
-                        <div class="row mt-3 mx-2">
                           <div class="details col-md-6">
-                            <span class="head">Gross Margin</span>
+                            <span class="head">Shareholder Value Score</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Inventory Turnover ratio For Diamonds</span>
+                            <span class="head">Debt to Equity Ratio</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Revenue per Unit</span>
+                            <span class="head">New Product Growth</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <div class="details col-md-6">
-                            <span class="head">Carat Per Unit</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Customer LTV</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Market price Votality Index</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Break Even Price</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Customer Acquisition Cost</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-
-
-                          <div class="details col-md-6">
-                            <span class="head">Sales Conversion Rate</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Customer Retention Rate</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Price Elasticity Of Demand</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Stock Turnover Ratio</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Customer rejection Rate</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-
-                          <div class="details col-md-6">
-                            <span class="head">Profit per Capital</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Average Order Value</span>
-                            <input type="text" class="form-control_m">
-                          </div>
-                          <div class="details col-md-6">
-                            <span class="head">Stone Quality Index</span>
+                            <span class="head">Engagement Score</span>
                             <input type="text" class="form-control_m">
                           </div>
                           <!-- <div class="details col-md-6">
@@ -1729,31 +2038,23 @@
                   </div>
 
                   <div class="graphs">
-
-
                     <div class="row all_graphs mt-5">
                       <img src="../../assets/img/g1.jpg" alt="">
                       <img src="../../assets/img/g2.png" alt="">
                       <img src="../../assets/img/g3.webp" alt="">
                       <img src="../../assets/img/g4.jpg" alt="">
-
                       <!-- <div class="card flex justify-content-center">
                         <p-chart type="doughnut" [data]="data2" [options]="options2" />
                     </div>
-
                     <div class="card">
                       <p-chart type="line" [data]="data" [options]="options" />
                   </div> -->
                     </div>
-
                   </div>
                 </div>
               </mat-tab>
             </mat-tab-group>
-
           </li>
-
-
 				</ul>
 			</div>
 			<!--/ tabs -->
