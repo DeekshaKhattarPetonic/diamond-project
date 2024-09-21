@@ -1057,12 +1057,19 @@ font-size: 16px;
     border-radius: 5px;
     padding: 5px 60px;
     color: white;
+    font-size: 16px;
     margin: 0 auto;
-
   }
 
   .confirm{
     background-color: rgb(0, 128, 70);
+  }
+
+  .confirm:hover{
+    border: 1px solid rgb(0, 128, 70);
+    // transform: 1s;
+    color: rgb(0, 128, 70);
+    background-color: white;
   }
 
   // .revised{
@@ -1099,7 +1106,8 @@ h2 {
 label {
     display: block;
     // margin-bottom: 8px;
-    font-weight: 500;
+    font-weight: 400;
+    font-size: 14px;
 }
 
 // input,
@@ -1509,12 +1517,12 @@ button.delete-btn {
 
 .add-user {
   margin-right: 13px;
-  border: 1px solid #00a1a6;
-  color: #00a1a6;
+  border: 1px solid rgb(210, 131, 146);
+  color: rgb(210, 131, 146);
   background: #fff;
 
   &:hover {
-    background: #00a1a6;
+    background: rgb(210, 131, 146);
     color: #fff;
   }
 }
@@ -1690,15 +1698,15 @@ td {
 }
 
 .counter.green .counter-value {
-  background:#00a1a6;
+  background:rgb(210, 131, 146);
 }
 
 .counter.green .counter-icon {
-  background: linear-gradient(to right, #00bfc6, #00a1a6);
+  background: linear-gradient(to right, #00bfc6, rgb(210, 131, 146));
 }
 
 .counter.green h3 {
-  color: #00a1a6;
+  color: rgb(210, 131, 146);
 }
 
 .counter.blue .counter-value {
@@ -1741,11 +1749,12 @@ svg{
 }
 
 .page_head{
-  background-color: #00a1a6;
   color: white;
   padding: 10px 0px;
+  background: rgb(210, 131, 146);
+  /* background: linear-gradient(90deg, rgba(210, 131, 146, 1) 0%, rgba(155, 51, 46, 1) 35%, rgba(217, 204, 208, 1) 100%); */
   margin: 0 auto;
-  font-size: 17px;
+  font-size: 26px;
   display: flex;
   font-weight: 500;
   justify-content: center;
@@ -1770,7 +1779,7 @@ svg{
 .categories{
   p{
     font-size: 18px;
-    color: #00a1a6;
+    color: rgb(210, 131, 146);
     line-height: 38px;
   }
 }
@@ -1905,4 +1914,45 @@ flex-basis: 28%;
 li{
   text-decoration: none;
   list-style-type: none;
+}
+
+
+.noParams{
+  padding: 12px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  width: 66%;
+  margin: 0 auto;
+
+  p{
+    flex-basis: 100%;
+    margin-bottom: 5px !important;
+  }
+
+
+}
+.showParams{
+  // padding: 12px;
+  flex-wrap: nowrap;
+  margin-top: 20px;
+  width: 100% !important;
+
+  p{
+    flex-basis: unset !important;
+    margin-bottom: 5px !important;
+  }
+}
+
+.place-content-end{
+  place-content: flex-end;
+}
+
+.flex-col{
+  flex-direction: column;
+}
+
+.confirmation_btn{
+  padding: 5px 25px !important;
+  margin: unset !important;
+    width: 141px !important;
 }

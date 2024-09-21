@@ -7,9 +7,29 @@
     <div class="page_content">
     <li class="tab-content tab-content-first typography">
       <ng-container *ngIf="!showTable">
-        <p class="para_head">To review and revise, the price select the category of product for which the price to be revised</p>
-        <div class="flex categories card_shadow mt-2 px-2">
-          <p>Select Product Category</p>
+        <div class="row">
+          <p class="para_head col-md-7">To review and revise the price, select the category of product for which the price to be revised</p>
+          <div class="col-md-5 place-content-end d-flex row  flex flex-wrap p-fluid mb-2">
+            <div class="flex-auto d-flex row col-md-6 align-center">
+              <label  for="buttondisplay" class="col-md-5  font-bold block mb-2"> Select Date </label>
+              <p-calendar class="col-md-7"
+              [(ngModel)]="date1"
+              [showIcon]="true"
+              inputId="buttondisplay"
+              [showOnFocus]="false" />
+            </div>
+            <!-- <div class="flex-auto row col-md-6 align-center">
+              <label for="buttondisplay" class="col-md-5 font-bold block mb-2"> To Date </label>
+              <p-calendar class="col-md-7"
+              [(ngModel)]="date2"
+              [showIcon]="true"
+              inputId="buttondisplay"
+              [showOnFocus]="false" />
+            </div> -->
+          </div>
+        </div>
+        <div class="noParams flex categories card_shadow mt-2 px-2" [ngClass]="{'showParams': showParams}">
+          <p>Select Items</p>
           <mat-radio-group>
             <mat-radio-button value="1">All</mat-radio-button>
             <!-- <mat-radio-button value="1">Single Item</mat-radio-button> -->
@@ -45,12 +65,12 @@
                     </ng-template>
             </p-dropdown>
         <!-- </div> -->
-        <span class="material-symbols-outlined gobtn">
+        <span class="material-symbols-outlined gobtn" (click)="showParams = true">
           arrow_circle_right
           </span>
         </div>
 
-        <div class="row">
+        <div class="row" *ngIf="showParams">
           <p class="para_head mb-2 mt-3">Select the parameter to review and revise the price :</p>
           <div class="d-flex dropdowns">
             <div class="d-flex align-items-center col-md-6 mb-4 drop">
@@ -61,7 +81,7 @@
                   [options]="countries"
                   [(ngModel)]="selectedCity"
                   optionLabel="name"
-                  placeholder="Select Market Votality"
+                  placeholder="Market Votality"
                 ></p-dropdown>
               </div>
               <input type="text" placeholder="% To Increase" class="form-control">
@@ -74,7 +94,7 @@
                   [options]="countries"
                   [(ngModel)]="selectedCity"
                   optionLabel="name"
-                  placeholder="Select Supply Chain Dynamics"
+                  placeholder="Supply Chain Dynamics"
                 ></p-dropdown>
               </div>
               <input type="text" placeholder="% To Increase" class="form-control">
@@ -87,7 +107,7 @@
                   [options]="countries"
                   [(ngModel)]="selectedCity"
                   optionLabel="name"
-                  placeholder="Select Operational Costs"
+                  placeholder="Operational Costs"
                 ></p-dropdown>
               </div>
               <input type="text" placeholder="% To Increase" class="form-control">
@@ -100,7 +120,7 @@
                   [options]="countries"
                   [(ngModel)]="selectedCity"
                   optionLabel="name"
-                  placeholder="Select Contingency Reserves"
+                  placeholder="Contingency Reserves"
                 ></p-dropdown>
               </div>
               <input type="text" placeholder="% To Increase" class="form-control">
@@ -113,7 +133,7 @@
                   [options]="countries"
                   [(ngModel)]="selectedCity"
                   optionLabel="name"
-                  placeholder="Select Regulatory and Tax Changes"
+                  placeholder="Regulatory and Tax Changes"
                 ></p-dropdown>
               </div>
               <input type="text" placeholder="% To Increase" class="form-control">
@@ -126,7 +146,7 @@
                   [options]="countries"
                   [(ngModel)]="selectedCity"
                   optionLabel="name"
-                  placeholder="Select Inventory Holding Costs"
+                  placeholder="Inventory Holding Costs"
                 ></p-dropdown>
               </div>
               <input type="text" placeholder="% To Increase" class="form-control">
@@ -140,8 +160,8 @@
       </ng-container>
 
       <ng-container *ngIf="showTable">
-        <div class="flex row">
-          <div class="col-md-8">
+        <div class="flex row flex-col">
+          <div class="col-md-12">
             <table class="table table-hover table-striped table-bordered mb-0  dataTable" id="userTable">
               <thead class="table-light">
                 <tr>
@@ -225,8 +245,8 @@
                     <td class="enter-value"><input type="text" value="VS2"></td>
                     <td class="description"><input type="text" value="Excellent"></td>
                     <td class="description"><input type="text" value="$6,000"></td>
-                    <td class="enter-value"><input type="text" value="50"></td>
-                    <td class="enter-value"><input type="text" value="100"></td>
+                    <!-- <td class="enter-value"><input type="text" value="50"></td>
+                    <td class="enter-value"><input type="text" value="100"></td> -->
                     <td class="enter-value"><input type="text" value="$8,500"></td>
                   </tr>
                   <tr class="editRow">
@@ -237,8 +257,8 @@
                     <td class="enter-value"><input type="text" value="VS2"></td>
                     <td class="description"><input type="text" value="Excellent"></td>
                     <td class="description"><input type="text" value="$6,000"></td>
-                    <td class="enter-value"><input type="text" value="50"></td>
-                    <td class="enter-value"><input type="text" value="100"></td>
+                    <!-- <td class="enter-value"><input type="text" value="50"></td>
+                    <td class="enter-value"><input type="text" value="100"></td> -->
                     <td class="enter-value"><input type="text" value="$8,500"></td>
                   </tr>
                   <tr class="editRow">
@@ -249,8 +269,8 @@
                     <td class="enter-value"><input type="text" value="VS2"></td>
                     <td class="description"><input type="text" value="Excellent"></td>
                     <td class="description"><input type="text" value="$6,000"></td>
-                    <td class="enter-value"><input type="text" value="50"></td>
-                    <td class="enter-value"><input type="text" value="100"></td>
+                    <!-- <td class="enter-value"><input type="text" value="50"></td>
+                    <td class="enter-value"><input type="text" value="100"></td> -->
                     <td class="enter-value"><input type="text" value="$8,500"></td>
                   </tr>
                   <tr class="editRow">
@@ -261,8 +281,8 @@
                     <td class="enter-value"><input type="text" value="VS2"></td>
                     <td class="description"><input type="text" value="Excellent"></td>
                     <td class="description"><input type="text" value="$6,000"></td>
-                    <td class="enter-value"><input type="text" value="50"></td>
-                    <td class="enter-value"><input type="text" value="100"></td>
+                    <!-- <td class="enter-value"><input type="text" value="50"></td>
+                    <td class="enter-value"><input type="text" value="100"></td> -->
                     <td class="enter-value"><input type="text" value="$8,500"></td>
                   </tr>
                 </ng-container>
@@ -270,7 +290,7 @@
             </table>
           </div>
 
-          <div class="col-md-4" *ngIf="!showEditTable">
+          <div class="col-md-3" *ngIf="!showEditTable">
             <div class="conformation">
               <form class="flex align-items-center gap-1" [formGroup]="formGroup">
                 <p-checkbox
@@ -283,12 +303,12 @@
             </div>
             <div class="buttons mt-2">
               <button
-                class="confirm btn"
+                class="confirm btn confirmation_btn"
                 (click)="showEditTable = true"
                 [disabled]="!formGroup.get('city')?.value">
                 Edit Price
               </button>
-              <button class="btn no" (click)="showEditTable = false">No</button>
+              <button class="btn no confirmation_btn" (click)="showEditTable = false">No</button>
             </div>
           </div>
           <div class="col-md-4" *ngIf="showEditTable">

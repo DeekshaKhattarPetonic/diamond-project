@@ -309,7 +309,7 @@ $primary-color: #00a1a6;
 .categories{
   // .main_drop{
     .p-dropdown{
-  width: 390px !important;
+  width: 270px !important;
     }
   // }
 
@@ -404,4 +404,28 @@ app-strategies{
  .p-dropdown{
     width: 300px !important;
   }
+}
+
+
+// input:-internal-autofill-selected{
+//   background-color: transparent !important;
+
+// }
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset !important; /* Change 'white' to your desired background color */
+  box-shadow: 0 0 0 1000px white inset !important; /* Same here */
+  background-color: transparent !important; /* or your desired color */
+  color: #000; /* Ensure text color is set */
+}
+
+/* Optionally, you can also reset the border */
+input:-webkit-autofill:focus {
+  border: 1px solid #ccc; /* Adjust this to your preferred border style */
+}
+
+/* For other browsers */
+input:-moz-autofill {
+  background-color: transparent !important;
+  color: #000; /* Adjust as needed */
 }

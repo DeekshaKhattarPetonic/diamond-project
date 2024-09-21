@@ -41,6 +41,7 @@ export class RevisedPriceComponent {
   date1: Date | undefined;
 
   date2: Date | undefined;
+  showParams: any = false;
 
   constructor(private dialog: MatDialog,) {
 
