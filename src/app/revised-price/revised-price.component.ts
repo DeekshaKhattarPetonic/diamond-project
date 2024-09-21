@@ -70,7 +70,8 @@ export class RevisedPriceComponent {
         buttonTextNo: 'Close',
       },
     });
-    this.showTable = false
+    this.showTable = false;
+    this.showParams = false;
   }
 
 

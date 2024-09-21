@@ -19,11 +19,12 @@ import { MatIconModule } from '@angular/material/icon';
 // import ConfirmationModalComponent
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { TooltipModule } from 'primeng/tooltip';
+import { HeaderComponent } from '../shared/header/header.component';
 
 @Component({
   selector: 'app-strategies',
   standalone: true,
-  imports: [TooltipModule, ImplementStrategyComponent, DialogModule, MatIconModule, DynamicDialogModule, CalendarModule, ChartModule, MatTabsModule, MatRadioModule, DropdownModule, FormsModule, CommonModule, ReactiveFormsModule, CheckboxModule],
+  imports: [HeaderComponent, TooltipModule, ImplementStrategyComponent, DialogModule, MatIconModule, DynamicDialogModule, CalendarModule, ChartModule, MatTabsModule, MatRadioModule, DropdownModule, FormsModule, CommonModule, ReactiveFormsModule, CheckboxModule],
   templateUrl: './strategies.component.html',
   styleUrl: './strategies.component.scss'
 })
