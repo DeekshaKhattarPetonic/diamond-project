@@ -42,7 +42,7 @@ export class StrategiesComponent {
   animate: boolean = false;
   options: any;
   data2: any;
-
+  showData: any = false;
   options2: any;
   date1: Date | undefined;
 

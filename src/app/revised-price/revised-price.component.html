@@ -4,16 +4,24 @@
   <!-- <h1>Pure CSS Tabs</h1> -->
   <!-- tabs -->
    <div class="page-heading">
-    <h2 class="page_head page-title">Review and Revise Price</h2>
+    <h2 class="page_head page-title"><span class="material-symbols-outlined">
+      view_list
+      </span>Review and Revise Price</h2>
     <div class="buttons"  *ngIf="showTable">
       <button
       class="confirm btn confirmation_btn"
       (click)="showTable = false; ">
+      <span class="material-symbols-outlined">
+        undo
+        </span>
       Go Back
     </button>
     <button
     class="confirm btn confirmation_btn"
     (click)="showEditTable = true">
+    <span class="material-symbols-outlined">
+      edit
+      </span>
     Edit Price
   </button>
     </div>
