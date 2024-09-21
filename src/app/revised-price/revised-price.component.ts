@@ -17,11 +17,12 @@ import { DialogModule } from 'primeng/dialog';
 import { MatIconModule } from '@angular/material/icon';
 // import ConfirmationModalComponent
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { HeaderComponent } from '../shared/header/header.component';
 
 @Component({
   selector: 'app-revised-price',
   standalone: true,
-  imports: [DialogModule, MatIconModule, DynamicDialogModule, CalendarModule, ChartModule, MatTabsModule, MatRadioModule, DropdownModule, FormsModule, CommonModule, ReactiveFormsModule, CheckboxModule],
+  imports: [DialogModule, MatIconModule, DynamicDialogModule, CalendarModule, ChartModule, MatTabsModule, MatRadioModule, DropdownModule, FormsModule, CommonModule, ReactiveFormsModule, CheckboxModule, HeaderComponent],
   templateUrl: './revised-price.component.html',
   styleUrl: './revised-price.component.scss'
 })
