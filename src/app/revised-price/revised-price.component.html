@@ -30,14 +30,15 @@
         </div>
         <div class="noParams flex categories card_shadow mt-2 px-2" [ngClass]="{'showParams': showParams}">
           <p>Select Items</p>
-          <mat-radio-group>
-            <mat-radio-button value="1">All</mat-radio-button>
+          <mat-radio-group  [(ngModel)]="selectedOption">
+            <mat-radio-button value="All">All</mat-radio-button>
             <!-- <mat-radio-button value="1">Single Item</mat-radio-button> -->
-            <mat-radio-button value="2">Multiple Items</mat-radio-button>
-            <mat-radio-button value="2">Item Category</mat-radio-button>
+            <mat-radio-button value="Multiple Items">Multiple Items</mat-radio-button>
+            <mat-radio-button value="Item Category">Item Category</mat-radio-button>
           </mat-radio-group>
           <!-- <div class="card flex justify-content-center"> -->
             <p-dropdown
+            [disabled]="selectedOption == 'All'"
                 [options]="countries"
                 [(ngModel)]="selectedCountry"
                 optionLabel="name"

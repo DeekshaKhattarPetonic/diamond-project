@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
+@import 'animate.css';
+
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .page-heading {
@@ -428,4 +430,12 @@ input:-webkit-autofill:focus {
 input:-moz-autofill {
   background-color: transparent !important;
   color: #000; /* Adjust as needed */
+}
+
+.p-tooltip-text{
+  font-size: 11px !important;
+}
+
+.p-tooltip{
+  // padding: 80px !important;
 }

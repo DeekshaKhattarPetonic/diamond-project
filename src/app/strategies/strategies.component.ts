@@ -18,11 +18,12 @@ import { ImplementStrategyComponent } from '../implement-strategy/implement-stra
 import { MatIconModule } from '@angular/material/icon';
 // import ConfirmationModalComponent
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { TooltipModule } from 'primeng/tooltip';
 
 @Component({
   selector: 'app-strategies',
   standalone: true,
-  imports: [ImplementStrategyComponent, DialogModule, MatIconModule, DynamicDialogModule, CalendarModule, ChartModule, MatTabsModule, MatRadioModule, DropdownModule, FormsModule, CommonModule, ReactiveFormsModule, CheckboxModule],
+  imports: [TooltipModule, ImplementStrategyComponent, DialogModule, MatIconModule, DynamicDialogModule, CalendarModule, ChartModule, MatTabsModule, MatRadioModule, DropdownModule, FormsModule, CommonModule, ReactiveFormsModule, CheckboxModule],
   templateUrl: './strategies.component.html',
   styleUrl: './strategies.component.scss'
 })
@@ -37,7 +38,7 @@ export class StrategiesComponent {
   showEditTable: any = false
   selectedCity: any;
   data: any;
-
+  animate: boolean = false;
   options: any;
   data2: any;
 
@@ -63,11 +64,11 @@ export class StrategiesComponent {
     this.strategies = [
       { name: 'Value Based Pricing Strategy', code: 'AU' },
       { name: 'Real Time Pricing Strategy', code: 'BR' },
-      { name: 'Competitive Pricing strategy', code: 'CN' },
-      { name: 'Segmented Pricing strategy', code: 'EG' },
-      { name: 'Time Based Pricing strategy', code: 'CN' },
-      { name: 'Brand Pricing strategy', code: 'EG' },
-      { name: 'Market Penetration Pricing strategy', code: 'CN' },
+      { name: 'Competitive Pricing Strategy', code: 'CN' },
+      { name: 'Segmented Pricing Strategy', code: 'EG' },
+      { name: 'Time Based Pricing Strategy', code: 'CN' },
+      { name: 'Brand Pricing Strategy', code: 'EG' },
+      { name: 'Market Penetration Pricing Strategy', code: 'CN' },
 
   ];
 
@@ -178,6 +179,13 @@ openModal(){
 
 onStrategyChange() {
   console.log(this.selectedStrategy); // This will print the selected strategy object
+
+  this.animate = true;
+
+  // Remove animation class after the animation duration (0.5s in this case)
+  setTimeout(() => {
+    this.animate = false;
+  }, 500);
 }
 
 }

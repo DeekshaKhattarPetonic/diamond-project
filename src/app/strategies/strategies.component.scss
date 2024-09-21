@@ -1820,6 +1820,9 @@ mat-radio-button{
     .head{
       flex-basis: 80%;
       font-size: 11px;
+      display: flex;
+      align-items: center;
+      column-gap: 4px;
     }
   }
 }
@@ -1942,4 +1945,30 @@ flex-basis: 28%;
   flex-basis: 57%;
   display: flex;
   justify-content: end;
+}
+
+.info{
+  color: rgb(255, 116, 139);
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.animated-div {
+  width: 200px;
+  height: 100px;
+  background-color: lightblue;
+  margin-top: 10px;
+  transition: transform 0.5s ease, opacity 0.5s ease; /* Adding 'ease' for smoother transition */
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.animate-div {
+  transform: translateX(-100%);
+  opacity: 0.5; /* Un-commented opacity to transition this property as well */
+}
+
+.row {
+  /* Optional styles */
+  transition: all 0.5s ease; /* Adjust as needed */
 }
