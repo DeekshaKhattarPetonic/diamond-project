@@ -7,7 +7,7 @@
     <div class="page_content">
     <li class="tab-content tab-content-first typography">
       <ng-container *ngIf="!showTable">
-        <p class="para_head">To review and revise the price select the category of product for which the price to be revised</p>
+        <p class="para_head">To review and revise, the price select the category of product for which the price to be revised</p>
         <div class="flex categories card_shadow mt-2 px-2">
           <p>Select Product Category</p>
           <mat-radio-group>
@@ -133,7 +133,7 @@
             </div>
           </div>
           <div class="buttons">
-            <button class="btn revised">View Revised Price</button>
+            <!-- <button class="btn revised">View Revised Price</button> -->
             <button class="btn confirm" (click)="showTable = true">Confirm</button>
           </div>
         </div>
@@ -152,10 +152,10 @@
                   <th>Color</th>
                   <th>Clarity</th>
                   <th>Cut</th>
-                  <th>Original Price</th>
-                  <th>Quantity</th>
-                  <th>Rate</th>
-                  <th>Dynamic Price</th>
+                  <th>Original Price Of Unit Item</th>
+                  <!-- <th>Unit Price</th>
+                  <th>Rate</th> -->
+                  <th>Revised Price Of Unit Item</th>
                   <!-- <th>Action</th> -->
                 </tr>
               </thead>
@@ -171,8 +171,8 @@
                     <td class="description">VS1</td>
                     <td class="description">Excellent</td>
                     <td class="enter-value">$5,000</td>
-                    <td class="enter-value">50</td>
-                    <td class="description">100</td>
+                    <!-- <td class="enter-value">50</td>
+                    <td class="description">100</td> -->
                     <td class="description">$5,500</td>
                   </tr>
                   <tr>
@@ -185,8 +185,8 @@
                     <td class="description">VS2</td>
                     <td class="description">Excellent</td>
                     <td class="enter-value">$4,000</td>
-                    <td class="enter-value">30</td>
-                    <td class="description">100</td>
+                    <!-- <td class="enter-value">30</td>
+                    <td class="description">100</td> -->
                     <td class="description">$4,500</td>
                   </tr>
                   <tr>
@@ -199,8 +199,8 @@
                     <td class="description">VS1</td>
                     <td class="description">Excellent</td>
                     <td class="enter-value">$6,000</td>
-                    <td class="enter-value">20</td>
-                    <td class="description">100</td>
+                    <!-- <td class="enter-value">20</td>
+                    <td class="description">100</td> -->
                     <td class="description">$8,500</td>
                   </tr>
                   <tr>
@@ -211,8 +211,8 @@
                     <td class="description">VS2</td>
                     <td class="description">Excellent</td>
                     <td class="enter-value">$6,000</td>
-                    <td class="enter-value">50</td>
-                    <td class="description">100</td>
+                    <!-- <td class="enter-value">50</td>
+                    <td class="description">100</td> -->
                     <td class="description">$8,500</td>
                   </tr>
                 </ng-container>

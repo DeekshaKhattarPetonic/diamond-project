@@ -46,6 +46,22 @@ export class RevisedPriceComponent {
 
   }
 
+  ngOnInit() {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.countries = [
+      { name: 'option', code: 'AU' },
+      { name: 'option', code: 'BR' },
+      { name: 'option', code: 'CN' },
+      { name: 'option', code: 'EG' },
+  ];
+
+
+  this.formGroup = new FormGroup({
+    city: new FormControl<string | null>(null)
+});
+  }
+
   openModal(){
     const dialogRef = this.dialog.open(CustomModalComponent, {
       width: '35vw',

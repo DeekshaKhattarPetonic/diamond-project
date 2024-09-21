@@ -77,7 +77,7 @@ header {
   height: 35px;
   border: 1px solid white;
   border-radius: 30px;
-  display: flex;
+  display: none;
   position: relative;
   transition: 1s ease-in-out;
   opacity: 0.5;
@@ -87,7 +87,7 @@ header {
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
-  cursor: pointer;
+  // cursor: pointer;
   padding: 21px;
 }
 
@@ -216,8 +216,10 @@ h3 {
 
 button {
   position: relative;
-  background: #444;
-  color: #fff;
+  margin-top: 70px;
+  margin-right: 70px;
+  background: transparent;
+  color: #ff0aa4;
   text-decoration: none;
   text-transform: uppercase;
   border: none;
@@ -232,7 +234,7 @@ button {
 button:hover {
   letter-spacing: 0.2rem;
   padding: 1.1rem 3.1rem;
-  background: rgb(226, 26, 0);
+  // background: rgb(226, 26, 0);
   border: none;
   color: rgb(226, 26, 0);
   /* box-shadow: 0 0 35px rgb(226, 26, 0); */
@@ -244,7 +246,7 @@ button::before {
   position: absolute;
   border-radius: 4px;
   inset: 2px;
-  background: #272822;
+  background: transparent;
 }
 
 button span {
@@ -265,7 +267,7 @@ button i::before {
   left: 80%;
   top: -2px;
   border: 2px solid rgb(226, 26, 0);
-  background: #272822;
+  background: #27282250;
   transition: 0.2s;
 }
 
@@ -315,4 +317,8 @@ button:hover i::after {
   100% {
     box-shadow: #27272c;
   }
+}
+
+.font-size-14{
+  font-size: 14px;
 }
