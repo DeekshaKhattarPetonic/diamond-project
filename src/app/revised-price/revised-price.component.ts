@@ -35,15 +35,13 @@ export class RevisedPriceComponent {
   showEditTable: any = false
   selectedCity: any;
   data: any;
-
   options: any;
   data2: any;
-
   options2: any;
   date1: Date | undefined;
-
   date2: Date | undefined;
   showParams: any = false;
+  selectedOption: any;
 
   constructor(private dialog: MatDialog,) {
 
@@ -53,16 +51,15 @@ export class RevisedPriceComponent {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.countries = [
-      { name: 'option', code: 'AU' },
-      { name: 'option', code: 'BR' },
-      { name: 'option', code: 'CN' },
-      { name: 'option', code: 'EG' },
-  ];
+      { name: 'option 1', code: 'AU' },
+      { name: 'option 2', code: 'BR' },
+      { name: 'option 3', code: 'CN' },
+      { name: 'option 4', code: 'EG' },
+    ];
 
-
-  this.formGroup = new FormGroup({
-    city: new FormControl<string | null>(null)
-});
+    this.formGroup = new FormGroup({
+      city: new FormControl<string | null>(null)
+    });
   }
 
   openModal(){
