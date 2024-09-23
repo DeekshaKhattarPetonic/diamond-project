@@ -404,7 +404,7 @@ app-strategies{
 
 
  .p-dropdown{
-    width: 300px !important;
+    width: 243px !important;
   }
 }
 
@@ -438,4 +438,17 @@ input:-moz-autofill {
 
 .p-tooltip{
   // padding: 80px !important;
+}
+
+app-strategies{
+  .p-dropdown{
+width: 294px;
+  }
+
+  .dataVisible{
+    .p-dropdown{
+      width: 273px !important;
+        }
+    // width: 100px !important;
+  }
 }

@@ -100,19 +100,20 @@ a:hover {
 	font-size: 13px;
 }
 .pcss3t > ul > li {
-	position: absolute;
-	width: 100%;
-	overflow: auto;
-	// padding: 5px 13px 40px;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	// opacity: 0;
-	transition: all 0.5s;
-	-o-transition: all 0.5s;
-	-ms-transition: all 0.5s;
-	-moz-transition: all 0.5s;
-	-webkit-transition: all 0.5s;
-  padding: 5px 7px 29px;
+
+	// position: absolute;
+	// width: 100%;
+	// overflow: auto;
+	// // padding: 5px 13px 40px;
+	// box-sizing: border-box;
+	// -moz-box-sizing: border-box;
+	// // opacity: 0;
+	// transition: all 0.5s;
+	// -o-transition: all 0.5s;
+	// -ms-transition: all 0.5s;
+	// -moz-transition: all 0.5s;
+	// -webkit-transition: all 0.5s;
+  // padding: 5px 7px 29px;
 }
 .pcss3t > .tab-content-first:checked ~ ul .tab-content-first,
 .pcss3t > .tab-content-2:checked ~ ul .tab-content-2,
@@ -1020,7 +1021,7 @@ font-size: 16px;
 /**/
 .pcss3t > ul,
 .pcss3t > ul > li {
-	height: 88vh;
+	// height: 88vh;
 }
 
 
@@ -1818,6 +1819,7 @@ mat-radio-button{
 
   .details{
     display: flex;
+    flex-basis: 25%;
     margin-bottom: 10px;
     .head{
       flex-basis: 80%;
@@ -1919,6 +1921,10 @@ flex-basis: 28%;
   flex-wrap: nowrap;
 }
 
+.wrap{
+  flex-wrap: nowrap;
+}
+
 .select_strategy{
   display: flex;
   column-gap: 10px;
@@ -1997,4 +2003,34 @@ flex-basis: 28%;
     width: 23%;
     margin: 0px;
   }
+}
+
+.data-visible{
+
+}
+
+
+.dropdown_strategy{
+  display: none;
+}
+
+.select_text{
+  font-size: 12px;
+  line-height: 27px;
+  margin-bottom: 2px;
+}
+
+
+.mt-27{
+  margin-top: 27px;
+}
+
+
+.justify-space-between{
+  justify-content: space-between;
+}
+
+
+.h-80vh{
+  height: 80vh;
 }

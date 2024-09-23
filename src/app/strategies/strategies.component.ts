@@ -29,6 +29,7 @@ import { HeaderComponent } from '../shared/header/header.component';
   styleUrl: './strategies.component.scss'
 })
 export class StrategiesComponent {
+  showOtherStrategy: any = false;
   implement_page: any = false;
   showTable: any = false;
   countries: any[] | undefined;
@@ -45,8 +46,11 @@ export class StrategiesComponent {
   showData: any = false;
   options2: any;
   date1: Date | undefined;
-
+  selectedCategory: any;
+  selectedObjective: any;
   date2: Date | undefined;
+  targetCategoryData: any = []
+  objectivesArr: any = [];
 
   constructor(private dialog: MatDialog,) {
 
@@ -72,6 +76,12 @@ export class StrategiesComponent {
       { name: 'Market Penetration Pricing Strategy', code: 'CN' },
 
   ];
+
+  this.targetCategoryData = [
+    { name: 'Customer Based', code: 'AU' },
+    { name: 'Market Oriented', code: 'BR' },
+    { name: 'Product Based', code: 'CN' },
+  ]
 
     this.formGroup = new FormGroup({
       city: new FormControl<string | null>(null)
@@ -187,6 +197,203 @@ onStrategyChange() {
   setTimeout(() => {
     this.animate = false;
   }, 500);
+}
+
+onObjChange(){
+  console.log('selectedObjective', this.selectedObjective)
+  if(this.selectedObjective.name == 'Maximize revenue & Profit '){
+    this.selectedStrategy = { name: 'Value-Based Pricing Strategy', code: 'AU' }
+    this.showOtherStrategy = true;
+  }
+
+  if(this.selectedObjective.name == 'Enhance Customer Loyalty'){
+    this.selectedStrategy = { name: 'Loyalty-Based Pricing Strategy', code: 'AU' }
+    this.showOtherStrategy = true;
+  }
+
+  if(this.selectedObjective.name == 'Enhance Customer Perception'){
+    this.selectedStrategy = { name: 'Psychological Pricing Strategy', code: 'AU' }
+    this.showOtherStrategy = true;
+  }
+
+  if(this.selectedObjective.name == 'Enhance Customer Loyalty & Improve Cash Flow'){
+    this.selectedStrategy = { name: 'Subscription Pricing Strategy', code: 'AU' }
+    this.showOtherStrategy = true;
+  }
+
+  if(this.selectedObjective.name == 'Increase Market Share'){
+    this.selectedStrategy = { name: 'Penetration Pricing Strategy', code: 'AU' }
+        this.showOtherStrategy = true;
+
+  }
+
+  if(this.selectedObjective.name == 'Launch a New Product'){
+    this.selectedStrategy = { name: 'Introductory Pricing Strategy', code: 'AU' }
+        this.showOtherStrategy = true;
+
+  }
+
+  if(this.selectedObjective.name == 'Respond to Competitive Pressure'){
+    this.selectedStrategy = { name: 'Competitive Pricing Strategy', code: 'AU' }
+    this.showOtherStrategy = false;
+  }
+
+  if(this.selectedObjective.name == 'Adapt to Market Fluctuations'){
+    this.selectedStrategy = { name: 'Dynamic Pricing Strategy', code: 'AU' }
+        this.showOtherStrategy = true;
+
+  }
+
+  if(this.selectedObjective.name == 'Target a Niche Market'){
+    this.selectedStrategy = { name: 'Geographical Pricing Strategy', code: 'AU' }
+        this.showOtherStrategy = true;
+
+  }
+
+  if(this.selectedObjective.name == 'Optimize Inventory Management'){
+    this.selectedStrategy = { name: 'Seasonal Pricing Strategy', code: 'AU' }
+        this.showOtherStrategy = true;
+
+  }
+
+  if(this.selectedObjective.name == 'Increase Market Share (Cost Control Focus)'){
+    this.selectedStrategy = { name: 'Economy Pricing Strategy', code: 'AU' }
+        this.showOtherStrategy = true;
+
+  }
+
+  if(this.selectedObjective.name == 'Clear Excess Inventory'){
+    this.selectedStrategy = { name: 'Flash Sale Pricing Strategy', code: 'AU' }
+        this.showOtherStrategy = true;
+
+  }
+
+  if(this.selectedObjective.name == 'Maximizing Revenue: By optimizing prices across segments, businesses can extract more value from each group, thereby boosting overall profitability and market share.'){
+    this.selectedStrategy = { name: 'Sregmented Pricing  Strategy', code: 'AU' }
+        this.showOtherStrategy = true;
+
+  }
+
+  if(this.selectedObjective.name == 'Position as a Premium Brand'){
+    this.selectedStrategy = { name: 'Premium Pricing Strategy', code: 'AU' }
+        this.showOtherStrategy = true;
+
+  }
+
+  if(this.selectedObjective.name == 'Improve Cash Flow'){
+    this.selectedStrategy = { name: 'Cost-Plus Pricing Strategy', code: 'AU' }
+        this.showOtherStrategy = true;
+
+  }
+
+  if(this.selectedObjective.name == 'Boost Sales Volume'){
+    this.selectedStrategy = { name: 'Bundle Pricing Strategy', code: 'AU' }
+        this.showOtherStrategy = true;
+
+  }
+
+  if(this.selectedObjective.name == 'Maximize Profit for New Products'){
+    this.selectedStrategy = { name: 'Price Skimming Strategy', code: 'AU' }
+        this.showOtherStrategy = true;
+
+  }
+console.log('this.selectedStrategy', this.selectedStrategy)
+  // if(this.selectedObjective == ''){
+  //   this.selectedStrategy = { name: ' Strategy', code: 'AU' }
+  // }
+
+}
+
+onCategoryChange(){
+  console.log('selectedCategory', this.selectedCategory)
+  if(this.selectedCategory.name == 'Customer Based'){
+    this.objectivesArr = [
+      {
+        name: 'Maximize revenue & Profit ',
+        code: 'AU'
+      },
+      {
+        name: 'Enhance Customer Loyalty',
+        code: 'AU'
+      },
+      {
+        name: 'Enhance Customer Perception',
+        code: 'AU'
+      },
+      {
+        name: 'Enhance Customer Loyalty & Improve Cash Flow',
+        code: 'AU'
+      },
+
+    ]
+  }
+
+  if(this.selectedCategory.name == 'Product Based'){
+    this.objectivesArr = [
+      {
+        name: 'Position as a Premium Brand',
+        code: 'AU'
+      },
+      {
+        name: 'Improve Cash Flow',
+        code: 'AU'
+      },
+      {
+        name: 'Boost Sales Volume',
+        code: 'AU'
+      },
+      {
+        name: 'Maximize Profit for New Products',
+        code: 'AU'
+      },
+
+    ]
+  }
+
+  if(this.selectedCategory.name == 'Market Oriented'){
+    this.objectivesArr = [
+      {
+        name: 'Increase Market Share',
+        code: 'AU'
+      },
+      {
+        name: 'Launch a New Product',
+        code: 'AU'
+      },
+      {
+        name: 'Respond to Competitive Pressure',
+        code: 'AU'
+      },
+      {
+        name: 'Adapt to Market Fluctuations',
+        code: 'AU'
+      },
+
+
+      {
+        name: 'Target a Niche Market',
+        code: 'AU'
+      },
+      {
+        name: 'Optimize Inventory Management',
+        code: 'AU'
+      },
+      {
+        name: 'Increase Market Share (Cost Control Focus)',
+        code: 'AU'
+      },
+      {
+        name: 'Clear Excess Inventory',
+        code: 'AU'
+      },
+
+      {
+        name: 'Maximizing Revenue: By optimizing prices across segments, businesses can extract more value from each group, thereby boosting overall profitability and market share.',
+        code: 'AU'
+      }
+
+    ]
+  }
 }
 
 }
