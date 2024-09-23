@@ -103,7 +103,7 @@ a:hover {
 	position: absolute;
 	width: 100%;
 	overflow: auto;
-	padding: 5px 13px 40px;
+	// padding: 5px 13px 40px;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	// opacity: 0;
@@ -112,6 +112,7 @@ a:hover {
 	-ms-transition: all 0.5s;
 	-moz-transition: all 0.5s;
 	-webkit-transition: all 0.5s;
+  padding: 5px 7px 29px;
 }
 .pcss3t > .tab-content-first:checked ~ ul .tab-content-first,
 .pcss3t > .tab-content-2:checked ~ ul .tab-content-2,
@@ -1741,13 +1742,14 @@ svg{
 }
 
 .page_head{
-  background-color: #00a1a6;
   color: white;
   padding: 10px 0px;
-  margin: 0 auto;
-  font-size: 17px;
+  background: rgb(210, 131, 146);
+  /* background: linear-gradient(90deg, rgba(210, 131, 146, 1) 0%, rgba(155, 51, 46, 1) 35%, rgba(217, 204, 208, 1) 100%); */
+  // margin: 0 auto;
+  font-size: 22px;
   display: flex;
-  font-weight: 400;
+  font-weight: 500;
   justify-content: center;
 }
 
@@ -1942,7 +1944,7 @@ flex-basis: 28%;
 }
 
 .strategy_imp_btn{
-  flex-basis: 57%;
+  flex-basis: 62%;
   display: flex;
   justify-content: end;
 }
@@ -1971,4 +1973,28 @@ flex-basis: 28%;
 .row {
   /* Optional styles */
   transition: all 0.5s ease; /* Adjust as needed */
+}
+
+
+.page-heading{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  align-items: center;
+  padding: 0px 26px 0px 0px;
+  background-color: #f5f5f5;
+
+  .page-title{
+    background-color: transparent;
+    color: #000 !important;
+    text-align: left;
+    justify-content: flex-start;
+    padding: 15px;
+  }
+
+  .buttons{
+    width: 23%;
+    margin: 0px;
+  }
 }
