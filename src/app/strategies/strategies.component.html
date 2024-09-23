@@ -348,7 +348,7 @@
 
             <ng-container *ngIf="showData">
               <div class="dropdown_strategy dropdowns mb-2 mt-3" *ngIf="!implement_page">
-                <div class="flex d-flex justify-content-center select_strategy">
+                <div class="flex d-flex  select_strategy">
                   <span> Select a Strategy: </span>
                   <p-dropdown
                       [options]="strategies"
@@ -384,6 +384,7 @@
               </div>
 
               <ng-container *ngIf="!implement_page">
+                <p>Please fill all the parameters</p>
                 <div *ngIf="selectedStrategy.name=='Value Based Pricing Strategy'" class="row animate__animated animate__fadeInLeft" >
                   <div class="row metrics col-md-6">
                     <div class=" card_shadow">
@@ -1121,6 +1122,7 @@
                 </div>
               <!-- </mat-tab> -->
               <!-- <mat-tab label="Competitive Pricing strategy"> -->
+
                 <div *ngIf="selectedStrategy.name=='Competitive Pricing Strategy'" class="row animate__animated animate__fadeInLeft" >
                   <div class="row metrics col-md-6">
                     <div class=" card_shadow">
