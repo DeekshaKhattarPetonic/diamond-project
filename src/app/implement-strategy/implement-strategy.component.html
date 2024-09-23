@@ -1,5 +1,21 @@
 <div class="page">
-  <h2 class="page_head">Comparative Score of Different Pricing Strategy</h2>
+  <div class="d-flex justify-content-between">
+    <h2 class="page_head">Comparative Score of Different Pricing Strategy</h2>
+
+    <div  class="col-md-5 d-flex row flex flex-wrap p-fluid mb-2">
+      <div class="flex-auto d-flex row col-md-6 align-center">
+        <label for="buttondisplay" class="col-md-5 font-bold block mb-2"> From Date </label>
+        <p-calendar class="col-md-7" [showIcon]="true" inputId="buttondisplay"
+          [showOnFocus]="false" />
+      </div>
+      <div class="flex-auto row col-md-6 align-center">
+        <label for="buttondisplay" class="col-md-5 font-bold block mb-2"> To Date </label>
+        <p-calendar class="col-md-7" [showIcon]="true" inputId="buttondisplay"
+          [showOnFocus]="false" />
+      </div>
+    </div>
+  </div>
+
 
   <!-- <p>Comparative Score of Each Strategy</p> -->
 
@@ -88,7 +104,7 @@
   <div class="" *ngIf="showMetrics">
     <p>*Note: Before Implementation please review the impact</p>
 
-    <h2>Business Impact-Overall Matrics</h2>
+    <h2>Business Impact-Overall Metrics</h2>
 
     <div class="row mt-2 mx-2">
       <div class="details col-md-3 mb-1">

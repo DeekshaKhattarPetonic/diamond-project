@@ -34,6 +34,7 @@ export class StrategiesComponent {
   showTable: any = false;
   countries: any[] | undefined;
   selectedStrategy: any;
+  selectedStrategyDraft: any;
   strategies: any[] | undefined
   formGroup: any;
   selectedCountry: any;
@@ -202,98 +203,98 @@ onStrategyChange() {
 onObjChange(){
   console.log('selectedObjective', this.selectedObjective)
   if(this.selectedObjective.name == 'Maximize revenue & Profit '){
-    this.selectedStrategy = { name: 'Value-Based Pricing Strategy', code: 'AU' }
+    this.selectedStrategyDraft = { name: 'Value-Based Pricing Strategy', code: 'AU' }
     this.showOtherStrategy = true;
   }
 
   if(this.selectedObjective.name == 'Enhance Customer Loyalty'){
-    this.selectedStrategy = { name: 'Loyalty-Based Pricing Strategy', code: 'AU' }
+    this.selectedStrategyDraft = { name: 'Loyalty-Based Pricing Strategy', code: 'AU' }
     this.showOtherStrategy = true;
   }
 
   if(this.selectedObjective.name == 'Enhance Customer Perception'){
-    this.selectedStrategy = { name: 'Psychological Pricing Strategy', code: 'AU' }
+    this.selectedStrategyDraft = { name: 'Psychological Pricing Strategy', code: 'AU' }
     this.showOtherStrategy = true;
   }
 
   if(this.selectedObjective.name == 'Enhance Customer Loyalty & Improve Cash Flow'){
-    this.selectedStrategy = { name: 'Subscription Pricing Strategy', code: 'AU' }
+    this.selectedStrategyDraft = { name: 'Subscription Pricing Strategy', code: 'AU' }
     this.showOtherStrategy = true;
   }
 
   if(this.selectedObjective.name == 'Increase Market Share'){
-    this.selectedStrategy = { name: 'Penetration Pricing Strategy', code: 'AU' }
+    this.selectedStrategyDraft = { name: 'Penetration Pricing Strategy', code: 'AU' }
         this.showOtherStrategy = true;
 
   }
 
   if(this.selectedObjective.name == 'Launch a New Product'){
-    this.selectedStrategy = { name: 'Introductory Pricing Strategy', code: 'AU' }
+    this.selectedStrategyDraft = { name: 'Introductory Pricing Strategy', code: 'AU' }
         this.showOtherStrategy = true;
 
   }
 
   if(this.selectedObjective.name == 'Respond to Competitive Pressure'){
-    this.selectedStrategy = { name: 'Competitive Pricing Strategy', code: 'AU' }
+    this.selectedStrategyDraft = { name: 'Competitive Pricing Strategy', code: 'AU' }
     this.showOtherStrategy = false;
   }
 
   if(this.selectedObjective.name == 'Adapt to Market Fluctuations'){
-    this.selectedStrategy = { name: 'Dynamic Pricing Strategy', code: 'AU' }
+    this.selectedStrategyDraft = { name: 'Dynamic Pricing Strategy', code: 'AU' }
         this.showOtherStrategy = true;
 
   }
 
   if(this.selectedObjective.name == 'Target a Niche Market'){
-    this.selectedStrategy = { name: 'Geographical Pricing Strategy', code: 'AU' }
+    this.selectedStrategyDraft = { name: 'Geographical Pricing Strategy', code: 'AU' }
         this.showOtherStrategy = true;
 
   }
 
   if(this.selectedObjective.name == 'Optimize Inventory Management'){
-    this.selectedStrategy = { name: 'Seasonal Pricing Strategy', code: 'AU' }
+    this.selectedStrategyDraft = { name: 'Seasonal Pricing Strategy', code: 'AU' }
         this.showOtherStrategy = true;
 
   }
 
   if(this.selectedObjective.name == 'Increase Market Share (Cost Control Focus)'){
-    this.selectedStrategy = { name: 'Economy Pricing Strategy', code: 'AU' }
+    this.selectedStrategyDraft = { name: 'Economy Pricing Strategy', code: 'AU' }
         this.showOtherStrategy = true;
 
   }
 
   if(this.selectedObjective.name == 'Clear Excess Inventory'){
-    this.selectedStrategy = { name: 'Flash Sale Pricing Strategy', code: 'AU' }
+    this.selectedStrategyDraft = { name: 'Flash Sale Pricing Strategy', code: 'AU' }
         this.showOtherStrategy = true;
 
   }
 
-  if(this.selectedObjective.name == 'Maximizing Revenue: By optimizing prices across segments, businesses can extract more value from each group, thereby boosting overall profitability and market share.'){
-    this.selectedStrategy = { name: 'Sregmented Pricing  Strategy', code: 'AU' }
+  if(this.selectedObjective.name == 'Maximize Revenue across segments'){
+    this.selectedStrategyDraft = { name: 'Sregmented Pricing  Strategy', code: 'AU' }
         this.showOtherStrategy = true;
 
   }
 
   if(this.selectedObjective.name == 'Position as a Premium Brand'){
-    this.selectedStrategy = { name: 'Premium Pricing Strategy', code: 'AU' }
+    this.selectedStrategyDraft = { name: 'Premium Pricing Strategy', code: 'AU' }
         this.showOtherStrategy = true;
 
   }
 
   if(this.selectedObjective.name == 'Improve Cash Flow'){
-    this.selectedStrategy = { name: 'Cost-Plus Pricing Strategy', code: 'AU' }
+    this.selectedStrategyDraft = { name: 'Cost-Plus Pricing Strategy', code: 'AU' }
         this.showOtherStrategy = true;
 
   }
 
   if(this.selectedObjective.name == 'Boost Sales Volume'){
-    this.selectedStrategy = { name: 'Bundle Pricing Strategy', code: 'AU' }
+    this.selectedStrategyDraft = { name: 'Bundle Pricing Strategy', code: 'AU' }
         this.showOtherStrategy = true;
 
   }
 
   if(this.selectedObjective.name == 'Maximize Profit for New Products'){
-    this.selectedStrategy = { name: 'Price Skimming Strategy', code: 'AU' }
+    this.selectedStrategyDraft = { name: 'Price Skimming Strategy', code: 'AU' }
         this.showOtherStrategy = true;
 
   }
@@ -388,12 +389,17 @@ onCategoryChange(){
       },
 
       {
-        name: 'Maximizing Revenue: By optimizing prices across segments, businesses can extract more value from each group, thereby boosting overall profitability and market share.',
+        name: 'Maximize Revenue across segments',
         code: 'AU'
       }
 
     ]
   }
+}
+
+showParams(){
+  this.showData = true;
+  this.selectedStrategy = this.selectedStrategyDraft
 }
 
 }

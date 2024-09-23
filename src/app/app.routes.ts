@@ -6,6 +6,7 @@ import { UserManagementComponent } from './user-management/user-management.compo
 import { StrategiesComponent } from './strategies/strategies.component';
 import { RevisedPriceComponent } from './revised-price/revised-price.component';
 import { PointOfSalesComponent } from './point-of-sales/point-of-sales.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 // import StrategistTabsComponent
 
 export const routes: Routes = [
@@ -16,5 +17,6 @@ export const routes: Routes = [
   { path: 'pos', component: PointOfSalesComponent },
   { path: 'tabs', component: StrategistTabsComponent },
   { path: 'revised-price', component: RevisedPriceComponent },
+  { path: 'profile', component: ProfilePageComponent },
 ];
 
