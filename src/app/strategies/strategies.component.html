@@ -7,20 +7,20 @@
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css" />
 	</head>
 	<body> -->
-    <app-header></app-header>
+<app-header></app-header>
 <div class="page">
   <!-- <h1>Pure CSS Tabs</h1> -->
   <!-- tabs -->
-   <div class="page-heading">
-  <h2 class="page_head page-title">
-    <div class="d-flex align-center">
-      <span class="material-symbols-outlined view_list">
+
+  <div class="page-heading">
+    <h2 class="page_head page-title container m-auto px-0">
+      <div class="d-flex align-center">
+        <span class="material-symbols-outlined view_list">
         view_list
       </span>Strategy Management Dashboard
     </div>
-
     <div class="strategy_imp_btn" *ngIf="!implement_page">
-      <button (click)="implement_page = true" class="implement_strategy_btn">
+      <button (click)="onImplementStrategy()" class="implement_strategy_btn">
         <span class="material-symbols-outlined">
           settings
           </span>
@@ -38,7 +38,7 @@
 				<label for="tab3"><i class="icon-cogs"></i>Einstein</label>
 				<input type="radio" name="pcss3t" id="tab5" class="tab-content-last">
 				<label for="tab5"><i class="icon-globe"></i>Newton</label> -->
-				<ul>
+
 					<!-- <li class="tab-content tab-content-first typography">
             <ng-container *ngIf="!showTable">
               <p class="para_head">To review and revise the price select the category of product for which the price to be revised</p>
@@ -324,16 +324,16 @@
               </div>
             </ng-container>
         </li> -->
-
-					<li class="tab-content tab-content-2 typography" [ngClass]="{'h-80vh': !showData}">
-            <p class="mt-1 mb-1">Select the target category and business objective to create strategy:</p>
+        <ul>
+					<li class="px-0 container m-auto tab-content tab-content-2 typography" [ngClass]="{'h-80vh': !showData}">
+            <!-- <p class="mt-1 mb-1">Select the target category and business objective to create strategy:</p> -->
             <div class="mt-1 d-flex col-gap-5 row nowrap">
               <div class="col-md-12 row details header card_shadow obj  mb-2" [ngClass]="{'col-md-12': !showData}">
-
-                <div class="d-flex row p-2">
+                <div class="d-flex row p-2 justify-space-between">
                   <div class=" col-md-5 d-flex">
-                    <span class="col-md-4 select_text" >Select Target Category</span>
-                    <p-dropdown class="col-md-5" [options]="targetCategoryData" [(ngModel)]="selectedCategory" optionLabel="name" [filter]="true" filterBy="name"
+                    <span class="col-md-4 select_text" *ngIf="!implement_page">Select Target Category</span>
+                    <span class="col-md-4 select_text" *ngIf="implement_page">Selected Target Category</span>
+                    <p-dropdown [disabled]="implement_page" class="col-md-5" [options]="targetCategoryData" [(ngModel)]="selectedCategory" optionLabel="name" [filter]="true" filterBy="name"
                     [showClear]="true" (onChange)="onCategoryChange()" placeholder="Target Category">
                     <ng-template pTemplate="selectedItem" let-selectedOption>
                       <div class="flex align-items-center gap-2">
@@ -342,16 +342,15 @@
                     </ng-template>
                     <ng-template let-country pTemplate="item">
                       <div class="flex align-items-center gap-2">
-
                         <div>{{ country.name }}</div>
                       </div>
                     </ng-template>
                   </p-dropdown>
                   </div>
-
                   <div class=" col-md-5 d-flex">
-                    <span class="col-md-4 select_text">Select Business Objective</span>
-                    <p-dropdown class="col-md-5" [options]="objectivesArr" [(ngModel)]="selectedObjective" optionLabel="name" [filter]="true" filterBy="name"
+                    <span class="col-md-4 select_text" *ngIf="!implement_page">Select Business Objective</span>
+                    <span class="col-md-4 select_text" *ngIf="implement_page">Selected Business Objective</span>
+                    <p-dropdown [disabled]="implement_page" [disabled]="!objectivesArr?.length" class="col-md-5" [options]="objectivesArr" [(ngModel)]="selectedObjective" optionLabel="name" [filter]="true" filterBy="name"
                     [showClear]="true" (onChange)="onObjChange()" placeholder="Business Objective">
                     <ng-template pTemplate="selectedItem" let-selectedOption>
                       <div class="flex align-items-center gap-2">
@@ -360,16 +359,15 @@
                     </ng-template>
                     <ng-template let-country pTemplate="item">
                       <div class="flex align-items-center gap-2">
-
                         <div>{{ country.name }}</div>
                       </div>
                     </ng-template>
                   </p-dropdown>
                   </div>
 
-                  <span (click)="showParams()" class="material-symbols-outlined gobtn col-md-1" [ngClass]="{'mt-27': showData}">
-                    arrow_circle_right
-                  </span>
+                  <button class="col-md-1 gobtn" *ngIf="!implement_page" [disabled]="!selectedCategory?.name || !selectedObjective?.name" (click)="showParams()"  [ngClass]="{'mt-27': showData}">
+                    <span class="material-symbols-outlined  " [ngClass]="{'mt-27': showData}">arrow_circle_right</span>
+                  </button>
                 </div>
 
                 <!-- <p class="col-md-3 head">Business Objective and Criteria</p> -->
@@ -378,9 +376,7 @@
                   <mat-radio-button value="1">Market Oriented</mat-radio-button>
                   <mat-radio-button value="2">Product Based</mat-radio-button>
                 </mat-radio-group> -->
-
               </div>
-
             </div>
 
             <ng-container *ngIf="showData">
@@ -434,18 +430,18 @@
               </div>
               </div>
 
-              <ng-container *ngIf="!implement_page">
+              <ng-container *ngIf="!implement_page && selectedObjective">
                 <div class="d-flex">
-                  <p class="mt-1 col-md-7">Please review all the parameters and select the dates</p>
-                  <div *ngIf="showData" class="col-md-5 d-flex row flex flex-wrap p-fluid mb-2">
+                  <p class="mt-1 col-md-6">Please review all the parameters and select the dates</p>
+                  <div *ngIf="showData" class="col-md-6 d-flex row flex flex-wrap p-fluid mb-2">
                     <div class="flex-auto d-flex row col-md-6 align-center">
-                      <label for="buttondisplay" class="col-md-5 font-bold block mb-2"> From Date </label>
-                      <p-calendar class="col-md-7" [(ngModel)]="date1" [showIcon]="true" inputId="buttondisplay"
+                      <label for="buttondisplay" class=" col-md-4 font-bold block mb-2"> From Date </label>
+                      <p-calendar class="col-md-7 px-0" [(ngModel)]="date1" [showIcon]="true" inputId="buttondisplay"
                         [showOnFocus]="false" />
                     </div>
-                    <div class="flex-auto row col-md-6 align-center">
-                      <label for="buttondisplay" class="col-md-5 font-bold block mb-2"> To Date </label>
-                      <p-calendar class="col-md-7" [(ngModel)]="date2" [showIcon]="true" inputId="buttondisplay"
+                    <div class="justify-end flex-auto row col-md-6 align-center">
+                      <label for="buttondisplay" class="col-md-4 font-bold block mb-2"> To Date </label>
+                      <p-calendar class="col-md-7 px-0" [(ngModel)]="date2" [showIcon]="true" inputId="buttondisplay"
                         [showOnFocus]="false" />
                     </div>
                   </div>
@@ -2366,4 +2362,3 @@
     </div>
   </div>
 </div> -->
-

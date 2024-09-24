@@ -452,3 +452,35 @@ width: 294px;
     // width: 100px !important;
   }
 }
+// .all_radio{
+.all_radio {
+  .mdc-radio__inner-circle {
+    border-color: rgb(0, 202, 138) !important;
+  }
+  .mdc-radio__outer-circle{
+    border-color: rgb(0, 0, 0) !important;
+   }
+}
+
+.multiple_items_radio {
+  .mdc-radio__inner-circle {
+    border-color: rgb(0, 155, 202) !important;
+  }
+  .mdc-radio__outer-circle{
+    border-color: rgb(0, 0, 0) !important;
+   }
+}
+
+.item_radio {
+  // .mdc-radio__outer-circle,
+  .mdc-radio__inner-circle {
+    border-color: rgb(131, 0, 202) !important;
+  }
+   .mdc-radio__outer-circle{
+    border-color: rgb(0, 0, 0) !important;
+   }
+}
+
+.p-datepicker{
+  left: -120.333px !important;
+}

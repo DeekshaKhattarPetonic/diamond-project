@@ -1,0 +1,44 @@
+BEGIN:VCALENDAR
+PRODID:-//Google Inc//Google Calendar 70.9054//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+BEGIN:VTIMEZONE
+TZID:Asia/Kolkata
+X-LIC-LOCATION:Asia/Kolkata
+BEGIN:STANDARD
+TZOFFSETFROM:+0530
+TZOFFSETTO:+0530
+TZNAME:GMT+5:30
+DTSTART:19700101T000000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;TZID=Asia/Kolkata:20240911T153000
+DTEND;TZID=Asia/Kolkata:20240911T154500
+DTSTAMP:20240911T055205Z
+ORGANIZER;CN=Saumya Jain:mailto:saumya.jain@teamcomputers.com
+UID:6mq8gd7qibht2tehpfphof9qep@google.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=Arpita Ghosh;X-NUM-GUESTS=0:mailto:arpita.ghosh@teamcomputers.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=dikshakhattar218@gmail.com;X-NUM-GUESTS=0:mailto:dikshakhattar218@g
+ mail.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;RSVP=TRUE
+ ;CN=Saumya Jain;X-NUM-GUESTS=0:mailto:saumya.jain@teamcomputers.com
+X-GOOGLE-CONFERENCE:https://meet.google.com/anh-zfmh-dkb
+X-MICROSOFT-CDO-OWNERAPPTID:-272109830
+CREATED:20240911T055203Z
+DESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~
+ :~:~:~:~:~:~:~:~::~:~::-\nJoin with Google Meet: https://meet.google.com/an
+ h-zfmh-dkb\n\nLearn more about Meet at: https://support.google.com/a/users/
+ answer/9282720\n\nPlease do not edit this section.\n-::~:~::~:~:~:~:~:~:~:~
+ :~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-
+LAST-MODIFIED:20240911T055203Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Compensation & Benefits Discussion-Deeksha Khattar
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

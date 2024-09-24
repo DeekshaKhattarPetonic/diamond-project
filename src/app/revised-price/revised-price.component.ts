@@ -17,13 +17,22 @@ import { DialogModule } from 'primeng/dialog';
 import { MatIconModule } from '@angular/material/icon';
 // import ConfirmationModalComponent
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { ReviewChangesComponent } from '../review-changes/review-changes.component';
 import { HeaderComponent } from '../shared/header/header.component';
 import { FooterComponent } from '../shared/footer/footer.component';
+import { PaginatorModule, PaginatorState } from 'primeng/paginator';
+
+interface PageEvent {
+    first: number;
+    rows: number;
+    page: number;
+    pageCount: number;
+}
 
 @Component({
   selector: 'app-revised-price',
   standalone: true,
-  imports: [DialogModule, MatIconModule, DynamicDialogModule, CalendarModule, ChartModule, MatTabsModule, MatRadioModule, DropdownModule, FormsModule, CommonModule, ReactiveFormsModule, CheckboxModule, HeaderComponent, FooterComponent],
+  imports: [PaginatorModule, FooterComponent, DialogModule, MatIconModule, DynamicDialogModule, CalendarModule, ChartModule, MatTabsModule, MatRadioModule, DropdownModule, FormsModule, CommonModule, ReactiveFormsModule, CheckboxModule, HeaderComponent],
   templateUrl: './revised-price.component.html',
   styleUrl: './revised-price.component.scss'
 })
@@ -41,10 +50,29 @@ export class RevisedPriceComponent {
   date1: Date | undefined;
   date2: Date | undefined;
   showParams: any = false;
-  selectedOption: any;
+  selectedOption: any = null;
+  checkboxItems = [
+    { id: 'marketVolatility', label: 'Market Votality', checked: false },
+    { id: 'supplyChainDynamics', label: 'Supply Chain Dynamics', checked: false },
+    { id: 'operationalCosts', label: 'Operational Costs', checked: false },
+    { id: 'contingencyReserves', label: 'Contingency Reserves', checked: false },
+    { id: 'regulatoryTaxChanges', label: 'Regulatory and Tax Changes', checked: false },
+    { id: 'inventoryHoldingCosts', label: 'Inventory Holding Costs', checked: false }
+  ];
+  isConfirmDisabled = true;
+  first: number = 0;
+  rows: number = 10;
+  pagedData: any[] = [];
+  allData = [
+    { id: 'D001', desc: 'Round cut, 1 carat , excellent clarity', value1: 24, value2: 'G', clarity: 'VS1', quality: 'Excellent', price1: 5000, price2: 5500 },
+    { id: 'D002', desc: 'Square cut, 1 carat , excellent clarity', value1: 24, value2: 'G', clarity: 'VS2', quality: 'Excellent', price1: 4000, price2: 4500 },
+    { id: 'D003', desc: 'Round cut, 1 carat , excellent clarity', value1: 24, value2: 'G', clarity: 'VS1', quality: 'Excellent', price1: 6000, price2: 8500 },
+    { id: 'D004', desc: 'Heart cut, 1 carat , excellent clarity', value1: 24, value2: 'G', clarity: 'VS2', quality: 'Excellent', price1: 6000, price2: 8500 }
+    // Add more data as needed
+  ];
 
   constructor(private dialog: MatDialog,) {
-
+    this.updatePageData();
   }
 
   ngOnInit() {
@@ -75,5 +103,34 @@ export class RevisedPriceComponent {
     this.showParams = false;
   }
 
+  checkIfAnyChecked() {
+    this.isConfirmDisabled = !this.checkboxItems.some(item => item.checked);
+  }
+
+  onCategoryChange(){
+    this.showParams = false;
+  }
+
+  onPageChange(event: any) {
+    this.first = event.first;
+    this.rows = event.rows;
+    this.updatePageData();
+  }
+
+  updatePageData() {
+    this.pagedData = this.allData.slice(this.first, this.first + this.rows);
+  }
+
+  openReviewModal(){
+    const dialogRef = this.dialog.open(ReviewChangesComponent, {
+      width: '80VW',
+      data: {
+        head: 'Review Changes',
+        message: 'Please review the changes and confirm.',
+        buttonTextNo: 'Save',
+        buttonTextYes: 'No',
+      },
+    });
+  }
 
 }

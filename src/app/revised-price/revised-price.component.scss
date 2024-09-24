@@ -52,19 +52,21 @@ a:hover {
     width: 100%;
     border-bottom: 1px solid #ccc;
     align-items: center;
-    padding: 0px 26px 0px 0px;
+    // padding: 0px 26px 0px 0px;
     background-color: #f5f5f5;
 
     .page-title{
       background-color: transparent;
+      width: 100%;
       color: #000 !important;
+      justify-content: space-between;
       text-align: left;
-      justify-content: flex-start;
+      // justify-content: flex-start;
       padding: 15px;
     }
 
     .buttons{
-      width: 23%;
+      width: 26%;
       margin: 0px;
     }
   }
@@ -1061,7 +1063,7 @@ font-size: 16px;
   color: white;
   width: 30px;
   padding: 0px;
-  cursor: pointer;
+  // cursor: pointer;
   border-radius: 100%;
   height: 30px;
   font-size: 30px;
@@ -2009,4 +2011,43 @@ li{
 
 .desc{
   width: 200px !important;
+}
+
+.noParams{
+  .button{
+    border: none;
+    display: flex;
+    background-color: transparent;
+  }
+}
+
+button:disabled{
+  opacity: 0.5 !important;
+}
+
+.justify-end{
+  justify-content: end;
+}
+
+.blueBorder{
+  border: 1px solid rgb(0, 155, 202);
+  border-radius: 4px;
+  box-shadow: 1px 0px 3px 1px rgba(0, 178, 202, 0.2);
+}
+
+.greenBorder{
+  border: 1px solid rgb(131, 0, 202);
+  border-radius: 4px;
+  box-shadow: 1px 0px 3px 1px rgb(152 0 202 / 20%);
+}
+
+.price-width{
+  width: 90px;
+}
+
+.editable-price{
+  input{
+
+    width: 60px;
+  }
 }

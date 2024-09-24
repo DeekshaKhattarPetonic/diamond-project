@@ -60,6 +60,9 @@ export class StrategiesComponent {
 
   ngOnInit() {
 
+    // this.selectedCategory.name = '';
+    // this.selectedObjective.name = '';
+
     this.countries = [
         { name: 'option', code: 'AU' },
         { name: 'option', code: 'BR' },
@@ -90,91 +93,8 @@ export class StrategiesComponent {
 
 
 
-  const documentStyle = getComputedStyle(document.documentElement);
-        const textColor = documentStyle.getPropertyValue('--text-color');
-        const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
-        const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
-
-        this.data = {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-            datasets: [
-                {
-                    label: 'First Dataset',
-                    data: [65, 59, 80, 81, 56, 55, 40],
-                    fill: false,
-                    borderColor: documentStyle.getPropertyValue('--blue-500'),
-                    tension: 0.4
-                },
-                {
-                    label: 'Second Dataset',
-                    data: [28, 48, 40, 19, 86, 27, 90],
-                    fill: false,
-                    borderColor: documentStyle.getPropertyValue('--pink-500'),
-                    tension: 0.4
-                }
-            ]
-        };
-
-        this.options = {
-            maintainAspectRatio: false,
-            aspectRatio: 0.6,
-            plugins: {
-                legend: {
-                    labels: {
-                        color: textColor
-                    }
-                }
-            },
-            scales: {
-                x: {
-                    ticks: {
-                        color: textColorSecondary
-                    },
-                    grid: {
-                        color: surfaceBorder,
-                        drawBorder: false
-                    }
-                },
-                y: {
-                    ticks: {
-                        color: textColorSecondary
-                    },
-                    grid: {
-                        color: surfaceBorder,
-                        drawBorder: false
-                    }
-                }
-            }
-        };
-
-
-  const documentStyle2 = getComputedStyle(document.documentElement);
-  const textColor2 = documentStyle2.getPropertyValue('--text-color');
-
-  this.data2 = {
-      labels: ['A', 'B', 'C'],
-      datasets: [
-          {
-              data: [300, 50, 100],
-              backgroundColor: [documentStyle2.getPropertyValue('--blue-500'), documentStyle2.getPropertyValue('--yellow-500'), documentStyle2.getPropertyValue('--green-500')],
-              hoverBackgroundColor: [documentStyle2.getPropertyValue('--blue-400'), documentStyle2.getPropertyValue('--yellow-400'), documentStyle2.getPropertyValue('--green-400')]
-          }
-      ]
-  };
-
-
-  this.options2 = {
-      cutout: '60%',
-      plugins: {
-          legend: {
-              labels: {
-                  color: textColor2
-              }
-          }
-      }
-  };
-
-  this.selectedStrategy = { name: 'Value Based Pricing Strategy', code: 'AU' }
+  this.selectedStrategy = { name: '', code: '' }
+  this.selectedObjective = { name: '', code: '' }
 }
 
 openModal(){
@@ -186,6 +106,7 @@ openModal(){
       buttonTextNo: 'Close',
     },
   });
+  this.selectedCountry = ''
   this.showTable = false
 }
 
@@ -298,15 +219,23 @@ onObjChange(){
         this.showOtherStrategy = true;
 
   }
-console.log('this.selectedStrategy', this.selectedStrategy)
+  console.log('this.selectedStrategy', this.selectedStrategy)
   // if(this.selectedObjective == ''){
   //   this.selectedStrategy = { name: ' Strategy', code: 'AU' }
   // }
+
+  // !implement_page && selectedObjective
+  // this.implement_page = false;
+  // this.selectedObjective = ''
+  this.implement_page = false;
+  // this.selectedObjective = ''
 
 }
 
 onCategoryChange(){
   console.log('selectedCategory', this.selectedCategory)
+  this.selectedObjective = ''
+  this.showData = false;
   if(this.selectedCategory.name == 'Customer Based'){
     this.objectivesArr = [
       {
@@ -400,6 +329,27 @@ onCategoryChange(){
 showParams(){
   this.showData = true;
   this.selectedStrategy = this.selectedStrategyDraft
+}
+
+onImplementStrategy(){
+  if(this.selectedCategory == '' || this.selectedObjective == '' || !this.showData){
+    this.implement_page = false;
+    const dialogRef = this.dialog.open(CustomModalComponent, {
+      width: '35vw',
+      data: {
+        head: '',
+        message: 'Please select Target Category and Business Objective to implement the strategy',
+        buttonTextNo: 'Close',
+      },
+    });
+  }
+  else{
+    this.implement_page = true;
+  }
+
+  console.log('implement_page', this.implement_page)
+
+  // this.implement_page = true;
 }
 
 }
