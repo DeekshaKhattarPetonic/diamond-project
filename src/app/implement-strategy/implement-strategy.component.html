@@ -182,8 +182,8 @@
     </div>
   </div>
 
-  <div class="buttons" *ngIf="showMetrics">
-    <button class="btn cancel">Cancel</button>
+  <div class="buttons mb-2" *ngIf="showMetrics">
+    <button class="btn cancel" (click)="onCancel()">Cancel</button>
     <button (click)="openModal()" class="btn confirm">Confirm</button>
   </div>
 </div>

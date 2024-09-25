@@ -115,6 +115,9 @@ onStrategyChange() {
 
   this.animate = true;
 
+  this.implement_page = false;
+  this.showData = false;
+
   // Remove animation class after the animation duration (0.5s in this case)
   setTimeout(() => {
     this.animate = false;
@@ -228,6 +231,7 @@ onObjChange(){
   // this.implement_page = false;
   // this.selectedObjective = ''
   this.implement_page = false;
+  this.showData = false;
   // this.selectedObjective = ''
 
 }
@@ -350,6 +354,33 @@ onImplementStrategy(){
   console.log('implement_page', this.implement_page)
 
   // this.implement_page = true;
+}
+
+hideImplementPage() {
+  this.implement_page = false; // Hide the implement strategy component
+  this.selectedCategory.name = null;
+  this.selectedObjective.name = null;
+
+   this.implement_page = false
+    this.selectedObjective = false;
+    this.showData = false;
+
+    this.strategies = [
+      { name: 'Value Based Pricing Strategy', code: 'AU' },
+      { name: 'Real Time Pricing Strategy', code: 'BR' },
+      { name: 'Competitive Pricing Strategy', code: 'CN' },
+      { name: 'Segmented Pricing Strategy', code: 'EG' },
+      { name: 'Time Based Pricing Strategy', code: 'CN' },
+      { name: 'Brand Pricing Strategy', code: 'EG' },
+      { name: 'Market Penetration Pricing Strategy', code: 'CN' },
+
+  ];
+
+  this.targetCategoryData = [
+    { name: 'Customer Based', code: 'AU' },
+    { name: 'Market Oriented', code: 'BR' },
+    { name: 'Product Based', code: 'CN' },
+  ]
 }
 
 }

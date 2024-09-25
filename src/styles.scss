@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+// @import '~primeng/resources/themes/saga-blue/theme.css'; /* Choose your preferred theme */
+// @import '~primeng/resources/primeng.min.css';
+// @import '~primeicons/primeicons.css';
 
 html, body { height: 100%; }
 @import 'animate.css';
@@ -483,4 +486,109 @@ width: 294px;
 
 .p-datepicker{
   left: -120.333px !important;
+}
+
+.p-dropdown-panel .p-dropdown-header{
+  padding: 5px 5px !important;
+  font-size: 13px !important;
+
+  .p-dropdown-filter-icon {
+    width: 13px !important;
+    height: 19px !important;
+  }
+
+
+}
+
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item{
+  font-size: 14px !important;
+  padding: 4px 10px !important;
+}
+
+.p-datatable .p-datatable-header{
+  padding: 10px !important;
+}
+
+button.p-ripple.p-element.p-button.p-component.p-button-outlined {
+  padding: 4px 22px !important;
+  border-radius: 4px !important;
+  margin-right: 8px !important;
+}
+
+.p-datatable-thead{
+  th{
+    padding: 3px 4px !important;
+    font-size: 14px !important;
+  }
+
+}
+
+.p-multiselect .p-multiselect-label {
+  padding: 4px 10px !important;
+  font-size: 12px !important;
+}
+
+.p-datatable-tbody{
+
+  td{
+    padding: 3px 10px !important;
+    font-size: 13px !important;
+  }
+}
+
+.p-datatable-table{
+  min-width: 100% !important;
+}
+
+.p-multiselect-panel .p-multiselect-header {
+  padding: 3px 10px !important;
+  font-size: 8px !important;
+}
+
+.p-multiselect-close{
+  width: auto;
+  margin-left: 3px;
+
+  svg{
+    width: 10px !important;
+  }
+}
+
+.p-multiselect-items{
+  padding-left: 0px !important;
+
+  .p-checkbox .p-checkbox-box{
+    width: 15px !important;
+    height: 15px !important;
+  }
+
+  .p-checkbox{
+    width: 15px !important;
+    height: 15px !important;
+  }
+}
+
+.p-checkbox .p-checkbox-box{
+  width: 15px !important;
+  height: 15px !important;
+}
+
+.p-multiselect-item{
+  padding: 2px 7px !important;
+
+  .p-checkbox{
+    span{
+      font-size: 13px !important;
+    }
+  }
+}
+
+
+.p-multiselect-panel .p-multiselect-header .p-checkbox {
+  margin-right: 4px !important;
+}
+
+.p-datatable-wrapper{
+  height: 220px !important;
 }

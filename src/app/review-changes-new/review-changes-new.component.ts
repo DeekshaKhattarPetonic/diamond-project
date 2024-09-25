@@ -9,18 +9,24 @@ import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { ToastModule } from 'primeng/toast';
 import { CommonModule } from '@angular/common';
 import {MatIconModule} from '@angular/material/icon';
-
+import { CalendarModule } from 'primeng/calendar';
 
 @Component({
-  selector: 'app-custom-modal',
+  selector: 'app-review-changes-new',
   standalone: true,
-  imports: [DialogModule, DynamicDialogModule, CommonModule, RouterOutlet, RouterLink, RouterLinkActive, FormsModule, ToastModule, MatIconModule],
-  templateUrl: './custom-modal.component.html',
-  styleUrl: './custom-modal.component.scss'
+  imports: [CalendarModule, DialogModule, DynamicDialogModule, CommonModule, RouterOutlet, RouterLink, RouterLinkActive, FormsModule, ToastModule, MatIconModule],
+  templateUrl: './review-changes-new.component.html',
+  styleUrl: './review-changes-new.component.scss'
 })
-export class CustomModalComponent {
+
+export class ReviewChangesNewComponent {
+  date1: Date | undefined;
+  date2: Date | undefined;
+  showParams: any = false;
+  selectedOption: any = null;
+
   constructor(
-    public dialogRef: MatDialogRef<CustomModalComponent>,
+    public dialogRef: MatDialogRef<ReviewChangesNewComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 

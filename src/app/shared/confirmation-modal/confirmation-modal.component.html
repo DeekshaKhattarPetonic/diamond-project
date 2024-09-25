@@ -16,6 +16,6 @@
 <!-- <mat-dialog-actions class="d-flex justify-content-end place-center"> -->
 <div class="btns d-flex align-items-center justify-content-end px-2">
   <button (click)="onNoClick()" class="noBtn btn btn-secondary">No</button>
-  <button [mat-dialog-close]="'Yes'" cdkFocusInitial class="yesBtn btn ms-2">Yes</button>
+  <button [mat-dialog-close]="'Yes'" (click)="onYesClick()" cdkFocusInitial class="yesBtn btn ms-2">Yes</button>
 </div>
 <!-- </mat-dialog-actions> -->

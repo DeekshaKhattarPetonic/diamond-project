@@ -1,17 +1,16 @@
-
 <app-header></app-header>
 <div class="page pcss3t pcss3t-effect-scale pcss3t-theme-1">
   <!-- <h1>Pure CSS Tabs</h1> -->
   <!-- tabs -->
-   <div class="page-heading">
+  <div class="page-heading">
     <h2 class="page_head page-title container px-0 m-auto justify-space-between">
       <div class="d-flex align-center">
         <span class="material-symbols-outlined view_list">
           view_list
-          </span>Review and Revise Price
+        </span>Review and Revise Price
       </div>
 
-      <div class="buttons"  *ngIf="showTable">
+      <div class="buttons" *ngIf="showTable">
         <!-- <button
         class="confirm btn confirmation_btn"
         (click)="showTable = false; ">
@@ -20,17 +19,17 @@
           </span>
         Go Back
       </button> -->
-      <button
-      class="confirm btn confirmation_btn"
-      (click)="showEditTable = true">
-      <span class="material-symbols-outlined">
-        edit
-        </span>
-      Edit Price
-    </button>
-      </div></h2>
-
-
+      <!-- <button class="clear btn confirmation_btn" (click)="clearFilters()"><span class="material-symbols-outlined">
+        filter_alt
+        </span> Clear Filter</button>
+        <button class="confirm btn confirmation_btn" (click)="showEditTable = true">
+          <span class="material-symbols-outlined">
+            edit
+          </span>
+          Edit Price
+        </button> -->
+      </div>
+    </h2>
   </div>
     <div class="page_content">
     <li class="tab-content tab-content-first typography container px-0 m-auto">
@@ -99,7 +98,7 @@
           </div>
           <div class="buttons">
             <!-- <button class="btn revised">View Revised Price</button> -->
-            <button [disabled]="isConfirmDisabled" class="btn confirm" (click)="showTable = true">Confirm</button>
+            <button [disabled]="isConfirmDisabled" class="btn confirm" (click)="openConfirmationModal()">Confirm</button>
 
           </div>
         </div>
@@ -108,26 +107,88 @@
       <ng-container *ngIf="showTable">
         <div class="flex row flex-col">
           <div class="col-md-12">
-            <table class="table table-hover table-striped table-bordered mb-0  dataTable" id="userTable">
+            <!-- <table class="table table-hover table-striped table-bordered mb-0 dataTable" id="userTable">
               <thead class="table-light">
                 <tr>
-                  <th>Product ID</th>
-                  <!-- <th></th> -->
-                  <th>Description</th>
-                  <th>Carat</th>
-                  <th>Color</th>
-                  <th>Clarity</th>
-                  <th>Cut</th>
+                  <th>
+                    <div class="header-dropdown">
+                      <p-dropdown
+                      #productDropdown
+                        [options]="productIds"
+                        [(ngModel)]="selectedProductId"
+                        placeholder="Product ID"
+                        [filter]="true"
+                        filterPlaceholder="Search">
+                      </p-dropdown>
+                    </div>
+                  </th>
+                  <th>
+                    <div class="header-dropdown">
+                      <p-dropdown
+                      #descDropdown
+                        [options]="descriptions"
+                        [(ngModel)]="selectedDescription"
+                        placeholder="Description"
+                        [filter]="true"
+                        filterPlaceholder="Search">
+                      </p-dropdown>
+                    </div>
+                  </th>
+                  <th>
+                    <div class="header-dropdown">
+                      <p-dropdown
+                      #caratDropdown
+                        [options]="carats"
+                        [(ngModel)]="selectedCarat"
+                        placeholder="Carat"
+                        [filter]="true"
+                        filterPlaceholder="Search">
+                      </p-dropdown>
+                    </div>
+                  </th>
+                  <th>
+                    <div class="header-dropdown">
+                      <p-dropdown
+                      #colorDropdown
+                        [options]="colors"
+                        [(ngModel)]="selectedColor"
+                        placeholder="Color"
+                        [filter]="true"
+                        filterPlaceholder="Search">
+                      </p-dropdown>
+                    </div>
+                  </th>
+                  <th>
+                    <div class="header-dropdown">
+
+                      <p-dropdown   #clarityDropdown
+                        [options]="clarities"
+                        [(ngModel)]="selectedClarity"
+                        placeholder="Clarity"
+                        [filter]="true"
+                        filterPlaceholder="Search">
+                      </p-dropdown>
+                    </div>
+                  </th>
+                  <th>
+                    <div class="header-dropdown">
+                      <p-dropdown
+                      #cutDropdown
+                        [options]="cuts"
+                        [(ngModel)]="selectedCut"
+                        placeholder="Cut"
+                        [filter]="true"
+                        filterPlaceholder="Search">
+                      </p-dropdown>
+                    </div>
+                  </th>
                   <th class="price-width">Original Price</th>
-                  <!-- <th>Unit Price</th>
-                  <th>Rate</th> -->
                   <th class="price-width">Revised Price</th>
-                  <!-- <th>Action</th> -->
                 </tr>
               </thead>
               <tbody>
                 <ng-container *ngIf="!showEditTable">
-                  <tr *ngFor="let item of pagedData">
+                  <tr *ngFor="let item of pagedData | filterTable: selectedProductId : selectedDescription : selectedCarat : selectedColor : selectedClarity : selectedCut">
                     <td class="class1">{{item.id}}</td>
                     <td class="class1">{{item.desc}}</td>
                     <td class="description">{{item.value1}}</td>
@@ -140,34 +201,209 @@
                 </ng-container>
 
                 <ng-container *ngIf="showEditTable">
-                  <tr *ngFor="let item of pagedData">
+                  <tr *ngFor="let item of pagedData | filterTable: selectedProductId : selectedDescription : selectedCarat : selectedColor : selectedClarity : selectedCut">
                     <td class="class1">{{item.id}}</td>
                     <td class="class1">{{item.desc}}</td>
                     <td class="description">{{item.value1}}</td>
                     <td class="enter-value">{{item.value2}}</td>
                     <td class="description">{{item.clarity}}</td>
                     <td class="description">{{item.quality}}</td>
-                    <td class="description editable-price">$<input type="text" [value]="item.price1"></td>
-                    <td class="enter-value editable-price">$<input type="text" [value]="item.price2"></td>
+                    <td class="description editable-price">$<input [(ngModel)]="item.price1" (ngModelChange)="onPriceChange(item)" type="text" [value]="item.price1"></td>
+                    <td class="enter-value editable-price">$<input [(ngModel)]="item.price2" (ngModelChange)="onPriceChange(item)" type="text" [value]="item.price2"></td>
                   </tr>
                 </ng-container>
-
-
               </tbody>
+            </table> -->
 
-            </table>
+            <p-table
+            #dt2
+            [value]="pagedData"
+            dataKey="id"
+            [rows]="5"
+            [rowsPerPageOptions]="[5, 10, 15]"
+            [paginator]="true"
+            [tableStyle]="{ 'min-width': '75rem' }"
+            [globalFilterFields]="['id', 'desc', 'value1', 'value2', 'clarity', 'quality']">
 
-            <div class="card flex justify-content-center">
+            <!-- Global Search Input -->
+            <ng-template pTemplate="caption">
+              <div class="flex">
+                  <p-button label="Clear" [outlined]="true" icon="pi pi-filter-slash" (onClick)="clear(dt2)" />
+                  <button class="confirm btn confirmation_btn" (click)="showEditTable = true">
+                    <span class="material-symbols-outlined">
+                      edit
+                    </span>
+                    Edit Price
+                  </button>
+              </div>
+          </ng-template>
+
+
+
+            <!-- Table Headers -->
+            <ng-template pTemplate="header">
+              <tr>
+                <th style="width:5%">Product Id</th>
+                <th style="width:20%">Description</th>
+                <th style="width:11%">Carat</th>
+                <th style="width:11%">Color</th>
+                <th style="width:11%">Clarity</th>
+                <th style="width:11%">Cut</th>
+                <th style="width:11%">Original Price</th>
+                <th style="width:11%">Revised Price</th>
+              </tr>
+              <tr>
+                <!-- Product ID MultiSelect -->
+                <th>
+                  <p-columnFilter field="id" matchMode="in" [showMenu]="false">
+                    <ng-template pTemplate="filter" let-filter="filterCallback">
+                      <p-multiSelect
+                        [(ngModel)]="selectedProductId"
+                        [options]="productIds"
+                        placeholder="Any"
+                        (onChange)="filter($event.value)">
+                      </p-multiSelect>
+                    </ng-template>
+                  </p-columnFilter>
+                </th>
+
+                <!-- Description MultiSelect -->
+                <th>
+                  <p-columnFilter field="desc" matchMode="in" [showMenu]="false">
+                    <ng-template pTemplate="filter" let-filter="filterCallback">
+                      <p-multiSelect
+                        [options]="descriptions"
+                        [(ngModel)]="selectedDescription"
+                        placeholder="Description"
+                        [filter]="true"
+                        filterPlaceholder="Search"
+                        (onChange)="filter($event.value)">
+                      </p-multiSelect>
+                    </ng-template>
+                  </p-columnFilter>
+                </th>
+
+                <!-- Carat MultiSelect -->
+                <th>
+                  <p-columnFilter field="value1" matchMode="in" [showMenu]="false">
+                    <ng-template pTemplate="filter" let-filter="filterCallback">
+                      <p-multiSelect
+                        [options]="carats"
+                        [(ngModel)]="selectedCarat"
+                        placeholder="Carat"
+                        [filter]="true"
+                        filterPlaceholder="Search"
+                        (onChange)="filter($event.value)">
+                      </p-multiSelect>
+                    </ng-template>
+                  </p-columnFilter>
+                </th>
+
+                <!-- Color MultiSelect -->
+                <th>
+                  <p-columnFilter field="value2" matchMode="in" [showMenu]="false">
+                    <ng-template pTemplate="filter" let-filter="filterCallback">
+                      <p-multiSelect
+                        [options]="colors"
+                        [(ngModel)]="selectedColor"
+                        placeholder="Color"
+                        [filter]="true"
+                        filterPlaceholder="Search"
+                        (onChange)="filter($event.value)">
+                      </p-multiSelect>
+                    </ng-template>
+                  </p-columnFilter>
+                </th>
+
+                <!-- Clarity MultiSelect -->
+                <th>
+                  <p-columnFilter field="clarity" matchMode="in" [showMenu]="false">
+                    <ng-template pTemplate="filter" let-filter="filterCallback">
+                      <p-multiSelect
+                        [options]="clarities"
+                        [(ngModel)]="selectedClarity"
+                        placeholder="Clarity"
+                        [filter]="true"
+                        filterPlaceholder="Search"
+                        (onChange)="filter($event.value)">
+                      </p-multiSelect>
+                    </ng-template>
+                  </p-columnFilter>
+                </th>
+
+                <!-- Cut MultiSelect -->
+                <th>
+                  <p-columnFilter field="quality" matchMode="in" [showMenu]="false">
+                    <ng-template pTemplate="filter" let-filter="filterCallback">
+                      <p-multiSelect
+                        [options]="cuts"
+                        [(ngModel)]="selectedCut"
+                        placeholder="Cut"
+                        [filter]="true"
+                        filterPlaceholder="Search"
+                        (onChange)="filter($event.value)">
+                      </p-multiSelect>
+                    </ng-template>
+                  </p-columnFilter>
+                </th>
+
+                <!-- Original Price -->
+                <th></th>
+
+                <!-- Revised Price -->
+                <th></th>
+              </tr>
+            </ng-template>
+
+            <!-- Table Body -->
+            <ng-template pTemplate="body" let-item>
+              <ng-container *ngIf="!showEditTable">
+              <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.desc }}</td>
+                <td>{{ item.value1 }}</td>
+                <td>{{ item.value2 }}</td>
+                <td>{{ item.clarity }}</td>
+                <td>{{ item.quality }}</td>
+                <td>{{ item.price1 | currency }}</td>
+                <td>{{ item.price2 | currency }}</td>
+              </tr>
+          </ng-container>
+
+          <ng-container *ngIf="showEditTable">
+            <tr>
+              <td>{{ item.id }}</td>
+              <td>{{ item.desc }}</td>
+              <td>{{ item.value1 }}</td>
+              <td>{{ item.value2 }}</td>
+              <td>{{ item.clarity }}</td>
+              <td>{{ item.quality }}</td>
+              <td class="description editable-price">$<input [(ngModel)]="item.price1" (ngModelChange)="onPriceChange(item)" type="text" [value]="item.price1"></td>
+              <td class="enter-value editable-price">$<input [(ngModel)]="item.price2" (ngModelChange)="onPriceChange(item)" type="text" [value]="item.price2"></td>
+            </tr>
+        </ng-container>
+            </ng-template>
+
+            <!-- Empty Message -->
+            <ng-template pTemplate="emptymessage">
+              <tr>
+                <td colspan="8">No items found.</td>
+              </tr>
+            </ng-template>
+          </p-table>
+
+
+
+            <!-- <div class="card flex justify-content-center">
               <p-paginator
-                  (onPageChange)="onPageChange($event)"
-                  [first]="first"
-                  [rows]="rows"
-                  [totalRecords]="4"
-                  [rowsPerPageOptions]="[10, 20, 30]">
+                (onPageChange)="onPageChange($event)"
+                [first]="first"
+                [rows]="rows"
+                [totalRecords]="pagedData.length"
+                [rowsPerPageOptions]="[10, 20, 30]">
               </p-paginator>
+            </div> -->
           </div>
-          </div>
-
           <div class="col-md-3 mt-2" *ngIf="!showEditTable">
             <!-- <div class="conformation">
               <form class="flex align-items-center gap-1" [formGroup]="formGroup">
@@ -189,7 +425,7 @@
               <button class="btn no confirmation_btn" (click)="showEditTable = false">No</button>
             </div> -->
           </div>
-          <div class="col-md-4" *ngIf="showEditTable">
+          <div class="col-md-4" *ngIf="showEditTable && isPriceChanged">
             <div class="conformation">
               <form class="flex align-items-center gap-1" [formGroup]="formGroup">
                 <!-- <p-checkbox
@@ -197,7 +433,7 @@
                   value="New York"
                   inputId="ny"
                 ></p-checkbox> -->
-                <label for="ny">Do you want to review the changes?</label>
+                <label for="ny">Do you want to save the changes?</label>
               </form>
             </div>
             <div class="buttons mt-2">
@@ -206,11 +442,13 @@
                 (click)="openReviewModal()">
                 Yes
               </button>
-              <button class="btn no" (click)="showEditTable = false">No</button>
+              <button class="btn no" (click)="onNotSavingChanges()">No</button>
             </div>
           </div>
         </div>
+
       </ng-container>
+
     </li>
   </div>
 </div>

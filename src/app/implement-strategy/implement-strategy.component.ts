@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CustomModalComponent } from '../shared/custom-modal/custom-modal.component';
 import { CommonModule } from '@angular/common';
 import { DialogModule } from 'primeng/dialog';
@@ -16,6 +16,7 @@ import { CalendarModule } from 'primeng/calendar';
 })
 
 export class ImplementStrategyComponent {
+  @Output() cancel = new EventEmitter<void>();
   showMetrics: any = false;
   options: any;
   data2: any;
@@ -37,6 +38,21 @@ export class ImplementStrategyComponent {
         buttonTextYes: 'Yes',
       },
     });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('result', result)
+      // If the user clicked "Yes" in the modal
+      if (result === true) {
+        this.cancel.emit();
+      } else {
+        // this.cancel.emit();
+      }
+    });
     // this.showTable = false
+  }
+
+
+  onCancel() {
+    this.cancel.emit(); // Emit the cancel event when the button is clicked
   }
 }

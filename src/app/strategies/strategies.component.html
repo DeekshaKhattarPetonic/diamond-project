@@ -365,7 +365,7 @@
                   </p-dropdown>
                   </div>
 
-                  <button class="col-md-1 gobtn" *ngIf="!implement_page" [disabled]="!selectedCategory?.name || !selectedObjective?.name" (click)="showParams()"  [ngClass]="{'mt-27': showData}">
+                  <button class="col-md-1 gobtn" *ngIf="!implement_page" [disabled]="!selectedCategory?.name || !selectedObjective?.name || showData" (click)="showParams()"  [ngClass]="{'mt-27': showData}">
                     <span class="material-symbols-outlined  " [ngClass]="{'mt-27': showData}">arrow_circle_right</span>
                   </button>
                 </div>
@@ -1550,7 +1550,7 @@
               </ng-container>
 
               <ng-container *ngIf="implement_page">
-                <app-implement-strategy></app-implement-strategy>
+                <app-implement-strategy (cancel)="hideImplementPage()"></app-implement-strategy>
               </ng-container>
             </ng-container>
 

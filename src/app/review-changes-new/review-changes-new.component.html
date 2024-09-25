@@ -1,6 +1,19 @@
-<div class="modal">
+<div class="container">
 
-  <p>Please review the changes that you have made:</p>
+  <div class="d-flex">
+    <p class="mb-0 pb-0 pt-2 col-md-6">Please review the changes that you have made:</p>
+    <div class="col-md-6 place-content-end d-flex row  flex flex-wrap p-fluid">
+      <div class="px-0  pt-2 flex-auto d-flex row col-md-8 align-center">
+        <label  for="buttondisplay" class="col-md-5  font-bold block"> date w.e.f </label>
+        <p-calendar class="px-0 col-md-7"
+        [(ngModel)]="date1"
+        [showIcon]="true"
+        inputId="buttondisplay"
+        [showOnFocus]="false" />
+      </div>
+
+    </div>
+  </div>
 
   <table>
     <thead>
@@ -52,5 +65,6 @@
     </tbody>
   </table>
 
-  <div class="buttons"><button class="btn save" (click)="onYesClick()">Save</button><button (click)="onNoClick()" class="btn cancel">Cancel</button></div>
+  <div class="buttons mb-2"><button class="btn save" (click)="onYesClick()">Save</button><button (click)="onNoClick()" class="btn cancel">Cancel</button></div>
+
 </div>
