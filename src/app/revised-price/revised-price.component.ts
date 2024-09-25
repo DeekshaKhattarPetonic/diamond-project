@@ -75,10 +75,10 @@ export class RevisedPriceComponent {
     { id: 'D002', desc: 'Square cut, 1 carat , excellent clarity', value1: 16, value2: 'G', clarity: 'VS2', quality: 'Brilliant', price1: '4000', price2: '4500' },
     { id: 'D003', desc: 'Round cut, 1 carat , excellent clarity', value1: 5, value2: 'G', clarity: 'VS3', quality: 'Great', price1: '6000', price2: '8500' },
     { id: 'D004', desc: 'Heart cut, 1 carat , excellent clarity', value1: 3, value2: 'G', clarity: 'VS4', quality: 'Perfect', price1: '4000', price2: '8500' },
-    { id: 'D001', desc: 'Round cut, 1 carat , excellent clarity', value1: 24, value2: 'G', clarity: 'VS1', quality: 'Excellent', price1: '5000', price2: '5500' },
-    { id: 'D002', desc: 'Square cut, 1 carat , excellent clarity', value1: 16, value2: 'G', clarity: 'VS2', quality: 'Brilliant', price1: '4000', price2: '4500' },
-    { id: 'D003', desc: 'Round cut, 1 carat , excellent clarity', value1: 5, value2: 'G', clarity: 'VS3', quality: 'Great', price1: '6000', price2: '8500' },
-    { id: 'D004', desc: 'Heart cut, 1 carat , excellent clarity', value1: 3, value2: 'G', clarity: 'VS4', quality: 'Perfect', price1: '4000', price2: '8500' }
+    { id: 'D005', desc: 'Round cut, 1 carat , excellent clarity', value1: 24, value2: 'G', clarity: 'VS1', quality: 'Excellent', price1: '5000', price2: '5500' },
+    { id: 'D006', desc: 'Square cut, 1 carat , excellent clarity', value1: 16, value2: 'G', clarity: 'VS2', quality: 'Brilliant', price1: '4000', price2: '4500' },
+    { id: 'D007', desc: 'Round cut, 1 carat , excellent clarity', value1: 5, value2: 'G', clarity: 'VS3', quality: 'Great', price1: '6000', price2: '8500' },
+    { id: 'D008', desc: 'Heart cut, 1 carat , excellent clarity', value1: 3, value2: 'G', clarity: 'VS4', quality: 'Perfect', price1: '4000', price2: '8500' }
   ];
 
   isPriceChanged: boolean = false;

@@ -149,13 +149,11 @@ onObjChange(){
   if(this.selectedObjective.name == 'Increase Market Share'){
     this.selectedStrategyDraft = { name: 'Penetration Pricing Strategy', code: 'AU' }
         this.showOtherStrategy = true;
-
   }
 
   if(this.selectedObjective.name == 'Launch a New Product'){
     this.selectedStrategyDraft = { name: 'Introductory Pricing Strategy', code: 'AU' }
         this.showOtherStrategy = true;
-
   }
 
   if(this.selectedObjective.name == 'Respond to Competitive Pressure'){
@@ -166,55 +164,46 @@ onObjChange(){
   if(this.selectedObjective.name == 'Adapt to Market Fluctuations'){
     this.selectedStrategyDraft = { name: 'Dynamic Pricing Strategy', code: 'AU' }
         this.showOtherStrategy = true;
-
   }
 
   if(this.selectedObjective.name == 'Target a Niche Market'){
     this.selectedStrategyDraft = { name: 'Geographical Pricing Strategy', code: 'AU' }
         this.showOtherStrategy = true;
-
   }
 
   if(this.selectedObjective.name == 'Optimize Inventory Management'){
     this.selectedStrategyDraft = { name: 'Seasonal Pricing Strategy', code: 'AU' }
         this.showOtherStrategy = true;
-
   }
 
   if(this.selectedObjective.name == 'Increase Market Share (Cost Control Focus)'){
     this.selectedStrategyDraft = { name: 'Economy Pricing Strategy', code: 'AU' }
         this.showOtherStrategy = true;
-
   }
 
   if(this.selectedObjective.name == 'Clear Excess Inventory'){
     this.selectedStrategyDraft = { name: 'Flash Sale Pricing Strategy', code: 'AU' }
         this.showOtherStrategy = true;
-
   }
 
   if(this.selectedObjective.name == 'Maximize Revenue across segments'){
     this.selectedStrategyDraft = { name: 'Sregmented Pricing  Strategy', code: 'AU' }
         this.showOtherStrategy = true;
-
   }
 
   if(this.selectedObjective.name == 'Position as a Premium Brand'){
     this.selectedStrategyDraft = { name: 'Premium Pricing Strategy', code: 'AU' }
         this.showOtherStrategy = true;
-
   }
 
   if(this.selectedObjective.name == 'Improve Cash Flow'){
     this.selectedStrategyDraft = { name: 'Cost-Plus Pricing Strategy', code: 'AU' }
         this.showOtherStrategy = true;
-
   }
 
   if(this.selectedObjective.name == 'Boost Sales Volume'){
     this.selectedStrategyDraft = { name: 'Bundle Pricing Strategy', code: 'AU' }
         this.showOtherStrategy = true;
-
   }
 
   if(this.selectedObjective.name == 'Maximize Profit for New Products'){
@@ -302,8 +291,6 @@ onCategoryChange(){
         name: 'Adapt to Market Fluctuations',
         code: 'AU'
       },
-
-
       {
         name: 'Target a Niche Market',
         code: 'AU'
@@ -320,12 +307,10 @@ onCategoryChange(){
         name: 'Clear Excess Inventory',
         code: 'AU'
       },
-
       {
         name: 'Maximize Revenue across segments',
         code: 'AU'
       }
-
     ]
   }
 }
@@ -364,6 +349,15 @@ hideImplementPage() {
    this.implement_page = false
     this.selectedObjective = false;
     this.showData = false;
+
+    const dialogRef = this.dialog.open(CustomModalComponent, {
+      width: '35vw',
+      data: {
+        head: '',
+        message: 'The changes have been saved successfully',
+        buttonTextNo: 'Close',
+      },
+    });
 
     this.strategies = [
       { name: 'Value Based Pricing Strategy', code: 'AU' },
