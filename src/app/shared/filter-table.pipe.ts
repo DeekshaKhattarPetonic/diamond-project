@@ -1,8 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'filterTable',
-  standalone: true
+  name: 'filterTable'
 })
 export class FilterTablePipe implements PipeTransform {
   transform(items: any[], productId?: string, description?: string, carat?: string, color?: string, clarity?: string, cut?: string): any[] {

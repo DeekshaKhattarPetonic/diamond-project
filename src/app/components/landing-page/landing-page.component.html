@@ -1,0 +1,94 @@
+
+<body class="login-bg">
+  <header>
+      <div class="container-fluid">
+          <div class="row align-items-center justify-content-between">
+              <div class="col-md-6">
+                  <div class="logo">
+                      <img src="../../assets/img/hk-logo.svg" alt="">
+                  </div>
+              </div>
+          </div>
+      </div>
+  </header>
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="type-of-login">
+                  <h1>HK PulseAI</h1>
+                  <p class="fw-normal font-size-14">(Dynamic Pricing Application)</p>
+                  <!-- <button class="login_btn"><img src="../../assets/img/diamond.png" alt=""> Please Login</button> -->
+                  <button [routerLink]="['/login']" style="--clr:#FF44CC"><span> Login</span><i></i></button>
+
+              </div>
+          </div>
+          <div class="col-md-12 px-md-4 position-relative">
+              <a  routerLinkActive="router-link-active" >
+                  <div class="trim-select">
+                      <div class="icon-box">
+                          <img class="icons" src="../../assets/img/admin-icon.png" alt="">
+                      </div>
+                      <label for="">Admin</label>
+                  </div>
+              </a>
+          </div>
+          <div class="col-md-12 px-md-4 position-relative">
+              <a >
+              <div class="trim-select wow slideInLeft" data-wow-duration="2s" data-wow-delay="5s">
+                  <div class="icon-box">
+                      <img class="icons" src="../../assets/img/strategist.png" alt="">
+                  </div>
+                  <label for="">Strategist</label>
+              </div>
+              </a>
+          </div>
+          <div class="col-md-12 px-md-4 position-relative">
+              <a >
+              <div class="trim-select">
+                  <div class="icon-box">
+                      <img class="icons" src="../../assets/img/user.png" alt="">
+                  </div>
+                  <label for="">Executive</label>
+              </div>
+              </a>
+          </div>
+          <div class="col-md-12 px-md-4 position-relative">
+              <a >
+              <div class="trim-select">
+                  <div class="icon-box">
+                      <img class="icons" src="../../assets/img/sales-manager.png" alt="">
+                  </div>
+                  <label for="">Sales(POS)-Testing</label>
+              </div>
+              </a>
+          </div>
+          <div class="col-md-12 px-md-4 position-relative">
+              <a >
+              <div class="trim-select">
+                  <div class="icon-box">
+                      <svg id="MDI_account-group" data-name="MDI / account-group" xmlns="http://www.w3.org/2000/svg"
+                          width="72" height="72" viewBox="0 0 72 72">
+                          <g id="Boundary" fill="#fff" stroke="rgba(0,0,0,0)" stroke-width="1" opacity="0">
+                              <rect width="72" height="72" stroke="none" />
+                              <rect x="0.5" y="0.5" width="71" height="71" fill="none" />
+                          </g>
+                          <path id="Path_account-group" data-name="Path / account-group"
+                              d="M36,5.5A10.5,10.5,0,1,1,25.5,16,10.5,10.5,0,0,1,36,5.5M15,13a8.856,8.856,0,0,1,4.59,1.26,16.608,16.608,0,0,0,3.39,11.88A9,9,0,1,1,15,13m42,0a9,9,0,1,1-7.98,13.14,16.608,16.608,0,0,0,3.39-11.88A8.856,8.856,0,0,1,57,13M16.5,43.75c0-6.21,8.73-11.25,19.5-11.25s19.5,5.04,19.5,11.25V49h-39V43.75M0,49V44.5c0-4.17,5.67-7.68,13.35-8.7a12.132,12.132,0,0,0-2.85,7.95V49H0m72,0H61.5V43.75a12.132,12.132,0,0,0-2.85-7.95C66.33,36.82,72,40.33,72,44.5Z"
+                              transform="translate(0 9.5)" fill="#fff" />
+                      </svg>
+                  </div>
+                  <label for="">Marketing</label>
+              </div>
+              </a>
+          </div>
+      </div>
+  </div>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/wow.min.js"></script>
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="js/custome.js"></script>
+  <script>
+      new WOW().init();
+  </script>
+</body>

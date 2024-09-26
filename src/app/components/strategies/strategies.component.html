@@ -1,0 +1,2364 @@
+<!-- <!DOCTYPE html>
+<html>
+	<head>
+		<title>Pure CSS3 Tabs</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css" />
+	</head>
+	<body> -->
+    <app-header></app-header>
+    <div class="page">
+      <!-- <h1>Pure CSS Tabs</h1> -->
+      <!-- tabs -->
+
+      <div class="page-heading">
+        <h2 class="page_head page-title container m-auto px-0">
+          <div class="d-flex align-center">
+            <span class="material-symbols-outlined view_list">
+            view_list
+          </span>Strategy Management Dashboard
+        </div>
+        <div class="strategy_imp_btn" *ngIf="!implement_page">
+          <button (click)="onImplementStrategy()" class="implement_strategy_btn">
+            <span class="material-symbols-outlined">
+              settings
+              </span>
+            Implement Strategy
+        </button>
+        </div>
+        </h2>
+      </div>
+      <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
+        <!-- <input type="radio" name="pcss3t" checked id="tab1" class="tab-content-first">
+        <label for="tab1">Review and Revise Price</label> -->
+        <!-- <input type="radio" name="pcss3t" id="tab2" class="tab-content-2">
+        <label for="tab2">Define Strategy</label> -->
+            <!-- <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
+            <label for="tab3"><i class="icon-cogs"></i>Einstein</label>
+            <input type="radio" name="pcss3t" id="tab5" class="tab-content-last">
+            <label for="tab5"><i class="icon-globe"></i>Newton</label> -->
+
+              <!-- <li class="tab-content tab-content-first typography">
+                <ng-container *ngIf="!showTable">
+                  <p class="para_head">To review and revise the price select the category of product for which the price to be revised</p>
+                  <div class="flex categories card_shadow mt-2 px-2">
+                    <p>Select Product Category</p>
+                    <mat-radio-group>
+                      <mat-radio-button value="1">All</mat-radio-button>
+                      <mat-radio-button value="2">Multiple Items</mat-radio-button>
+                      <mat-radio-button value="2">Item Category</mat-radio-button>
+                    </mat-radio-group>
+                      <p-dropdown
+                          [options]="countries"
+                          [(ngModel)]="selectedCountry"
+                          optionLabel="name"
+                          [filter]="true"
+                          filterBy="name"
+                          [showClear]="true"
+                          placeholder="Category">
+                              <ng-template pTemplate="selectedItem" let-selectedOption>
+                                  <div class="flex align-items-center gap-2">
+                                      <div>{{ selectedOption.name }}</div>
+                                  </div>
+                              </ng-template>
+                              <ng-template let-country pTemplate="item">
+                                  <div class="flex align-items-center gap-2">
+                                      <div>{{ country.name }}</div>
+                                  </div>
+                              </ng-template>
+                      </p-dropdown>
+                  <span class="material-symbols-outlined gobtn">
+                    arrow_circle_right
+                    </span>
+                  </div>
+
+                  <div class="row">
+                    <p class="para_head mb-2 mt-3">Select the parameter to review and revise the price :</p>
+                    <div class="d-flex dropdowns">
+                      <div class="d-flex align-items-center col-md-6 mb-4 drop">
+                        <input type="checkbox" id="supplyChainDynamics" />
+                        <label for="supplyChainDynamics" class="label mb-0">Market Votality</label>
+                        <div class="card flex justify-content-center">
+                          <p-dropdown
+                            [options]="countries"
+                            [(ngModel)]="selectedCity"
+                            optionLabel="name"
+                            placeholder="Select Market Votality"
+                          ></p-dropdown>
+                        </div>
+                        <input type="text" placeholder="% To Increase" class="form-control">
+                      </div>
+                      <div class="d-flex align-items-center col-md-6 mb-4 drop">
+                        <input type="checkbox" id="supplyChainDynamics" />
+                        <label for="supplyChainDynamics" class="label mb-0">Supply Chain Dynamics</label>
+                        <div class="card flex justify-content-center">
+                          <p-dropdown
+                            [options]="countries"
+                            [(ngModel)]="selectedCity"
+                            optionLabel="name"
+                            placeholder="Select Supply Chain Dynamics"
+                          ></p-dropdown>
+                        </div>
+                        <input type="text" placeholder="% To Increase" class="form-control">
+                      </div>
+                      <div class="d-flex align-items-center col-md-6 mb-4 drop">
+                        <input type="checkbox" id="supplyChainDynamics" />
+                        <label for="supplyChainDynamics" class="label mb-0">Operational Costs</label>
+                        <div class="card flex justify-content-center">
+                          <p-dropdown
+                            [options]="countries"
+                            [(ngModel)]="selectedCity"
+                            optionLabel="name"
+                            placeholder="Select Operational Costs"
+                          ></p-dropdown>
+                        </div>
+                        <input type="text" placeholder="% To Increase" class="form-control">
+                      </div>
+                      <div class="d-flex align-items-center col-md-6 mb-4 drop">
+                        <input type="checkbox" id="supplyChainDynamics" />
+                        <label for="supplyChainDynamics" class="label mb-0">Contingency Reserves</label>
+                        <div class="card flex justify-content-center">
+                          <p-dropdown
+                            [options]="countries"
+                            [(ngModel)]="selectedCity"
+                            optionLabel="name"
+                            placeholder="Select Contingency Reserves"
+                          ></p-dropdown>
+                        </div>
+                        <input type="text" placeholder="% To Increase" class="form-control">
+                      </div>
+                      <div class="d-flex align-items-center col-md-6 mb-4 drop">
+                        <input type="checkbox" id="supplyChainDynamics" />
+                        <label for="supplyChainDynamics" class="label mb-0">Regulatory and Tax Changes</label>
+                        <div class="card flex justify-content-center">
+                          <p-dropdown
+                            [options]="countries"
+                            [(ngModel)]="selectedCity"
+                            optionLabel="name"
+                            placeholder="Select Regulatory and Tax Changes"
+                          ></p-dropdown>
+                        </div>
+                        <input type="text" placeholder="% To Increase" class="form-control">
+                      </div>
+                      <div class="d-flex align-items-center col-md-6 mb-4 drop">
+                        <input type="checkbox" id="supplyChainDynamics" />
+                        <label for="supplyChainDynamics" class="label mb-0">Inventory Holding Costs</label>
+                        <div class="card flex justify-content-center">
+                          <p-dropdown
+                            [options]="countries"
+                            [(ngModel)]="selectedCity"
+                            optionLabel="name"
+                            placeholder="Select Inventory Holding Costs"
+                          ></p-dropdown>
+                        </div>
+                        <input type="text" placeholder="% To Increase" class="form-control">
+                      </div>
+                    </div>
+                    <div class="buttons">
+                      <button class="btn revised">View Revised Price</button>
+                      <button class="btn confirm" (click)="showTable = true">Confirm</button>
+                    </div>
+                  </div>
+                </ng-container>
+
+                <ng-container *ngIf="showTable">
+                  <div class="flex row">
+                    <div class="col-md-8">
+                      <table class="table table-hover table-striped table-bordered mb-0  dataTable" id="userTable">
+                        <thead class="table-light">
+                          <tr>
+                            <th>Product ID</th>
+                            <th>Description</th>
+                            <th>Carat</th>
+                            <th>Color</th>
+                            <th>Clarity</th>
+                            <th>Cut</th>
+                            <th>Original Price</th>
+                            <th>Quantity</th>
+                            <th>Rate</th>
+                            <th>Dynamic Price</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <ng-container *ngIf="!showEditTable">
+                            <tr>
+                              <td class="class1">D001</td>
+                              <td class="class1">Round cut, 1 carat , excellent clarity</td>
+                              <td class="description">24</td>
+                              <td class="enter-value">G</td>
+                              <td class="description">VS1</td>
+                              <td class="description">Excellent</td>
+                              <td class="enter-value">$5,000</td>
+                              <td class="enter-value">50</td>
+                              <td class="description">100</td>
+                              <td class="description">$5,500</td>
+                            </tr>
+                            <tr>
+                              <td class="class1">D002</td>
+                              <td class="class1">Square cut, 1 carat , excellent clarity</td>
+                              <td class="description">24</td>
+                              <td class="enter-value">G</td>
+                              <td class="description">VS2</td>
+                              <td class="description">Excellent</td>
+                              <td class="enter-value">$4,000</td>
+                              <td class="enter-value">30</td>
+                              <td class="description">100</td>
+                              <td class="description">$4,500</td>
+                            </tr>
+                            <tr>
+                              <td class="class1">D003</td>
+                              <td class="class1">Round cut, 1 carat , excellent clarity</td>
+                              <td class="description">24</td>
+                              <td class="enter-value">G</td>
+                              <td class="description">VS1</td>
+                              <td class="description">Excellent</td>
+                              <td class="enter-value">$6,000</td>
+                              <td class="enter-value">20</td>
+                              <td class="description">100</td>
+                              <td class="description">$8,500</td>
+                            </tr>
+                            <tr>
+                              <td class="class1">D004</td>
+                              <td class="class1">Heart cut, 1 carat , excellent clarity</td>
+                              <td class="description">24</td>
+                              <td class="enter-value">G</td>
+                              <td class="description">VS2</td>
+                              <td class="description">Excellent</td>
+                              <td class="enter-value">$6,000</td>
+                              <td class="enter-value">50</td>
+                              <td class="description">100</td>
+                              <td class="description">$8,500</td>
+                            </tr>
+                          </ng-container>
+                          <ng-container *ngIf="showEditTable">
+                            <tr class="editRow">
+                              <td class="class1"><input type="text" value="D004"> </td>
+                              <td class="class1"><input type="text" value="Heart cut, 1 carat , excellent clarity"></td>
+                              <td class="enter-value"><input type="text" value="24"></td>
+                              <td class="description"><input type="text" value="G"></td>
+                              <td class="enter-value"><input type="text" value="VS2"></td>
+                              <td class="description"><input type="text" value="Excellent"></td>
+                              <td class="description"><input type="text" value="$6,000"></td>
+                              <td class="enter-value"><input type="text" value="50"></td>
+                              <td class="enter-value"><input type="text" value="100"></td>
+                              <td class="enter-value"><input type="text" value="$8,500"></td>
+                            </tr>
+                            <tr class="editRow">
+                              <td class="class1"><input type="text" value="D004"> </td>
+                              <td class="class1"><input type="text" value="Heart cut, 1 carat , excellent clarity"></td>
+                              <td class="enter-value"><input type="text" value="24"></td>
+                              <td class="description"><input type="text" value="G"></td>
+                              <td class="enter-value"><input type="text" value="VS2"></td>
+                              <td class="description"><input type="text" value="Excellent"></td>
+                              <td class="description"><input type="text" value="$6,000"></td>
+                              <td class="enter-value"><input type="text" value="50"></td>
+                              <td class="enter-value"><input type="text" value="100"></td>
+                              <td class="enter-value"><input type="text" value="$8,500"></td>
+                            </tr>
+                            <tr class="editRow">
+                              <td class="class1"><input type="text" value="D004"> </td>
+                              <td class="class1"><input type="text" value="Heart cut, 1 carat , excellent clarity"></td>
+                              <td class="enter-value"><input type="text" value="24"></td>
+                              <td class="description"><input type="text" value="G"></td>
+                              <td class="enter-value"><input type="text" value="VS2"></td>
+                              <td class="description"><input type="text" value="Excellent"></td>
+                              <td class="description"><input type="text" value="$6,000"></td>
+                              <td class="enter-value"><input type="text" value="50"></td>
+                              <td class="enter-value"><input type="text" value="100"></td>
+                              <td class="enter-value"><input type="text" value="$8,500"></td>
+                            </tr>
+                            <tr class="editRow">
+                              <td class="class1"><input type="text" value="D004"> </td>
+                              <td class="class1"><input type="text" value="Heart cut, 1 carat , excellent clarity"></td>
+                              <td class="enter-value"><input type="text" value="24"></td>
+                              <td class="description"><input type="text" value="G"></td>
+                              <td class="enter-value"><input type="text" value="VS2"></td>
+                              <td class="description"><input type="text" value="Excellent"></td>
+                              <td class="description"><input type="text" value="$6,000"></td>
+                              <td class="enter-value"><input type="text" value="50"></td>
+                              <td class="enter-value"><input type="text" value="100"></td>
+                              <td class="enter-value"><input type="text" value="$8,500"></td>
+                            </tr>
+                          </ng-container>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div class="col-md-4" *ngIf="!showEditTable">
+                      <div class="conformation">
+                        <form class="flex align-items-center gap-1" [formGroup]="formGroup">
+                          <p-checkbox
+                            formControlName="city"
+                            value="New York"
+                            inputId="ny"
+                          ></p-checkbox>
+                          <label for="ny">Do you further want to edit the price?</label>
+                        </form>
+                      </div>
+                      <div class="buttons mt-2">
+                        <button
+                          class="confirm btn"
+                          (click)="showEditTable = true"
+                          [disabled]="!formGroup.get('city')?.value">
+                          Edit Price
+                        </button>
+                        <button class="btn no" (click)="showEditTable = false">No</button>
+                      </div>
+                    </div>
+                    <div class="col-md-4" *ngIf="showEditTable">
+                      <div class="conformation">
+                        <form class="flex align-items-center gap-1" [formGroup]="formGroup">
+                          <label for="ny">Do you want to save the changes?</label>
+                        </form>
+                      </div>
+                      <div class="buttons mt-2">
+                        <button
+                          class="confirm btn"
+                          (click)="openModal()">
+                          Yes
+                        </button>
+                        <button class="btn no" (click)="showEditTable = false">No</button>
+                      </div>
+                    </div>
+                  </div>
+                </ng-container>
+            </li> -->
+            <ul>
+              <li class="px-0 container m-auto tab-content tab-content-2 typography" [ngClass]="{'h-80vh': !showData}">
+                <!-- <p class="mt-1 mb-1">Select the target category and business objective to create strategy:</p> -->
+                <div class="mt-1 d-flex col-gap-5 row nowrap">
+                  <div class="col-md-12 row details header card_shadow obj  mb-2" [ngClass]="{'col-md-12': !showData}">
+                    <div class="d-flex row p-2 justify-space-between">
+                      <div class=" col-md-5 d-flex">
+                        <span class="col-md-4 select_text" *ngIf="!implement_page">Select Target Category</span>
+                        <span class="col-md-4 select_text" *ngIf="implement_page">Selected Target Category</span>
+                        <p-dropdown [disabled]="implement_page" class="col-md-5" [options]="targetCategoryData" [(ngModel)]="selectedCategory" optionLabel="name" [filter]="true" filterBy="name"
+                        [showClear]="true" (onChange)="onCategoryChange()" placeholder="Target Category">
+                        <ng-template pTemplate="selectedItem" let-selectedOption>
+                          <div class="flex align-items-center gap-2">
+                            <div>{{ selectedOption.name }}</div>
+                          </div>
+                        </ng-template>
+                        <ng-template let-country pTemplate="item">
+                          <div class="flex align-items-center gap-2">
+                            <div>{{ country.name }}</div>
+                          </div>
+                        </ng-template>
+                      </p-dropdown>
+                      </div>
+                      <div class=" col-md-5 d-flex">
+                        <span class="col-md-4 select_text" *ngIf="!implement_page">Select Business Objective</span>
+                        <span class="col-md-4 select_text" *ngIf="implement_page">Selected Business Objective</span>
+                        <p-dropdown [disabled]="implement_page" [disabled]="!objectivesArr?.length" class="col-md-5" [options]="objectivesArr" [(ngModel)]="selectedObjective" optionLabel="name" [filter]="true" filterBy="name"
+                        [showClear]="true" (onChange)="onObjChange()" placeholder="Business Objective">
+                        <ng-template pTemplate="selectedItem" let-selectedOption>
+                          <div class="flex align-items-center gap-2">
+                            <div>{{ selectedOption.name }}</div>
+                          </div>
+                        </ng-template>
+                        <ng-template let-country pTemplate="item">
+                          <div class="flex align-items-center gap-2">
+                            <div>{{ country.name }}</div>
+                          </div>
+                        </ng-template>
+                      </p-dropdown>
+                      </div>
+
+                      <button class="col-md-1 gobtn" *ngIf="!implement_page" [disabled]="!selectedCategory?.name || !selectedObjective?.name || showData" (click)="showParams()"  [ngClass]="{'mt-27': showData}">
+                        <span class="material-symbols-outlined  " [ngClass]="{'mt-27': showData}">arrow_circle_right</span>
+                      </button>
+                    </div>
+
+                    <!-- <p class="col-md-3 head">Business Objective and Criteria</p> -->
+                    <!-- <mat-radio-group class="col-md-8">
+                      <mat-radio-button value="1">Customer Based </mat-radio-button>
+                      <mat-radio-button value="1">Market Oriented</mat-radio-button>
+                      <mat-radio-button value="2">Product Based</mat-radio-button>
+                    </mat-radio-group> -->
+                  </div>
+                </div>
+
+                <ng-container *ngIf="showData">
+                  <div class="dropdown_strategy dropdowns mb-2 mt-3" *ngIf="!implement_page">
+                    <div class="flex d-flex  select_strategy">
+                      <!-- <span> Select a Strategy: </span> -->
+                      <!-- <p-dropdown
+                          [options]="strategies"
+                          [(ngModel)]="selectedStrategy"
+                          optionLabel="name"
+                          [filter]="true"
+                          filterBy="name"
+                          [showClear]="true"
+                          (onChange)="onStrategyChange()"
+                          placeholder="Select Strategy">
+                              <ng-template pTemplate="selectedItem" let-selectedOption>
+                                  <div class="flex align-items-center gap-2">
+                                      <div>{{ selectedOption.name }}</div>
+                                  </div>
+                              </ng-template>
+                              <ng-template let-country pTemplate="item">
+                                  <div class="flex align-items-center gap-2">
+
+                                      <div>{{ country.name }}</div>
+                                  </div>
+                              </ng-template>
+                      </p-dropdown> -->
+
+                      <!-- <p-dropdown
+                      [options]="strategies"
+                      [(ngModel)]="selectedStrategy"
+                      optionLabel="name"
+                      [filter]="true"
+                      filterBy="name"
+                      [showClear]="true"
+                      (onChange)="onStrategyChange()"
+                      placeholder="Select Strategy">
+                          <ng-template pTemplate="selectedItem" let-selectedOption>
+                              <div class="flex align-items-center gap-2">
+                                  <div>{{ selectedOption.name }}</div>
+                              </div>
+                          </ng-template>
+                          <ng-template let-country pTemplate="item">
+                              <div class="flex align-items-center gap-2">
+
+                                  <div>{{ country.name }}</div>
+                              </div>
+                          </ng-template>
+                  </p-dropdown> -->
+
+                  </div>
+                  </div>
+
+                  <ng-container *ngIf="!implement_page && selectedObjective">
+                    <div class="d-flex">
+                      <p class="mt-1 col-md-6">Please review all the parameters and select the dates</p>
+                      <div *ngIf="showData" class="col-md-6 d-flex row flex flex-wrap p-fluid mb-2">
+                        <div class="flex-auto d-flex row col-md-6 align-center">
+                          <label for="buttondisplay" class=" col-md-4 font-bold block mb-2"> From Date </label>
+                          <p-calendar class="col-md-7 px-0" [(ngModel)]="date1" [showIcon]="true" inputId="buttondisplay"
+                            [showOnFocus]="false" />
+                        </div>
+                        <div class="justify-end flex-auto row col-md-6 align-center">
+                          <label for="buttondisplay" class="col-md-4 font-bold block mb-2"> To Date </label>
+                          <p-calendar class="col-md-7 px-0" [(ngModel)]="date2" [showIcon]="true" inputId="buttondisplay"
+                            [showOnFocus]="false" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div *ngIf="showOtherStrategy" class="row animate__animated animate__fadeInLeft" >
+                      <div class="row metrics col-md-12">
+                        <div class=" card_shadow">
+                          <p class="met_head">Metrics of {{selectedStrategy.name}}</p>
+                          <div class="row mt-2 mx-2">
+                            <div class="details col">
+                              <span class="head">Customer Perceived Value
+                            <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                            </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">Customer Willingness To Pay <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">Price Sensitivity Coefficient <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">Personalisation and Customisation Value <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">Net Promoter Score <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">competitor Price Elasticity <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">Price competitiveness Index <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">Price Elasticity Of Demand <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">Market Demand
+                                <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">Customer Satisfaction Index
+                                <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">Competitor Price Elasticity
+                                <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">Price competitiveness Index
+                                <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">Brand Prestige
+                                <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">Feature Value Ratio
+                                <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">Cutomer LTV
+                                <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">Willingness To Recomment
+                                <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="graphs mt-2">
+                        <h3>Recent Market Trends</h3>
+                        <div class="row all_graphs">
+                          <img src="../../assets/img/trend.jpg" alt="">
+                          <img src="../../assets/img/g2.png" alt="">
+                          <img src="../../assets/img/g3.webp" alt="">
+                          <img src="../../assets/img/g4.jpg" alt="">
+                          <!-- <div class="card flex justify-content-center">
+                                              <p-chart type="doughnut" [data]="data2" [options]="options2" />
+                                          </div>
+                                          <div class="card">
+                                            <p-chart type="line" [data]="data" [options]="options" />
+                                        </div> -->
+                        </div>
+                      </div>
+                    </div>
+                    <div *ngIf="selectedStrategy.name=='Value Based Pricing Strategy'" class="row animate__animated animate__fadeInLeft" >
+                      <div class="row metrics col-md-12">
+                        <div class=" card_shadow">
+                          <p class="met_head">Metrics of {{selectedStrategy.name}}</p>
+                          <div class="row mt-2 mx-2">
+                            <div class="details col">
+                              <span class="head">Customer Perceived Value <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">Customer Willingness To Pay <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">Price Sensitivity Coefficient <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">Personalisation and Customisation Value <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">Net Promoter Score <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">competitor Price Elasticity <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">Price competitiveness Index <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">Price Elasticity Of Demand <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">Market Demand
+                                <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">Customer Satisfaction Index
+                                <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">Competitor Price Elasticity
+                                <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">Price competitiveness Index
+                                <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">Brand Prestige
+                                <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">Feature Value Ratio
+                                <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">Cutomer LTV
+                                <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col">
+                              <span class="head">Willingness To Recomment
+                                <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="graphs mt-2">
+                        <div class="row all_graphs">
+                          <img src="../../assets/img/trend.jpg" alt="">
+                          <img src="../../assets/img/g2.png" alt="">
+                          <img src="../../assets/img/g3.webp" alt="">
+                          <img src="../../assets/img/g4.jpg" alt="">
+                          <!-- <div class="card flex justify-content-center">
+                            <p-chart type="doughnut" [data]="data2" [options]="options2" />
+                        </div>
+                        <div class="card">
+                          <p-chart type="line" [data]="data" [options]="options" />
+                      </div> -->
+                        </div>
+                      </div>
+                    </div>
+                  <!-- </mat-tab> -->
+                  <!-- <mat-tab label="Real Time Pricing Strategy"> -->
+                    <div *ngIf="selectedStrategy.name=='Real Time Pricing Strategy'" class="row animate__animated animate__fadeInLeft" >
+                      <div class="row metrics col-md-6">
+                        <div class=" card_shadow">
+                          <p class="met_head">Metrics for Real Time Pricing Strategy</p>
+                          <div class="row mt-2 mx-2">
+                            <div class="details col-md-6">
+                              <span class="head">Competitor Price Elasticity
+                                  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Competitor Price Index
+                                  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Demand Forecast Accuracy
+                                  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Demand-Supply Ratio
+                                  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Discount Elasticity
+                                  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Dynamic Customer Lifetime Value
+                                  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Dynamic Revenue Optimization
+                                  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Dynamic Segment Profitability
+                                  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Geographic Pricing Index
+                                  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Immediate Price Reaction Time
+                                  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Inventory Turnover Ratio
+                                  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Price Competitiveness Index
+                                  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Price Elasticity
+                                  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Price Elasticity of Demand
+                                  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Price Sensitivity Coefficient
+                                  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Promotion Effectiveness Score
+                                  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Real-Time Competitiveness Index
+                                  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Real-Time Pricing Trend
+                                  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Repeat Purchase Probability
+                                  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Seasonal Demand Index
+                                  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Stock Levels vs. Pricing
+                                  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Stock Risk Ratio <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+                              </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Surge Pricing Multiplier  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Time of Purchase Impact  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Trend Adjustment Factor  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Willingness to Pay (WTP)  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <!-- <div class="details col-md-6">
+                              <span class="head">Seasonal Sales Uplift</span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Anomaly Detection Rate</span>
+                              <input type="text" class="form-control_m">
+                            </div> -->
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="graphs mt-2">
+                        <h3>Recent Market Trends</h3>
+                        <div class="row all_graphs">
+                          <img src="../../assets/img/trend.jpg" alt="">
+                          <img src="../../assets/img/g2.png" alt="">
+                          <img src="../../assets/img/g3.webp" alt="">
+                          <img src="../../assets/img/g4.jpg" alt="">
+                          <!-- <div class="card flex justify-content-center">
+                            <p-chart type="doughnut" [data]="data2" [options]="options2" />
+                        </div>
+                        <div class="card">
+                          <p-chart type="line" [data]="data" [options]="options" />
+                      </div> -->
+                        </div>
+                      </div>
+                    </div>
+                  <!-- </mat-tab> -->
+                  <!-- <mat-tab label="Competitive Pricing strategy"> -->
+
+                    <div *ngIf="selectedStrategy.name=='Competitive Pricing Strategy'" class="row animate__animated animate__fadeInLeft" >
+                      <div class="row metrics col-md-12">
+                        <div class=" card_shadow">
+                          <p class="met_head">Metrics for Competitive Pricing Strategy</p>
+                          <div class="row mt-2 mx-2">
+                            <div class="details col-md-6">
+                              <span class="head">Price Competitiveness Index  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Market Share Percentage  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Price Elasticity of Demand  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Competitor Price Elasticity  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Competitive Positioning Metrics  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Dynamic Pricing Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Historical Price Analysis  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Strategy Effectiveness Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Promotion Effectiveness Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Competitor Comparison Metrics  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Discount Impact Analysis  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Price Sensitivity Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Optimal Price Point  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <!-- <div class="details col-md-6">
+                              <span class="head">Net Profit Margin</span>
+                              <input type="text" class="form-control_m">
+                            </div> -->
+                            <div class="details col-md-6">
+                              <span class="head">Demand Forecast Accuracy  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Seasonal Demand Variation  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Segmentation Effectiveness Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Sales Volume Change  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Revenue Impact Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Market Conditions Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Brand Value Index  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Response Time Analysis  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Economic Impact Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Supply Chain Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Transparency Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Communication Effectiveness  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Compliance Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Value Perception Index  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <!-- <div class="details col-md-6">
+                              <span class="head">Willingness To Recomment</span>
+                              <input type="text" class="form-control_m">
+                            </div> -->
+                            <!-- <div class="details col-md-6">
+                              <span class="head">Price competitiveness Index</span>
+                              <input type="text" class="form-control">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Price Elasticity Of Demand</span>
+                              <input type="text" class="form-control">
+                            </div> -->
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="graphs mt-2">
+                        <h3>Recent Market Trends</h3>
+                        <div class="row all_graphs">
+                          <img src="../../assets/img/trend.jpg" alt="">
+                          <img src="../../assets/img/g2.png" alt="">
+                          <img src="../../assets/img/g3.webp" alt="">
+                          <img src="../../assets/img/g4.jpg" alt="">
+                          <!-- <div class="card flex justify-content-center">
+                            <p-chart type="doughnut" [data]="data2" [options]="options2" />
+                        </div>
+                        <div class="card">
+                          <p-chart type="line" [data]="data" [options]="options" />
+                      </div> -->
+                        </div>
+                      </div>
+                    </div>
+                    <div *ngIf="selectedStrategy.name=='Segmented Pricing Strategy'" class="row animate__animated animate__fadeInLeft" >
+                      <div class="row metrics col-md-6">
+                        <div class=" card_shadow">
+                          <p class="met_head">Metrics for Segmented Pricing Strategy</p>
+                          <div class="row mt-2 mx-2">
+                            <div class="details col-md-6">
+                              <span class="head">Segmentation Index  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">WTP Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Price Elasticity  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Competitive Pricing Index  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Perceived Value Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Differentiation Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Demand Forecasting Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Promo Impact Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Inventory Turnover Ratio  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Retention Rate  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Channel Performance Index  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Frequency Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">CLV Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Cross-Sell Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Market Share Percentage  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Loyalty Index  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Adjustment Frequency Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Geo-Price Index  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Seasonal Demand Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Economic Sensitivity Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Lifecycle Stage Index  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Segment Profitability Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Price Optimization Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Price Psychology Index  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Funnel Conversion Rate  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">ROI Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Customer Satisfaction Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Model Accuracy Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Feedback Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <!-- <div class="details col-md-6">
+                              <span class="head">Price competitiveness Index</span>
+                              <input type="text" class="form-control">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Price Elasticity Of Demand</span>
+                              <input type="text" class="form-control">
+                            </div> -->
+                          </div>
+                        </div>
+                      </div>
+
+
+
+                      <div class="graphs mt-2">
+                        <div class="row all_graphs">
+                          <img src="../../assets/img/trend.jpg" alt="">
+                          <img src="../../assets/img/g2.png" alt="">
+                          <img src="../../assets/img/g3.webp" alt="">
+                          <img src="../../assets/img/g4.jpg" alt="">
+                          <!-- <div class="card flex justify-content-center">
+                            <p-chart type="doughnut" [data]="data2" [options]="options2" />
+                        </div>
+                        <div class="card">
+                          <p-chart type="line" [data]="data" [options]="options" />
+                      </div> -->
+                        </div>
+                      </div>
+                    </div>
+                    <div *ngIf="selectedStrategy.name=='Time Based Pricing Strategy'" class="row animate__animated animate__fadeInLeft" >
+                      <div class="row metrics col-md-6">
+                        <div class=" card_shadow">
+                          <p class="met_head">Metrics for Time Based Pricing Strategy</p>
+                          <div class="row mt-2 mx-2">
+                            <div class="details col-md-6">
+                              <span class="head">Price Elasticity of Demand  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Time Series Analysis  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Competitor Price Tracking  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Purchase Frequency  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Dynamic Pricing Model  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Impact of Promotions  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Peak vs Off-Peak Pricing  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Stock Levels  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Segment Performance  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Seasonality Index  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Price Sensitivity Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Urgency Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Time to Decision  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Time-Based Conversion Rate  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Time-Based Revenue Projection  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Churn Rate  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Market Demand Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Competitive Price Index  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Time-sensitive Segmentation  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Timing Analysis  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <!-- <div class="details col-md-6">
+                              <span class="head">Price competitiveness Index</span>
+                              <input type="text" class="form-control">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Price Elasticity Of Demand</span>
+                              <input type="text" class="form-control">
+                            </div> -->
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="graphs mt-2">
+                        <div class="row all_graphs">
+                          <img src="../../assets/img/trend.jpg" alt="">
+                          <img src="../../assets/img/g2.png" alt="">
+                          <img src="../../assets/img/g3.webp" alt="">
+                          <img src="../../assets/img/g4.jpg" alt="">
+                          <!-- <div class="card flex justify-content-center">
+                            <p-chart type="doughnut" [data]="data2" [options]="options2" />
+                        </div>
+                        <div class="card">
+                          <p-chart type="line" [data]="data" [options]="options" />
+                      </div> -->
+                        </div>
+                      </div>
+                    </div>
+                    <div *ngIf="selectedStrategy.name=='Brand Pricing Strategy'" class="row animate__animated animate__fadeInLeft" >
+                      <div class="row metrics col-md-6">
+                        <div class=" card_shadow">
+                          <p class="met_head">Metrics for Brand Pricing Strategy</p>
+                          <div class="row mt-2 mx-2">
+                            <div class="details col-md-6">
+                              <span class="head">CPV Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Brand Equity Index  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""> </span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Competitive Positioning Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Segment Affinity Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Price Sensitivity Index  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Differentiation Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Loyalty Index  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Experience Satisfaction Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Sentiment Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Market Share Percentage  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Awareness Index  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Clarity Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Branding Consistency Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Advantage Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Feedback Engagement Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Pricing Effectiveness Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Emotional Index  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Reputation Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Barriers Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Alignment Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Journey Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Channel Effectiveness Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Psychological Pricing Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Communication Clarity Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Responsiveness Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Segmentation Accuracy Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Brand Health Index  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <!-- <div class="details col-md-6">
+                              <span class="head">Price competitiveness Index</span>
+                              <input type="text" class="form-control">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Price Elasticity Of Demand</span>
+                              <input type="text" class="form-control">
+                            </div> -->
+                          </div>
+                        </div>
+                      </div>
+
+
+
+                      <div class="graphs mt-2">
+                        <div class="row all_graphs">
+                          <img src="../../assets/img/trend.jpg" alt="">
+                          <img src="../../assets/img/g2.png" alt="">
+                          <img src="../../assets/img/g3.webp" alt="">
+                          <img src="../../assets/img/g4.jpg" alt="">
+                          <!-- <div class="card flex justify-content-center">
+                            <p-chart type="doughnut" [data]="data2" [options]="options2" />
+                        </div>
+                        <div class="card">
+                          <p-chart type="line" [data]="data" [options]="options" />
+                      </div> -->
+                        </div>
+                      </div>
+                    </div>
+                    <div *ngIf="selectedStrategy.name=='Market Penetration Pricing Strategy'" class="row animate__animated animate__fadeInLeft" >
+                      <div class="row metrics col-md-6">
+                        <div class=" card_shadow">
+                          <p class="met_head">Metrics for Market Penetration Pricing Strategy</p>
+                          <div class="row mt-2 mx-2">
+                            <div class="details col-md-6">
+                              <span class="head">PED  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Market Share  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Competitor Prices  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">CAC  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">CLV  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Sales Growth  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">CR  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Brand Awareness  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Price Sensitivity Index  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Demand Forecast  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Differentiation Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Inventory Turnover  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">RPV  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">RPR  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">CSAT  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Churn Rate  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Optimal Price Point  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Promo Effectiveness  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Entry Timing Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">NPS  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">COGS  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Break-even Point  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Gross Margin  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Segment Profitability  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Strategy Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Feedback Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Market Condition Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Adjustment Frequency  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Seasonal Demand Index  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <input type="text" class="form-control_m">
+                            </div>
+
+                            <!-- <div class="details col-md-6">
+                              <span class="head">Price competitiveness Index</span>
+                              <input type="text" class="form-control">
+                            </div>
+                            <div class="details col-md-6">
+                              <span class="head">Price Elasticity Of Demand</span>
+                              <input type="text" class="form-control">
+                            </div> -->
+                          </div>
+                        </div>
+                      </div>
+
+
+
+
+
+                      <div class="graphs mt-2">
+                        <div class="row all_graphs">
+                          <img src="../../assets/img/trend.jpg" alt="">
+                          <img src="../../assets/img/g2.png" alt="">
+                          <img src="../../assets/img/g3.webp" alt="">
+                          <img src="../../assets/img/g4.jpg" alt="">
+                          <!-- <div class="card flex justify-content-center">
+                            <p-chart type="doughnut" [data]="data2" [options]="options2" />
+                        </div>
+                        <div class="card">
+                          <p-chart type="line" [data]="data" [options]="options" />
+                      </div> -->
+                        </div>
+                      </div>
+                    </div>
+                  </ng-container>
+
+                  <ng-container *ngIf="implement_page">
+                    <app-implement-strategy (cancel)="hideImplementPage()"></app-implement-strategy>
+                  </ng-container>
+                </ng-container>
+
+
+
+
+
+                <!-- <mat-tab-group> -->
+                  <!-- <mat-tab label="Value Based Pricing Strategy"> -->
+
+                  <!-- </mat-tab> -->
+                <!-- </mat-tab-group> -->
+              </li>
+            </ul>
+          </div>
+          <!--/ tabs -->
+        </div>
+      <!-- </body>
+    </html> -->
+
+
+    <!-- <div class="overall col-md-6">
+      <div class="row metrics">
+        <div class=" card_shadow">
+          <p class="met_head">Overall Business Impact due to Real Time Pricing Strategy</p>
+          <div class="row mt-2 mx-2">
+            <div class="details col-md-6">
+              <span class="head">Revenue Per User (RPU)
+                 <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Gross Profit Margin
+                 <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Customer Lifetime Value (CLV)
+                 <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Conversion Rate
+                 <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Brand Price Elasticity
+                 <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Market Share
+                 <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Net Promoter Score (NPS)
+                 <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Price Optimization Efficiency
+                 <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Stock-Out Rate
+                 <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Price Sensitivity Index
+                 <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Customer Profitability Score
+                 <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Promotion Conversion Rate
+                 <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Abandonment Rate
+                 <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Channel Profitability Index
+                 <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Market Share Growth Rate
+                 <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Gross Margin Return on Investment
+                 <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Discount Effectiveness Index
+                 <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Dynamic Price Adjustment Accuracy
+                 <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Supply Elasticity Index
+                 <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Competitor Reaction Time
+                 <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Forecast Accuracy Rate
+                 <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Retention Rate
+                 <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Revenue Stream Growth Rate
+                 <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Time-to-Market Efficiency
+                 <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Penetration Success Rate
+                 <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Cost Efficiency Index
+                 <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Seasonal Sales Uplift
+                 <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Anomaly Detection Rate
+                 <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- <div class="overall col-md-6">
+      <div class="row metrics">
+        <div class=" card_shadow">
+          <p class="met_head">Overall Business Impact due to Value Based Pricing Strategy</p>
+          <div class="row mt-2 mx-2">
+            <div class="details col-md-6">
+              <span class="head">Gross Margin
+                <span  pTooltip="Info about corresponsing parameter"
+              tooltipPosition="top"  class="material-symbols-outlined info">
+              info
+              </span>
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Inventory Turnover ratio For Diamonds
+                <span  pTooltip="Info about corresponsing parameter"
+              tooltipPosition="top"  class="material-symbols-outlined info">
+              info
+              </span>
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Revenue per Unit
+                <span  pTooltip="Info about corresponsing parameter"
+              tooltipPosition="top"  class="material-symbols-outlined info">
+              info
+              </span>
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Carat Per Unit
+                <span  pTooltip="Info about corresponsing parameter"
+              tooltipPosition="top"  class="material-symbols-outlined info">
+              info
+              </span>
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Customer LTV
+                <span  pTooltip="Info about corresponsing parameter"
+              tooltipPosition="top"  class="material-symbols-outlined info">
+              info
+              </span>
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Market price Votality Index
+                <span  pTooltip="Info about corresponsing parameter"
+              tooltipPosition="top"  class="material-symbols-outlined info">
+              info
+              </span>
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Break Even Price
+                <span  pTooltip="Info about corresponsing parameter"
+              tooltipPosition="top"  class="material-symbols-outlined info">
+              info
+              </span>
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Customer Acquisition Cost
+                <span  pTooltip="Info about corresponsing parameter"
+              tooltipPosition="top"  class="material-symbols-outlined info">
+              info
+              </span>
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Sales Conversion Rate
+                <span  pTooltip="Info about corresponsing parameter"
+              tooltipPosition="top"  class="material-symbols-outlined info">
+              info
+              </span>
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Customer Retention Rate
+                <span  pTooltip="Info about corresponsing parameter"
+              tooltipPosition="top"  class="material-symbols-outlined info">
+              info
+              </span>
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Price Elasticity Of Demand
+                <span  pTooltip="Info about corresponsing parameter"
+              tooltipPosition="top"  class="material-symbols-outlined info">
+              info
+              </span>
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Stock Turnover Ratio
+                <span  pTooltip="Info about corresponsing parameter"
+              tooltipPosition="top"  class="material-symbols-outlined info">
+              info
+              </span>
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Customer rejection Rate
+                <span  pTooltip="Info about corresponsing parameter"
+              tooltipPosition="top"  class="material-symbols-outlined info">
+              info
+              </span>
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Profit per Capital
+                <span  pTooltip="Info about corresponsing parameter"
+              tooltipPosition="top"  class="material-symbols-outlined info">
+              info
+              </span>
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Average Order Value
+                <span  pTooltip="Info about corresponsing parameter"
+              tooltipPosition="top"  class="material-symbols-outlined info">
+              info
+              </span>
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Stone Quality Index
+                <span  pTooltip="Info about corresponsing parameter"
+              tooltipPosition="top"  class="material-symbols-outlined info">
+              info
+              </span>
+              </span>
+              <input type="text" class="form-control_m">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+
+    <!-- <div class="overall col-md-6">
+      <div class="row metrics">
+        <div class=" card_shadow">
+          <p class="met_head">Overall Business Impact due toMarket Penetration Pricing Strategy </p>
+          <div class="row mt-2 mx-2">
+            <div class="details col-md-6">
+              <span class="head">Total Revenue  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Profit Margin  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Segmentation Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Advantage Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Efficiency Ratio  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Brand Equity Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Market Growth  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Sales per Employee  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">ROI  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Cost Ratio  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Time to Market Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Retention Rate  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Return Rate  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Employee Satisfaction  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Supply Chain Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Risk Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Cash Flow Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Loyalty Index  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Average Transaction Value  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">MROI  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+
+            <div class="details col-md-6">
+              <span class="head">Shareholder Value Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Debt to Equity Ratio  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">New Product Growth  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Engagement Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overall col-md-6">
+      <div class="row metrics">
+        <div class=" card_shadow">
+          <p class="met_head">Overall Business Impact due to Competitive Pricing Strategy</p>
+          <div class="row mt-2 mx-2">
+            <div class="details col-md-6">
+              <span class="head">Customer Satisfaction Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Retention Rate  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Profit Margin Percentage  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Revenue Growth Rate  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Market Share Growth Rate  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Inventory Turnover Ratio  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Cost of Goods Sold Analysis  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Brand Loyalty Index  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Conversion Rate  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">ROI Percentage  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Churn Rate Percentage  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Marketing ROI Percentage  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Cash Flow Analysis  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Net Profit Margin  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Cost Structure Ratio  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overall col-md-6">
+      <div class="row metrics">
+        <div class=" card_shadow">
+          <p class="met_head">Overall Business Impact due to Segmented Pricing Strategy</p>
+          <div class="row mt-2 mx-2">
+            <div class="details col-md-6">
+              <span class="head">Revenue Growth Rate  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Profit Margin  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Market Competitiveness Index  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Total Sales Volume  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Cost to Serve  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">CAC Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">ROS Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Brand Equity Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Total Inventory Cost  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Sales Forecast Accuracy  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Cash Flow Margin  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Marketing ROI Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Operating Efficiency Ratio  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Churn Rate  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Revenue per Customer  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Contribution Margin  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+
+
+            <div class="details col-md-6">
+              <span class="head">TAM Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Price Volatility Index  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Quality Perception Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Market Adaptation Index  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Financial Health Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Engagement Rate  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Distribution Cost Margin  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Brand Awareness Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Price Optimization Impact Score  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Productivity Index  <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overall col-md-6">
+      <div class="row metrics">
+        <div class=" card_shadow">
+          <p class="met_head">Overall Business Impact due to Time Based Pricing Strategy</p>
+          <div class="row mt-2 mx-2">
+            <div class="details col-md-6">
+              <span class="head">CLV Score <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Revenue Growth Rate <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Time-Based Profit Margin <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">CAC <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Time-Based Market Share <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Brand Value Score <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Time-Based Efficiency Ratio <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Stockout Frequency <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Supply Chain Efficiency <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">ROI for Pricing Strategy <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overall col-md-6">
+      <div class="row metrics">
+        <div class=" card_shadow">
+          <p class="met_head">Overall Business Impact due to Brand Pricing Strategy</p>
+          <div class="row mt-2 mx-2">
+            <div class="details col-md-6">
+              <span class="head">Revenue Growth Rate <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Profit Margin Percentage <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">CAC Score <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">CLV Score <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Conversion Rate <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Inventory Turnover Ratio <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Customer Churn Rate <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Brand Affinity Score <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">NPS Score <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Employee Satisfaction Score <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">COGS Percentage <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Brand Awareness Percentage <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Market Expansion Percentage <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">ROI Score <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Sales per Employee Ratio <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Advertising ROI Score <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Diversification Score <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Customer Satisfaction Score <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">E-commerce Conversion Rate <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Crisis Response Effectiveness Score <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Sustainability Scor <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">e</span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Engagement Score <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">ROE Score <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Engagement Rate <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Portfolio Performance Score <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+            <div class="details col-md-6">
+              <span class="head">Responsiveness Score <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+              <input type="text" class="form-control_m">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
