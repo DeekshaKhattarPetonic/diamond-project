@@ -113,36 +113,36 @@ export class LoginComponent {
         this.wrongCred = true;
         return;
       }
-
       try {
         const response: any = await this.loginService.login(credentials);
         console.log('response', response);
-
         if (response.body.login === true) {
-
           const firstTimeIndex = response.body.fields.indexOf("first_time");
           if (response.body.data[0][firstTimeIndex] === true) {
             this.showChangeFirstTimePassword = true;
             return;
           }
-
-
           sessionStorage.setItem('email', email);
           this.email = email;
           this.loginService.setEmail(email);
-          this.loginService.setRole(response.body.role);
+          // this.loginService.setRole(response.body.role);
           this.loginService.setSubscriptionId(response.body.subscription_id);
-
           const fullName = `${response.body.data[0][0]} ${response.body.data[0][1]}`; // f_name and l_name
           this.loginService.setName(fullName);
           this.loginService.set_f_name(response.body.data[0][0]);
           this.loginService.set_l_name(response.body.data[0][1]);
+          this.loginService.setRole(response.body.data[0][2]);
           this.loginService.setuserId(response.body.data[0][3]); // employee_id
-
           // Check if first_time is true
 
+          let role: any = sessionStorage.getItem('role')
+          if(role == 'admin'){
+            this.router.navigate(['/admin']);
+          }else{
+            this.router.navigate(['/tabs']);
+          }
 
-          this.router.navigate(['/tabs']);
+          //
         } else {
           console.warn('Unexpected response:', response);
         }

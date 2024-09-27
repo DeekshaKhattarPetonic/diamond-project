@@ -100,11 +100,9 @@ export class LoginService {
 
   async login(credentials: any): Promise<any> {
     // console.log('credentials', credentials);
-
     try {
       const response: any = await this.http.post<any>(`${environment.apiUrl}/data-api/login`, credentials, { observe: 'response' }).toPromise();
       this.isAuthenticated = true;
-
       return response;
     } catch (error) {
       console.error('Error:', error);
@@ -113,12 +111,6 @@ export class LoginService {
   }
 
   signUp(userData: any) {
-    // let subscription_id: any =  sessionStorage.getItem('subscription_id')
-    // if(userData && !userData?.subscription_id){
-    //   userData['subscription_id'] = subscription_id;
-    // }
-
-
     return new Promise((resolve, reject) => {
       this.http.post(`${environment.apiUrl}/data-api/signup`, userData, { observe: 'response' })
         .subscribe(
