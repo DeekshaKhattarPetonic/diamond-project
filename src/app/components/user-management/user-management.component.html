@@ -29,7 +29,7 @@
             </div>
             <h3>Number Of Strategist</h3>
           </div>
-          <span #counter class="counter-value" [attr.data-final-value]="counterValues.webDesigning">0</span>
+          <span  class="counter-value">{{strategists?.length}}</span>
         </div>
       </div>
       <div class="col-md-3 col-sm-6">
@@ -40,7 +40,7 @@
             </div>
             <h3>Number Of User At POS</h3>
           </div>
-          <span #counter class="counter-value" [attr.data-final-value]="counterValues.webDevelopment">0</span>
+          <span  class="counter-value">{{pos?.length}}</span>
         </div>
       </div>
       <div class="col-md-3 col-sm-6">
@@ -60,7 +60,7 @@
             </div>
             <h3>No. Of User In Sales/Marketing</h3>
           </div>
-          <span #counter class="counter-value" [attr.data-final-value]="counterValues.marketers">0</span>
+          <span  class="counter-value" >{{sales?.length}}</span>
         </div>
       </div>
       <div class="col-md-3 col-sm-6">
@@ -71,7 +71,7 @@
             </div>
             <h3>Number Of Executives</h3>
           </div>
-          <span #counter class="counter-value" [attr.data-final-value]="counterValues.executives">0</span>
+          <span  class="counter-value">{{executives?.length}}</span>
         </div>
       </div>
     </div>
