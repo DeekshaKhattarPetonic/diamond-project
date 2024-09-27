@@ -212,12 +212,12 @@ onSaveEditUserDetails() {
     // console.log('(this.editUserDetails', this.editUserDetails)
 
 this.editUserDetails['admin_email'] = 'jitendra.nayak@petonic.in';
-this.editUserDetails['admin_password'] = '9IQ3sXKS';
+this.editUserDetails['admin_password'] = 'LOZ38tLl';
 
     this.loginService.onSaveEditUser(this.editUserDetails).subscribe(
         (response) => {
             this.hideEditModal = true;
-            this.hideAdminCredModal = true;
+            this.hideAdminCredModal = false;
             // Handle the response data here
             // console.log('Response:', response);
             // console.log('response.update', response.update)
@@ -403,7 +403,7 @@ let data: any;
 data = {
 email :  this.selectedUser.email,
 admin_email: 'jitendra.nayak@petonic.in',
-admin_password: '9IQ3sXKS'
+admin_password: 'LOZ38tLl'
 }
 
 console.log('data', data)
