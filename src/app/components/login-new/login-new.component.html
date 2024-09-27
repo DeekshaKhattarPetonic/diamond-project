@@ -1,0 +1,104 @@
+<body>
+  <img class="bg_img" src="../../../assets/img/Login-Page.jpg" alt="">
+  <header>
+    <div class="container-fluid">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-md-6">
+                <div class="logo">
+                  <a [routerLink]="['/']" routerLinkActive="router-link-active"   routerLinkActive="router-link-active" >
+                    <img src="../../assets/img/hk-logo.svg" alt="">
+                  </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+  <div class="box">
+    <h2 *ngIf="!showChangeFirstTimePassword" class="head_width">{{forgorPassword ? 'FORGOT PASSWORD' : 'SIGN IN' }}</h2>
+    <h2 *ngIf="showChangeFirstTimePassword" class="head_width">{{'CHANGE PASSWORD' }}</h2>
+
+    <div class="wrapper container">
+
+      <div class="user_icon">
+        <img src="../../../assets/img/user-icon.png" alt="">
+      </div>
+      <ng-container *ngIf="!showChangeFirstTimePassword">
+        <ng-container *ngIf="!forgorPassword">
+          <form>
+            <!-- <span *ngIf="wrongCred" class="err_m">*Please enter correct credentials</span> -->
+
+            <div class="input-field"  [ngClass]="{'wrongCred' : wrongCred || wrongEmail}">
+              <input #username  type="text" required autocomplete="new-password">
+              <label>Enter your email</label>
+            </div>
+            <div class="input-field" [ngClass]="{'wrongCred' : wrongCred}">
+              <input  #password type="password" required autocomplete="new-password">
+              <label>Enter your password</label>
+            </div>
+
+            <button type="submit" class="mt-2" (click)="login(username.value, password.value)">Log In</button>
+
+            <div class="forget">
+              <a (click)="onForgotPassword()">Forgot password?</a>
+            </div>
+          </form>
+        </ng-container>
+
+        <ng-container *ngIf="forgorPassword">
+          <form #emailForm="ngForm" (ngSubmit)="onSendResentLink(emailForm)" novalidate>
+            <!-- <h2>Forgot Password</h2> -->
+            <div class="input-field">
+              <input
+                type="email"
+                required
+                autocomplete="new-password"
+                name="email"
+                ngModel
+                #email="ngModel"
+                [class.is-invalid]="email.invalid && email.touched"
+              />
+              <label>Enter your email</label>
+              <div class="d-flex" *ngIf="email.invalid && email.touched">
+                <small class="error" *ngIf="email.errors?.['required']">Email is required.</small>
+                <small class="error" *ngIf="email.errors?.['email']">Invalid email format.</small>
+              </div>
+            </div>
+            <button type="submit" [disabled]="emailForm.invalid">Send Mail</button>
+          </form>
+
+        </ng-container>
+      </ng-container>
+
+
+
+      <ng-container *ngIf="showChangeFirstTimePassword">
+        <form>
+          <!-- <span *ngIf="wrongCred" class="err_m">*Please enter correct credentials</span> -->
+          <h2>Change Password</h2>
+          <div class="input-field" [ngClass]="{'wrongCred' : wrongCred}">
+            <input  [ngModelOptions]="{standalone: true}" [(ngModel)]="currentPassword" #password type="password" required autocomplete="new-password">
+            <label>Enter your old password</label>
+          </div>
+
+          <div class="input-field" [ngClass]="{'wrongCred' : wrongCred}">
+            <input  [ngModelOptions]="{standalone: true}" [(ngModel)]="newPassword" #password type="password" required autocomplete="new-password">
+            <label>Enter your new password</label>
+          </div>
+
+          <div class="input-field">
+            <input [(ngModel)]="confirmPassword" [ngModelOptions]="{standalone: true}" [ngClass]="{'wrongCred' : wrongCred}" #password type="password" required autocomplete="new-password">
+            <label>Re-enter your new password</label>
+          </div>
+
+          <span class="error_text" *ngIf="error !== ''">{{error}}</span>
+
+          <button type="submit" (click)="updatePassword()">Update Password</button>
+        </form>
+      </ng-container>
+
+    </div>
+
+  </div>
+</body>
+

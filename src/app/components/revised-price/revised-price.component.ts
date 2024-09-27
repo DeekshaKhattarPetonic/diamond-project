@@ -41,7 +41,8 @@ interface PageEvent {
   styleUrl: './revised-price.component.scss'
 })
 export class RevisedPriceComponent {
-  @ViewChild('dt2') dt2!: Table;
+  displayDateModal: any = false;
+  @ViewChild('dt1') dt1!: Table;
   searchValue: any = ''
   showTable: any = false;
   countries: any[] | undefined;
@@ -52,17 +53,18 @@ export class RevisedPriceComponent {
   options: any;
   data2: any;
   options2: any;
-  date1: Date | undefined;
+  date1: any;
   date2: Date | undefined;
   showParams: any = false;
-  selectedOption: any = null;
+  selectedOption: any = 'All';
+  selectedCountries: any = []
   checkboxItems = [
-    { id: 'marketVolatility', label: 'Market Votality', checked: false, inputValue: '', percentage: '' },
-    { id: 'supplyChainDynamics', label: 'Supply Chain Dynamics', checked: false, inputValue: '', percentage: '' },
-    { id: 'operationalCosts', label: 'Operational Costs', checked: false, inputValue: '', percentage: '' },
-    { id: 'contingencyReserves', label: 'Contingency Reserves', checked: false, inputValue: '', percentage: '' },
-    { id: 'regulatoryTaxChanges', label: 'Regulatory and Tax Changes', checked: false, inputValue: '', percentage: '' },
-    { id: 'inventoryHoldingCosts', label: 'Inventory Holding Costs', checked: false, inputValue: '', percentage: '' }
+    { id: 'marketVolatility', label: 'Market Votality', checked: false, inputValue: 'high', percentage: 0 },
+    { id: 'supplyChainDynamics', label: 'Supply Chain Dynamics', checked: false, inputValue: 'moderate', percentage: 0 },
+    { id: 'operationalCosts', label: 'Operational Costs', checked: false, inputValue: 'low', percentage: 0 },
+    { id: 'contingencyReserves', label: 'Contingency Reserves', checked: false, inputValue: 'fix', percentage: 0 },
+    { id: 'regulatoryTaxChanges', label: 'Regulatory and Tax Changes', checked: false, inputValue: '456', percentage: 0 },
+    { id: 'inventoryHoldingCosts', label: 'Inventory Holding Costs', checked: false, inputValue: '20', percentage: 0 }
   ];
   isConfirmDisabled = true;
   first: number = 0;
@@ -80,6 +82,7 @@ export class RevisedPriceComponent {
   ];
 
   isPriceChanged: boolean = false;
+  savedDate: boolean = false;
   productIds: string[] = [];
   descriptions: string[] = [];
   carats: number[] = [];
@@ -100,6 +103,7 @@ export class RevisedPriceComponent {
   showColorDropdown = false;
   showClarityDropdown = false;
   showCutDropdown = false;
+  minDate: any;
 
   constructor(private dialog: MatDialog,) {
     this.updatePageData();
@@ -108,6 +112,7 @@ export class RevisedPriceComponent {
 
 
   ngOnInit() {
+    this.minDate = new Date();
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.countries = [
@@ -149,11 +154,15 @@ export class RevisedPriceComponent {
     this.showTable = false;
     this.showParams = false;
   }
+
   checkIfAnyChecked() {
-    this.isConfirmDisabled = !this.checkboxItems.some(item =>
-      item.checked && item.inputValue && item.inputValue.trim() !== '' && item.percentage && item.percentage.trim() !== ''
+    this.isConfirmDisabled = !this.checkboxItems.every(item =>
+      item.checked &&
+      Number(item.percentage) > 0 &&
+      Number(item.percentage) <= 100
     );
   }
+
 
   onCategoryChange(){
     this.showParams = false;
@@ -170,47 +179,61 @@ export class RevisedPriceComponent {
   }
 
   openReviewModal(){
+    console.log('this.this.pagedData', this.pagedData)
+    const filteredData = this.pagedData.filter(item => item.originalPrice2 !== item.price2);
     const dialogRef = this.dialog.open(ReviewChangesComponent, {
       width: '80vw',
+      // minHeight: '70vh',
+      data: {
+        head: 'Changes Saved',
+        message: 'The changes have been saved successfully.',
+        buttonTextNo: 'Close',
+        filteredData: filteredData
+      },
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('result', result)
+      // If the user clicked "Yes" in the modal
+      if (result === true) {
+
+        this.displayDateModal = true;
+
+
+      } else {
+      }
+    });
+  }
+
+  saveChanges(){
+    this.showEditTable = false;
+    this.showTable = false;
+    this.showParams = false;
+    this.showEditTable = false;
+    this.isPriceChanged = false;
+    this.savedDate = this.isPriceChanged
+    this.checkboxItems = [
+      { id: 'marketVolatility', label: 'Market Votality', checked: false, inputValue: '', percentage: 0 },
+      { id: 'supplyChainDynamics', label: 'Supply Chain Dynamics', checked: false, inputValue: '', percentage: 0 },
+      { id: 'operationalCosts', label: 'Operational Costs', checked: false, inputValue: '', percentage: 0 },
+      { id: 'contingencyReserves', label: 'Contingency Reserves', checked: false, inputValue: '', percentage: 0 },
+      { id: 'regulatoryTaxChanges', label: 'Regulatory and Tax Changes', checked: false, inputValue: '', percentage: 0 },
+      { id: 'inventoryHoldingCosts', label: 'Inventory Holding Costs', checked: false, inputValue: '', percentage: 0 }
+    ];
+
+    const dialogRef = this.dialog.open(CustomModalComponent, {
+      width: '40vw',
       data: {
         head: 'Changes Saved',
         message: 'The changes have been saved successfully.',
         buttonTextNo: 'Close',
       },
     });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('result', result)
-      // If the user clicked "Yes" in the modal
-      if (result === true) {
-        this.showEditTable = false;
-        this.showTable = false;
-        this.showParams = false;
-        this.showEditTable = false;
-        this.isPriceChanged = false;
-        this.checkboxItems = [
-          { id: 'marketVolatility', label: 'Market Votality', checked: false, inputValue: '', percentage: '' },
-          { id: 'supplyChainDynamics', label: 'Supply Chain Dynamics', checked: false, inputValue: '', percentage: '' },
-          { id: 'operationalCosts', label: 'Operational Costs', checked: false, inputValue: '', percentage: '' },
-          { id: 'contingencyReserves', label: 'Contingency Reserves', checked: false, inputValue: '', percentage: '' },
-          { id: 'regulatoryTaxChanges', label: 'Regulatory and Tax Changes', checked: false, inputValue: '', percentage: '' },
-          { id: 'inventoryHoldingCosts', label: 'Inventory Holding Costs', checked: false, inputValue: '', percentage: '' }
-        ];
-
-        const dialogRef = this.dialog.open(CustomModalComponent, {
-          width: '80vw',
-          data: {
-            head: 'Changes Saved',
-            message: 'The changes have been saved successfully.',
-            buttonTextNo: 'Close',
-          },
-        });
-      } else {
-      }
-    });
   }
 
   onPriceChange(item: any) {
     this.isPriceChanged = item.price1 !== item.originalPrice1 || item.price2 !== item.originalPrice2;
+    this.savedDate = false
   }
 
   onNotSavingChanges(){
@@ -292,10 +315,45 @@ clear(table: Table) {
   this.searchValue = ''
 }
 
-filter(event: { value: any }) {
-  const selectedValues = event.value;
-  // Handle the filtering logic here
+// filter(event: any) {
+//   const filteredValue = event.value || [];
+//   this.dt1.filter(filteredValue, 'fieldName', 'in');
+// }
+
+// filter(event: { value: any }) {
+//   const selectedValues = event.value;
+//   // Handle the filtering logic here
+
+validatePercentage(event: any, item: any) {
+  // Get the current value from the event
+  const value = event.target.value;
+
+  // Check if the value exceeds the allowed range
+  if (value > 100) {
+    // Set it to 100 if greater
+    event.target.value = 100;
+  } else if (value < 0) {
+    // Set it to 0 if less
+    event.target.value = 0;
+  }
+
+  // Update the ngModel-bound item with the correct value
+  item.percentage = event.target.value;
+  this.checkIfAnyChecked()
+}
+
+onCloseDateModal(){
+this.displayDateModal = false;
+}
+
+OnSaveDateModal(){
+  this.displayDateModal = false;
+  this.showTable = true;
+  this.saveChanges();
+  this.savedDate = true;
+  console.log('date1', this.date1)
 }
 
 
 }
+

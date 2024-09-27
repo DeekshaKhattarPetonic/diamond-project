@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class StrategistTabsComponent {
 
+  async goBack() {
+    // await this.ContributorService.setSelectedChallenge(this.selectedCh);
+    // this.Router.navigate(['/contributor-list']);
+    window.history.back();
+}
+
 }

@@ -5,3 +5,30 @@
 .bd-mode-toggle .dropdown-menu .active .bi {
   display: block !important;
 }
+
+.back-btn {
+  padding-right: 15px;
+  cursor: pointer;
+  color: #000;
+  display: flex;
+  text-decoration: none;
+  font-size: 14px;
+  align-items: center;
+  margin-left: 20px;
+  border: 1px solid black;
+  padding: 5px 10px;
+  border-radius: 4px;
+  margin-right: 10px;
+
+  &:hover {
+      background: #555;
+      color: #fff;
+  }
+
+  .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 400, ;
+      font-size: 18px;
+      padding-right: 5px;
+  }
+
+}

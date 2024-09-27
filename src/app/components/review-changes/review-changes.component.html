@@ -2,69 +2,26 @@
 
   <div class="d-flex">
     <p class="mb-0 pb-0 pt-2 col-md-6">Please review the changes that you have made:</p>
-    <div class="col-md-6 place-content-end d-flex row  flex flex-wrap p-fluid">
-      <div class="px-0  pt-2 flex-auto d-flex row col-md-8 align-center">
-        <label  for="buttondisplay" class="col-md-5  font-bold block"> date w.e.f </label>
-        <p-calendar class="px-0 col-md-7"
-        [(ngModel)]="date1"
-        [showIcon]="true"
-        inputId="buttondisplay"
-        [showOnFocus]="false" />
-      </div>
 
-    </div>
   </div>
 
   <table>
     <thead>
       <tr>
         <th>Product ID</th>
-        <th>Original Price</th>
-        <th>Revised Original Price</th>
-        <th>Dynamic Price</th>
-        <th>Revised Dynamic Price</th>
+        <th>Cost Price</th>
+        <th>Revised Cost Price</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td><strong>P011</strong></td>
-        <td>$4567</td>
-        <td>$4567</td>
-        <td>$4567</td>
-        <td>$4567</td>
+      <tr *ngFor="let item of data.filteredData">
+        <td><strong>{{item?.id}}</strong></td>
+        <td>{{item.originalPrice2}}</td>
+        <td>{{item.price2}}</td>
       </tr>
-      <tr>
-        <td><strong>P011</strong></td>
-        <td>$4567</td>
-        <td>$4567</td>
-        <td>$4567</td>
-        <td>$4567</td>
-      </tr>
-      <tr>
-        <td><strong>P011</strong></td>
-        <td>$4567</td>
-        <td>$4567</td>
-        <td>$4567</td>
-        <td>$4567</td>
-      </tr>
-      <tr>
-        <td><strong>P011</strong></td>
-        <td>$4567</td>
-        <td>$4567</td>
-        <td>$4567</td>
-        <td>$4567</td>
-      </tr>
-      <tr>
-        <td><strong>P011</strong></td>
-        <td>$4567</td>
-        <td>$4567</td>
-        <td>$4567</td>
-        <td>$4567</td>
-      </tr>
-
     </tbody>
   </table>
 
-  <div class="buttons mb-2"><button class="btn save" (click)="onYesClick()"  [disabled]="!date1">Save</button><button (click)="onNoClick()" class="btn cancel">Cancel</button></div>
+  <div class="buttons mb-2"><button class="btn save" (click)="onYesClick()">Okay</button><button (click)="onNoClick()" class="btn cancel">Cancel</button></div>
 
 </div>

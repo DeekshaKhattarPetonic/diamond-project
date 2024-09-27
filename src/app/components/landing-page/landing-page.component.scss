@@ -15,10 +15,10 @@
   width: 100%;
   height: 100%;
   // background-image: url(../bright-diamonds-arrangement-high-angle.jpg);
-  background-image: url(../../../assets/img/D2.jpg);
+  background-image: url(../../../assets/img/Login-Page.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  opacity: 0.9;
+  // opacity: 0.9;
   /* Adjust the opacity as needed */
   z-index: -1;
   /* Ensure it's behind any content */
@@ -28,6 +28,8 @@
 header {
   display: flex;
   flex-wrap: wrap;
+  margin-left: 52px;
+  margin-top: 10px;
   justify-content: space-between;
   align-items: center;
 }
@@ -128,12 +130,15 @@ header {
 }
 
 .type-of-login {
+  display: flex;
   font-size: 45px;
   color: white;
-  margin-bottom: 40px;
+  place-items: center;
   line-height: 1.3;
   text-align: center;
-  margin-top: 35px;
+  margin: 35px;
+  flex-direction: column;
+  width: fit-content;
 }
 
 .type-of-login h4 {
@@ -201,9 +206,6 @@ h3 {
   justify-content: center;
 }
 
-
-
-
 .col-md-2.px-md-4.position-relative {
   padding-right: 4px !important;
   padding-left: 4px !important;
@@ -213,11 +215,10 @@ h3 {
 
 }
 
-
 button {
   position: relative;
-  margin-top: 70px;
-  margin-right: 70px;
+  margin-top: 47px;
+  /* margin-right: 70px; */
   background: transparent;
   color: #ff0aa4;
   text-decoration: none;
@@ -321,4 +322,31 @@ button:hover i::after {
 
 .font-size-14{
   font-size: 14px;
+}
+
+.box{
+  margin: 0 auto;
+  margin-top: 79px;
+  width: 91%;
+}
+
+.head_width {
+  width: 400px !important;
+  display: flex;
+  justify-content: center;
+  margin: 51px 0px;
+}
+
+.bg_img {
+  // content: ""; /* Required to generate a pseudo-element */
+  position: absolute; /* Absolute positioning for overlay effect */
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  // background-image: url(../../../assets/img/Login-Page.jpg);
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  z-index: -1; /* Ensure it's behind any content */
 }

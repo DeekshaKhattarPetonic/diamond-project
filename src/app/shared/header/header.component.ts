@@ -8,4 +8,10 @@ import { RouterLink } from '@angular/router';
 })
 export class HeaderComponent {
 
+  async goBack() {
+    // await this.ContributorService.setSelectedChallenge(this.selectedCh);
+    // this.Router.navigate(['/contributor-list']);
+    window.history.back();
+}
+
 }

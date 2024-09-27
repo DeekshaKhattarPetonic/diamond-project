@@ -8,10 +8,11 @@ import { PointOfSalesComponent } from './components/point-of-sales/point-of-sale
 import { StrategistTabsComponent } from './components/strategist-tabs/strategist-tabs.component';
 import { RevisedPriceComponent } from './components/revised-price/revised-price.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
+import { LoginNewComponent } from './components/login-new/login-new.component';
 
 export const routes: Routes = [
   { path: '', component: LandingPageComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginNewComponent },
   { path: 'admin', component: UserManagementComponent },
   { path: 'strategy', component: StrategiesComponent },
   { path: 'pos', component: PointOfSalesComponent },

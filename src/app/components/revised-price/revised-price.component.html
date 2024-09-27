@@ -56,28 +56,39 @@
             <mat-radio-button class="item_radio" value="Item Category">Item Category</mat-radio-button>
           </mat-radio-group>
           <!-- <div class="card flex justify-content-center"> -->
-            <p-dropdown
-            [ngClass]="{'blueBorder': selectedOption == 'Multiple Items', 'greenBorder': selectedOption == 'Item Category'}"
-            [disabled]="selectedOption == 'All'"
-                [options]="countries"
-                [(ngModel)]="selectedCountry"
-                optionLabel="name"
-                (onChange)="onCategoryChange()"
-                [filter]="true"
-                filterBy="name"
-                [showClear]="true"
-                placeholder="Select Category">
-                    <ng-template pTemplate="selectedItem" let-selectedOption>
-                        <div class="flex align-items-center gap-2">
-                            <div>{{ selectedOption.name }}</div>
-                        </div>
-                    </ng-template>
-                    <ng-template let-country pTemplate="item">
-                        <div class="flex align-items-center gap-2">
-                            <div>{{ country.name }}</div>
-                        </div>
-                    </ng-template>
-            </p-dropdown>
+            <div *ngIf="selectedOption === 'Multiple Items'; else singleSelect">
+              <p-multiSelect  [ngClass]="{'blueBorder': selectedOption == 'Multiple Items', 'greenBorder': selectedOption == 'Item Category'}"
+                  [ngClass]="{'blueBorder': selectedOption == 'Multiple Items'}"
+                  [options]="countries"
+                  [(ngModel)]="selectedCountries"
+                  optionLabel="name"
+                  [filter]="true"
+                  filterBy="name"
+                  [showClear]="true"
+                  placeholder="Select Items">
+              </p-multiSelect>
+          </div>
+
+          <ng-template #singleSelect>
+              <p-dropdown
+                  [ngClass]="{'blueBorder': selectedOption == 'Multiple Items', 'greenBorder': selectedOption == 'Item Category'}"
+                  [disabled]="selectedOption == 'All'"
+                  [options]="countries"
+                  [(ngModel)]="selectedCountry"
+                  optionLabel="name"
+                  (onChange)="onCategoryChange()"
+                  [filter]="true"
+                  filterBy="name"
+                  [showClear]="true"
+                  [placeholder]="selectedOption == 'Multiple Items' ? 'Select Items': 'Select Category'">
+                  <ng-template pTemplate="selectedItem" let-selectedOption>
+                      <div class="flex align-items-center gap-2">
+                          <div>{{ selectedOption.name }}</div>
+                      </div>
+                  </ng-template>
+              </p-dropdown>
+          </ng-template>
+
         <!-- </div> -->
         <button [disabled]="selectedOption == null" class="button" (click)="showParams = true">
           <span class="material-symbols-outlined gobtn">arrow_circle_right</span>
@@ -95,21 +106,26 @@
               />
               <label for="{{item.id}}" class="label mb-0">{{item.label}}</label>
               <div class="card flex justify-content-center">
-                <input
+                <!-- <input
                   type="text"
                   [(ngModel)]="item.inputValue"
                   (input)="checkIfAnyChecked()"
                   placeholder="{{item.label}}"
                   class="form-control"
-                />
+                /> -->
+                <span>{{item.inputValue}}</span>
               </div>
               <input
-                type="text"
-                [(ngModel)]="item.percentage"
-                (input)="checkIfAnyChecked()"
-                placeholder="% To Increase"
-                class="form-control"
-              />
+  type="number"
+  [(ngModel)]="item.percentage"
+  (input)="validatePercentage($event, item)"
+  placeholder="% To Increase"
+  class="form-control"
+  min="0"
+  max="100"
+  step="1"
+/>
+
             </div>
           </div>
           <div class="buttons">
@@ -237,7 +253,7 @@
             </table> -->
 
             <p-table
-            #dt2
+            #dt1
             [value]="pagedData"
             dataKey="id"
             [rows]="5"
@@ -249,7 +265,11 @@
             <!-- Global Search Input -->
             <ng-template pTemplate="caption">
               <div class="flex">
-                  <p-button label="Clear" [outlined]="true" icon="pi pi-filter-slash" />
+                <p-button label="Clear" [outlined]="true" icon="pi pi-filter-slash" (onClick)="clear(dt1)" />
+                <!-- <span class="p-input-icon-left ml-auto">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" [(ngModel)]="searchValue" (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" />
+                </span> -->
                   <button class="confirm btn confirmation_btn" (click)="showEditTable = true">
                     <span class="material-symbols-outlined">
                       edit
@@ -277,12 +297,12 @@
                 <!-- Product ID MultiSelect -->
                 <th>
                   <p-columnFilter field="id" matchMode="in" [showMenu]="false">
-                    <ng-template pTemplate="filter" let-filter="filterCallback">
+                    <ng-template let-selectedProductId  pTemplate="filter" let-filter="filterCallback">
                       <p-multiSelect
-                        [(ngModel)]="selectedProductId"
+                        [ngModel]="selectedProductId"
                         [options]="productIds"
                         placeholder="Any"
-                        (onChange)="filter($event)">
+                        (onChange)="filter($event.value)">
                       </p-multiSelect>
                     </ng-template>
                   </p-columnFilter>
@@ -291,14 +311,14 @@
                 <!-- Description MultiSelect -->
                 <th>
                   <p-columnFilter field="desc" matchMode="in" [showMenu]="false">
-                    <ng-template pTemplate="filter" let-filter="filterCallback">
+                    <ng-template let-selectedDescription pTemplate="filter" let-filter="filterCallback">
                       <p-multiSelect
                         [options]="descriptions"
-                        [(ngModel)]="selectedDescription"
+                        [ngModel]="selectedDescription"
                         placeholder="Description"
                         [filter]="true"
                         filterPlaceholder="Search"
-                        (onChange)="filter($event)">
+                        (onChange)="filter($event.value)">
                       </p-multiSelect>
                     </ng-template>
                   </p-columnFilter>
@@ -307,14 +327,14 @@
                 <!-- Carat MultiSelect -->
                 <th>
                   <p-columnFilter field="value1" matchMode="in" [showMenu]="false">
-                    <ng-template pTemplate="filter" let-filter="filterCallback">
+                    <ng-template let-selectedCarat pTemplate="filter" let-filter="filterCallback">
                       <p-multiSelect
                         [options]="carats"
-                        [(ngModel)]="selectedCarat"
+                        [ngModel]="selectedCarat"
                         placeholder="Carat"
                         [filter]="true"
                         filterPlaceholder="Search"
-                        (onChange)="filter($event)">
+                        (onChange)="filter($event.value)">
                       </p-multiSelect>
                     </ng-template>
                   </p-columnFilter>
@@ -323,14 +343,14 @@
                 <!-- Color MultiSelect -->
                 <th>
                   <p-columnFilter field="value2" matchMode="in" [showMenu]="false">
-                    <ng-template pTemplate="filter" let-filter="filterCallback">
+                    <ng-template let-selectedColor pTemplate="filter" let-filter="filterCallback">
                       <p-multiSelect
                         [options]="colors"
-                        [(ngModel)]="selectedColor"
+                        [ngModel]="selectedColor"
                         placeholder="Color"
                         [filter]="true"
                         filterPlaceholder="Search"
-                        (onChange)="filter($event)">
+                        (onChange)="filter($event.value)">
                       </p-multiSelect>
                     </ng-template>
                   </p-columnFilter>
@@ -339,14 +359,14 @@
                 <!-- Clarity MultiSelect -->
                 <th>
                   <p-columnFilter field="clarity" matchMode="in" [showMenu]="false">
-                    <ng-template pTemplate="filter" let-filter="filterCallback">
+                    <ng-template let-selectedClarity pTemplate="filter" let-filter="filterCallback">
                       <p-multiSelect
                         [options]="clarities"
-                        [(ngModel)]="selectedClarity"
+                        [ngModel]="selectedClarity"
                         placeholder="Clarity"
                         [filter]="true"
                         filterPlaceholder="Search"
-                        (onChange)="filter($event)">
+                        (onChange)="filter($event.value)">
                       </p-multiSelect>
                     </ng-template>
                   </p-columnFilter>
@@ -355,14 +375,14 @@
                 <!-- Cut MultiSelect -->
                 <th>
                   <p-columnFilter field="quality" matchMode="in" [showMenu]="false">
-                    <ng-template pTemplate="filter" let-filter="filterCallback">
+                    <ng-template let-selectedCut pTemplate="filter" let-filter="filterCallback">
                       <p-multiSelect
                         [options]="cuts"
-                        [(ngModel)]="selectedCut"
+                        [ngModel]="selectedCut"
                         placeholder="Cut"
                         [filter]="true"
                         filterPlaceholder="Search"
-                        (onChange)="filter($event)">
+                        (onChange)="filter($event.value)">
                       </p-multiSelect>
                     </ng-template>
                   </p-columnFilter>
@@ -400,7 +420,7 @@
               <td>{{ item.clarity }}</td>
               <td>{{ item.quality }}</td>
               <td>{{ item.price1 | currency }}</td>
-                            <td class="enter-value editable-price">$<input [(ngModel)]="item.price2" (ngModelChange)="onPriceChange(item)" type="text" [value]="item.price2"></td>
+              <td class="enter-value editable-price">$<input [(ngModel)]="item.price2" (ngModelChange)="onPriceChange(item)" type="text" [value]="item.price2"></td>
             </tr>
         </ng-container>
             </ng-template>
@@ -446,7 +466,7 @@
               <button class="btn no confirmation_btn" (click)="showEditTable = false">No</button>
             </div> -->
           </div>
-          <div class="col-md-4" *ngIf="showEditTable && isPriceChanged">
+          <div class="col-md-4" *ngIf="showEditTable && isPriceChanged && !savedDate">
             <div class="conformation">
               <form class="flex align-items-center gap-1">
                 <!-- <p-checkbox
@@ -474,3 +494,29 @@
   </div>
 </div>
 <app-footer></app-footer>
+
+<p-dialog header="Select Date" [(visible)]="displayDateModal" [style]="{width: '44vw', height: '80vh'}"
+  [modal]="true" class="customDialogClass" [draggable]="true" [resizable]="true" [closable]="false">
+  <form id="addUserForm" class="mt-3">
+    <div class="col-md-12  d-flex row  flex flex-wrap p-fluid">
+      <div class="px-0 pt-2 flex-auto d-flex row col-md-12">
+        <label for="buttondisplay" class="col-md-12 font-bold block select_text">Select date to implement strategy  w.e.f : </label>
+        <p-calendar class="px-0 col-md-12"
+            [(ngModel)]="date1"
+            [showIcon]="true"
+            inputId="buttondisplay"
+            [inline]="true"
+            [ngModelOptions]="{standalone: true}"
+            [showOnFocus]="false"
+            [minDate]="minDate" />
+      </div>
+
+    </div>
+    <div class="d-flex mt-3 justify-content-end">
+      <button #closebutton type="button" class="btn btn-secondary cancel-btn" data-bs-dismiss="modal"
+        (click)="onCloseDateModal()">Cancel</button>
+      <button [disabled]="!date1" data-bs-dismiss="modal" id="closeModalAdmin" type="submit" class="btn save-changes ms-2"
+        (click)="OnSaveDateModal()">Save</button>
+    </div>
+  </form>
+</p-dialog>

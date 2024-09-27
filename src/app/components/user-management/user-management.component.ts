@@ -37,6 +37,7 @@ export class UserManagementComponent {
     marketers: 10,
     executives: 8
   };
+  formToResetOnSave: NgForm | any;
   admin_email: any = '';
   toggleText: any = ''
   selectedUser: any = {};
@@ -94,9 +95,9 @@ export class UserManagementComponent {
 
   async addUser() {
     // console.log('this.userData', this.userData)
-
     if (this.userData.email !== '' && this.userData.role !== '' && this.userData.f_name !== '' && this.userData.l_name !== '' && this.userData.employee_id !== '' && this.userData.org_name !== '') {
       try {
+        this.hideAddUserAdminCredModal = false;
         const response: any = await this.loginService.signUp(this.userData);
         if (response?.body && response.body.user_creation == true) {
           if (response.status == 201 || response.status == 200) {
@@ -113,8 +114,8 @@ export class UserManagementComponent {
             });
             // }
             // } else {
-
           }
+          this.formToResetOnSave.resetForm()
         }
       } catch (error) {
 
@@ -180,16 +181,18 @@ export class UserManagementComponent {
     // console.log('editUserDetails',this.editUserDetails)
   }
 
-  onCloseModal() {
+  onCloseModal(form: NgForm) {
     // console.log('close modal')
     this.editUserDetails = {}
     this.hideEditModal = false;
+    form.resetForm()
     // console.log('this.editUserDetails', this.editUserDetails)
   }
 
-  onCloseAddUserModal() {
+  onCloseAddUserModal(form: NgForm) {
     this.hideAddModal = false;
     this.userData = {}
+    form.resetForm()
   }
 
   onCloseAdminModal() {
@@ -198,7 +201,7 @@ export class UserManagementComponent {
   }
 
   onCloseAddUserAdminModal() {
-    this.hideAddUserAdminCredModal = true;
+    this.hideAddUserAdminCredModal = false;
   }
 
   onCloseToggleStatusAdminModal() {
@@ -211,8 +214,8 @@ export class UserManagementComponent {
   onSaveEditUserDetails() {
     // console.log('(this.editUserDetails', this.editUserDetails)
 
-    this.editUserDetails['admin_email'] = 'jitendra.nayak@petonic.in';
-    this.editUserDetails['admin_password'] = 'LOZ38tLl';
+    // this.editUserDetails['admin_email'] = 'jitendra.nayak@petonic.in';
+    // this.editUserDetails['admin_password'] = 'LOZ38tLl';
 
     this.loginService.onSaveEditUser(this.editUserDetails).subscribe(
       (response) => {
@@ -235,6 +238,8 @@ export class UserManagementComponent {
             width: '35vw',
             data: { icon: 'success.png', title: '', message: 'User saved successfully!', buttonTextYes: 'Ok' },
           });
+
+          this.formToResetOnSave.resetForm();
 
 
           // this.users.push(this.userData)editUserDetails
@@ -259,6 +264,7 @@ export class UserManagementComponent {
       form.control.markAllAsTouched(); // Mark all fields as touched to trigger validation
       return;
     }
+    this.formToResetOnSave = form;
     this.onSaveEditUserDetails()
     //console.log('Opening Admin Credentials Modal');
     // this.hideEditModal = true;
@@ -271,7 +277,9 @@ export class UserManagementComponent {
       form.control.markAllAsTouched(); // Mark all fields as touched to trigger validation
       return;
     }
-    this.addUser()
+    this.formToResetOnSave = form;
+    this.hideAddUserAdminCredModal = true;
+
     //console.log('After opening:', this.hideEditModal, this.hideAdminCredModal);
   }
 
@@ -389,41 +397,41 @@ onToggleUserStatus(user: any) {
     });
 }
 
-saveAdminCredModalForToggleStatus() {
-let data: any;
-data = {
-email :  this.selectedUser.email,
-admin_email: 'jitendra.nayak@petonic.in',
-admin_password: 'LOZ38tLl'
-}
+  saveAdminCredModalForToggleStatus() {
+    let data: any;
+    data = {
+      email: this.selectedUser.email,
+      admin_email: 'jitendra.nayak@petonic.in',
+      admin_password: 'LOZ38tLl'
+    }
 
-console.log('data', data)
-this.loginService.changeUserActiveStatus(data).subscribe(
-async (response) => {
+    console.log('data', data)
+    this.loginService.changeUserActiveStatus(data).subscribe(
+      async (response) => {
 
-console.log('response', response)
-    const dialogRef = this.dialog.open(CustomModalComponent, {
-        width: '35vw',
-        data: {icon: 'success.png',  title: '', message: 'Status Changed!', buttonTextYes: 'Ok' },
-      });
-      this.hideAdminCredModal = false;
-      this.hideAddUserAdminCredModal = true;
-      this.hideAddModal= false;
-      this.hideAdminCredModalForToggleStatus = false;
-    let notificationMessage: any = `status changed to ${this.toggleText}d of ${this.selectedUser.f_name}`
-    // this.notificationService.sendMessageNotif(notificationMessage);
-    this.messageService.add({ severity: 'success', summary: 'Success', detail: notificationMessage });
-    //console.log('Mail sent successfully. Response:', response);
-    await this.getAllUsers()
-    //console.log('response', response);
-},
-(error) => {
+        console.log('response', response)
+        const dialogRef = this.dialog.open(CustomModalComponent, {
+          width: '35vw',
+          data: { icon: 'success.png', title: '', message: 'Status Changed!', buttonTextYes: 'Ok' },
+        });
+        this.hideAdminCredModal = false;
+        this.hideAddUserAdminCredModal = false;
+        this.hideAddModal = false;
+        this.hideAdminCredModalForToggleStatus = false;
+        let notificationMessage: any = `status changed to ${this.toggleText}d of ${this.selectedUser.f_name}`
+        // this.notificationService.sendMessageNotif(notificationMessage);
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: notificationMessage });
+        //console.log('Mail sent successfully. Response:', response);
+        await this.getAllUsers()
+        //console.log('response', response);
+      },
+      (error) => {
 
-    console.error('Error:', error);
-}
+        console.error('Error:', error);
+      }
 
-);
-}
+    );
+  }
 
 getProgressBarStyles(type: any): { [key: string]: string } {
     let percentage: any;
@@ -534,6 +542,11 @@ toggleSelectAllRoles(event: any) {
     }, stepTime);
   }
 
+  async goBack() {
+    // await this.ContributorService.setSelectedChallenge(this.selectedCh);
+    // this.Router.navigate(['/contributor-list']);
+    window.history.back();
+}
 
 }
 

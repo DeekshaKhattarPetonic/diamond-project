@@ -37,7 +37,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 // import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 // import button
 import { CheckboxModule } from 'primeng/checkbox';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
 // import { ChartModule } from 'primeng/chart';
 // import ConfirmationModalComponent
 // import { ReviewChangesComponent } from '../review-changes/review-changes.component';
@@ -45,15 +45,16 @@ import { PaginatorModule, PaginatorState } from 'primeng/paginator';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { Table, TableModule } from 'primeng/table';
-import {MultiSelectModule} from 'primeng/multiselect';
+import { MultiSelectModule } from 'primeng/multiselect';
 import { RadioButtonModule } from 'primeng/radiobutton';
 // import MatRadioModule
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { provideClientHydration } from '@angular/platform-browser';
 import { AddUserComponent } from './modals/add-user/add-user.component';
 import { ChangeFirstTimePasswordComponent } from './change-first-time-password/change-first-time-password.component';
+import { LoginNewComponent } from './components/login-new/login-new.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { ChangeFirstTimePasswordComponent } from './change-first-time-password/c
     ConfirmationModalComponent,
     CustomModalComponent,
     AddUserComponent,
-    ChangeFirstTimePasswordComponent
+    ChangeFirstTimePasswordComponent,
+    LoginNewComponent
   ],
   imports: [
     BrowserModule,
@@ -91,20 +93,20 @@ import { ChangeFirstTimePasswordComponent } from './change-first-time-password/c
     CommonModule,
     MatDialogModule,
     CheckboxModule,
-MatTabsModule,
-PaginatorModule,
-MatSelectModule,
-MatFormFieldModule,
-TableModule,
-MultiSelectModule,
-RadioButtonModule,
-MatRadioModule,
-HttpClientModule,
-BrowserAnimationsModule
+    MatTabsModule,
+    PaginatorModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    TableModule,
+    MultiSelectModule,
+    RadioButtonModule,
+    MatRadioModule,
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
-    provideAnimationsAsync(), provideClientHydration(), CustomModalComponent, { provide: MatDialogRef, useValue: {}},  { provide: MAT_DIALOG_DATA, useValue: {} }
+    provideAnimationsAsync(), provideClientHydration(), CustomModalComponent, { provide: MatDialogRef, useValue: {} }, { provide: MAT_DIALOG_DATA, useValue: {} }
   ],
   bootstrap: [AppComponent]
 })

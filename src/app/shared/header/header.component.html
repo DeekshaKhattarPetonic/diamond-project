@@ -18,6 +18,10 @@
           <li><a class="dropdown-item" [routerLink]="['/login']" routerLinkActive="router-link-active">Sign out</a></li>
         </ul>
       </div>
+      <div (click)="goBack()" class="button back-btn"><span class="material-symbols-outlined">
+        undo
+        </span>Back
+      </div>
     </div>
   </header>
 </div>
