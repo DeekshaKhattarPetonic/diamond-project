@@ -25,17 +25,17 @@ export class LoginNewComponent {
   newPassword: any = '';
   currentPassword: any = '';
   error: string = '';
-// email: any = ''
-incorrectEmail: any = false;
+  // email: any = ''
+  incorrectEmail: any = false;
 
   constructor(private dialog: MatDialog, private loginService: LoginService, private router: Router, private spinner: NgxSpinnerService) { }
 
 
-  onForgotPassword(){
+  onForgotPassword() {
     this.forgorPassword = true;
   }
 
-  onPasswordSent(){
+  onPasswordSent() {
     const dialogRef = this.dialog.open(CustomModalComponent, {
       width: '35vw',
       data: {
@@ -87,7 +87,7 @@ incorrectEmail: any = false;
         .catch((error: number) => {
           this.spinner.hide();
 
-          console.log('error',error)
+          console.log('error', error)
           if (error === 401) {
             const dialogRef = this.dialog.open(CustomModalComponent, {
               width: '35vw',
@@ -117,7 +117,7 @@ incorrectEmail: any = false;
         sessionStorage.setItem('email', email);
       });
     }
-    if(this.email !== ''){
+    if (this.email !== '') {
       // console.log('this.email')
       // this.Router.navigate(['/overview']);
     }
@@ -176,9 +176,9 @@ incorrectEmail: any = false;
           // Check if first_time is true
 
           let role: any = sessionStorage.getItem('role')
-          if(role == 'admin'){
+          if (role == 'admin') {
             this.router.navigate(['/admin']);
-          }else{
+          } else {
             this.router.navigate(['/tabs']);
           }
 
@@ -237,8 +237,8 @@ incorrectEmail: any = false;
     this.showForgotTab = value;
   }
 
-  onFirstTimePasswordChange(value: boolean){
-   // console.log('value', value);
+  onFirstTimePasswordChange(value: boolean) {
+    // console.log('value', value);
     this.wrongCred = false;
     this.showChangeFirstTimePassword = value;
   }
@@ -251,105 +251,105 @@ incorrectEmail: any = false;
   validateEmail(email: string): void {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     this.wrongEmail = !emailRegex.test(email);
-}
+  }
 
-async checkFirstLogin(email: any){
-//   let emailData: any = {
-//     email: email
-//   }
-//   try {
-//     const response: any = await this.loginService.firstUserLoginCheck(emailData);
-//     console.log(response?.status);
-//     if (response?.status == 200  && response?.body && response.body?.first_user == true) {
-//   }
-// } catch (error) {
-//   console.log('error', error)
-//    if(error == 400 || error == 403){
-//   this.wrongCred = true;
-//   return;
-//    }
-//   }
- }
+  async checkFirstLogin(email: any) {
+    //   let emailData: any = {
+    //     email: email
+    //   }
+    //   try {
+    //     const response: any = await this.loginService.firstUserLoginCheck(emailData);
+    //     console.log(response?.status);
+    //     if (response?.status == 200  && response?.body && response.body?.first_user == true) {
+    //   }
+    // } catch (error) {
+    //   console.log('error', error)
+    //    if(error == 400 || error == 403){
+    //   this.wrongCred = true;
+    //   return;
+    //    }
+    //   }
+  }
 
- forgotPassword(){
-  // console.log('forgotPassword')
-  // this.showForgotTab = true;
- }
+  forgotPassword() {
+    // console.log('forgotPassword')
+    // this.showForgotTab = true;
+  }
 
- reset() {
-  this.confirmPassword = '';
-  this.newPassword = '';
-  this.currentPassword = ''
-  this.error = '';
-}
-
-
-async updatePassword() {
-  this.spinner.show()
-  if (this.newPassword !== this.confirmPassword) {
-    this.error = 'New password and confirm password do not match.';
-    this.spinner.hide()
-  } else {
+  reset() {
+    this.confirmPassword = '';
+    this.newPassword = '';
+    this.currentPassword = ''
     this.error = '';
+  }
 
-    try {
 
-      this.email = sessionStorage.getItem('email');
-      // console.log(this.email);
-      let data: any = {
-        email: this.email,
-        current_password: this.currentPassword,
-        new_password: this.newPassword
-      };
-
-      let response: any = await this.loginService.changePassword(data);
-
-      // console.log('response', response.status);
+  async updatePassword() {
+    this.spinner.show()
+    if (this.newPassword !== this.confirmPassword) {
+      this.error = 'New password and confirm password do not match.';
       this.spinner.hide()
-      if (response.body.reset == true) {
-        // this.FirstTimePasswordChange.emit(false);
+    } else {
+      this.error = '';
 
-        const notificationMessage = 'Password Changed!';
-        // this.notificationService.sendMessageNotif(notificationMessage);
-        // this.messageService.add({ severity: 'success', summary: 'Success', detail: notificationMessage });
-        // alert("Password Changed Successfully!!");
+      try {
 
-        await this.onFlipUserStatus();
-        this.onPasswordSent()
-        await this.login(this.email, this.confirmPassword);
+        this.email = sessionStorage.getItem('email');
+        // console.log(this.email);
+        let data: any = {
+          email: this.email,
+          current_password: this.currentPassword,
+          new_password: this.newPassword
+        };
+
+        let response: any = await this.loginService.changePassword(data);
+
+        // console.log('response', response.status);
         this.spinner.hide()
-      }
-    } catch (error) {
-      // alert(error)
-      this.spinner.hide()
-      if (error == 401) {
-        // this.spinner.hide();
-        this.error = 'please enter correct password'
-        // const dialogRef = this.dialog.open(CustomModalComponent, {
-        //   width: '35vw',
+        if (response.body.reset == true) {
+          // this.FirstTimePasswordChange.emit(false);
 
-        //   disableClose: true,
-        //   data: {icon: 'corrupted-file.png', title: '', message: 'please enter correct password', buttonTextYes: 'Ok' },
-        // });
-        // alert('please enter correct password')
+          const notificationMessage = 'Password Changed!';
+          // this.notificationService.sendMessageNotif(notificationMessage);
+          // this.messageService.add({ severity: 'success', summary: 'Success', detail: notificationMessage });
+          // alert("Password Changed Successfully!!");
+
+          await this.onFlipUserStatus();
+          this.onPasswordSent()
+          await this.login(this.email, this.confirmPassword);
+          this.spinner.hide()
+        }
+      } catch (error) {
+        // alert(error)
+        this.spinner.hide()
+        if (error == 401) {
+          // this.spinner.hide();
+          this.error = 'please enter correct password'
+          // const dialogRef = this.dialog.open(CustomModalComponent, {
+          //   width: '35vw',
+
+          //   disableClose: true,
+          //   data: {icon: 'corrupted-file.png', title: '', message: 'please enter correct password', buttonTextYes: 'Ok' },
+          // });
+          // alert('please enter correct password')
+        }
       }
     }
-  }
 
-}
-async onFlipUserStatus(){
-  let data : any = {
-    email : this.email
   }
-  try {
-    const response: any = await this.loginService.flipUserStatus(data);
-    //console.log(response?.status);
-    // console.log('Response:', response);
-    if (response?.body && response.body.flip == true) {
+  async onFlipUserStatus() {
+    let data: any = {
+      email: this.email
+    }
+    try {
+      const response: any = await this.loginService.flipUserStatus(data);
+      //console.log(response?.status);
+      // console.log('Response:', response);
+      if (response?.body && response.body.flip == true) {
+      }
+    } catch (error) {
+      // console.log('error', error)
+    }
   }
-} catch (error) {
- // console.log('error', error)
-}
-}
 }
 
