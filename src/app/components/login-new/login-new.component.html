@@ -19,7 +19,6 @@
     <h2 *ngIf="showChangeFirstTimePassword" class="head_width">{{'CHANGE PASSWORD' }}</h2>
 
     <div class="wrapper container">
-
       <div class="user_icon">
         <img src="../../../assets/img/user-icon.png" alt="">
       </div>
@@ -27,7 +26,6 @@
         <ng-container *ngIf="!forgorPassword">
           <form>
             <!-- <span *ngIf="wrongCred" class="err_m">*Please enter correct credentials</span> -->
-
             <div class="input-field"  [ngClass]="{'wrongCred' : wrongCred || wrongEmail}">
               <input #username  type="text" required autocomplete="new-password">
               <label>Enter your email</label>
@@ -36,9 +34,7 @@
               <input  #password type="password" required autocomplete="new-password">
               <label>Enter your password</label>
             </div>
-
             <button type="submit" class="mt-2" (click)="login(username.value, password.value)">Log In</button>
-
             <div class="forget">
               <a (click)="onForgotPassword()">Forgot password?</a>
             </div>
@@ -57,24 +53,18 @@
                 #email="ngModel"
               />
               <label [class.transform_label]="email.value">Enter your email</label>
-
               <!-- Error messages -->
               <div class="d-flex" *ngIf="email.invalid && email.touched">
                 <small class="error" *ngIf="email.errors?.['required'] && !incorrectEmail">Please enter a correct email.</small>
                 <small class="error" *ngIf="email.errors?.['email']  && !incorrectEmail">Invalid email format.</small>
               </div>
-
               <div class="d-flex">
                 <small class="error" *ngIf="incorrectEmail">Please enter a valid email.</small>
               </div>
-
-
             </div>
             <button type="submit">Send Mail</button>
           </form>
         </ng-container>
-
-
       </ng-container>
 
       <ng-container *ngIf="showChangeFirstTimePassword">
@@ -85,28 +75,21 @@
             <input  [ngModelOptions]="{standalone: true}" [(ngModel)]="currentPassword" #password type="password" required autocomplete="new-password">
             <label>Enter your old password</label>
           </div>
-
           <div class="input-field" [ngClass]="{'wrongCred' : wrongCred}">
             <input  [ngModelOptions]="{standalone: true}" [(ngModel)]="newPassword" #password type="password" required autocomplete="new-password">
             <label>Enter your new password</label>
           </div>
-
           <div class="input-field">
             <input [(ngModel)]="confirmPassword" [ngModelOptions]="{standalone: true}" [ngClass]="{'wrongCred' : wrongCred}" #password type="password" required autocomplete="new-password">
             <label>Re-enter your new password</label>
           </div>
-
           <span class="error_text" *ngIf="error !== ''">{{error}}</span>
-
           <button type="submit" (click)="updatePassword()">Update Password</button>
         </form>
       </ng-container>
-
     </div>
-
   </div>
 </body>
-
 
 <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#7bd3f7" type="fire" [fullScreen]="true">
   <p style="color: white"> loading... </p>
