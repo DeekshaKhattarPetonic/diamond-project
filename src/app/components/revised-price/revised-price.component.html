@@ -177,7 +177,7 @@
 
       <ng-container *ngIf="showTable">
         <div class="flex row flex-col">
-          <div class="col-md-12">
+          <div class="col-md-12 card_shadow">
             <!-- <table class="table table-hover table-striped table-bordered mb-0 dataTable" id="userTable">
               <thead class="table-light">
                 <tr>
@@ -305,12 +305,17 @@
                 </div>
 
                 <div class="d-flex">
+                  <button style="margin-right: 10px !important" class="confirm btn confirmation_btn mx-2" (click)="showTable = false">
+                    <span class="material-symbols-outlined">
+                      undo
+                      </span> Go Back
+                  </button>
                   <p-button label="Clear" [outlined]="true" icon="pi pi-filter-slash" (onClick)="clear(dt1)" />
                   <!-- <span class="p-input-icon-left ml-auto">
                       <i class="pi pi-search"></i>
                       <input pInputText type="text" [(ngModel)]="searchValue" (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" />
                   </span> -->
-                    <button class="confirm btn confirmation_btn" (click)="showEditTable = true">
+                    <button class="confirm btn confirmation_btn" [ngClass]="{activeEditTab: showEditTable}" (click)="showEditTable = true">
                       <span class="material-symbols-outlined">
                         edit
                       </span>
@@ -345,7 +350,7 @@
                       <p-multiSelect
                         [ngModel]="selectedProductId"
                         [options]="productIds"
-                        placeholder="Any"
+                        placeholder="Product ID"
                         (onChange)="filter($event.value)">
                       </p-multiSelect>
                     </ng-template>
@@ -469,7 +474,7 @@
               <td>{{ item.clarity }}</td>
               <td>{{ item.quality }}</td>
               <td>{{ item.price1 | currency }}</td>
-              <td class="enter-value editable-price">$<input [(ngModel)]="item.price2" (ngModelChange)="onPriceChange(item)" type="text" [value]="item.price2"></td>
+              <td [ngClass]="{editedPrice: item.price1 !== item.price2}" class="enter-value editable-price">$<input [(ngModel)]="item.price2" (ngModelChange)="onPriceChange(item)" type="text" [value]="item.price2"></td>
             </tr>
         </ng-container>
             </ng-template>

@@ -2027,6 +2027,8 @@ li{
   column-gap: 4px;
 }
 
+
+
 .p-dropdown .p-dropdown-label{
 
 }
@@ -2124,4 +2126,21 @@ button:disabled{
   background: #ededed;
   padding: 4px 10px !important;
   border-radius: 1px;
+}
+
+.activeEditTab{
+  background-color: green;
+  color: white;
+}
+
+.confirmation_btn:hover{
+  background-color: rgb(0, 191, 0);
+  color: white;
+}
+
+.editedPrice{
+  input{
+    border: 1.4px solid #ffc000 !important;
+    border-radius: 3px !important;
+  }
 }
