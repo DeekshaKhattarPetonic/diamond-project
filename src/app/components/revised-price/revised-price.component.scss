@@ -1056,6 +1056,12 @@ font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  .para_head{
+    display: flex;
+    padding: 8px 18px;
+    background: #f6f6f6;
+  }
 }
 
 
@@ -1077,8 +1083,10 @@ font-size: 16px;
   flex-wrap: wrap;
 
   .card{
-    border: unset;
-    flex-basis: 18%;
+    flex-basis: 23%;
+    border: 1px solid #e6e6e6;
+    font-size: 14px;
+    padding: 3px 8px;
   }
 }
 
@@ -1818,8 +1826,8 @@ svg{
 }
 
 .form-control{
-  width: 130px !important;
-  padding: 4px 10px;
+  width: 102px !important;
+  padding: 4px 4px 4px 8px;
 }
 
 .categories{
@@ -1941,7 +1949,7 @@ mat-radio-group.mat-mdc-radio-group {
 
 .dropdowns{
   label{
-flex-basis: 28%;
+flex-basis: 36%;
   }
 }
 
@@ -2071,4 +2079,48 @@ button:disabled{
   margin-bottom: 10px;
   font-weight: 500;
   font-size: 16px;
+}
+
+.border-red {
+  border: 1px solid red !important;
+}
+
+.justify-space-between{
+  justify-content: space-between;
+}
+
+.headings{
+  display: flex;
+
+  div{
+    font-size: 14px;
+    height: 30px;
+    // flex-basis: 33%;
+    font-weight: 500;
+  }
+}
+
+.head1{
+  flex-basis: 42%;
+}
+
+.head2 {
+  flex-basis: 25%;
+}
+
+.cards{
+  display: flex;
+  justify-content: space-between;
+  .dropdowns{
+    padding: 13px;
+    box-shadow: 1px 0px 3px 1px rgba(73, 73, 73, 0.2);
+    flex-basis: 49%;
+    border-radius: 6px;
+  }
+}
+
+.style_head_bg{
+  background: #ededed;
+  padding: 4px 10px !important;
+  border-radius: 1px;
 }

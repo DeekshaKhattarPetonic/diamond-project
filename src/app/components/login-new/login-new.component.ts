@@ -6,6 +6,7 @@ import { CustomModalComponent } from '../../modals/custom-modal/custom-modal.com
 import { MatDialog } from '@angular/material/dialog';
 import { LoginService } from '../../services/login.service';
 import { Observer } from 'rxjs';
+import { NgxSpinnerService } from "ngx-spinner";
 import { Router } from '@angular/router';
 
 @Component({
@@ -25,8 +26,9 @@ export class LoginNewComponent {
   currentPassword: any = '';
   error: string = '';
 // email: any = ''
+incorrectEmail: any = false;
 
-  constructor(private dialog: MatDialog, private loginService: LoginService, private router: Router) { }
+  constructor(private dialog: MatDialog, private loginService: LoginService, private router: Router, private spinner: NgxSpinnerService) { }
 
 
   onForgotPassword(){
@@ -43,18 +45,30 @@ export class LoginNewComponent {
       },
     });
     this.forgorPassword = false;
+    this.incorrectEmail = false;
   }
 
   onSendResentLink(emailForm: any): void {
+    this.spinner.show();
+    const emailControl = emailForm.controls.email;
+    console.log('Email Control:', emailControl);
+    console.log('Is Email Invalid:', emailControl.invalid);
+    console.log('Email Errors:', emailControl.errors);
+    console.log('Is Email Touched:', emailControl.touched); // Check touched state
+    console.log('Is Form Invalid:', emailForm.invalid); // Check overall form invalid state
+
     if (emailForm.invalid) {
-      emailForm.controls.email.control.markAsTouched();
+      this.spinner.hide();
+      emailControl.markAsTouched();
       return;
     }
+
     if (emailForm.valid) {
       const email = emailForm.value.email;
 
       this.loginService.sendResendLink(email)
         .then((response: any) => {
+          console.log('Response:', response);
           if (response.body.reset_link === true) {
             const dialogRef = this.dialog.open(CustomModalComponent, {
               width: '35vw',
@@ -62,17 +76,28 @@ export class LoginNewComponent {
               data: { icon: 'success.png', title: '', message: 'Mail sent successfully!', buttonTextYes: 'Ok' },
             });
             this.forgorPassword = false;
+            this.incorrectEmail = false;
+
           } else {
             console.warn('Unexpected response:', response);
           }
+          this.spinner.hide();
+
         })
         .catch((error: number) => {
-          if (error == 401) {
+          this.spinner.hide();
+
+          console.log('error',error)
+          if (error === 401) {
             const dialogRef = this.dialog.open(CustomModalComponent, {
               width: '35vw',
               disableClose: true,
               data: { icon: 'corrupted-file.png', title: '', message: 'Email does not exist.', buttonTextYes: 'Ok' },
             });
+          }
+
+          if (error === 422 || error === 401) {
+            this.incorrectEmail = true;
           }
         });
     } else {
@@ -99,6 +124,7 @@ export class LoginNewComponent {
   }
 
   async login(email: string, password: string): Promise<void> {
+    this.spinner.show();
     let emailData: any = {
       email: email
     }
@@ -111,6 +137,7 @@ export class LoginNewComponent {
           disableClose: true,
           data: { icon: "info.png", title: '', message: 'Please enter correct credentials', buttonTextYes: 'Ok' },
         });
+        this.spinner.hide();
         return;
       }
 
@@ -121,11 +148,14 @@ export class LoginNewComponent {
           disableClose: true,
           data: { icon: "info.png", title: '', message: 'Please enter all the fields', buttonTextYes: 'Ok' },
         });
+        this.spinner.hide();
         return;
       }
       try {
         const response: any = await this.loginService.login(credentials);
         console.log('response', response);
+        this.spinner.hide();
+
         if (response.body.login === true) {
           const firstTimeIndex = response.body.fields.indexOf("first_time");
           if (response.body.data[0][firstTimeIndex] === true) {
@@ -154,9 +184,13 @@ export class LoginNewComponent {
 
           //
         } else {
+          this.spinner.hide();
+
           console.warn('Unexpected response:', response);
         }
       } catch (error: any) {
+        this.spinner.hide();
+
         console.error('Error during login:', error.error);
 
         if (error.status == 400 && error.error.helpText == 'Invalid Credentials') {
@@ -183,6 +217,8 @@ export class LoginNewComponent {
         }
       }
     } catch (error) {
+      this.spinner.hide();
+
       if (error == 400 || error == 403) {
         this.wrongCred = true;
         return;
@@ -249,15 +285,15 @@ async checkFirstLogin(email: any){
 
 
 async updatePassword() {
-  // this.spinner.show()
+  this.spinner.show()
   if (this.newPassword !== this.confirmPassword) {
     this.error = 'New password and confirm password do not match.';
-    // this.spinner.hide()
+    this.spinner.hide()
   } else {
     this.error = '';
 
     try {
-      // this.spinner.show()
+
       this.email = sessionStorage.getItem('email');
       // console.log(this.email);
       let data: any = {
@@ -269,7 +305,7 @@ async updatePassword() {
       let response: any = await this.loginService.changePassword(data);
 
       // console.log('response', response.status);
-
+      this.spinner.hide()
       if (response.body.reset == true) {
         // this.FirstTimePasswordChange.emit(false);
 
@@ -281,11 +317,11 @@ async updatePassword() {
         await this.onFlipUserStatus();
         this.onPasswordSent()
         await this.login(this.email, this.confirmPassword);
-        // this.spinner.hide()
+        this.spinner.hide()
       }
     } catch (error) {
       // alert(error)
-      // this.spinner.hide()
+      this.spinner.hide()
       if (error == 401) {
         // this.spinner.hide();
         this.error = 'please enter correct password'

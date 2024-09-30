@@ -6,6 +6,7 @@ import { CustomModalComponent } from '../../modals/custom-modal/custom-modal.com
 import { MatDialog } from '@angular/material/dialog';
 import { LoginService } from '../../services/login.service';
 import { Observer } from 'rxjs';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
 
 @Component({
@@ -26,7 +27,7 @@ export class LoginComponent {
   error: string = '';
 // email: any = ''
 
-  constructor(private dialog: MatDialog, private loginService: LoginService, private router: Router) { }
+  constructor(private dialog: MatDialog, private loginService: LoginService, private router: Router, private spinner: NgxSpinnerService) { }
 
 
   onForgotPassword(){
@@ -34,6 +35,7 @@ export class LoginComponent {
   }
 
   onPasswordSent(){
+    this.spinner.show();
     const dialogRef = this.dialog.open(CustomModalComponent, {
       width: '35vw',
       data: {
@@ -42,6 +44,7 @@ export class LoginComponent {
         buttonTextNo: 'Close',
       },
     });
+    this.spinner.hide();
     this.forgorPassword = false;
   }
 

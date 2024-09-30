@@ -5,19 +5,32 @@
 
   </div>
 
+
+
   <table>
     <thead>
       <tr>
-        <th>Product ID</th>
-        <th>Cost Price</th>
-        <th>Revised Cost Price</th>
+        <!-- <th *ngIf="selectedOption == 'Item Category'">Category</th> -->
+        <th>Product Id</th>
+        <th >Description</th>
+        <th >Carat</th>
+        <th >Color</th>
+        <th >Clarity</th>
+        <th >Cut</th>
+        <th >Original Price</th>
+        <th >Revised Price</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let item of data.filteredData">
-        <td><strong>{{item?.id}}</strong></td>
-        <td>{{item.originalPrice2}}</td>
-        <td>{{item.price2}}</td>
+        <td>{{ item.id }}</td>
+        <td>{{ item.desc }}</td>
+        <td>{{ item.value1 }}</td>
+        <td>{{ item.value2 }}</td>
+        <td>{{ item.clarity }}</td>
+        <td>{{ item.quality }}</td>
+        <td>{{ item.price1 | currency }}</td>
+        <td>{{ item.price2 | currency }}</td>
       </tr>
     </tbody>
   </table>

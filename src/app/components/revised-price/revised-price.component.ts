@@ -71,14 +71,14 @@ export class RevisedPriceComponent {
   rows: number = 10;
   pagedData: any[] = [];
   allData = [
-    { id: 'D001', desc: 'Round cut, 1 carat , excellent clarity', value1: 24, value2: 'G', clarity: 'VS1', quality: 'Excellent', price1: '5000', price2: '5500' },
-    { id: 'D002', desc: 'Square cut, 1 carat , excellent clarity', value1: 16, value2: 'G', clarity: 'VS2', quality: 'Brilliant', price1: '4000', price2: '4500' },
-    { id: 'D003', desc: 'Round cut, 1 carat , excellent clarity', value1: 5, value2: 'G', clarity: 'VS3', quality: 'Great', price1: '6000', price2: '8500' },
-    { id: 'D004', desc: 'Heart cut, 1 carat , excellent clarity', value1: 3, value2: 'G', clarity: 'VS4', quality: 'Perfect', price1: '4000', price2: '8500' },
-    { id: 'D005', desc: 'Round cut, 1 carat , excellent clarity', value1: 24, value2: 'G', clarity: 'VS1', quality: 'Excellent', price1: '5000', price2: '5500' },
-    { id: 'D006', desc: 'Square cut, 1 carat , excellent clarity', value1: 16, value2: 'G', clarity: 'VS2', quality: 'Brilliant', price1: '4000', price2: '4500' },
-    { id: 'D007', desc: 'Round cut, 1 carat , excellent clarity', value1: 5, value2: 'G', clarity: 'VS3', quality: 'Great', price1: '6000', price2: '8500' },
-    { id: 'D008', desc: 'Heart cut, 1 carat , excellent clarity', value1: 3, value2: 'G', clarity: 'VS4', quality: 'Perfect', price1: '4000', price2: '8500' }
+    { id: 'D001', category: 'necklace', desc: 'Round cut, 1 carat , excellent clarity', value1: 24, value2: 'G', clarity: 'VS1', quality: 'Excellent', price1: '5000', price2: '5500' },
+    { id: 'D002', category: 'necklace', desc: 'Square cut, 1 carat , excellent clarity', value1: 16, value2: 'G', clarity: 'VS2', quality: 'Brilliant', price1: '4000', price2: '4500' },
+    { id: 'D003', category: 'necklace', desc: 'Round cut, 1 carat , excellent clarity', value1: 5, value2: 'G', clarity: 'VS3', quality: 'Great', price1: '6000', price2: '8500' },
+    { id: 'D004', category: 'necklace', desc: 'Heart cut, 1 carat , excellent clarity', value1: 3, value2: 'G', clarity: 'VS4', quality: 'Perfect', price1: '4000', price2: '8500' },
+    { id: 'D005', category: 'necklace', desc: 'Round cut, 1 carat , excellent clarity', value1: 24, value2: 'G', clarity: 'VS1', quality: 'Excellent', price1: '5000', price2: '5500' },
+    { id: 'D006', category: 'necklace', desc: 'Square cut, 1 carat , excellent clarity', value1: 16, value2: 'G', clarity: 'VS2', quality: 'Brilliant', price1: '4000', price2: '4500' },
+    { id: 'D007', category: 'necklace', desc: 'Round cut, 1 carat , excellent clarity', value1: 5, value2: 'G', clarity: 'VS3', quality: 'Great', price1: '6000', price2: '8500' },
+    { id: 'D008', category: 'necklace', desc: 'Heart cut, 1 carat , excellent clarity', value1: 3, value2: 'G', clarity: 'VS4', quality: 'Perfect', price1: '4000', price2: '8500' }
   ];
 
   isPriceChanged: boolean = false;
@@ -157,15 +157,13 @@ export class RevisedPriceComponent {
 
   checkIfAnyChecked() {
     this.isConfirmDisabled = !this.checkboxItems.every(item =>
-      item.checked &&
-      Number(item.percentage) > 0 &&
-      Number(item.percentage) <= 100
+      !item.checked || (Number(item.percentage) > 0 && Number(item.percentage) <= 100)
     );
   }
 
-
   onCategoryChange(){
     this.showParams = false;
+
   }
 
   onPageChange(event: any) {
@@ -185,8 +183,8 @@ export class RevisedPriceComponent {
       width: '80vw',
       // minHeight: '70vh',
       data: {
-        head: 'Changes Saved',
-        message: 'The changes have been saved successfully.',
+        head: '',
+        message: '',
         buttonTextNo: 'Close',
         filteredData: filteredData
       },
@@ -211,6 +209,9 @@ export class RevisedPriceComponent {
     this.showParams = false;
     this.showEditTable = false;
     this.isPriceChanged = false;
+    this.selectedCountry = '';
+    this.selectedCountries = [];
+    this.selectedOption = 'All'
     this.savedDate = this.isPriceChanged
     this.checkboxItems = [
       { id: 'marketVolatility', label: 'Market Votality', checked: false, inputValue: '', percentage: 0 },
@@ -276,26 +277,48 @@ export class RevisedPriceComponent {
   }
 
   openConfirmationModal() {
+    // Check for validation
+    let isValid = true;
+    for (const item of this.checkboxItems) {
+        if (item.checked && (item.percentage === 0 || !item.percentage)) {
+            isValid = false;
+            break; // No need to check further if one invalid is found
+        }
+    }
+
+    if (!isValid) {
+      const dialogRef = this.dialog.open(CustomModalComponent, {
+        width: '35vw',
+        data: {
+            head: '',
+            message: 'Please ensure all checked items have a valid percentage value.',
+            buttonTextNo: 'Close',
+            // buttonTextYes: 'Yes',
+        },
+    });
+        // alert('Please ensure all checked items have a valid percentage value.');
+        return; // Prevent opening the modal
+    }
+
     const dialogRef = this.dialog.open(ConfirmationModalComponent, {
-      width: '35vw',
-      data: {
-        head: 'Confirmation',
-        message: 'Are you sure you want to proceed?',
-        buttonTextNo: 'No',
-        buttonTextYes: 'Yes',
-      },
+        width: '35vw',
+        data: {
+            head: 'Confirmation',
+            message: 'Are you sure you want to proceed?',
+            buttonTextNo: 'No',
+            buttonTextYes: 'Yes',
+        },
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('result', result)
-      // If the user clicked "Yes" in the modal
-      if (result === true) {
-        this.showTable = true;
-      } else {
-      }
+        console.log('result', result);
+        // If the user clicked "Yes" in the modal
+        if (result === true) {
+            this.showTable = true;
+        }
     });
-
 }
+
 
 clearFilters() {
   this.selectedProductId = null;
@@ -354,6 +377,8 @@ OnSaveDateModal(){
   console.log('date1', this.date1)
 }
 
-
+  onSelectionChange(event: string): void {
+    // Whenever the radio selection changes, set isSomethingTrue to false
+    this.showParams = false;
+  }
 }
-

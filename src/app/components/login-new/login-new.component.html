@@ -47,8 +47,7 @@
 
         <ng-container *ngIf="forgorPassword">
           <form #emailForm="ngForm" (ngSubmit)="onSendResentLink(emailForm)" novalidate>
-            <!-- <h2>Forgot Password</h2> -->
-            <div class="input-field">
+            <div class="input-field" [ngClass]="{ 'is-invalid': email.invalid && email.touched || incorrectEmail }">
               <input
                 type="email"
                 required
@@ -56,21 +55,27 @@
                 name="email"
                 ngModel
                 #email="ngModel"
-                [class.is-invalid]="email.invalid && email.touched"
               />
-              <label>Enter your email</label>
+              <label [class.transform_label]="email.value">Enter your email</label>
+
+              <!-- Error messages -->
               <div class="d-flex" *ngIf="email.invalid && email.touched">
-                <small class="error" *ngIf="email.errors?.['required']">Email is required.</small>
-                <small class="error" *ngIf="email.errors?.['email']">Invalid email format.</small>
+                <small class="error" *ngIf="email.errors?.['required'] && !incorrectEmail">Please enter a correct email.</small>
+                <small class="error" *ngIf="email.errors?.['email']  && !incorrectEmail">Invalid email format.</small>
               </div>
+
+              <div class="d-flex">
+                <small class="error" *ngIf="incorrectEmail">Please enter a valid email.</small>
+              </div>
+
+
             </div>
-            <button type="submit" [disabled]="emailForm.invalid">Send Mail</button>
+            <button type="submit">Send Mail</button>
           </form>
-
         </ng-container>
+
+
       </ng-container>
-
-
 
       <ng-container *ngIf="showChangeFirstTimePassword">
         <form>
@@ -102,3 +107,7 @@
   </div>
 </body>
 
+
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#7bd3f7" type="fire" [fullScreen]="true">
+  <p style="color: white"> loading... </p>
+</ngx-spinner>
