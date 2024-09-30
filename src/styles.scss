@@ -671,3 +671,25 @@ button.p-ripple.p-element.p-button.p-component.p-button-outlined {
 .p-datepicker {
   padding: 0px !important;
 }
+
+app-strategist-tabs{
+  app-header{
+    width: 100%;
+
+    margin-top: 84px;
+
+
+    .back-btn{
+      color: white !important;
+      border: 1px solid white !important;
+    }
+    header{
+      margin-top: 70px;
+      justify-content: space-between !important;
+    }
+
+    .border-bottom{
+      border: unset !important;
+    }
+  }
+}
