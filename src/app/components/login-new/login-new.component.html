@@ -27,11 +27,11 @@
           <form>
             <!-- <span *ngIf="wrongCred" class="err_m">*Please enter correct credentials</span> -->
             <div class="input-field"  [ngClass]="{'wrongCred' : wrongCred || wrongEmail}">
-              <input #username  type="text" required autocomplete="new-password">
+              <input  (input)="removeWhitespace(username)" #username type="text" required autocomplete="new-password">
               <label>Enter your email</label>
             </div>
             <div class="input-field" [ngClass]="{'wrongCred' : wrongCred}">
-              <input  #password type="password" required autocomplete="new-password">
+              <input  (input)="removeWhitespace(password)" #password type="password" required autocomplete="new-password">
               <label>Enter your password</label>
             </div>
             <button type="submit" class="mt-2" (click)="login(username.value, password.value)">Log In</button>
@@ -72,15 +72,15 @@
           <!-- <span *ngIf="wrongCred" class="err_m">*Please enter correct credentials</span> -->
           <h2>Change Password</h2>
           <div class="input-field" [ngClass]="{'wrongCred' : wrongCred}">
-            <input  [ngModelOptions]="{standalone: true}" [(ngModel)]="currentPassword" #password type="password" required autocomplete="new-password">
+            <input (input)="removeWhitespace(currentPassword)" pattern="\\S+" [ngModelOptions]="{standalone: true}" [(ngModel)]="currentPassword" #current_password type="password" required autocomplete="new-password">
             <label>Enter your old password</label>
           </div>
           <div class="input-field" [ngClass]="{'wrongCred' : wrongCred}">
-            <input  [ngModelOptions]="{standalone: true}" [(ngModel)]="newPassword" #password type="password" required autocomplete="new-password">
+            <input (input)="removeWhitespace(password)" pattern="\\S+" [ngModelOptions]="{standalone: true}" [(ngModel)]="newPassword" #new_password type="password" required autocomplete="new-password">
             <label>Enter your new password</label>
           </div>
           <div class="input-field">
-            <input [(ngModel)]="confirmPassword" [ngModelOptions]="{standalone: true}" [ngClass]="{'wrongCred' : wrongCred}" #password type="password" required autocomplete="new-password">
+            <input (input)="removeWhitespace(password)" pattern="\\S+" [(ngModel)]="confirmPassword" [ngModelOptions]="{standalone: true}" [ngClass]="{'wrongCred' : wrongCred}" #password type="re_new_password" required autocomplete="new-password">
             <label>Re-enter your new password</label>
           </div>
           <span class="error_text" *ngIf="error !== ''">{{error}}</span>

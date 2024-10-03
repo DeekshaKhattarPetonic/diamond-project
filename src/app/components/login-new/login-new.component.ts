@@ -213,6 +213,14 @@ export class LoginNewComponent {
           });
         }
 
+        if (error.status == 400 && error.error.helpText === 'User Inactive') {
+          const dialogRef = this.dialog.open(CustomModalComponent, {
+            width: '35vw',
+            disableClose: true,
+            data: { icon: "info.png", title: '', message: 'Your account is inactive', buttonTextYes: 'Ok' },
+          });
+        }
+
         if (error.status === 401 || error.status === 422) {
           this.wrongCred = true;
         } else {
@@ -358,5 +366,17 @@ export class LoginNewComponent {
       // console.log('error', error)
     }
   }
+
+  removeSpaces(field: string) {
+    if (field) {
+      // Remove spaces from the specific field value
+      field = field.replace(/\s/g, '');
+    }
+  }
+
+  removeWhitespace(inputElement: HTMLInputElement) {
+    inputElement.value = inputElement.value.replace(/\s+/g, ''); // Remove all white spaces
+  }
+
 }
 
