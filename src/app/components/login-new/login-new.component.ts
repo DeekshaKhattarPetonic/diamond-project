@@ -124,6 +124,8 @@ export class LoginNewComponent {
   }
 
   async login(email: string, password: string): Promise<void> {
+    console.log('email', email);
+    this.email = email;
     this.spinner.show();
     let emailData: any = {
       email: email
@@ -158,11 +160,12 @@ export class LoginNewComponent {
 
         if (response.body.login === true) {
           const firstTimeIndex = response.body.fields.indexOf("first_time");
+          sessionStorage.setItem('email', email);
           if (response.body.data[0][firstTimeIndex] === true) {
             this.showChangeFirstTimePassword = true;
             return;
           }
-          sessionStorage.setItem('email', email);
+
           this.email = email;
           this.loginService.setEmail(email);
           // this.loginService.setRole(response.body.role);
@@ -286,7 +289,11 @@ export class LoginNewComponent {
 
   async updatePassword() {
     this.spinner.show()
-    if (this.newPassword !== this.confirmPassword) {
+    if (this.newPassword == '' || this.confirmPassword == '' || this.currentPassword == '') {
+      this.error = 'Please fill all the fields.';
+      this.spinner.hide()
+    }
+    else if (this.newPassword !== this.confirmPassword) {
       this.error = 'New password and confirm password do not match.';
       this.spinner.hide()
     } else {
@@ -315,7 +322,7 @@ export class LoginNewComponent {
           // alert("Password Changed Successfully!!");
 
           await this.onFlipUserStatus();
-          this.onPasswordSent()
+          // this.onPasswordSent()
           await this.login(this.email, this.confirmPassword);
           this.spinner.hide()
         }

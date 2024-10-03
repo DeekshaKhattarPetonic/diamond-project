@@ -102,9 +102,11 @@ export class LoginComponent {
   }
 
   async login(email: string, password: string): Promise<void> {
+    console.log('email', email)
     let emailData: any = {
       email: email
     }
+    this.email = email;
     try {
       const credentials = { email, password };
       if (!this.validateEmailFormat(email)) {
@@ -127,6 +129,7 @@ export class LoginComponent {
           }
           sessionStorage.setItem('email', email);
           this.email = email;
+          console.log('this.email',this.email)
           this.loginService.setEmail(email);
           // this.loginService.setRole(response.body.role);
           this.loginService.setSubscriptionId(response.body.subscription_id);
@@ -250,8 +253,9 @@ async updatePassword() {
     this.error = '';
 
     try {
+      console.log('this.email', this.email);
       // this.spinner.show()
-      this.email = sessionStorage.getItem('email');
+      // this.email = sessionStorage.getItem('email');
       // console.log(this.email);
       let data: any = {
         email: this.email,

@@ -103,7 +103,7 @@ onPasswordSent(){
     width: '35vw',
     data: {
       head: 'Password Sent',
-      message: 'Password has been sent to your registered email address.',
+      message: 'Password Changed!',
       buttonTextNo: 'Close',
     },
   });
