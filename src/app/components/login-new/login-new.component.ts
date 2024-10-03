@@ -38,6 +38,10 @@ export class LoginNewComponent {
       this.router.navigate(['/strategy']);
     }
 
+    if(role == ''){
+      this.router.navigate(['/login']);
+    }
+
     if(role == 'admin'){
       this.router.navigate(['/admin']);
     }

@@ -7,7 +7,7 @@
       <div class="flex-shrink-0 dropdown">
         <a href="javascipt:void(0)" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
           data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+          <img src="../../../assets/img/user-icon.png" alt="mdo" width="32" height="32" class="rounded-circle user">
         </a>
         <ul class="dropdown-menu text-small shadow"
           style="/* position: absolute; *//* inset: 0px auto auto 0px; *//* margin: 0px; *//* transform: translate3d(-98px, 34px, 0px); */">
@@ -15,7 +15,7 @@
           <li>
             <hr class="dropdown-divider">
           </li>
-          <li><a class="dropdown-item" [routerLink]="['/login']" routerLinkActive="router-link-active">Sign out</a></li>
+          <li><a class="dropdown-item" (click)="logout()">Sign out</a></li>
         </ul>
       </div>
       <div (click)="goBack()" class="button back-btn"><span class="material-symbols-outlined">
