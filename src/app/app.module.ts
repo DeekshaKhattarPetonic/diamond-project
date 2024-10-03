@@ -61,7 +61,8 @@ import { BadgeModule } from 'primeng/badge';
 import { AvatarModule } from 'primeng/avatar';
 import { PriceTrackerComponent } from './components/price-tracker/price-tracker.component';
 import { TagModule } from 'primeng/tag';
-
+import { StrategyDetailComponent } from './shared/strategy-detail/strategy-detail.component';
+import { ProductDetailComponent } from './shared/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,9 @@ import { TagModule } from 'primeng/tag';
     AddUserComponent,
     ChangeFirstTimePasswordComponent,
     LoginNewComponent,
-    PriceTrackerComponent
+    PriceTrackerComponent,
+    StrategyDetailComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -120,7 +123,7 @@ import { TagModule } from 'primeng/tag';
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
-    provideAnimationsAsync(), provideClientHydration(), CustomModalComponent, { provide: MatDialogRef, useValue: {} }, { provide: MAT_DIALOG_DATA, useValue: {} }
+    provideAnimationsAsync(), provideClientHydration(), StrategyDetailComponent, CustomModalComponent, { provide: MatDialogRef, useValue: {} }, { provide: MAT_DIALOG_DATA, useValue: {} }
   ],
   bootstrap: [AppComponent]
 })

@@ -131,8 +131,7 @@
         <td class="description">{{user.l_name}}</td>
         <td class="enter-value">{{user.email}}</td>
         <td class="enter-value">
-          <div class="d-flex align-items-cente"><span
-              [ngClass]="{ 'initiator': user.role == 'initiator', 'approver': user.role == 'approver', 'contributor': user.role == 'contributor', 'admin': user.role == 'admin', 'pm': user.role == 'pm',}"></span>
+          <div class="d-flex align-items-cente">
             <p class="user-role-name">{{user.role}}</p>
           </div>
         </td>
@@ -268,7 +267,7 @@
   <form #editUserForm="ngForm" id="editUserForm" class="mt-3">
     <div class="form-group">
       <label for="empID">Organisation Name</label>
-      <input #orgNameInput="ngModel" [(ngModel)]="userData.org_name" class="form-control" type="text" id="empID" name="empID" required>
+      <input disabled #orgNameInput="ngModel" [(ngModel)]="editUserDetails.org_name" class="form-control" type="text" id="org_name" name="org_name" required>
       <div *ngIf="orgNameInput.invalid && (orgNameInput.dirty || orgNameInput.touched)" class="error_msg">
         <div *ngIf="orgNameInput.errors?.['required']">*Organisation Name is required.</div>
       </div>

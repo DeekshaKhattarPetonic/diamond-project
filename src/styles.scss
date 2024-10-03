@@ -731,11 +731,40 @@ app-strategist-tabs{
   }
 }
 
-app-price-tracker{
-  .priceView{
+app-price-tracker {
+  .p-button.p-button-text.p-button-plain:not(:disabled):hover {
+    background: rgb(184,107,121) !important;
+    border-radius: 4px !important;
+  }
+  input.p-inputtext.p-component.p-element {
+    /* padding: 7px 20px; */
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: 12px;
+    font-weight: 400;
+  }
 
-    .p-datatable-wrapper{
+  .p-dropdown {
+    width: 238px;
+  }
+
+  .priceView {
+
+    .p-datatable-wrapper {
       height: fit-content !important;
     }
+  }
+}
+
+.expand_btn{
+  background: #00a4c1;
+  color: white;
+  border-radius: 6px;
+
+  button{
+    padding: 0px !important;
+    width: 26px !important;
+    color: white !important;
+    height: 26px !important;
   }
 }

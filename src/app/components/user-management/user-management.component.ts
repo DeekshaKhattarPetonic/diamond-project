@@ -118,7 +118,6 @@ export class UserManagementComponent {
           this.formToResetOnSave.resetForm()
         }
       } catch (error) {
-
         console.error('Error:', error);
         this.closeModal = true;
         if (error === 400) {

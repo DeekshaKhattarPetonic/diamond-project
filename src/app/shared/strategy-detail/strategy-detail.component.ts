@@ -2,14 +2,15 @@ import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-custom-modal',
-  templateUrl: './custom-modal.component.html',
-  styleUrl: './custom-modal.component.scss'
+  selector: 'app-strategy-detail',
+  templateUrl: './strategy-detail.component.html',
+  styleUrl: './strategy-detail.component.scss'
 })
-export class CustomModalComponent {
+
+export class StrategyDetailComponent {
 
   constructor(
-    public dialogRef: MatDialogRef<CustomModalComponent>,
+    public dialogRef: MatDialogRef<StrategyDetailComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 

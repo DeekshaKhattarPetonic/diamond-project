@@ -165,7 +165,6 @@ export class RevisedPriceComponent {
 
   onCategoryChange(){
     this.showParams = false;
-
   }
 
   onPageChange(event: any) {

@@ -13,23 +13,26 @@
 
     <div class="column col">
       <div class="head">Item ID</div>
-      <div class="filter"><input type="text" placeolder="search"></div>
+      <div class="filter">
+        <span class="p-input-icon-left ml-auto">
+          <i class="pi pi-search"></i>
+          <input pInputText type="text" [(ngModel)]="searchValue"
+             placeholder="Search keyword" />
+        </span>
+      </div>
     </div>
 
-    <!-- <div class="column col">
+    <div class="column col">
       <div class="head">Product Category</div>
       <div class="filter">
         <p-dropdown
-        [ngClass]="{'blueBorder': selectedProductCategory == 'Multiple Items', 'greenBorder': selectedProductCategory == 'Item Category'}"
-        [disabled]="selectedProductCategory == 'All'"
         [options]="productCategories"
-        [(ngModel)]="selectedCountry"
+        [(ngModel)]="selectedProductCategory"
         optionLabel="name"
-        (onChange)="onCategoryChange()"
         [filter]="true"
         filterBy="name"
         [showClear]="true"
-        [placeholder]="selectedProductCategory == 'Multiple Items' ? 'Select Items': 'Select Category'">
+        placeholder="Select Produt Category">
         <ng-template pTemplate="selectedItem" let-selectedProductCategory>
           <div class="flex align-items-center gap-2">
             <div>{{ selectedProductCategory.name }}</div>
@@ -37,11 +40,26 @@
         </ng-template>
       </p-dropdown>
       </div>
-    </div> -->
+    </div>
 
     <div class="column col">
       <div class="head">Other Product type</div>
-      <div class="filter"><input type="text" placeolder="search"></div>
+      <div class="filter">
+        <p-dropdown
+        [options]="productTypes"
+        [(ngModel)]="selectedProductType"
+        optionLabel="name"
+        [filter]="true"
+        filterBy="name"
+        [showClear]="true"
+        placeholder="Select Produt Category">
+        <ng-template pTemplate="selectedItem" let-selectedProductType>
+          <div class="flex align-items-center gap-2">
+            <div>{{ selectedProductType.name }}</div>
+          </div>
+        </ng-template>
+      </p-dropdown>
+      </div>
     </div>
   </div>
 
@@ -59,54 +77,52 @@
       <ng-template pTemplate="header">
         <tr>
           <th style="width: 5rem"></th>
-          <th pSortableColumn="name">Name <p-sortIcon field="name" /></th>
-          <th>Image</th>
-          <th pSortableColumn="price">Price <p-sortIcon field="price" /></th>
-          <th pSortableColumn="category">Category <p-sortIcon field="category" /></th>
+          <th>S.No</th>
+          <th>Product ID </th>
+          <th>Description</th>
+          <th>Original Price </th>
+          <th>Current Price </th>
           <!-- <th pSortableColumn="rating">Reviews <p-sortIcon field="rating" /></th> -->
-          <th pSortableColumn="inventoryStatus">Status <p-sortIcon field="inventoryStatus" /></th>
+          <th>Last Modified </th>
+          <th></th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-product let-expanded="expanded">
+      <ng-template pTemplate="body" let-product let-expanded="expanded" let-i="rowIndex">
         <tr>
+
           <td>
-            <p-button type="button" pRipple [pRowToggler]="product" [text]="true" [rounded]="true" [plain]="true"
-              [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'" />
+            <p-button class="expand_btn" *ngIf="product?.orders?.length" type="button" pRipple [pRowToggler]="product" [text]="true" [rounded]="true" [plain]="true"
+              [icon]="expanded ? 'pi pi-minus' : 'pi pi-plus'" />
           </td>
-          <td>{{ product.name }}</td>
-          <td><img [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + product.image"
-              [alt]="product.name" width="50" class="shadow-4" /></td>
-          <td>{{ product.price | currency : 'USD' }}</td>
-          <td>{{ product.category }}</td>
-          <td>
-            <p-tag [value]="product.inventoryStatus" [severity]="getSeverity(product.inventoryStatus)" />
+          <td>{{ i + 1 }}</td>
+          <td>{{ product.id }}</td>
+          <td>{{product.description}}</td>
+          <td>{{product.original_price}}</td>
+          <td>{{product.current_price}}</td>
+          <td>{{product.last_modified}}</td>
+          <td><button (click)="onCllickViewStrategy()" class="view_btn d-flex"><i class="pi pi-eye" style="font-size: 1rem"></i> View</button>
+
           </td>
         </tr>
       </ng-template>
       <ng-template pTemplate="rowexpansion" let-product>
         <tr>
-          <td colspan="7">
-            <div class="p-3">
+          <td colspan="7" style="margin-left: 118px !important;  ">
+            <div class="sub_table p-3">
               <p-table [value]="product.orders" dataKey="id">
                 <ng-template pTemplate="header">
         <tr>
-          <th pSortableColumn="id">Id <p-sortIcon field="price" /></th>
-          <th pSortableColumn="customer">Customer <p-sortIcon field="customer" /></th>
-          <th pSortableColumn="date">Date <p-sortIcon field="date" /></th>
-          <th pSortableColumn="amount">Amount <p-sortIcon field="amount" /></th>
-          <th pSortableColumn="status">Status <p-sortIcon field="status" /></th>
+          <th>Original Price </th>
+          <th>Modified Price </th>
+          <th>Price Modified Date </th>
           <!-- <th style="width: 4rem"></th> -->
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-order>
         <tr>
-          <td>{{ order.id }}</td>
-          <td>{{ order.customer }}</td>
-          <td>{{ order.date }}</td>
-          <td>{{ order.amount | currency : 'USD' }}</td>
-          <td>
-            <p-tag [value]="order.status" [severity]="getStatusSeverity(order.status)" />
-          </td>
+          <td>{{ order.original_price }}</td>
+          <td>{{ order.modified_price }}</td>
+          <td>{{ order.modified_date }}</td>
           <!-- <td><p-button type="button" icon="pi pi-search" /></td> -->
         </tr>
       </ng-template>

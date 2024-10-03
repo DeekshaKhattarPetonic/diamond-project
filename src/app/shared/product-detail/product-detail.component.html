@@ -1,0 +1,36 @@
+
+<h2 mat-dialog-title *ngIf="data?.product?.id">Product Details of : {{ data?.product.id }} </h2>
+<div class="d-flex justify-content-center align-items-cente text-center flex-column">
+  <div mat-dialog-content class="pb-0">
+    <div class="dialog-contents">
+      <div class="row">
+        <div class="head col-md-3 d-flex">Description:</div>
+      <p class="mt-1 col-md-9 d-flex">{{ data.product.description }}</p>
+      </div>
+      <div class="row">
+        <div class="head col-md-3 d-flex">Clarity:</div>
+      <p class="mt-1 d-flex col-md-9">{{ data.product.clarity }}</p>
+      </div>
+      <div class="row">
+        <div class="head col-md-3 d-flex">Cut:</div>
+      <p class="mt-1 d-flex col-md-9">{{ data.product.cut }}</p>
+      </div>
+      <div class="row">
+        <div class="head col-md-3 d-flex">Carat:</div>
+      <p class="mt-1 d-flex col-md-9">{{ data.product.carat }}</p>
+      </div>
+      <div class="row">
+        <div class="head col-md-3 d-flex">Color:</div>
+      <p class="mt-1 d-flex col-md-9">{{ data.product.color }}</p>
+      </div>
+      <div class="row">
+        <div class="head col-md-3 d-flex">Shape:</div>
+      <p class="mt-1 d-flex col-md-9">{{ data.product.shape }}</p>
+      </div>
+    </div>
+
+  </div>
+  <div class="flex align-items-center actionBtns w-100">
+    <button (click)="onYesClick()" class="yesBtn btn">Close</button>
+  </div>
+</div>
