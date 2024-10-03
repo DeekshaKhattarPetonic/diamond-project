@@ -430,7 +430,6 @@ onToggleUserStatus(user: any) {
       admin_password: this.admin_password
     }
 
-    console.log('data', data)
     this.loginService.changeUserActiveStatus(data).subscribe(
       async (response) => {
         this.spinner.hide()
