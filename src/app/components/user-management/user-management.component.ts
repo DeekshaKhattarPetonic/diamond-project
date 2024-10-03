@@ -15,6 +15,7 @@ import { FormsModule, NgForm } from '@angular/forms'; // Import FormsModule
 import { LoginService } from '../../services/login.service';
 // import { ProfileServiceService } from '../../services/profile-service.service';
 import { MatIconModule } from '@angular/material/icon';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { ToastModule } from 'primeng/toast';
 import { CommonModule } from '@angular/common';
@@ -30,6 +31,9 @@ import { AddUserComponent } from '../../modals/add-user/add-user.component';
 
 })
 export class UserManagementComponent {
+  showAdminError: any = false;
+  showErrorOnEdit: any = false;
+  showAdminCredError: any = false;
   @ViewChildren('counter') counters!: QueryList<ElementRef>;
   counterValues = {
     webDesigning: 30,
@@ -68,7 +72,7 @@ export class UserManagementComponent {
   pos: any;
   executives: any;
 
-  constructor(private loginService: LoginService, private messageService: MessageService, private dialog: MatDialog, private renderer: Renderer2) {
+  constructor(private spinner: NgxSpinnerService, private loginService: LoginService, private messageService: MessageService, private dialog: MatDialog, private renderer: Renderer2) {
 
   }
 
@@ -94,6 +98,7 @@ export class UserManagementComponent {
 
 
   async addUser() {
+    this.spinner.show()
     // console.log('this.userData', this.userData)
     if (this.userData.email !== '' && this.userData.role !== '' && this.userData.f_name !== '' && this.userData.l_name !== '' && this.userData.employee_id !== '' && this.userData.org_name !== '') {
       try {
@@ -101,6 +106,7 @@ export class UserManagementComponent {
         const response: any = await this.loginService.signUp(this.userData);
         if (response?.body && response.body.user_creation == true) {
           if (response.status == 201 || response.status == 200) {
+            this.spinner.hide()
             // let validateResponse: any = await this.loginService.validateUser(this.userData);
             this.userData.user_active = true;
             this.users.push(this.userData);
@@ -115,12 +121,14 @@ export class UserManagementComponent {
             // }
             // } else {
           }
-          this.formToResetOnSave.resetForm()
+          // this.formToResetOnSave.resetForm()
         }
       } catch (error) {
         console.error('Error:', error);
         this.closeModal = true;
         if (error === 400) {
+          this.spinner.hide()
+
           const dialogRef = this.dialog.open(CustomModalComponent, {
             width: '35vw',
             data: { icon: 'corrupted-file.png', title: '', message: 'User already exists!', buttonTextYes: 'Ok' },
@@ -130,15 +138,23 @@ export class UserManagementComponent {
           // this.hideAddUserAdminCredModal = true;
         }
         else if (error === 401) {
+          this.spinner.hide()
+
           const dialogRef = this.dialog.open(CustomModalComponent, {
             width: '35vw',
             data: { icon: 'corrupted-file.png', title: '', message: 'You cannot add more users!', buttonTextYes: 'Ok' },
           });
-          // this.hideAdminCredModal = true;
-          // this.hideAdminCredModalForToggleStatus = true
-          // this.hideAddUserAdminCredModal = true;
+        }
+        else if (error === 400) {
+          this.spinner.hide()
+
+          const dialogRef = this.dialog.open(CustomModalComponent, {
+            width: '35vw',
+            data: { icon: 'corrupted-file.png', title: '', message: 'You cannot add more users!', buttonTextYes: 'Ok' },
+          });
         }
         else {
+          this.spinner.hide()
 
           // Handle other errors here
           const dialogRef = this.dialog.open(CustomModalComponent, {
@@ -150,6 +166,7 @@ export class UserManagementComponent {
           // this.hideAddUserAdminCredModal = true;
         }
       } finally {
+        this.spinner.hide()
 
         this.userData = {
           email: "",
@@ -163,6 +180,8 @@ export class UserManagementComponent {
         this.hideAddModal = false;
       }
     } else {
+      this.spinner.hide()
+
       const dialogRef = this.dialog.open(CustomModalComponent, {
         width: '35vw',
         data: { icon: 'corrupted-file.png', title: '', message: 'Please fill all the details', buttonTextYes: 'Ok' },
@@ -196,7 +215,7 @@ export class UserManagementComponent {
 
   onCloseAdminModal() {
     // this.editUserDetails = {}
-    this.hideAdminCredModal = true;
+    this.hideAdminCredModal = false;
   }
 
   onCloseAddUserAdminModal() {
@@ -211,13 +230,15 @@ export class UserManagementComponent {
   }
 
   onSaveEditUserDetails() {
-    // console.log('(this.editUserDetails', this.editUserDetails)
-
+    this.spinner.show()
+    console.log('(this.editUserDetails', this.editUserDetails)
+    console.log(' this.users',  this.users)
     // this.editUserDetails['admin_email'] = 'jitendra.nayak@petonic.in';
     // this.editUserDetails['admin_password'] = 'LOZ38tLl';
 
     this.loginService.onSaveEditUser(this.editUserDetails).subscribe(
       (response) => {
+        this.spinner.hide()
         this.hideEditModal = false;
         this.hideAdminCredModal = false;
         // Handle the response data here
@@ -225,13 +246,14 @@ export class UserManagementComponent {
         // console.log('response.update', response.update)
         if (response.update == true) {
           // console.log('true')
-          // console.log('editUserIndex', this.editUserIndex)
+          console.log('editUserIndex', this.editUserIndex)
           this.users[this.editUserIndex] = this.editUserDetails
+          console.log(' this.users',  this.users)
           // console.log(this.closebutton)
           let closeBtn: any = this.closebutton?.nativeElement;
           // console.log('closeBtn', closeBtn)
           closeBtn?.nativeElement?.click();
-
+          this.showAdminCredError = false;
 
           const dialogRef = this.dialog.open(CustomModalComponent, {
             width: '35vw',
@@ -246,28 +268,38 @@ export class UserManagementComponent {
         }
       },
       (error) => {
+        this.spinner.hide()
+        console.error('Error:', error);
+        if (error == 400 && error.error.helpText == 'admin authorisation error') {
+          this.showAdminCredError = true;
+          console.error('Error:', error);
+        }
+        if (error.status == 500 && error.error.helpText == 'admin authorisation error') {
+          this.showAdminCredError = true;
+          console.error('Error:', error);
+        }
+        if (error.status == 400 && error.error.helpText == 'This is the only admin account') {
+          this.showAdminError = true;
+          console.error('Error:', error);
+        }
 
-        // Handle errors
-        // const dialogRef = this.dialog.open(CustomModalComponent, {
-        //     width: '35vw',
-        //     data: {icon: 'corrupted-file.png',  title: '', message: 'Please enter correct credentials', buttonTextYes: 'Ok' },
-        //   });
-        // console.error('Error:', error);
       }
     );
   }
 
   openAdminCredModal(form: NgForm) {
     if (form.invalid) {
+      this.showErrorOnEdit = true;
       console.log('invalid')
       form.control.markAllAsTouched(); // Mark all fields as touched to trigger validation
       return;
     }
-    this.formToResetOnSave = form;
-    this.onSaveEditUserDetails()
+    // this.formToResetOnSave = form;
+    // this.onSaveEditUserDetails()
     //console.log('Opening Admin Credentials Modal');
     // this.hideEditModal = true;
-    // this.hideAdminCredModal = true;
+    this.showErrorOnEdit = false;;
+    this.hideAdminCredModal = true;
     // console.log('After opening:', this.hideEditModal, this.hideAdminCredModal);
   }
 
@@ -353,6 +385,7 @@ convertDataFormat(inputData: any) {
 }
 
 onToggleUserStatus(user: any) {
+
     let toggleText : any = ''
     if(user.user_active == true){
         toggleText = 'activate'
@@ -360,13 +393,6 @@ onToggleUserStatus(user: any) {
         toggleText = 'deactivate'
     }
     this.toggleText = toggleText
-    // console.log('useractive', user.active)
-    // Open a confirmation modal
-    // const dialogRef = this.dialog.open(ConfirmationModalComponent, {
-    //     data: {
-    //         message: `Do you want to ${toggleText} the user?`,
-    //     },
-    // });
     const dialogRef = this.dialog.open(ConfirmationModalComponent, {
         width: '35vw',
         data: {
@@ -381,33 +407,33 @@ onToggleUserStatus(user: any) {
     console.log('result', result)
     // If the user clicked "Yes" in the modal
     if (result === true) {
-      this.selectedUser = user
-      this.saveAdminCredModalForToggleStatus()
+      this.selectedUser = user;
+      this.hideAdminCredModalForToggleStatus = true
+      // this.saveAdminCredModalForToggleStatus()
       // this.hideAdminCredModalForToggleStatus = false;
 
       console.log('this.selectedUser ', this.selectedUser )
     } else {
       user.user_active = !user.user_active
       this.onCloseToggleStatusAdminModal()
-  // this.hideAdminCredModalForToggleStatus = true
-            //console.log('User canceled the action');
-
         }
+
     });
 }
 
   saveAdminCredModalForToggleStatus() {
+    this.spinner.show()
     let data: any;
     data = {
       email: this.selectedUser.email,
-      admin_email: 'jitendra.nayak@petonic.in',
-      admin_password: 'vSv4TUcm'
+      admin_email: this.admin_email,
+      admin_password: this.admin_password
     }
 
     console.log('data', data)
     this.loginService.changeUserActiveStatus(data).subscribe(
       async (response) => {
-
+        this.spinner.hide()
         console.log('response', response)
         const dialogRef = this.dialog.open(CustomModalComponent, {
           width: '35vw',
@@ -420,13 +446,18 @@ onToggleUserStatus(user: any) {
         let notificationMessage: any = `status changed to ${this.toggleText}d of ${this.selectedUser.f_name}`
         // this.notificationService.sendMessageNotif(notificationMessage);
         this.messageService.add({ severity: 'success', summary: 'Success', detail: notificationMessage });
+        this.showAdminCredError = false;
         //console.log('Mail sent successfully. Response:', response);
         await this.getAllUsers()
         //console.log('response', response);
       },
       (error) => {
+        this.spinner.hide()
 
-        console.error('Error:', error);
+        // this.hideAdminCredModal = true;
+        console.error('Error:', error.error.helpText);
+        this.showAdminCredError = true;
+      console.error('Error:', error);
       }
 
     );

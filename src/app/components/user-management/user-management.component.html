@@ -118,7 +118,7 @@
           </div>
         </th> -->
         <th>Role</th>
-        <!-- <th>Status</th> -->
+        <th>Status</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -135,10 +135,10 @@
             <p class="user-role-name">{{user.role}}</p>
           </div>
         </td>
-        <!-- <td class="flex-switch-check custom-class">
+        <td class="flex-switch-check custom-class">
           <div class="form-check form-switch"> <input class="form-check-input status-checkbox" type="checkbox"
               [(ngModel)]="user.user_active" (change)="onToggleUserStatus(user)" id="flexSwitchCheckChecked"></div>
-        </td> -->
+        </td>
         <td class="dropdown-list edit-btn">
           <!-- <a (click)="onEditUserDetails(user, i)" href="javascript:void(0)"
               data-bs-toggle="modal" data-bs-target="#edit-user"> <i
@@ -251,6 +251,7 @@
       <input [(ngModel)]="userData.admin_password" class="form-control" type="password" id="admin_password"
         name="admin_password" required>
     </div>
+    <p class="error_msg" *ngIf="showAdminCredError">Please enter correct credentials</p>
     <div class="d-flex mt-3 justify-content-end">
       <button #closebutton type="button" class="btn btn-secondary cancel-btn" data-bs-dismiss="modal"
         (click)="onCloseAddUserAdminModal()">Cancel</button>
@@ -321,6 +322,7 @@
         <div *ngIf="roleInput.errors?.['required']">*Role is required.</div>
       </div>
     </div>
+    <p *ngIf="showErrorOnEdit">Please fill all the fields</p>
     <div class="d-flex mt-3 justify-content-end">
       <!-- <div class="btn-container"> -->
       <button #closebutton type="button" class="btn btn-secondary cancel-btn" data-bs-dismiss="modal"
@@ -353,6 +355,7 @@
       <input [(ngModel)]="editUserDetails.admin_password" class="form-control" type="password" id="admin_password"
         name="admin_password" required>
     </div>
+    <p class="error_msg" *ngIf="showAdminCredError">Please enter correct credentials</p>
     <div class="d-flex mt-3 justify-content-end">
       <!-- <div class="btn-container"> -->
       <button #closebutton type="button" class="btn btn-secondary cancel-btn" data-bs-dismiss="modal"
@@ -389,6 +392,8 @@
       <input [(ngModel)]="admin_password" class="form-control" type="password" id="admin_password" name="admin_password"
         required>
     </div>
+
+    <p class="error_msg" *ngIf="showAdminCredError">Please enter correct credentials</p>
     <div class="d-flex mt-3 justify-content-end">
       <!-- <div class="btn-container"> -->
       <button #closebutton type="button" class="btn btn-secondary cancel-btn" data-bs-dismiss="modal"

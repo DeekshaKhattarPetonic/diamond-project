@@ -67,6 +67,12 @@ export class LoginService {
     sessionStorage.setItem('f_name', name);
   }
 
+
+  set_org(org: string){
+    this.f_nameSubject.next(org);
+    sessionStorage.setItem('org', org);
+  }
+
   set_l_name(name: string){
     this.l_nameSubject.next(name);
     sessionStorage.setItem('l_name', name);

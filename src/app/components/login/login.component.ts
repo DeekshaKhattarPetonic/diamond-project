@@ -29,6 +29,11 @@ export class LoginComponent {
 
   constructor(private dialog: MatDialog, private loginService: LoginService, private router: Router, private spinner: NgxSpinnerService) { }
 
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+
+  }
 
   onForgotPassword(){
     this.forgorPassword = true;
@@ -138,6 +143,7 @@ export class LoginComponent {
           this.loginService.set_f_name(response.body.data[0][0]);
           this.loginService.set_l_name(response.body.data[0][1]);
           this.loginService.setRole(response.body.data[0][2]);
+          this.loginService.set_org(response.body.data[0][4]);
           this.loginService.setuserId(response.body.data[0][3]); // employee_id
           // Check if first_time is true
 
@@ -246,10 +252,14 @@ async checkFirstLogin(email: any){
 
 async updatePassword() {
   // this.spinner.show()
-  if (this.newPassword !== this.confirmPassword) {
+  if (this.newPassword !== '' || this.confirmPassword !== '' || this.currentPassword !== '') {
+    this.error = 'Please fill all the fields.';
+    // this.spinner.hide()
+  }
+  else if (this.newPassword !== this.confirmPassword) {
     this.error = 'New password and confirm password do not match.';
     // this.spinner.hide()
-  } else {
+  } else  {
     this.error = '';
 
     try {

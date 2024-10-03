@@ -10,7 +10,7 @@
     </button>
   </div>
 
-  <div class="page-content page-container col-md-8" id="page-content" *ngIf="activeTab === 1">
+  <div class="page-content page-container col-md-9" id="page-content" *ngIf="activeTab === 1">
     <div class="padding">
       <div class="row container d-flex justify-content-center">
         <div class="col-xl-12 col-md-12">
@@ -22,8 +22,8 @@
                     <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius"
                       alt="User-Profile-Image">
                   </div>
-                  <h6 class="f-w-600">Hembo Tingor</h6>
-                  <p>Strategist</p>
+                  <h6 class="f-w-600">{{fullName}}</h6>
+                  <p>{{role}}</p>
                   <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                 </div>
               </div>
@@ -33,15 +33,15 @@
                   <div class="row">
                     <div class="col-sm-6">
                       <p class="m-b-10 f-w-600">Employee Id</p>
-                      <h6 class="text-muted f-w-400">Emp121</h6>
+                      <h6 class="text-muted f-w-400">{{userId}}</h6>
                     </div>
                     <div class="col-sm-6">
                       <p class="m-b-10 f-w-600">Email</p>
-                      <h6 class="text-muted f-w-400">rntng.com</h6>
+                      <h6 class="text-muted f-w-400">{{email}}</h6>
                     </div>
                     <div class="col-sm-6">
                       <p class="m-b-10 f-w-600">Org Name</p>
-                      <h6 class="text-muted f-w-400">Petonic Infotech</h6>
+                      <h6 class="text-muted f-w-400">{{org}}</h6>
                     </div>
                   </div>
                   <!-- <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Projects</h6> -->

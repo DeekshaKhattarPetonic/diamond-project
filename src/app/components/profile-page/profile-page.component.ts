@@ -17,8 +17,22 @@ export class ProfilePageComponent {
   currentPassword: any = '';
   error: string = '';
 email: any = ''
+userId: any = '';
+role: any = '';
+fullName: any = '';
+org: any = '';
 
 constructor(private loginService: LoginService,private dialog: MatDialog,) { }
+
+ngOnInit(): void {
+  //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+  //Add 'implements OnInit' to the class.
+  this.email = sessionStorage.getItem('email');
+this.fullName = sessionStorage.getItem('fullName');
+this.role = sessionStorage.getItem('role');
+this.userId = sessionStorage.getItem('userId');
+this.org = sessionStorage.getItem('org');
+}
 
  reset() {
   this.confirmPassword = '';
@@ -29,8 +43,11 @@ constructor(private loginService: LoginService,private dialog: MatDialog,) { }
 
 
 async updatePassword() {
-  // this.spinner.show()
-  if (this.newPassword !== this.confirmPassword) {
+  if (this.newPassword == '' || this.confirmPassword == '' || this.currentPassword == '') {
+    this.error = 'Please fill all the fields.';
+    // this.spinner.hide()
+  }
+  else if (this.newPassword !== this.confirmPassword) {
     this.error = 'New password and confirm password do not match.';
     // this.spinner.hide()
   } else {
