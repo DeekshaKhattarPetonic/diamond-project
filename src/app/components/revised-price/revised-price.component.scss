@@ -1969,7 +1969,7 @@ flex-basis: 36%;
 }
 
 .page_content{
-  padding: 10px;
+  padding: 0px 10px;
 
 }
 
@@ -2140,7 +2140,27 @@ button:disabled{
 
 .editedPrice{
   input{
+      outline: none;
     border: 1.4px solid #ffc000 !important;
     border-radius: 3px !important;
   }
 }
+
+  .editedPrice{
+    input:focus{
+        outline: none;
+      border: 1.4px solid #ffc000 !important;
+      border-radius: 3px !important;
+    }
+
+    input:focus-visible{
+      outline: none;
+      border: 1.4px solid #ffc000 !important;
+      border-radius: 3px !important;
+    }
+}
+
+.no-flex{
+  display: unset !important;
+}
+

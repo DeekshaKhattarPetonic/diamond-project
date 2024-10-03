@@ -1,552 +1,451 @@
 <app-header></app-header>
-<div class="page pcss3t pcss3t-effect-scale pcss3t-theme-1">
-  <!-- <h1>Pure CSS Tabs</h1> -->
-  <!-- tabs -->
-  <div class="page-heading">
-    <h2 class="page_head page-title container px-0 m-auto justify-space-between">
-      <div class="d-flex align-center">
-        <span class="material-symbols-outlined view_list">
-          view_list
-        </span>Review and Revise Price
-      </div>
 
-      <div class="buttons" *ngIf="showTable">
-        <!-- <button
-        class="confirm btn confirmation_btn"
-        (click)="showTable = false; ">
-        <span class="material-symbols-outlined">
-          undo
-          </span>
-        Go Back
-      </button> -->
-      <!-- <button class="clear btn confirmation_btn" (click)="clearFilters()"><span class="material-symbols-outlined">
-        filter_alt
-        </span> Clear Filter</button>
-        <button class="confirm btn confirmation_btn" (click)="showEditTable = true">
-          <span class="material-symbols-outlined">
-            edit
-          </span>
-          Edit Price
-        </button> -->
-      </div>
-    </h2>
-  </div>
-    <div class="page_content">
-    <li class="tab-content tab-content-first typography container px-0 m-auto">
-      <ng-container *ngIf="!showTable">
-        <div class="row">
-          <p class="para_head col-md-7">To review and revise the price, select the category of product for which the price to be revised</p>
-          <!-- <div class="col-md-5 place-content-end d-flex row  flex flex-wrap p-fluid mb-2">
-            <div class="flex-auto d-flex row col-md-6 align-center">
-              <label  for="buttondisplay" class="col-md-5  font-bold block mb-2"> Select Date </label>
-              <p-calendar class="col-md-7"
-              [(ngModel)]="date1"
-              [showIcon]="true"
-              inputId="buttondisplay"
-              [showOnFocus]="false" />
-            </div>
 
-          </div> -->
-        </div>
-        <div class="noParams flex categories card_shadow mt-2 px-2" [ngClass]="{'showParams': showParams}">
-          <p>Select Items</p>
-          <mat-radio-group [(ngModel)]="selectedOption" (ngModelChange)="onSelectionChange($event)" name="fieldName" ngDefaultControl>
-            <mat-radio-button class="all_radio" value="All">All</mat-radio-button>
-            <mat-radio-button class="multiple_items_radio" value="Multiple Items">Multiple Items</mat-radio-button>
-            <mat-radio-button class="item_radio" value="Item Category">Item Category</mat-radio-button>
-          </mat-radio-group>
-
-          <div *ngIf="selectedOption === 'Multiple Items'; else singleSelect">
-            <p-multiSelect
-              [ngClass]="{'blueBorder': selectedOption == 'Multiple Items', 'greenBorder': selectedOption == 'Item Category'}"
-              [options]="countries"
-              [(ngModel)]="selectedCountries"
-              optionLabel="name"
-              [filter]="true"
-              filterBy="name"
-              [showClear]="true"
-              placeholder="Select Items">
-            </p-multiSelect>
-          </div>
-
-          <ng-template #singleSelect>
-            <p-dropdown
-              [ngClass]="{'blueBorder': selectedOption == 'Multiple Items', 'greenBorder': selectedOption == 'Item Category'}"
-              [disabled]="selectedOption == 'All'"
-              [options]="countries"
-              [(ngModel)]="selectedCountry"
-              optionLabel="name"
-              (onChange)="onCategoryChange()"
-              [filter]="true"
-              filterBy="name"
-              [showClear]="true"
-              [placeholder]="selectedOption == 'Multiple Items' ? 'Select Items': 'Select Category'">
-              <ng-template pTemplate="selectedItem" let-selectedOption>
-                <div class="flex align-items-center gap-2">
-                  <div>{{ selectedOption.name }}</div>
-                </div>
-              </ng-template>
-            </p-dropdown>
+<div class="card">
+  <p-tabView styleClass="tabview-custom">
+      <p-tabPanel>
+          <ng-template pTemplate="header">
+              <div class="flex align-items-center gap-2">
+                  <p-avatar
+                      image="../../../assets/img/review_revise.png"
+                      shape="square" />
+                  <span class="font-bold white-space-nowrap m-0">
+                      Review and Revise Price
+                  </span>
+              </div>
           </ng-template>
+          <div class="page pcss3t pcss3t-effect-scale pcss3t-theme-1">
 
-          <button
-            [disabled]="(selectedOption === 'Multiple Items' && (!selectedCountries || selectedCountries.length === 0)) ||
-                        (selectedOption === 'Item Category' && !selectedCountry)"
-            class="button"
-            (click)="showParams = true">
-            <span class="material-symbols-outlined gobtn">arrow_circle_right</span>
-          </button>
-        </div>
-
-        <!-- </div> -->
-        <div class="row" *ngIf="showParams">
-          <p class="para_head mb-2 mt-3 style_head_bg">Select the parameter to review and revise the price:</p>
-          <div class="d-flex cards">
-            <div class="d-flex dropdowns flex-column col-md-6">
-              <div class="d-flex headings">
-                <div class="head1">
-                  Parameter
-                </div>
-                <div class="head2">
-                  Value driven by AI
-                </div>
-
-                <div class="head3">
-                  Your Input
-                </div>
-              </div>
-              <ng-container  *ngFor="let item of checkboxItems; let i = index">
-                <div class="d-flex align-items-center mb-2 drop" *ngIf="i < 3">
-                  <input type="checkbox" [(ngModel)]="item.checked" (change)="checkIfAnyChecked()" id="{{item.id}}" />
-                  <label for="{{item.id}}" class="label mb-0">{{item.label}}</label>
-                  <div class="card flex justify-content-center">
-                      <span>{{item.inputValue}}</span>
+              <div class="page_content">
+              <li class="tab-content tab-content-first typography container px-0 m-auto">
+                <ng-container *ngIf="!showTable">
+                  <div class="row">
+                    <p class="para_head col-md-7 mb-2">To review and revise the price, select the category of product for which the price to be revised</p>
                   </div>
-                  <input [disabled]="!item.checked" type="number" [ngModel]="item.percentage === 0 ? '' : item.percentage"
-                      (input)="validatePercentage($event, item)" placeholder="% To Increase" class="form-control"
-                      [ngClass]="{'border-red': item.checked && (item.percentage === 0 || !item.percentage)}"
-                      min="0" max="100" step="1" />
-              </div>
-              </ng-container>
-              </div>
-              <div class="d-flex dropdowns flex-column col-md-6">
-                <div class="d-flex headings">
-                  <div class="head1">
-                    Parameter
-                  </div>
-                  <div class="head2">
-                    Value driven by AI
-                  </div>
+                  <div class="noParams flex categories card_shadow mt-2 px-2" [ngClass]="{'showParams': showParams}">
+                    <p>Select Items</p>
+                    <mat-radio-group [(ngModel)]="selectedOption" (ngModelChange)="onSelectionChange($event)" name="fieldName" ngDefaultControl>
+                      <mat-radio-button class="all_radio" value="All">All</mat-radio-button>
+                      <mat-radio-button class="multiple_items_radio" value="Multiple Items">Multiple Items</mat-radio-button>
+                      <mat-radio-button class="item_radio" value="Item Category">Item Category</mat-radio-button>
+                    </mat-radio-group>
 
-                  <div class="head3">
-                    Your Input
-                  </div>
-                </div>
-              <ng-container  *ngFor="let item of checkboxItems; let i = index">
-                <div class="d-flex align-items-center mb-2 drop" *ngIf="i > 2">
-                  <input type="checkbox" [(ngModel)]="item.checked" (change)="checkIfAnyChecked()" id="{{item.id}}" />
-                  <label for="{{item.id}}" class="label mb-0">{{item.label}}</label>
-                  <div class="card flex justify-content-center">
-                      <span>{{item.inputValue}}</span>
-                  </div>
-                  <input [disabled]="!item.checked" type="number" [ngModel]="item.percentage === 0 ? '' : item.percentage"
-                      (input)="validatePercentage($event, item)" placeholder="% To Increase" class="form-control"
-                      [ngClass]="{'border-red': item.checked && (item.percentage === 0 || !item.percentage)}"
-                      min="0" max="100" step="1" />
-              </div>
-              </ng-container>
+                    <div *ngIf="selectedOption === 'Multiple Items'; else singleSelect">
+                      <p-multiSelect
+                        [ngClass]="{'blueBorder': selectedOption == 'Multiple Items', 'greenBorder': selectedOption == 'Item Category'}"
+                        [options]="countries"
+                        [(ngModel)]="selectedCountries"
+                        optionLabel="name"
+                        [filter]="true"
+                        filterBy="name"
+                        [showClear]="true"
+                        placeholder="Select Items">
+                      </p-multiSelect>
+                    </div>
 
-
-          </div>
-          </div>
-
-        <!-- <div class="buttons">
-            <button class="btn confirm" (click)="openConfirmationModal()">
-                Confirm
-            </button>
-        </div> -->
-
-            <div class="buttons">
-              <button  class="btn confirm mt-3" (click)="openConfirmationModal()">
-                Confirm
-              </button>
-          </div>
-        </div>
-
-      </ng-container>
-
-      <ng-container *ngIf="showTable">
-        <div class="flex row flex-col">
-          <div class="col-md-12 card_shadow">
-            <!-- <table class="table table-hover table-striped table-bordered mb-0 dataTable" id="userTable">
-              <thead class="table-light">
-                <tr>
-                  <th>
-                    <div class="header-dropdown">
+                    <ng-template #singleSelect>
                       <p-dropdown
-                      #productDropdown
-                        [options]="productIds"
-                        [(ngModel)]="selectedProductId"
-                        placeholder="Product ID"
+                        [ngClass]="{'blueBorder': selectedOption == 'Multiple Items', 'greenBorder': selectedOption == 'Item Category'}"
+                        [disabled]="selectedOption == 'All'"
+                        [options]="countries"
+                        [(ngModel)]="selectedCountry"
+                        optionLabel="name"
+                        (onChange)="onCategoryChange()"
                         [filter]="true"
-                        filterPlaceholder="Search">
+                        filterBy="name"
+                        [showClear]="true"
+                        [placeholder]="selectedOption == 'Multiple Items' ? 'Select Items': 'Select Category'">
+                        <ng-template pTemplate="selectedItem" let-selectedOption>
+                          <div class="flex align-items-center gap-2">
+                            <div>{{ selectedOption.name }}</div>
+                          </div>
+                        </ng-template>
                       </p-dropdown>
-                    </div>
-                  </th>
-                  <th>
-                    <div class="header-dropdown">
-                      <p-dropdown
-                      #descDropdown
-                        [options]="descriptions"
-                        [(ngModel)]="selectedDescription"
-                        placeholder="Description"
-                        [filter]="true"
-                        filterPlaceholder="Search">
-                      </p-dropdown>
-                    </div>
-                  </th>
-                  <th>
-                    <div class="header-dropdown">
-                      <p-dropdown
-                      #caratDropdown
-                        [options]="carats"
-                        [(ngModel)]="selectedCarat"
-                        placeholder="Carat"
-                        [filter]="true"
-                        filterPlaceholder="Search">
-                      </p-dropdown>
-                    </div>
-                  </th>
-                  <th>
-                    <div class="header-dropdown">
-                      <p-dropdown
-                      #colorDropdown
-                        [options]="colors"
-                        [(ngModel)]="selectedColor"
-                        placeholder="Color"
-                        [filter]="true"
-                        filterPlaceholder="Search">
-                      </p-dropdown>
-                    </div>
-                  </th>
-                  <th>
-                    <div class="header-dropdown">
+                    </ng-template>
 
-                      <p-dropdown   #clarityDropdown
-                        [options]="clarities"
-                        [(ngModel)]="selectedClarity"
-                        placeholder="Clarity"
-                        [filter]="true"
-                        filterPlaceholder="Search">
-                      </p-dropdown>
-                    </div>
-                  </th>
-                  <th>
-                    <div class="header-dropdown">
-                      <p-dropdown
-                      #cutDropdown
-                        [options]="cuts"
-                        [(ngModel)]="selectedCut"
-                        placeholder="Cut"
-                        [filter]="true"
-                        filterPlaceholder="Search">
-                      </p-dropdown>
-                    </div>
-                  </th>
-                  <th class="price-width">Original Price</th>
-                  <th class="price-width">Revised Price</th>
-                </tr>
-              </thead>
-              <tbody>
-                <ng-container *ngIf="!showEditTable">
-                  <tr *ngFor="let item of pagedData | filterTable: selectedProductId : selectedDescription : selectedCarat : selectedColor : selectedClarity : selectedCut">
-                    <td class="class1">{{item.id}}</td>
-                    <td class="class1">{{item.desc}}</td>
-                    <td class="description">{{item.value1}}</td>
-                    <td class="enter-value">{{item.value2}}</td>
-                    <td class="description">{{item.clarity}}</td>
-                    <td class="description">{{item.quality}}</td>
-                    <td class="enter-value">${{item.price1}}</td>
-                    <td class="description">${{item.price2}}</td>
-                  </tr>
-                </ng-container>
-
-                <ng-container *ngIf="showEditTable">
-                  <tr *ngFor="let item of pagedData | filterTable: selectedProductId : selectedDescription : selectedCarat : selectedColor : selectedClarity : selectedCut">
-                    <td class="class1">{{item.id}}</td>
-                    <td class="class1">{{item.desc}}</td>
-                    <td class="description">{{item.value1}}</td>
-                    <td class="enter-value">{{item.value2}}</td>
-                    <td class="description">{{item.clarity}}</td>
-                    <td class="description">{{item.quality}}</td>
-                    <td class="description editable-price">$<input [(ngModel)]="item.price1" (ngModelChange)="onPriceChange(item)" type="text" [value]="item.price1"></td>
-                    <td class="enter-value editable-price">$<input [(ngModel)]="item.price2" (ngModelChange)="onPriceChange(item)" type="text" [value]="item.price2"></td>
-                  </tr>
-                </ng-container>
-              </tbody>
-            </table> -->
-
-            <p-table
-            #dt1
-            [value]="pagedData"
-            dataKey="id"
-            [rows]="5"
-            [rowsPerPageOptions]="[5, 10, 15]"
-            [paginator]="true"
-            [tableStyle]="{ 'min-width': '75rem' }"
-            [globalFilterFields]="['id', 'desc', 'value1', 'value2', 'clarity', 'quality']">
-
-            <!-- Global Search Input -->
-            <ng-template pTemplate="caption">
-              <div class="flex justify-space-between">
-
-                <div class="head">
-                Revised price after including factors recommended by AI:
-                </div>
-
-                <div class="d-flex">
-                  <button style="margin-right: 10px !important" class="confirm btn confirmation_btn mx-2" (click)="showTable = false">
-                    <span class="material-symbols-outlined">
-                      undo
-                      </span> Go Back
-                  </button>
-                  <p-button label="Clear" [outlined]="true" icon="pi pi-filter-slash" (onClick)="clear(dt1)" />
-                  <!-- <span class="p-input-icon-left ml-auto">
-                      <i class="pi pi-search"></i>
-                      <input pInputText type="text" [(ngModel)]="searchValue" (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" />
-                  </span> -->
-                    <button class="confirm btn confirmation_btn" [ngClass]="{activeEditTab: showEditTable}" (click)="showEditTable = true">
-                      <span class="material-symbols-outlined">
-                        edit
-                      </span>
-                      Edit Price
+                    <button
+                      [disabled]="(selectedOption === 'Multiple Items' && (!selectedCountries || selectedCountries.length === 0)) ||
+                                  (selectedOption === 'Item Category' && !selectedCountry)"
+                      class="button"
+                      (click)="showParams = true">
+                      <span class="material-symbols-outlined gobtn">arrow_circle_right</span>
                     </button>
-                </div>
+                  </div>
 
+                  <!-- </div> -->
+                  <div class="row" *ngIf="showParams">
+                    <p class="para_head mb-2 mt-3 style_head_bg">Select the parameter to review and revise the price:</p>
+                    <div class="d-flex cards">
+                      <div class="d-flex dropdowns flex-column col-md-6">
+                        <div class="d-flex headings">
+                          <div class="head1">
+                            Parameter
+                          </div>
+                          <div class="head2">
+                            Value driven by AI
+                          </div>
+
+                          <div class="head3">
+                            Your Input
+                          </div>
+                        </div>
+                        <ng-container  *ngFor="let item of checkboxItems; let i = index">
+                          <div class="d-flex align-items-center mb-2 drop" *ngIf="i < 3">
+                            <input type="checkbox" [(ngModel)]="item.checked" (change)="checkIfAnyChecked()" id="{{item.id}}" />
+                            <label for="{{item.id}}" class="label mb-0">{{item.label}}</label>
+                            <div class="card flex justify-content-center">
+                                <span>{{item.inputValue}}</span>
+                            </div>
+                            <input [disabled]="!item.checked" type="number" [ngModel]="item.percentage === 0 ? '' : item.percentage"
+                                (input)="validatePercentage($event, item)" placeholder="% To Increase" class="form-control"
+                                [ngClass]="{'border-red': item.checked && (item.percentage === 0 || !item.percentage)}"
+                                min="0" max="100" step="1" />
+                        </div>
+                        </ng-container>
+                        </div>
+                        <div class="d-flex dropdowns flex-column col-md-6">
+                          <div class="d-flex headings">
+                            <div class="head1">
+                              Parameter
+                            </div>
+                            <div class="head2">
+                              Value driven by AI
+                            </div>
+
+                            <div class="head3">
+                              Your Input
+                            </div>
+                          </div>
+                        <ng-container  *ngFor="let item of checkboxItems; let i = index">
+                          <div class="d-flex align-items-center mb-2 drop" *ngIf="i > 2">
+                            <input type="checkbox" [(ngModel)]="item.checked" (change)="checkIfAnyChecked()" id="{{item.id}}" />
+                            <label for="{{item.id}}" class="label mb-0">{{item.label}}</label>
+                            <div class="card flex justify-content-center">
+                                <span>{{item.inputValue}}</span>
+                            </div>
+                            <input [disabled]="!item.checked" type="number" [ngModel]="item.percentage === 0 ? '' : item.percentage"
+                                (input)="validatePercentage($event, item)" placeholder="% To Increase" class="form-control"
+                                [ngClass]="{'border-red': item.checked && (item.percentage === 0 || !item.percentage)}"
+                                min="0" max="100" step="1" />
+                        </div>
+                        </ng-container>
+
+
+                    </div>
+                    </div>
+
+                  <!-- <div class="buttons">
+                      <button class="btn confirm" (click)="openConfirmationModal()">
+                          Confirm
+                      </button>
+                  </div> -->
+
+                      <div class="buttons">
+                        <button [disabled]="!anyChecked" class="btn confirm mt-3" (click)="openConfirmationModal()">
+                          Confirm
+                        </button>
+                    </div>
+                  </div>
+
+                </ng-container>
+
+                <ng-container *ngIf="showTable">
+                  <div class="flex row flex-col">
+                    <div class="col-md-12 card_shadow">
+
+                      <p-table
+                      #dt1
+                      [value]="pagedData"
+                      dataKey="id"
+                      [rows]="5"
+                      [rowsPerPageOptions]="[5, 10, 15]"
+                      [paginator]="true"
+                      [tableStyle]="{ 'min-width': '75rem' }"
+                      [globalFilterFields]="['id', 'desc', 'value1', 'value2', 'clarity', 'quality']">
+
+                      <!-- Global Search Input -->
+                      <ng-template pTemplate="caption">
+                        <div class="flex justify-space-between">
+
+                          <div class="head">
+                          Revised price after including factors recommended by AI:
+                          </div>
+
+                          <div class="d-flex">
+                            <button style="margin-right: 10px !important" class="confirm btn confirmation_btn mx-2" (click)="showTable = false">
+                              <span class="material-symbols-outlined">
+                                undo
+                                </span> Go Back
+                            </button>
+                            <p-button label="Clear" [outlined]="true" icon="pi pi-filter-slash" (onClick)="clear(dt1)" />
+                            <!-- <span class="p-input-icon-left ml-auto">
+                                <i class="pi pi-search"></i>
+                                <input pInputText type="text" [(ngModel)]="searchValue" (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" />
+                            </span> -->
+                              <button class="confirm btn confirmation_btn" [ngClass]="{activeEditTab: showEditTable}" (click)="showEditTable = true">
+                                <span class="material-symbols-outlined">
+                                  edit
+                                </span>
+                                Edit Price
+                              </button>
+                          </div>
+
+                        </div>
+                    </ng-template>
+
+
+
+                      <!-- Table Headers -->
+                      <ng-template pTemplate="header">
+                        <tr>
+                          <th style="width:5%" *ngIf="selectedOption == 'Item Category'">Category</th>
+                          <th style="width:5%">Product Id</th>
+                          <th style="width:20%">Description</th>
+                          <th style="width:11%">Carat</th>
+                          <th style="width:11%">Color</th>
+                          <th style="width:11%">Clarity</th>
+                          <th style="width:11%">Cut</th>
+                          <th style="width:11%">Original Price</th>
+                          <th style="width:11%">Revised Price</th>
+                        </tr>
+                        <tr>
+                          <!-- Product ID MultiSelect -->
+                          <th *ngIf="selectedOption == 'Item Category'"></th>
+                          <th>
+                            <p-columnFilter field="id" matchMode="in" [showMenu]="false">
+                              <ng-template let-selectedProductId  pTemplate="filter" let-filter="filterCallback">
+                                <p-multiSelect
+                                  [ngModel]="selectedProductId"
+                                  [options]="productIds"
+                                  placeholder="Product ID"
+                                  (onChange)="filter($event.value)">
+                                </p-multiSelect>
+                              </ng-template>
+                            </p-columnFilter>
+                          </th>
+
+
+
+                          <!-- Description MultiSelect -->
+                          <th>
+                            <p-columnFilter field="desc" matchMode="in" [showMenu]="false">
+                              <ng-template let-selectedDescription pTemplate="filter" let-filter="filterCallback">
+                                <p-multiSelect
+                                  [options]="descriptions"
+                                  [ngModel]="selectedDescription"
+                                  placeholder="Description"
+                                  [filter]="true"
+                                  filterPlaceholder="Search"
+                                  (onChange)="filter($event.value)">
+                                </p-multiSelect>
+                              </ng-template>
+                            </p-columnFilter>
+                          </th>
+
+                          <!-- Carat MultiSelect -->
+                          <th>
+                            <p-columnFilter field="value1" matchMode="in" [showMenu]="false">
+                              <ng-template let-selectedCarat pTemplate="filter" let-filter="filterCallback">
+                                <p-multiSelect
+                                  [options]="carats"
+                                  [ngModel]="selectedCarat"
+                                  placeholder="Carat"
+                                  [filter]="true"
+                                  filterPlaceholder="Search"
+                                  (onChange)="filter($event.value)">
+                                </p-multiSelect>
+                              </ng-template>
+                            </p-columnFilter>
+                          </th>
+
+                          <!-- Color MultiSelect -->
+                          <th>
+                            <p-columnFilter field="value2" matchMode="in" [showMenu]="false">
+                              <ng-template let-selectedColor pTemplate="filter" let-filter="filterCallback">
+                                <p-multiSelect
+                                  [options]="colors"
+                                  [ngModel]="selectedColor"
+                                  placeholder="Color"
+                                  [filter]="true"
+                                  filterPlaceholder="Search"
+                                  (onChange)="filter($event.value)">
+                                </p-multiSelect>
+                              </ng-template>
+                            </p-columnFilter>
+                          </th>
+
+                          <!-- Clarity MultiSelect -->
+                          <th>
+                            <p-columnFilter field="clarity" matchMode="in" [showMenu]="false">
+                              <ng-template let-selectedClarity pTemplate="filter" let-filter="filterCallback">
+                                <p-multiSelect
+                                  [options]="clarities"
+                                  [ngModel]="selectedClarity"
+                                  placeholder="Clarity"
+                                  [filter]="true"
+                                  filterPlaceholder="Search"
+                                  (onChange)="filter($event.value)">
+                                </p-multiSelect>
+                              </ng-template>
+                            </p-columnFilter>
+                          </th>
+
+                          <!-- Cut MultiSelect -->
+                          <th>
+                            <p-columnFilter field="quality" matchMode="in" [showMenu]="false">
+                              <ng-template let-selectedCut pTemplate="filter" let-filter="filterCallback">
+                                <p-multiSelect
+                                  [options]="cuts"
+                                  [ngModel]="selectedCut"
+                                  placeholder="Cut"
+                                  [filter]="true"
+                                  filterPlaceholder="Search"
+                                  (onChange)="filter($event.value)">
+                                </p-multiSelect>
+                              </ng-template>
+                            </p-columnFilter>
+                          </th>
+
+                          <!-- Original Price -->
+                          <th></th>
+
+                          <!-- Revised Price -->
+                          <th></th>
+                        </tr>
+                      </ng-template>
+
+                      <!-- Table Body -->
+                      <ng-template pTemplate="body" let-item>
+                        <ng-container *ngIf="!showEditTable">
+                        <tr>
+                          <td *ngIf="selectedOption == 'Item Category'">{{item.category}}</td>
+                          <td>{{ item.id }}</td>
+                          <td>{{ item.desc }}</td>
+                          <td>{{ item.value1 }}</td>
+                          <td>{{ item.value2 }}</td>
+                          <td>{{ item.clarity }}</td>
+                          <td>{{ item.quality }}</td>
+                          <td>{{ item.price1 | currency }}</td>
+                          <td>{{ item.price2 | currency }}</td>
+                        </tr>
+                    </ng-container>
+
+                    <ng-container *ngIf="showEditTable">
+                      <tr>
+                        <td *ngIf="selectedOption == 'Item Category'">{{item.category}}</td>
+                        <td>{{ item.id }}</td>
+                        <!-- <td *ngIf="selectedOption == 'Item Category'">{{item.category}}</td> -->
+                        <td>{{ item.desc }}</td>
+                        <td>{{ item.value1 }}</td>
+                        <td>{{ item.value2 }}</td>
+                        <td>{{ item.clarity }}</td>
+                        <td>{{ item.quality }}</td>
+                        <td>{{ item.price1 | currency }}</td>
+                        <td [ngClass]="{editedPrice: item.originalPrice2 !== item.price2}" class="enter-value editable-price">$<input [(ngModel)]="item.price2" (ngModelChange)="onPriceChange(item)" type="text" [value]="item.price2"></td>
+                      </tr>
+                  </ng-container>
+                      </ng-template>
+
+                      <!-- Empty Message -->
+                      <ng-template pTemplate="emptymessage">
+                        <tr>
+                          <td colspan="8">No items found.</td>
+                        </tr>
+                      </ng-template>
+                    </p-table>
+
+
+
+                      <!-- <div class="card flex justify-content-center">
+                        <p-paginator
+                          (onPageChange)="onPageChange($event)"
+                          [first]="first"
+                          [rows]="rows"
+                          [totalRecords]="pagedData.length"
+                          [rowsPerPageOptions]="[10, 20, 30]">
+                        </p-paginator>
+                      </div> -->
+                    </div>
+                    <div class="col-md-3 mt-2" *ngIf="!showEditTable">
+                      <!-- <div class="conformation">
+                        <form class="flex align-items-center gap-1" [formGroup]="formGroup">
+                          <p-checkbox
+                            formControlName="city"
+                            value="New York"
+                            inputId="ny"
+                          ></p-checkbox>
+                          <label for="ny">Do you further want to edit the price?</label>
+                        </form>
+                      </div> -->
+                      <!-- <div class="buttons mt-2">
+                        <button
+                          class="confirm btn confirmation_btn"
+                          (click)="showEditTable = true"
+                          [disabled]="!formGroup.get('city')?.value">
+                          Edit Price
+                        </button>
+                        <button class="btn no confirmation_btn" (click)="showEditTable = false">No</button>
+                      </div> -->
+                    </div>
+                    <div class="col-md-4" *ngIf="showEditTable && isPriceChanged && !savedDate">
+                      <div class="conformation">
+                        <form class="flex align-items-center gap-1">
+                          <!-- <p-checkbox
+                            formControlName="city"
+                            value="New York"
+                            inputId="ny"
+                          ></p-checkbox> -->
+                          <label for="ny">Do you want to review the changes?</label>
+                        </form>
+                      </div>
+                      <div class="buttons mt-2">
+                        <button
+                          class="confirm btn"
+                          (click)="openReviewModal()">
+                          Review
+                        </button>
+                        <button class="btn no" (click)="onNotSavingChanges()">Cancel</button>
+                      </div>
+                    </div>
+
+                    <div *ngIf="!isPriceChanged && !savedDate" class="conformation buttons no-flex">
+                      <button
+                      class="confirm btn"
+                      (click)="displayDateModal = true;">
+                      Save
+                    </button>
+                    </div>
+                  </div>
+
+                </ng-container>
+
+              </li>
+            </div>
+          </div>
+      </p-tabPanel>
+      <p-tabPanel header="Header II">
+          <ng-template pTemplate="header">
+              <div class="flex align-items-center gap-2">
+                  <p-avatar
+                      image="../../../assets/img/tracker.png"
+                      shape="square" />
+                  <span class="font-bold white-space-nowrap m-0">
+                      Price Tracker
+                  </span>
               </div>
           </ng-template>
+          <!-- <p> -->
+             <app-price-tracker></app-price-tracker>
+          <!-- </p> -->
+      </p-tabPanel>
 
-
-
-            <!-- Table Headers -->
-            <ng-template pTemplate="header">
-              <tr>
-                <th style="width:5%" *ngIf="selectedOption == 'Item Category'">Category</th>
-                <th style="width:5%">Product Id</th>
-                <th style="width:20%">Description</th>
-                <th style="width:11%">Carat</th>
-                <th style="width:11%">Color</th>
-                <th style="width:11%">Clarity</th>
-                <th style="width:11%">Cut</th>
-                <th style="width:11%">Original Price</th>
-                <th style="width:11%">Revised Price</th>
-              </tr>
-              <tr>
-                <!-- Product ID MultiSelect -->
-                <th *ngIf="selectedOption == 'Item Category'"></th>
-                <th>
-                  <p-columnFilter field="id" matchMode="in" [showMenu]="false">
-                    <ng-template let-selectedProductId  pTemplate="filter" let-filter="filterCallback">
-                      <p-multiSelect
-                        [ngModel]="selectedProductId"
-                        [options]="productIds"
-                        placeholder="Product ID"
-                        (onChange)="filter($event.value)">
-                      </p-multiSelect>
-                    </ng-template>
-                  </p-columnFilter>
-                </th>
-
-
-
-                <!-- Description MultiSelect -->
-                <th>
-                  <p-columnFilter field="desc" matchMode="in" [showMenu]="false">
-                    <ng-template let-selectedDescription pTemplate="filter" let-filter="filterCallback">
-                      <p-multiSelect
-                        [options]="descriptions"
-                        [ngModel]="selectedDescription"
-                        placeholder="Description"
-                        [filter]="true"
-                        filterPlaceholder="Search"
-                        (onChange)="filter($event.value)">
-                      </p-multiSelect>
-                    </ng-template>
-                  </p-columnFilter>
-                </th>
-
-                <!-- Carat MultiSelect -->
-                <th>
-                  <p-columnFilter field="value1" matchMode="in" [showMenu]="false">
-                    <ng-template let-selectedCarat pTemplate="filter" let-filter="filterCallback">
-                      <p-multiSelect
-                        [options]="carats"
-                        [ngModel]="selectedCarat"
-                        placeholder="Carat"
-                        [filter]="true"
-                        filterPlaceholder="Search"
-                        (onChange)="filter($event.value)">
-                      </p-multiSelect>
-                    </ng-template>
-                  </p-columnFilter>
-                </th>
-
-                <!-- Color MultiSelect -->
-                <th>
-                  <p-columnFilter field="value2" matchMode="in" [showMenu]="false">
-                    <ng-template let-selectedColor pTemplate="filter" let-filter="filterCallback">
-                      <p-multiSelect
-                        [options]="colors"
-                        [ngModel]="selectedColor"
-                        placeholder="Color"
-                        [filter]="true"
-                        filterPlaceholder="Search"
-                        (onChange)="filter($event.value)">
-                      </p-multiSelect>
-                    </ng-template>
-                  </p-columnFilter>
-                </th>
-
-                <!-- Clarity MultiSelect -->
-                <th>
-                  <p-columnFilter field="clarity" matchMode="in" [showMenu]="false">
-                    <ng-template let-selectedClarity pTemplate="filter" let-filter="filterCallback">
-                      <p-multiSelect
-                        [options]="clarities"
-                        [ngModel]="selectedClarity"
-                        placeholder="Clarity"
-                        [filter]="true"
-                        filterPlaceholder="Search"
-                        (onChange)="filter($event.value)">
-                      </p-multiSelect>
-                    </ng-template>
-                  </p-columnFilter>
-                </th>
-
-                <!-- Cut MultiSelect -->
-                <th>
-                  <p-columnFilter field="quality" matchMode="in" [showMenu]="false">
-                    <ng-template let-selectedCut pTemplate="filter" let-filter="filterCallback">
-                      <p-multiSelect
-                        [options]="cuts"
-                        [ngModel]="selectedCut"
-                        placeholder="Cut"
-                        [filter]="true"
-                        filterPlaceholder="Search"
-                        (onChange)="filter($event.value)">
-                      </p-multiSelect>
-                    </ng-template>
-                  </p-columnFilter>
-                </th>
-
-                <!-- Original Price -->
-                <th></th>
-
-                <!-- Revised Price -->
-                <th></th>
-              </tr>
-            </ng-template>
-
-            <!-- Table Body -->
-            <ng-template pTemplate="body" let-item>
-              <ng-container *ngIf="!showEditTable">
-              <tr>
-                <td *ngIf="selectedOption == 'Item Category'">{{item.category}}</td>
-                <td>{{ item.id }}</td>
-                <td>{{ item.desc }}</td>
-                <td>{{ item.value1 }}</td>
-                <td>{{ item.value2 }}</td>
-                <td>{{ item.clarity }}</td>
-                <td>{{ item.quality }}</td>
-                <td>{{ item.price1 | currency }}</td>
-                <td>{{ item.price2 | currency }}</td>
-              </tr>
-          </ng-container>
-
-          <ng-container *ngIf="showEditTable">
-            <tr>
-              <td *ngIf="selectedOption == 'Item Category'">{{item.category}}</td>
-              <td>{{ item.id }}</td>
-              <!-- <td *ngIf="selectedOption == 'Item Category'">{{item.category}}</td> -->
-              <td>{{ item.desc }}</td>
-              <td>{{ item.value1 }}</td>
-              <td>{{ item.value2 }}</td>
-              <td>{{ item.clarity }}</td>
-              <td>{{ item.quality }}</td>
-              <td>{{ item.price1 | currency }}</td>
-              <td [ngClass]="{editedPrice: item.price1 !== item.price2}" class="enter-value editable-price">$<input [(ngModel)]="item.price2" (ngModelChange)="onPriceChange(item)" type="text" [value]="item.price2"></td>
-            </tr>
-        </ng-container>
-            </ng-template>
-
-            <!-- Empty Message -->
-            <ng-template pTemplate="emptymessage">
-              <tr>
-                <td colspan="8">No items found.</td>
-              </tr>
-            </ng-template>
-          </p-table>
-
-
-
-            <!-- <div class="card flex justify-content-center">
-              <p-paginator
-                (onPageChange)="onPageChange($event)"
-                [first]="first"
-                [rows]="rows"
-                [totalRecords]="pagedData.length"
-                [rowsPerPageOptions]="[10, 20, 30]">
-              </p-paginator>
-            </div> -->
-          </div>
-          <div class="col-md-3 mt-2" *ngIf="!showEditTable">
-            <!-- <div class="conformation">
-              <form class="flex align-items-center gap-1" [formGroup]="formGroup">
-                <p-checkbox
-                  formControlName="city"
-                  value="New York"
-                  inputId="ny"
-                ></p-checkbox>
-                <label for="ny">Do you further want to edit the price?</label>
-              </form>
-            </div> -->
-            <!-- <div class="buttons mt-2">
-              <button
-                class="confirm btn confirmation_btn"
-                (click)="showEditTable = true"
-                [disabled]="!formGroup.get('city')?.value">
-                Edit Price
-              </button>
-              <button class="btn no confirmation_btn" (click)="showEditTable = false">No</button>
-            </div> -->
-          </div>
-          <div class="col-md-4" *ngIf="showEditTable && isPriceChanged && !savedDate">
-            <div class="conformation">
-              <form class="flex align-items-center gap-1">
-                <!-- <p-checkbox
-                  formControlName="city"
-                  value="New York"
-                  inputId="ny"
-                ></p-checkbox> -->
-                <label for="ny">Do you want to save the changes?</label>
-              </form>
-            </div>
-            <div class="buttons mt-2">
-              <button
-                class="confirm btn"
-                (click)="openReviewModal()">
-                Yes
-              </button>
-              <button class="btn no" (click)="onNotSavingChanges()">No</button>
-            </div>
-          </div>
-        </div>
-
-      </ng-container>
-
-    </li>
-  </div>
+  </p-tabView>
 </div>
+
+
+
+
+
 <app-footer></app-footer>
 
 <p-dialog header="Select Date" [(visible)]="displayDateModal" [style]="{width: '44vw', height: '80vh'}"

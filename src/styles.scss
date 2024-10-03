@@ -684,7 +684,7 @@ app-strategist-tabs{
       border: 1px solid white !important;
     }
     header{
-      margin-top: 70px;
+      margin-top: 0px;
       justify-content: space-between !important;
     }
 
@@ -701,5 +701,41 @@ app-strategist-tabs{
 .p-datatable-tbody{
   tr{
     border-bottom: 1px solid #e3e3e3 !important;
+  }
+}
+
+.p-datepicker table td > span.p-highlight{
+  background: #60d8ff !important;
+}
+
+.p-tabview-nav{
+  padding-left: 60px !important;
+  a{
+    color: transparent;
+  }
+}
+
+.p-tabview-panels {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.p-tabview .p-tabview-nav li .p-tabview-nav-link{
+  padding: 3px 10px !important;
+}
+
+.p-avatar.p-avatar-image{
+  img{
+    width: 23px !important;
+    height: 23px !important;
+  }
+}
+
+app-price-tracker{
+  .priceView{
+
+    .p-datatable-wrapper{
+      height: fit-content !important;
+    }
   }
 }

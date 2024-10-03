@@ -41,6 +41,7 @@ interface PageEvent {
   styleUrl: './revised-price.component.scss'
 })
 export class RevisedPriceComponent {
+  anyChecked = false;
   displayDateModal: any = false;
   @ViewChild('dt1') dt1!: Table;
   searchValue: any = ''
@@ -156,6 +157,7 @@ export class RevisedPriceComponent {
   }
 
   checkIfAnyChecked() {
+    this.anyChecked = this.checkboxItems.some(item => item.checked);
     this.isConfirmDisabled = !this.checkboxItems.every(item =>
       !item.checked || (Number(item.percentage) > 0 && Number(item.percentage) <= 100)
     );
@@ -221,12 +223,17 @@ export class RevisedPriceComponent {
       { id: 'regulatoryTaxChanges', label: 'Regulatory and Tax Changes', checked: false, inputValue: '', percentage: 0 },
       { id: 'inventoryHoldingCosts', label: 'Inventory Holding Costs', checked: false, inputValue: '', percentage: 0 }
     ];
+    const formattedDate = new Date(this.date1).toLocaleDateString('en-GB', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric'
+    });
 
     const dialogRef = this.dialog.open(CustomModalComponent, {
       width: '40vw',
       data: {
         head: 'Changes Saved',
-        message: 'The changes have been saved successfully.',
+        message: `The changes have been saved successfully. Revised price will be effective from ${formattedDate}.`,
         buttonTextNo: 'Close',
       },
     });

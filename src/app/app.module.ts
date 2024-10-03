@@ -55,6 +55,13 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { AddUserComponent } from './modals/add-user/add-user.component';
 import { ChangeFirstTimePasswordComponent } from './change-first-time-password/change-first-time-password.component';
 import { LoginNewComponent } from './components/login-new/login-new.component';
+import { TabViewModule } from 'primeng/tabview';
+import { ImageModule } from 'primeng/image';
+import { BadgeModule } from 'primeng/badge';
+import { AvatarModule } from 'primeng/avatar';
+import { PriceTrackerComponent } from './components/price-tracker/price-tracker.component';
+import { TagModule } from 'primeng/tag';
+
 
 @NgModule({
   declarations: [
@@ -76,7 +83,8 @@ import { LoginNewComponent } from './components/login-new/login-new.component';
     CustomModalComponent,
     AddUserComponent,
     ChangeFirstTimePasswordComponent,
-    LoginNewComponent
+    LoginNewComponent,
+    PriceTrackerComponent
   ],
   imports: [
     BrowserModule,
@@ -103,7 +111,12 @@ import { LoginNewComponent } from './components/login-new/login-new.component';
     MatRadioModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    TabViewModule,
+    ImageModule,
+    BadgeModule,
+    AvatarModule,
+    TagModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [

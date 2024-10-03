@@ -23,13 +23,17 @@
   <div class="container">
       <div class="row">
           <div class="col-lg-12 buttons">
-            <div [routerLink]="['/revised-price']" routerLinkActive="router-link-active"  class="flex">
+
+            <button [routerLink]="['/revised-price']" routerLinkActive="router-link-active" class="button-91" role="button">Review and Revise Price</button>
+            <button [routerLink]="['/strategy']" routerLinkActive="router-link-active" class="button-91" role="button">Strategy</button>
+            <!-- old design -->
+            <!-- <div [routerLink]="['/revised-price']" routerLinkActive="router-link-active"  class="flex">
               <a class="bttn">Review And Revise Price</a>
             </div>
 
             <div class="flex" [routerLink]="['/strategy']" routerLinkActive="router-link-active" >
               <a  class="bttn">Define Strategy</a>
-            </div>
+            </div> -->
           </div>
 
       </div>

@@ -402,7 +402,7 @@ onToggleUserStatus(user: any) {
     data = {
       email: this.selectedUser.email,
       admin_email: 'jitendra.nayak@petonic.in',
-      admin_password: 'LOZ38tLl'
+      admin_password: 'vSv4TUcm'
     }
 
     console.log('data', data)
