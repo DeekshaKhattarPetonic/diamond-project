@@ -18,7 +18,7 @@
           <li><a class="dropdown-item" (click)="logout()">Sign out</a></li>
         </ul>
       </div>
-      <div (click)="goBack()" class="button back-btn"><span class="material-symbols-outlined">
+      <div *ngIf="!isTabsRoute" (click)="goBack()" class="button back-btn"><span class="material-symbols-outlined">
         undo
         </span>Back
       </div>

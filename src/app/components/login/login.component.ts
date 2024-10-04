@@ -151,7 +151,21 @@ export class LoginComponent {
           if(role == 'admin'){
             this.router.navigate(['/admin']);
           }else{
-            this.router.navigate(['/tabs']);
+            if(role == 'strategist'){
+              this.router.navigate(['/tabs']);
+            }
+
+            if(role == 'sales'){
+              this.router.navigate(['/tabs']);
+            }
+
+            if(role == 'pos'){
+              this.router.navigate(['/tabs']);
+            }
+
+            if(role == 'executive'){
+              this.router.navigate(['/tabs']);
+            }
           }
 
           //

@@ -22,6 +22,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 // import { SessionTimeoutService } from '../../services/session-timeout.service';
 import { AddUserComponent } from '../../modals/add-user/add-user.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-management',
@@ -72,7 +73,7 @@ export class UserManagementComponent {
   pos: any;
   executives: any;
 
-  constructor(private spinner: NgxSpinnerService, private loginService: LoginService, private messageService: MessageService, private dialog: MatDialog, private renderer: Renderer2) {
+  constructor(private router: Router, private spinner: NgxSpinnerService, private loginService: LoginService, private messageService: MessageService, private dialog: MatDialog, private renderer: Renderer2) {
 
   }
 
@@ -94,8 +95,12 @@ export class UserManagementComponent {
       // admin_password: "",
     }
 
-  }
+    let role = sessionStorage.getItem('role');
+    if(!role){
+      this.router.navigate(['/login']);
+    }
 
+  }
 
   async addUser() {
     this.spinner.show()

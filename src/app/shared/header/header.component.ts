@@ -8,14 +8,26 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  isTabsRoute: boolean = false;
+
+  private previousUrl: string | undefined;
+  private currentUrl: string | undefined;
 
   constructor(private loginService: LoginService, private router: Router,){
+    this.router.events.subscribe(() => {
+      this.isTabsRoute = this.router.url.includes('/tabs');
+    });
+  }
+
+  ngOnInit() {
+    let role = sessionStorage.getItem('role');
+    if(!role){
+      this.router.navigate(['/login']);
+    }
 
   }
 
   async goBack() {
-    // await this.ContributorService.setSelectedChallenge(this.selectedCh);
-    // this.Router.navigate(['/contributor-list']);
     window.history.back();
 }
 
