@@ -34,11 +34,23 @@ export class LoginNewComponent {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
  let role = sessionStorage.getItem('role');
-    if(role !== 'admin'){
-      this.router.navigate(['/strategy']);
+    if(role == 'strategist'){
+      this.router.navigate(['/tabs']);
     }
 
-    if(role == ''){
+    if(role == 'sales'){
+      this.router.navigate(['/tabs']);
+    }
+
+    if(role == 'pos'){
+      this.router.navigate(['/tabs']);
+    }
+
+    if(role == 'executive'){
+      this.router.navigate(['/tabs']);
+    }
+
+    if(role == '' || role == null || role == undefined || !role){
       this.router.navigate(['/login']);
     }
 
