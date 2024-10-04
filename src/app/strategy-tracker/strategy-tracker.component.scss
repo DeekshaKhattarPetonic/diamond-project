@@ -1,0 +1,111 @@
+.defaultView{
+  height: 69vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  p{
+    font-size: 23px;
+    font-weight: 600;
+  }
+
+  /* CSS */
+  .button-87 {
+    margin: 5px 0px;
+    width: fit-content;
+    padding: 10px 21px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    border: 0px;
+    font-weight: 600;
+    box-shadow: 0px 0px 14px -7px rgb(170, 105, 116);
+    background-image: linear-gradient(45deg, rgba(139, 78, 89, 0.89) 0%, rgba(170, 105, 116, 0.61) 51%, rgb(170, 105, 116) 100%);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+
+  .button-87:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .button-87:active {
+    transform: scale(0.95);
+  }
+}
+
+
+.priceView{
+  overflow: hidden;
+
+  h4{
+    background-color: #ececec;
+    padding: 7px 8px;
+    width: 100%;
+    font-weight: 500;
+    border-radius: 4px;
+
+  }
+  .card_shadow{
+    padding: 10px 5px;
+    box-shadow: 5px 0 8px rgba(0, 0, 0, 0.2);
+    // display: flex;
+    align-items: center;
+    margin: 0 auto;
+    // width: 80%;
+    border-radius: 6px;
+  }
+
+}
+
+.priceView{
+
+}
+
+.filter{
+  input{
+    border-radius: 4px;
+    border: 1px solid rgb(198, 198, 198);
+  }
+}
+
+.view_btn{
+  background-color: rgb(184, 107, 121);
+  align-items: center;
+  outline: none;
+  border: none;
+  padding: 4px 10px;
+  color: white;
+  border-radius: 4px;
+  column-gap: 7px;
+}
+
+.view_btn:hover{
+  background-color: rgb(123, 67, 77);
+}
+
+.sub_table{
+  box-shadow: 1px 0px 9px -4px rgb(77 77 77);
+  margin-left: 96px;
+  margin-top: 5px;
+  margin-bottom: 9px;
+}
+
+.filters{
+  .head{
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+}

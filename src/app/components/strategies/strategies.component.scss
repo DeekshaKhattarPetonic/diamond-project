@@ -2062,3 +2062,17 @@ button:disabled{
 .justify-end{
   justify-content: end;
 }
+
+.confirmation_btn{
+  border: 1px solid green;
+  display: flex;
+  height: 33px;
+  padding: 5px 15px !important;
+  margin: unset !important;
+  width: 141px !important;
+  column-gap: 6px;
+  background: white;
+  color: green;
+  flex-wrap: nowrap;
+  column-gap: 4px;
+}

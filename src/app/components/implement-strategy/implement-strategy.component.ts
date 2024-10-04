@@ -20,32 +20,48 @@ export class ImplementStrategyComponent {
   showData: any = false;
   options2: any;
   date1: any;
+  date2: any;
 
   constructor(private dialog: MatDialog,) {
 
   }
 
   openModal(){
-    const dialogRef = this.dialog.open(CustomModalComponent, {
-      width: '35vw',
-      data: {
-        head: 'Confirmation',
-        message: 'Do you want to save the changes.',
-        buttonTextNo: 'No',
-        buttonTextYes: 'Yes',
-      },
-    });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('result', result)
-      // If the user clicked "Yes" in the modal
-      if (result === true) {
-        this.cancel.emit();
-      } else {
-        // this.cancel.emit();
-      }
-    });
-    // this.showTable = false
+    if(this.date1 == null || this.date2 == null){
+      const dialogRef = this.dialog.open(CustomModalComponent, {
+        width: '35vw',
+        data: {
+          head: 'Confirmation',
+          message: 'Please select from and to date to proceed',
+          buttonTextNo: 'Close',
+        },
+      });
+    }
+
+    else{
+      const dialogRef = this.dialog.open(CustomModalComponent, {
+        width: '35vw',
+        data: {
+          head: 'Confirmation',
+          message: 'Do you want to save the changes.',
+          buttonTextNo: 'No',
+          buttonTextYes: 'Yes',
+        },
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('result', result)
+        // If the user clicked "Yes" in the modal
+        if (result === true) {
+          this.cancel.emit();
+        } else {
+          // this.cancel.emit();
+        }
+      });
+      // this.showTable = false
+    }
+
   }
 
 

@@ -24,7 +24,6 @@ export class HeaderComponent {
     if(!role){
       this.router.navigate(['/login']);
     }
-
   }
 
   async goBack() {

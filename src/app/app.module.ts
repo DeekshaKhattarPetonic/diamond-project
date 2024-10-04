@@ -1,3 +1,4 @@
+import { StrategyTrackerComponent } from './strategy-tracker/strategy-tracker.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -87,7 +88,8 @@ import { ProductDetailComponent } from './shared/product-detail/product-detail.c
     LoginNewComponent,
     PriceTrackerComponent,
     StrategyDetailComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    StrategyTrackerComponent
   ],
   imports: [
     BrowserModule,

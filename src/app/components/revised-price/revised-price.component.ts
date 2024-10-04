@@ -72,14 +72,14 @@ export class RevisedPriceComponent {
   rows: number = 10;
   pagedData: any[] = [];
   allData = [
-    { id: 'D001', category: 'necklace', desc: 'Round cut, 1 carat , excellent clarity', value1: 24, value2: 'G', clarity: 'VS1', quality: 'Excellent', price1: '5000', price2: '5500' },
-    { id: 'D002', category: 'necklace', desc: 'Square cut, 1 carat , excellent clarity', value1: 16, value2: 'G', clarity: 'VS2', quality: 'Brilliant', price1: '4000', price2: '4500' },
-    { id: 'D003', category: 'necklace', desc: 'Round cut, 1 carat , excellent clarity', value1: 5, value2: 'G', clarity: 'VS3', quality: 'Great', price1: '6000', price2: '8500' },
-    { id: 'D004', category: 'necklace', desc: 'Heart cut, 1 carat , excellent clarity', value1: 3, value2: 'G', clarity: 'VS4', quality: 'Perfect', price1: '4000', price2: '8500' },
-    { id: 'D005', category: 'necklace', desc: 'Round cut, 1 carat , excellent clarity', value1: 24, value2: 'G', clarity: 'VS1', quality: 'Excellent', price1: '5000', price2: '5500' },
-    { id: 'D006', category: 'necklace', desc: 'Square cut, 1 carat , excellent clarity', value1: 16, value2: 'G', clarity: 'VS2', quality: 'Brilliant', price1: '4000', price2: '4500' },
-    { id: 'D007', category: 'necklace', desc: 'Round cut, 1 carat , excellent clarity', value1: 5, value2: 'G', clarity: 'VS3', quality: 'Great', price1: '6000', price2: '8500' },
-    { id: 'D008', category: 'necklace', desc: 'Heart cut, 1 carat , excellent clarity', value1: 3, value2: 'G', clarity: 'VS4', quality: 'Perfect', price1: '4000', price2: '8500' }
+    { id: 'D001', category: 'necklace', desc: 'Round cut, 1 carat, excellent clarity', value1: 24, value2: 'G', clarity: 'VS1', quality: 'Excellent', price1: '5000', price2: '5500' },
+    { id: 'D002', category: 'necklace', desc: 'Square cut, 1 carat, excellent clarity', value1: 16, value2: 'G', clarity: 'VS2', quality: 'Brilliant', price1: '4000', price2: '4500' },
+    { id: 'D003', category: 'necklace', desc: 'Round cut, 1 carat, excellent clarity', value1: 5, value2: 'G', clarity: 'VS3', quality: 'Great', price1: '6000', price2: '8500' },
+    { id: 'D004', category: 'necklace', desc: 'Heart cut, 1 carat, excellent clarity', value1: 3, value2: 'G', clarity: 'VS4', quality: 'Perfect', price1: '4000', price2: '8500' },
+    { id: 'D005', category: 'necklace', desc: 'Round cut, 1 carat, excellent clarity', value1: 24, value2: 'G', clarity: 'VS1', quality: 'Excellent', price1: '5000', price2: '5500' },
+    { id: 'D006', category: 'necklace', desc: 'Square cut, 1 carat, excellent clarity', value1: 16, value2: 'G', clarity: 'VS2', quality: 'Brilliant', price1: '4000', price2: '4500' },
+    { id: 'D007', category: 'necklace', desc: 'Round cut, 1 carat, excellent clarity', value1: 5, value2: 'G', clarity: 'VS3', quality: 'Great', price1: '6000', price2: '8500' },
+    { id: 'D008', category: 'necklace', desc: 'Heart cut, 1 carat, excellent clarity', value1: 3, value2: 'G', clarity: 'VS4', quality: 'Perfect', price1: '4000', price2: '8500' }
   ];
 
   isPriceChanged: boolean = false;
@@ -245,7 +245,6 @@ export class RevisedPriceComponent {
 
   onNotSavingChanges(){
     this.showEditTable = false;
-
     this.pagedData = this.pagedData.map((item: any) => ({
       ...item,  // Copy all existing properties
       price1: item.originalPrice1,  // Add originalPrice1
@@ -354,22 +353,27 @@ clear(table: Table) {
 //   // Handle the filtering logic here
 
 validatePercentage(event: any, item: any) {
-  // Get the current value from the event
-  const value = event.target.value;
+  // Remove non-numeric characters including 'e' and any special symbols
+  let value = event.target.value.replace(/[^\d]/g, '');
 
-  // Check if the value exceeds the allowed range
+  // Convert to a number for comparison
+  value = Number(value);
+
+  // Ensure value is within range
   if (value > 100) {
-    // Set it to 100 if greater
-    event.target.value = 100;
+    value = 100;
   } else if (value < 0) {
-    // Set it to 0 if less
-    event.target.value = 0;
+    value = 0;
   }
 
-  // Update the ngModel-bound item with the correct value
-  item.percentage = event.target.value;
-  this.checkIfAnyChecked()
+  // Update the value in the input and the ngModel-bound item
+  event.target.value = value;
+  item.percentage = value;
+
+  // Run the check function
+  this.checkIfAnyChecked();
 }
+
 
 onCloseDateModal(){
 this.displayDateModal = false;

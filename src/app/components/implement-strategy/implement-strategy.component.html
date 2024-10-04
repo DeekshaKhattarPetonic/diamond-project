@@ -1,22 +1,22 @@
 <div class="page">
-  <div class="d-flex justify-content-between">
+  <div class="d-flex justify-content-between p-b-100">
     <h2 class="page_head">Comparative Score of Different Pricing Strategy</h2>
-    <div  class="col-md-5 d-flex row flex flex-wrap p-fluid mb-2">
+    <div  class="col-md-6 d-flex row flex flex-wrap p-fluid mb-2">
       <div class="flex-auto d-flex row col-md-6 align-center">
         <label for="buttondisplay" class="col-md-5 font-bold block mb-2"> From Date </label>
-        <p-calendar class="col-md-7" [showIcon]="true" inputId="buttondisplay"
+        <p-calendar [(ngModel)]="date1" class="col-md-7" [showIcon]="true" inputId="buttondisplay"
           [showOnFocus]="false" />
       </div>
       <div class="flex-auto row col-md-6 align-center">
         <label for="buttondisplay" class="col-md-5 font-bold block mb-2"> To Date </label>
-        <p-calendar class="col-md-7" [showIcon]="true" inputId="buttondisplay"
+        <p-calendar [(ngModel)]="date2" class="col-md-7" [showIcon]="true" inputId="buttondisplay"
           [showOnFocus]="false" />
       </div>
     </div>
   </div>
   <!-- <p>Comparative Score of Each Strategy</p> -->
 
-  <p class="note">*Select the row to implement the strategy</p>
+  <p class="note">*Select the row and date to implement the strategy</p>
   <div class="container">
     <table class="table table-hover table-striped table-bordered mb-0  dataTable" id="userTable">
       <thead class="table-light">
@@ -103,67 +103,67 @@
     <div class="row mt-2 mx-2">
       <div class="details col-md-3 mb-1">
         <span class="head">Gross Margin</span>
-        <input type="text" class="form-control_m">
+        <input type="text" disabled value="12" class="form-control_m">
       </div>
       <div class="details col-md-3 mb-1">
         <span class="head">Inventory Turnover ratio For Diamonds</span>
-        <input type="text" class="form-control_m">
+        <input type="text" disabled value="12" class="form-control_m">
       </div>
       <div class="details col-md-3 mb-1">
         <span class="head">Revenue per Unit</span>
-        <input type="text" class="form-control_m">
+        <input type="text" disabled value="12" class="form-control_m">
       </div>
       <div class="details col-md-3 mb-1">
         <span class="head">Carat Per Unit</span>
-        <input type="text" class="form-control_m">
+        <input type="text" disabled value="12" class="form-control_m">
       </div>
       <div class="details col-md-3 mb-1">
         <span class="head">Customer LTV</span>
-        <input type="text" class="form-control_m">
+        <input type="text" disabled value="45" class="form-control_m">
       </div>
       <div class="details col-md-3 mb-1">
         <span class="head">Market price Votality Index</span>
-        <input type="text" class="form-control_m">
+        <input type="text" disabled value="45" class="form-control_m">
       </div>
       <div class="details col-md-3">
         <span class="head">Break Even Price</span>
-        <input type="text" class="form-control_m">
+        <input type="text" disabled value="45" class="form-control_m">
       </div>
       <div class="details col-md-3 mb-1">
         <span class="head">Customer Acquisition Cost</span>
-        <input type="text" class="form-control_m">
+        <input type="text" disabled value="45" class="form-control_m">
       </div>
       <div class="details col-md-3 mb-1">
         <span class="head">Sales Conversion Rate</span>
-        <input type="text" class="form-control_m">
+        <input type="text" disabled value="45" class="form-control_m">
       </div>
       <div class="details col-md-3 mb-1">
         <span class="head">Customer Retention Rate</span>
-        <input type="text" class="form-control_m">
+        <input type="text" disabled value="50" class="form-control_m">
       </div>
       <div class="details col-md-3 mb-1">
         <span class="head">Price Elasticity Of Demand</span>
-        <input type="text" class="form-control_m">
+        <input type="text" disabled value="50" class="form-control_m">
       </div>
       <div class="details col-md-3 mb-1">
         <span class="head">Stock Turnover Ratio</span>
-        <input type="text" class="form-control_m">
+        <input type="text" disabled value="50" class="form-control_m">
       </div>
       <div class="details col-md-3 mb-1">
         <span class="head">Customer rejection Rate</span>
-        <input type="text" class="form-control_m">
+        <input type="text" disabled value="50" class="form-control_m">
       </div>
       <div class="details col-md-3 mb-1">
         <span class="head">Profit per Capital</span>
-        <input type="text" class="form-control_m">
+        <input type="text" disabled value="50" class="form-control_m">
       </div>
       <div class="details col-md-3 mb-1">
         <span class="head">Average Order Value</span>
-        <input type="text" class="form-control_m">
+        <input type="text" disabled value="50" class="form-control_m">
       </div>
       <div class="details col-md-3 mb-1">
         <span class="head">Stone Quality Index</span>
-        <input type="text" class="form-control_m">
+        <input type="text" disabled value="60" class="form-control_m">
       </div>
       <!-- <div class="details col-md-3">
         <span class="head">Price competitiveness Index</span>

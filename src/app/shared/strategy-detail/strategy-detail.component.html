@@ -1,14 +1,45 @@
 
-<h2 mat-dialog-title *ngIf="data?.title">{{ data.title }} </h2>
+<h2 mat-dialog-title *ngIf="data?.strategy?.id">Strategy Details of : {{ data?.strategy.id }} </h2>
 <div class="d-flex justify-content-center align-items-cente text-center flex-column">
-  <div mat-dialog-content>
-    <p class="mt-1">{{ data.product_description }}</p>
-    <p class="mt-1">{{ data.cut }}</p>
-    <p class="mt-1">{{ data.carat }}</p>
-    <p class="mt-1">{{ data.strategy_name }}</p>
-    <p class="mt-1">{{ data.strategy_name }}</p>
+  <div mat-dialog-content class="pb-0">
+    <div class="dialog-contents metrics">
+      <div class=" card_shadow">
+        <p class="met_head">Metrics of {{data.strategy.name}}</p>
+        <div class="row mt-2 mx-2">
+          <div class="details col-md-12">
+            <span class="head">Customer Perceived Value
+          <img class="info"  tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset="">
+          </span>
+            <input name="1" type="text" disabled value="66" class="form-control_m">
+          </div>
+          <div class="details col-md-12">
+            <span class="head">Customer Willingness To Pay <img class="info"  tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+            <input nam="2" type="text" disabled value="66" class="form-control_m">
+          </div>
+          <div class="details col-md-12">
+            <span class="head">Price Sensitivity Coefficient <img class="info"  tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+            <input name="3" type="text" disabled value="66" class="form-control_m">
+          </div>
+          <div class="details col-md-12">
+            <span class="head">Personalisation and Customisation Value <img class="info"  tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+            <input name="4" type="text" disabled value="66" class="form-control_m">
+          </div>
+          <div class="details col-md-12">
+            <span class="head">Net Promoter Score <img class="info"  tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+            <input name="5" type="text" disabled value="66" class="form-control_m">
+          </div>
+          <div class="details col-md-12">
+            <span class="head">competitor Price Elasticity <img class="info"  tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+            <input name="6" type="text" disabled value="66" class="form-control_m">
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
   </div>
   <div class="flex align-items-center actionBtns w-100">
-    <button *ngIf="data?.buttonTextYes" (click)="onYesClick()" class="yesBtn btn">Close</button>
+    <button (click)="onYesClick()" class="yesBtn btn">Close</button>
   </div>
 </div>

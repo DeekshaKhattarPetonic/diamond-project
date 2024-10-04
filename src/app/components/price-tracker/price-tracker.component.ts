@@ -32,14 +32,14 @@ export class PriceTrackerComponent {
     this.products = [
       {
           id: 'D001',
-          description: 'Round cut, 1 carat , excellent clarity',
+          description: 'Round cut, 1 carat, excellent clarity',
           original_price: '$2,000',
           current_price: '$4,500',
           last_modified: '24-05-2023',
       },
       {
           id: 'D002',
-          description: 'Round cut, 1 carat , excellent clarity',
+          description: 'Round cut, 1 carat, excellent clarity',
           original_price: '$2,000',
           current_price: '$4,500',
           last_modified: '24-05-2023',
@@ -69,7 +69,7 @@ export class PriceTrackerComponent {
       },
       {
         id: 'D003',
-        description: 'Round cut, 1 carat , excellent clarity',
+        description: 'Round cut, 1 carat, excellent clarity',
         original_price: '$2,000',
         current_price: '$4,500',
         last_modified: '24-05-2023',
@@ -78,7 +78,7 @@ export class PriceTrackerComponent {
 
     {
       id: 'D004',
-      description: 'Round cut, 1 carat , excellent clarity',
+      description: 'Round cut, 1 carat, excellent clarity',
       original_price: '$4,000',
       current_price: '$6,500',
       last_modified: '26-12-2023',
@@ -109,7 +109,7 @@ export class PriceTrackerComponent {
 
   {
     id: 'D005',
-    description: 'Round cut, 1 carat , excellent clarity',
+    description: 'Round cut, 1 carat, excellent clarity',
     original_price: '$2,000',
     current_price: '$9,500',
     last_modified: '24-05-2023',
@@ -196,11 +196,11 @@ onRowCollapse(event: TableRowCollapseEvent) {
     let product: any = {
       cut: 'round',
       carat: '20',
-      shape: '$2,000',
+      shape: 'Diamond',
       clarity: 'Excellence',
       color: 'G',
       id: 'D001',
-      description: 'Round cut, 1 carat , excellent clarity',
+      description: 'Round cut, 1 carat, excellent clarity',
     }
 
     const dialogRef = this.dialog.open(ProductDetailComponent, {

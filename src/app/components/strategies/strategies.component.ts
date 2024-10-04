@@ -375,4 +375,10 @@ hideImplementPage() {
   ]
 }
 
+goToPrevSection(){
+  this.showData = true;
+  this.implement_page = false
+  // this.showOtherStrategy= true
+}
+
 }
