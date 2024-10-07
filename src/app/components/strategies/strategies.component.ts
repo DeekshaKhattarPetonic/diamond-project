@@ -341,8 +341,8 @@ onImplementStrategy(){
 
 hideImplementPage() {
   this.implement_page = false; // Hide the implement strategy component
-  this.selectedCategory.name = null;
-  this.selectedObjective.name = null;
+  this.selectedCategory = null;
+  this.selectedObjective = null;
 
    this.implement_page = false
     this.selectedObjective = false;

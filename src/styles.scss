@@ -781,14 +781,14 @@ app-price-tracker {
 
 app-strategies, app-revised-price{
   .p-tabview .p-tabview-nav li .p-tabview-nav-link {
-    background: #000098;
+    background: rgb(170, 105, 116);
     padding: 3px 10px !important;
     span{
       color: white;
     }
 }
 .p-tabview-nav {
-  background: #000098;
+  background: rgb(170, 105, 116);
   padding-left: 60px !important;
 }
 .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
@@ -813,4 +813,8 @@ app-strategies{
   .p-dropdown .p-dropdown-label{
     font-size: 11px !important;
   }
+}
+
+.p-calendar .p-inputtext{
+  padding: 0px 5px;
 }
