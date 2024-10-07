@@ -1,18 +1,22 @@
-<div class="page">
-  <div class="d-flex justify-content-between p-b-100">
+<div class="page p-b-100">
+  <div class="d-flex justify-content-between">
     <h2 class="page_head">Comparative Score of Different Pricing Strategy</h2>
-    <div  class="col-md-6 d-flex row flex flex-wrap p-fluid mb-2">
+    <div class="col-md-6 d-flex row flex flex-wrap p-fluid mb-2">
+      <!-- From Date -->
       <div class="flex-auto d-flex row col-md-6 align-center">
-        <label for="buttondisplay" class="col-md-5 font-bold block mb-2"> From Date </label>
-        <p-calendar [(ngModel)]="date1" class="col-md-7" [showIcon]="true" inputId="buttondisplay"
-          [showOnFocus]="false" />
+        <label for="fromDate" class="col-md-5 font-bold block mb-2">From Date</label>
+        <p-calendar [(ngModel)]="date1" class="col-md-7" [showIcon]="true" inputId="fromDate"
+          [minDate]="today" (onSelect)="onFromDateSelect()" />
       </div>
+
+      <!-- To Date -->
       <div class="flex-auto row col-md-6 align-center">
-        <label for="buttondisplay" class="col-md-5 font-bold block mb-2"> To Date </label>
-        <p-calendar [(ngModel)]="date2" class="col-md-7" [showIcon]="true" inputId="buttondisplay"
-          [showOnFocus]="false" />
+        <label for="toDate" class="col-md-5 font-bold block mb-2">To Date</label>
+        <p-calendar [(ngModel)]="date2" class="col-md-7" [showIcon]="true" inputId="toDate"
+          [minDate]="minToDate" [disabled]="!date1" />
       </div>
     </div>
+
   </div>
   <!-- <p>Comparative Score of Each Strategy</p> -->
 

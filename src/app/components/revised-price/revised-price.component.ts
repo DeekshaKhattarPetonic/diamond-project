@@ -215,12 +215,12 @@ export class RevisedPriceComponent {
     this.selectedOption = 'All'
     this.savedDate = this.isPriceChanged
     this.checkboxItems = [
-      { id: 'marketVolatility', label: 'Market Votality', checked: false, inputValue: '', percentage: 0 },
-      { id: 'supplyChainDynamics', label: 'Supply Chain Dynamics', checked: false, inputValue: '', percentage: 0 },
-      { id: 'operationalCosts', label: 'Operational Costs', checked: false, inputValue: '', percentage: 0 },
-      { id: 'contingencyReserves', label: 'Contingency Reserves', checked: false, inputValue: '', percentage: 0 },
-      { id: 'regulatoryTaxChanges', label: 'Regulatory and Tax Changes', checked: false, inputValue: '', percentage: 0 },
-      { id: 'inventoryHoldingCosts', label: 'Inventory Holding Costs', checked: false, inputValue: '', percentage: 0 }
+      { id: 'marketVolatility', label: 'Market Votality', checked: false, inputValue: 'high', percentage: 0 },
+      { id: 'supplyChainDynamics', label: 'Supply Chain Dynamics', checked: false, inputValue: 'moderate', percentage: 0 },
+      { id: 'operationalCosts', label: 'Operational Costs', checked: false, inputValue: 'low', percentage: 0 },
+      { id: 'contingencyReserves', label: 'Contingency Reserves', checked: false, inputValue: 'fix', percentage: 0 },
+      { id: 'regulatoryTaxChanges', label: 'Regulatory and Tax Changes', checked: false, inputValue: '456', percentage: 0 },
+      { id: 'inventoryHoldingCosts', label: 'Inventory Holding Costs', checked: false, inputValue: '20', percentage: 0 }
     ];
     const formattedDate = new Date(this.date1).toLocaleDateString('en-GB', {
       day: '2-digit',
@@ -251,6 +251,8 @@ export class RevisedPriceComponent {
       price2: item.originalPrice2   // Add originalPrice2
     }));
     console.log('allData', this.pagedData)
+    this.isPriceChanged = false
+    this.savedDate = false;
   }
 
   populateData(){

@@ -109,3 +109,19 @@
     margin-bottom: 2px;
   }
 }
+
+.align-center{
+  align-items: center;
+}
+
+
+.page-title{
+  background-color: transparent;
+  width: 100%;
+  color: #000 !important;
+  justify-content: space-between;
+  padding-left: 10px !important;
+  text-align: left;
+  // justify-content: flex-start;
+  padding: 10px 0px;
+}

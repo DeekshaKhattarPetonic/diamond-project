@@ -48,8 +48,8 @@
                   <div class="col-md-12 row details header card_shadow obj  mb-2" [ngClass]="{'col-md-12': !showData}">
                     <div class="d-flex row p-2 justify-space-between">
                       <div class=" col-md-5 d-flex">
-                        <span class="col-md-4 select_text" *ngIf="!implement_page">Select Target Category</span>
-                        <span class="col-md-4 select_text" *ngIf="implement_page">Selected Target Category</span>
+                        <span class="col-md-4 select_text" *ngIf="!implement_page">Select Target Base</span>
+                        <span class="col-md-4 select_text" *ngIf="implement_page">Selected Target Base</span>
                         <p-dropdown [disabled]="implement_page" class="col-md-5" [options]="targetCategoryData" [(ngModel)]="selectedCategory" optionLabel="name" [filter]="true" filterBy="name"
                         [showClear]="true" (onChange)="onCategoryChange()" placeholder="Target Category">
                         <ng-template pTemplate="selectedItem" let-selectedOption>

@@ -16,6 +16,16 @@
 
               <div class="page_content">
               <li class="tab-content tab-content-first typography container px-0 m-auto">
+
+                <div class="page-heading">
+                  <h2 class="page_head page-title container m-auto px-0">
+                    <div class="d-flex align-center">
+                      <span class="material-symbols-outlined view_list">
+                      view_list
+                    </span>Review and Revise Price
+                  </div>
+                  </h2>
+                  </div>
                 <ng-container *ngIf="!showTable">
                   <div class="row">
                     <p class="para_head col-md-7 mb-2">To review and revise the price, select the category of product for which the price to be revised</p>
@@ -411,8 +421,9 @@
                       <button
                       class="confirm btn"
                       (click)="displayDateModal = true;">
-                      Save
+                      Select Date
                     </button>
+                    <button class="btn no mx-2" *ngIf="showEditTable" (click)="onNotSavingChanges()">Cancel</button>
                     </div>
                   </div>
 

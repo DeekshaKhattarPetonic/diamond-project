@@ -19,8 +19,12 @@ export class ImplementStrategyComponent {
   data2: any;
   showData: any = false;
   options2: any;
-  date1: any;
-  date2: any;
+  // date1: any;
+  // date2: any;
+  today: Date = new Date(); // Current date
+  date1: Date | null = null; // From Date
+  date2: Date | null = null; // To Date
+  minToDate: Date | null = null;
 
   constructor(private dialog: MatDialog,) {
 
@@ -67,5 +71,11 @@ export class ImplementStrategyComponent {
 
   onCancel() {
     this.cancel.emit(); // Emit the cancel event when the button is clicked
+  }
+
+  onFromDateSelect() {
+    if (this.date1) {
+      this.minToDate = new Date(this.date1); // Set To Date's minDate to From Date
+    }
   }
 }
