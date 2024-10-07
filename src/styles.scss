@@ -779,34 +779,40 @@ app-price-tracker {
 }
 
 
-app-strategies, app-revised-price{
+app-strategies,
+app-revised-price {
   .p-tabview .p-tabview-nav li .p-tabview-nav-link {
     background: rgb(170, 105, 116);
     padding: 3px 10px !important;
-    span{
+    text-decoration: none;
+
+    span {
       color: white;
     }
-}
-.p-tabview-nav {
-  background: rgb(170, 105, 116);
-  padding-left: 60px !important;
-}
-.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
-  background: #ffffff !important;
-  border-color: #2196F3;
-  color: #2196F3;
-
-  box-shadow: 2px 1px 3px 1px rgb(21 21 21 / 34%) !important;
-
-  span{
-    color: black;
   }
-}
-.p-tabview .p-tabview-nav li .p-tabview-nav-link{
-  border-top-right-radius: 0px;
-  border-top-left-radius: 0px;
-}
 
+  .p-tabview-nav {
+    background: rgb(170, 105, 116);
+    padding-left: 60px !important;
+  }
+
+  .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+    background: #ffffff !important;
+    // border-color: #2196F3;
+    border: none;
+    color: #2196F3;
+
+    box-shadow: 2px 1px 3px 1px rgb(21 21 21 / 34%) !important;
+
+    span {
+      color: black;
+    }
+  }
+
+  .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+  }
 }
 
 app-strategies{
