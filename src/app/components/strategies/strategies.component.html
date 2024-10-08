@@ -22,27 +22,27 @@
                   </div>
               </ng-template>
     <div class="page">
-      <div class="page-heading">
-        <h2 class="page_head page-title container m-auto px-0">
-          <div class="d-flex align-center">
-            <span class="material-symbols-outlined view_list">
-            view_list
-          </span>Strategy Management Dashboard
-        </div>
-        <div class="strategy_imp_btn" *ngIf="!implement_page">
-          <button [disabled]="!showData" (click)="onImplementStrategy()" class="implement_strategy_btn">
-            <span class="material-symbols-outlined">
-              settings
-              </span>
-            Implement Strategy
-        </button>
-        </div>
-        </h2>
-      </div>
-      <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
 
+      <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
             <ul>
               <li class="px-0 container m-auto tab-content tab-content-2 typography" [ngClass]="{'h-80vh': !showData}">
+                <div class="page-heading my-2">
+                  <h2 class="page_head page-title container m-auto px-0">
+                    <div class="d-flex align-center">
+                      <span class="material-symbols-outlined view_list">
+                      view_list
+                    </span>Strategy Management Dashboard
+                  </div>
+                  <div class="strategy_imp_btn" *ngIf="!implement_page">
+                    <button [disabled]="!showData" (click)="onImplementStrategy()" class="implement_strategy_btn">
+                      <span class="material-symbols-outlined">
+                        settings
+                        </span>
+                      Implement Strategy
+                  </button>
+                  </div>
+                  </h2>
+                </div>
                 <!-- <p class="mt-1 mb-1">Select the target category and business objective to create strategy:</p> -->
                 <div class="mt-1 d-flex col-gap-5 row nowrap">
                   <div class="col-md-12 row details header card_shadow obj  mb-2" [ngClass]="{'col-md-12': !showData}">
@@ -198,7 +198,7 @@
                               <input type="text" disabled value="66" class="form-control_m">
                             </div>
                             <div class="details col">
-                              <span class="head">competitor Price Elasticity <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <span class="head">Competitor Price Elasticity <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
                               <input type="text" disabled value="66" class="form-control_m">
                             </div>
                             <div class="details col">
@@ -302,7 +302,7 @@
                               <input type="text" disabled value="66" class="form-control_m">
                             </div>
                             <div class="details col">
-                              <span class="head">competitor Price Elasticity <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
+                              <span class="head">Competitor Price Elasticity <img class="info" pTooltip="Info about corresponsing parameter" tooltipPosition="top" src="../../assets/img/info.png" alt="" srcset=""></span>
                               <input type="text" disabled value="66" class="form-control_m">
                             </div>
                             <div class="details col">

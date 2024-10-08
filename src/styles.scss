@@ -707,9 +707,53 @@ app-strategist-tabs{
 .p-datepicker table td > span.p-highlight{
   background: #60d8ff !important;
 }
+.p-tabview .p-tabview-nav-content{
+  background: rgb(170, 105, 116);
+}
+
+@media (min-width: 576px) {
+  .p-tabview-nav {
+      max-width: 540px;
+       min-width: 540px;
+  }
+}
+
+@media ((min-width: 768px)) {
+  .p-tabview-nav {
+    max-width: 720px;
+     min-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .p-tabview-nav {
+      max-width: 960px;
+       min-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .p-tabview-nav {
+    max-width: 1140px;
+     min-width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .p-tabview-nav {
+    max-width: 1320px;
+     min-width: 1320px;
+  }
+}
 
 .p-tabview-nav{
-  padding-left: 60px !important;
+  // max-width: 1140px;
+  //   min-width: 1140px;
+    margin: auto;
+    padding-left: 0px;
+    width: 100%;
+    display: flex;
+    background: transparent;
   a{
     color: transparent;
   }
@@ -793,7 +837,7 @@ app-revised-price {
 
   .p-tabview-nav {
     background: rgb(170, 105, 116);
-    padding-left: 60px !important;
+    padding-left: 0px !important;
   }
 
   .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
